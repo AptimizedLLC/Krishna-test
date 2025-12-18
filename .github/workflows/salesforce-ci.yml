@@ -1,0 +1,34 @@
+name: Salesforce CI (Hardis)
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Install Salesforce CLI
+        run: |
+          npm install -g @salesforce/cli
+          sf --version
+
+      - name: Install sfdx-hardis
+        run: |
+          sf plugins install sfdx-hardis
+          sf hardis --help
+
+      - name: Authenticate to Salesforce
+        run: |
+          echo "${{ secrets.SFDX_AUTH_URL }}" > auth.txt
+          sf auth sfdxurl store --sfdx-url-file auth.txt --alias ci-org --set-default
+
+      - name: Validate / Deploy metadata
+        run: |
+          sf hardis source deploy

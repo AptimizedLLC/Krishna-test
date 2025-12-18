@@ -1,0 +1,4 @@
+mergeTargets:
+  - develop
+targetUsername: kkumar@aptimized.com.prod.automation
+instanceUrl: https://allianceortho--automation.sandbox.my.salesforce.com
