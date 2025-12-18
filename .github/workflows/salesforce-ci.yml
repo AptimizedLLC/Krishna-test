@@ -11,24 +11,42 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # ----------------------------
+      # Checkout source code
+      # ----------------------------
       - name: Checkout source
         uses: actions/checkout@v4
 
+      # ----------------------------
+      # Install Salesforce CLI
+      # ----------------------------
       - name: Install Salesforce CLI
         run: |
           npm install -g @salesforce/cli
           sf --version
 
+      # ----------------------------
+      # Install sfdx-hardis (non-interactive)
+      # ----------------------------
       - name: Install sfdx-hardis
         run: |
-          sf plugins install sfdx-hardis
+          echo "y" | sf plugins install sfdx-hardis
           sf hardis --help
 
+      # ----------------------------
+      # Authenticate to Salesforce using Auth URL
+      # ----------------------------
       - name: Authenticate to Salesforce
         run: |
           echo "${{ secrets.SFDX_AUTH_URL }}" > auth.txt
-          sf auth sfdxurl store --sfdx-url-file auth.txt --alias ci-org --set-default
+          sf auth sfdxurl store \
+            --sfdx-url-file auth.txt \
+            --alias ci-org \
+            --set-default
 
-      - name: Validate / Deploy metadata
+      # ----------------------------
+      # Deploy metadata using Hardis
+      # ----------------------------
+      - name: Deploy metadata
         run: |
           sf hardis source deploy
