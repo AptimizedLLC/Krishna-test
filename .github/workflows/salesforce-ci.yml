@@ -1,45 +1,36 @@
-name: Salesforce CI
+name: Salesforce CI (Sandbox Only)
 
 on:
   push:
     branches:
-      - develop
-      - main
+      - develop   
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # ----------------------------
-      # Checkout source
-      # ----------------------------
       - name: Checkout source
         uses: actions/checkout@v4
 
-      # ----------------------------
-      # Install Salesforce CLI
-      # ----------------------------
       - name: Install Salesforce CLI
         run: |
           npm install -g @salesforce/cli
-          sf --version
 
-      # ----------------------------
-      # Authenticate to Salesforce
-      # ----------------------------
-      - name: Authenticate to Salesforce
+      - name: Authenticate to Salesforce (SANDBOX ONLY)
         run: |
-          echo "${{ secrets.SFDX_AUTH_URL }}" > auth.txt
+          echo "${{ secrets.SFDX_AUTH_URL_DEV }}" > auth.txt
           sf auth sfdxurl store \
             --sfdx-url-file auth.txt \
-            --alias ci-org \
+            --alias dev \
             --set-default
 
-      # ----------------------------
-      # Deploy metadata (NEW, CORRECT WAY)
-      # ----------------------------
-      - name: Deploy metadata
+      # 🔒 HARD SAFETY CHECK – BLOCK PROD
+      - name: Safety check – block production
+        run: |
+          sf org display --json | jq -e '.result.isProduction == false'
+
+      - name: Deploy metadata to Sandbox
         run: |
           sf project deploy start \
             --source-dir force-app \
