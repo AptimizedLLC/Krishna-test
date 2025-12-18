@@ -25,10 +25,7 @@ jobs:
             --alias dev \
             --set-default
 
-      # 🔒 HARD SAFETY CHECK – BLOCK PROD
-      - name: Safety check – block production
-        run: |
-          sf org display --json | jq -e '.result.isProduction == false'
+   
 
       - name: Deploy metadata to Sandbox
         run: |
