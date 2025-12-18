@@ -1,0 +1,124 @@
+<apex:page standardController="NPP__c" extensions="GenerateNPPIntakePDFDocumentController" renderAs="pdf" applyBodyTag="false">
+    
+<head>
+    <style>
+      .contentWrap h3 {
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: #f00;
+}
+.contentWrap {
+    margin: 10px 30px;
+}
+span.bStrong {
+    font-weight: 600;
+    padding-right: 5px;
+}
+p {
+    line-height: 22px;
+}
+img {
+    border: 1px solid #000;
+    margin-top: 10px;
+}
+    </style>
+  </head>
+    <body>
+        <div>
+            <p><img src="https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003pCyH&oid=00Df2000001HEGJ&lastMod=1715318986000"  style="width: 700px;"/></p>
+		</div>
+         <div>
+        <div class="userFormWrap">
+          <div class="contentWrap">
+            <h3>Motor Vehicle Accidents Form</h3>
+            <div class="form-container">
+              <form>
+                <div class="pdf-content consent-content15">
+                  <div class="form-element">
+                    <div>
+                      <p>
+                        <strong>Patient Payment:</strong> Patients involved in
+                        an auto accident receive 80% coverage after a deductible
+                        (minimum $250.00) under No Fault Insurance.
+                      </p>
+                      <p>
+                        <strong>Explanation of Benefits:&nbsp;</strong>Your own
+                        Auto Insurance (Personal Injury Protection) covers your
+                        health expenses resulting from an accident regardless of
+                        who was driving, whose car it was, or who was at fault
+                        as long as the Insurance Company has been notified of
+                        the accident in a reasonable amount of time.
+                      </p>
+                      <p>
+                        <strong>Office Policies:&nbsp;</strong>Patients must
+                        notify their Insurance Company that they are being
+                        treated at our office and have both: an application for
+                        P.I.P. benefits and an attending physician report forms
+                        sent directly to us. Also, submit a copy of your
+                        Declaration Page (usually the first page of auto
+                        policy). If these forms are not received within two
+                        weeks, payment will be required for all past and future
+                        charges. In the event the Auto Insurance Company denies
+                        or refuses payment, that portion will be your
+                        responsibility.
+                      </p>
+                      <p>
+                        Patient must be sure to bring a copy of their Accident
+                        Report and Declaration Page by their second visit.
+                        Additionally, please note that a medical prescription is
+                        required every 28 days to continue treating with
+                        conservative care.
+                      </p>
+                      <p>
+                        If a lawsuit is involved with the accident, and no more
+                        payments from your Insurance Carrier are expected, we
+                        will work out a payment plan so that care may be
+                        continued. All discounted fees will be protected by a
+                        lien form signed by you and your attorney, ensuring that
+                        we will be paid the balance due at the time of court
+                        settlement.
+                      </p>
+                      <p>
+                        Please notify our office of the name of your attorney.
+                      </p>
+                      <p>
+                        I HAVE READ, UNDERSTOOD, AND AGREE TO ALL OF THE ABOVE
+                        POLICIES.
+                      </p>
+                    </div>
+                  </div>
+                  
+                </div>
+              </form>
+            </div>
+          </div><br/><br/><br/><br/><br/>
+          <div class="formCheck">
+<div class="patientNameDate">
+<div><label>Patient Name</label></div>
+                      <div class="floatLeft"><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></div>
+<div><label>Date</label></div>
+                      <div class="floatRight"><apex:outputText value="{0,date,MM/dd/yyyy}"><apex:param value="{!NPP__c.CreatedDate}" /></apex:outputText></div>
+                    </div>
+                 
+                  <div class="form-element">
+                    <div><p>Patient Signature</p></div>
+
+                      <div>
+                          <apex:outputText value="{!oppt.HQ_Signature__c}" escape="false" />
+                          
+                      </div>
+                  </div>
+            <div>
+              <img src='https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003gvo9&oid=00Df2000001HEGJ&lastMod=1714988677000' style="width: 15px; Height:15px"/><label
+                >By checking the box I acknowledge and agree to conduct business
+                electronically, that I have read the terms of the above section,
+                and that I agree to insert my electronic signature as set forth
+                below indicating my consent to terms set forth on this page.
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+</apex:page>

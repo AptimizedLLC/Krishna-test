@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>In_Process_Precerts</fullName>
+    <columns>NAME</columns>
+    <columns>Patient__c</columns>
+    <columns>Type__c</columns>
+    <columns>Appointment_Date__c</columns>
+    <columns>Provider__c</columns>
+    <columns>Treating_Office__c</columns>
+    <columns>Insurance_Company__c</columns>
+    <columns>Precertification_Status__c</columns>
+    <columns>Authorization_Notes__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Precertification_Status__c</field>
+        <operation>equals</operation>
+        <value>New,Denied,Modified</value>
+    </filters>
+    <filters>
+        <field>Type__c</field>
+        <operation>equals</operation>
+        <value>PT Precertification,OT Precertification,Chiro Precertification</value>
+    </filters>
+    <label>In Process Precerts</label>
+</ListView>

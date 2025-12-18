@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MD_Denials_C</fullName>
+    <columns>NAME</columns>
+    <columns>Assigned_To__c</columns>
+    <columns>dn_Patient_Account__c</columns>
+    <columns>dn_DOS__c</columns>
+    <columns>dn_PROCEDURE_CODE__c</columns>
+    <columns>dn_PROVIDER__c</columns>
+    <columns>dn_LOCATION__c</columns>
+    <columns>dn_DENIAL_DATE__c</columns>
+    <columns>dn_DENIED_CATEGORY__c</columns>
+    <columns>dn_DENYING_PARTY__c</columns>
+    <columns>dn_POLICY_PRIMARY_PAYER__c</columns>
+    <columns>dn_POLICY_SECONDARY_PAYER__c</columns>
+    <columns>dn_Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>dn_PROVIDER_GROUPING__c</field>
+        <operation>equals</operation>
+        <value>MD</value>
+    </filters>
+    <filters>
+        <field>dn_Financial_Class__c</field>
+        <operation>contains</operation>
+        <value>Cigna</value>
+    </filters>
+    <label>MD Denials</label>
+</ListView>

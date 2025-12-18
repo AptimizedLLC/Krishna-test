@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reimbursement_Type_FX__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+    OR(
+        CONTAINS(Visit_Reason__c, &quot;pip&quot;),
+        CONTAINS(Visit_Reason__c, &quot;w/comp&quot;),
+        CONTAINS(Visit_Reason__c, &quot;workers comp&quot;),
+        CONTAINS(Visit_Reason__c, &quot;wc&quot;)
+    ),
+    &quot;PPO&quot;,
+    IF(
+        CONTAINS(Insurance__c, &quot;medicare&quot;),
+        &quot;MCR&quot;,
+        IF(
+            AND(
+                Payer_Fee_Schedule__c = &quot;CMS&quot;,
+                  (Allowance_Percentage__c *100) &gt;= 150
+            ),
+            &quot;Upper CMS&quot;,
+            IF(
+                OR(
+                     text(Fee_Schedule__c)  = &quot;FH&quot;,
+                   text(Fee_Schedule__c) = &quot;PIP&quot;,
+                    text(Fee_Schedule__c) = &quot;W/Comp&quot;,
+                    text(Fee_Schedule__c) = &quot;UCR&quot;,
+                    text(Fee_Schedule__c) = &quot;R&amp;C&quot;,
+                    text(Fee_Schedule__c) = &quot;70 MRC&quot;,
+                    text(Fee_Schedule__c)= &quot;80 MRC&quot;,
+                    text(Fee_Schedule__c) = &quot;90 MRC&quot;,
+                    text(Fee_Schedule__c) = &quot;Fair Health Allowance Local&quot;,
+                    text(Fee_Schedule__c) = &quot;Fair Health Charge Local&quot;,
+                    text(Fee_Schedule__c) = &quot;Cigna MRC 1&quot;,
+                    text(Fee_Schedule__c) = &quot;W/COMP&quot;,
+                    text(Fee_Schedule__c) = &quot;Fair Health Charge National&quot;,
+                    text(Fee_Schedule__c) = &quot;Fair Health Allowance National&quot;,
+                    text(Fee_Schedule__c) = &quot;Fair Health&quot;,
+                    text(Fee_Schedule__c) = &quot;W/C&quot;,
+                    text(Fee_Schedule__c) = &quot;U&amp;C&quot;
+                ),
+                &quot;PPO&quot;,
+                IF(
+                    OR(
+                        text(Fee_Schedule__c) = &quot;SELF PAY&quot;,
+                        text(Fee_Schedule__c) = &quot;NO OON&quot;
+                    ),
+                    &quot;Self Pay&quot;,
+                    &quot;HMO&quot;
+                )
+            )
+        )
+    )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Reimbursement Type_FX_Do Not Use</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

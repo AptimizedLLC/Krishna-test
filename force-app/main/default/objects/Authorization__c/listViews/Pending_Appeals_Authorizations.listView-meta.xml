@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pending_Appeals_Authorizations</fullName>
+    <columns>NAME</columns>
+    <columns>Appointment_Date__c</columns>
+    <columns>Patient__c</columns>
+    <columns>Provider__c</columns>
+    <columns>Authorization_Details__c</columns>
+    <columns>PIP_or_W_C_Request__c</columns>
+    <columns>Status__c</columns>
+    <columns>Authorization_Notes__c</columns>
+    <columns>Note_Complete__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Pending Appeal,Appealed</value>
+    </filters>
+    <filters>
+        <field>Appointment__c</field>
+        <operation>contains</operation>
+        <value>PIP,EMG</value>
+    </filters>
+    <label>PIP LMN - MD</label>
+</ListView>

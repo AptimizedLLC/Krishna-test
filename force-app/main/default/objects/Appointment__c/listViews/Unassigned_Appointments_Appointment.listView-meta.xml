@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unassigned_Appointments_Appointment</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Unassigned Appointments</label>
+    <queue>Unassigned_Appointments</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

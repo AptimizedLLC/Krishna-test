@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Arrangement_Created_By__c</fullName>
+    <label>Payment Arrangement Created By</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Ashley D</fullName>
+                <default>false</default>
+                <label>Ashley D</label>
+            </value>
+            <value>
+                <fullName>Colleen R</fullName>
+                <default>false</default>
+                <label>Colleen R</label>
+            </value>
+            <value>
+                <fullName>Jennifer S</fullName>
+                <default>false</default>
+                <label>Jennifer S</label>
+            </value>
+            <value>
+                <fullName>Jessica A</fullName>
+                <default>false</default>
+                <label>Jessica A</label>
+            </value>
+            <value>
+                <fullName>Kriten H</fullName>
+                <default>false</default>
+                <label>Kriten H</label>
+            </value>
+            <value>
+                <fullName>Rebecca S</fullName>
+                <default>false</default>
+                <label>Rebecca S</label>
+            </value>
+            <value>
+                <fullName>Valerie C</fullName>
+                <default>false</default>
+                <label>Valerie C</label>
+            </value>
+            <value>
+                <fullName>Nicole Cunicella</fullName>
+                <default>false</default>
+                <label>Nicole Cunicella</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

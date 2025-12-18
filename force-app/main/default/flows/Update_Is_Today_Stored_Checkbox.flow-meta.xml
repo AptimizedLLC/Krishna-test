@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Update_Is_Today</name>
+        <label>Update Is Today</label>
+        <locationX>314</locationX>
+        <locationY>252</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_Today</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Appointment_Is_Today__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Appointment_Records</targetReference>
+            </connector>
+            <label>Is Today</label>
+        </rules>
+        <rules>
+            <name>Is_Today_False</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Appointment_Date_Yesterday__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Is_Today__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_2_of_Update_Appointment_Records</targetReference>
+            </connector>
+            <label>Is Today False</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <description>calculates tomorrow’s date, ensuring that today&apos;s records are included but not future ones.</description>
+        <name>Formula_TomorrowDate</name>
+        <dataType>Date</dataType>
+        <expression>DATE(YEAR(TODAY()), MONTH(TODAY()), DAY(TODAY()) + 1)</expression>
+    </formulas>
+    <formulas>
+        <name>Formula_YesterdayDate</name>
+        <dataType>Date</dataType>
+        <expression>DATE(YEAR(TODAY()), MONTH(TODAY()), DAY(TODAY()) - 1)</expression>
+    </formulas>
+    <interviewLabel>Update Is Today Stored Checkbox {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update Is Today Stored Checkbox</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Copy_2_of_Update_Appointment_Records</name>
+        <label>Copy 2 of Update Appointment Records</label>
+        <locationX>314</locationX>
+        <locationY>360</locationY>
+        <inputAssignments>
+            <field>Is_Today__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Appointment_Records</name>
+        <label>Update Appointment Records</label>
+        <locationX>50</locationX>
+        <locationY>360</locationY>
+        <inputAssignments>
+            <field>Is_Today__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Is_Today</targetReference>
+        </connector>
+        <filterLogic>(2 AND 3) OR 1</filterLogic>
+        <filters>
+            <field>Appointment_Is_Today__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Appointment_Date_Yesterday__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Is_Today__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Appointment__c</object>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2025-02-24</startDate>
+            <startTime>00:02:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>UpdatedAppointments</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Appointment__c</objectType>
+    </variables>
+</Flow>

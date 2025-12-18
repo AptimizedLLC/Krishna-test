@@ -1,0 +1,207 @@
+<template>
+    <lightning-card>
+        <!-- Filters & Search 
+        <div class="slds-grid slds-grid_align-spread slds-p-horizontal_small slds-p-vertical_x-small slds-grid_vertical-align-center">-->
+        <div class="slds-grid slds-p-horizontal_small slds-p-vertical_x-small slds-grid_vertical-align-center slds-nowrap">
+            <div class="slds-grid slds-wrap slds-grid_vertical-align-center">
+                <lightning-button class="slds-m-around_xx-small" label="NEW" data-status="NEW" onclick={handleFilter} variant={newVariant}></lightning-button>
+                <lightning-button class="slds-m-around_xx-small" label="F/U" data-status="F/U" onclick={handleFilter} variant={fuVariant}></lightning-button>
+                <lightning-button class="slds-m-around_xx-small" label="DND" data-status="DND" onclick={handleFilter} variant={dndVariant}></lightning-button>
+                <lightning-button class="slds-m-around_xx-small" label="OLD" data-status="OLD" onclick={handleFilter} variant={oldVariant}></lightning-button>
+                <lightning-button class="slds-m-around_xx-small" label="mPMTDUE" data-status="mPMTDUE" onclick={handleFilter} variant={mpmtVariant}></lightning-button>
+                <lightning-button class="slds-m-around_xx-small" label="AUD" data-status="AUD" onclick={handleFilter} variant={audVariant}></lightning-button>
+                <lightning-button class="slds-m-around_xx-small" label="CRITICAL" data-status="CRITICAL" onclick={handleFilter} variant={criticalVariant}></lightning-button>
+                <lightning-button class="slds-m-around_xx-small" label="PATIENT" data-status="PATIENT" onclick={handleFilter} variant={patientVariant}></lightning-button>
+                <lightning-button class="slds-m-around_xx-small" label="ARCHIVED" data-status="Archived" onclick={handleFilter} variant={archivedVariant}></lightning-button>
+                <lightning-input
+                    type="search"
+                    placeholder="Search by"
+                    value={searchKey}
+                    onchange={handleSearchChange}
+                    variant="label-hidden"
+                    class="slds-m-around_xx-small"
+                    style="width: 200px;">
+                </lightning-input>
+
+                <lightning-input
+                    label="Search by Patient Name"
+                    type="search"
+                    placeholder="Patient Name Search"
+                    value={patientSearchKey}
+                    onchange={handlePatientNameSearchChange}
+                    variant="label-hidden"
+                    class="slds-m-around_xx-small"
+                    style="width: 190px;">
+                </lightning-input>
+
+                <lightning-input
+                    label="Search by Provider"
+                    type="search"
+                    placeholder="Provider Search"
+                    value={providerSearchKey}
+                    onchange={handleProviderSearchChange}
+                    variant="label-hidden"
+                    class="slds-m-around_xx-small"
+                    style="width: 190px;">
+                </lightning-input>
+
+                <lightning-input
+                    label="Search by Current Payer"
+                    type="search"
+                    placeholder="Current Payer Search"
+                    value={payerSearchKey}
+                    onchange={handlePayerSearchChange}
+                    variant="label-hidden"
+                    class="slds-m-around_xx-small"
+                    style="width: 190px;">
+                </lightning-input>
+
+                <!-- Operator Dropdown -->
+                <div class="slds-m-around_xx-small" style="min-width: 130px;">
+                    <div class="slds-select_container">
+                        <select class="slds-select" onchange={handleDOSOperatorChange}>
+                            <option value=">">Greater Than</option>
+                            <option value=">=">Greater or Equal</option>
+                            <option value="<">Less Than</option>
+                            <option value="<=">Less or Equal</option>
+                            <option value="=">Equal To</option>
+                        </select>
+                    </div>
+                </div>
+                <lightning-input
+                    class="slds-m-around_xx-small" style="min-width: 180px;"
+                    placeholder="DOS Date Search"
+                    label="DOS Date Search"
+                    type="date"
+                    variant="label-hidden"
+                    value={dosSearchKey}
+                    onchange={handleDOSSearchChange}
+                                                    >
+                </lightning-input>
+
+                                <!-- Operator Dropdown -->
+                    <div class="slds-select_container slds-m-around_xx-small" style="min-width: 130px;">
+                        <select class="slds-select" onchange={handleLBDOperatorChange}>
+                            <option value=">">Greater Than</option>
+                            <option value=">=">Greater or Equal</option>
+                            <option value="<">Less Than</option>
+                            <option value="<=">Less or Equal</option>
+                            <option value="=">Equal To</option>
+                        </select>
+                    </div>
+                <lightning-input
+                    class="slds-m-around_xx-small" style="min-width: 180px;"
+                    placeholder="Last Billed Date Search"
+                    label="Last Billed Date Search"
+                    type="date"
+                    variant="label-hidden"
+                    value={lbdSearchKey}
+                    onchange={handleLBDSearchChange}>
+                </lightning-input>
+
+                                <!-- Operator Dropdown -->
+                <div class="slds-m-around_xx-small" style="min-width: 130px;">
+                    <div class="slds-select_container">
+                        <select class="slds-select" onchange={handleDDOperatorChange}>
+                            <option value=">">Greater Than</option>
+                            <option value=">=">Greater or Equal</option>
+                            <option value="<">Less Than</option>
+                            <option value="<=">Less or Equal</option>
+                            <option value="=">Equal To</option>
+                        </select>
+                    </div>
+                </div>
+                <lightning-input
+                    class="slds-m-around_xx-small" style="min-width: 180px;"
+                    label="Denial Date Search"
+                    placeholder="Denial Date Search"
+                    type="date"
+                    variant="label-hidden"
+                    value={ddSearchKey}
+                    onchange={handleDDSearchChange}>
+                </lightning-input>
+
+            </div>
+        </div>
+
+        <!-- Datatable -->
+        <div class="table-scroll-wrapper">
+            <template if:true={records}>
+               <!-- <div class="table-container" style="height: 400px; overflow-y: auto;">
+                    <lightning-datatable
+                        key-field="Id"
+                        data={records}
+                        columns={columns}
+                        draft-values={draftValues}
+                        onsave={handleSave}
+                        onresize={handleColumnResize}
+                        hide-checkbox-column
+                        editable>
+                    </lightning-datatable>
+                </div> 
+                
+               
+                <div class="table-container" style="height: 400px; overflow-y: auto;">
+                    <c-custom-type-data-table
+                        key-field="Id"
+                        data={records}
+                        columns={columns}
+                        draft-values={draftValues}
+                        onsave={handleSave}
+                        onresize={handleColumnResize}
+                        hide-checkbox-column
+                        editable>
+                    </c-custom-type-data-table>
+
+                </div>  -->
+
+                <div class="table-container" style="height: 450px; overflow-y: auto;">
+               <!-- <c-custom-datatable class="slds-max-medium-table_stacked" onvaluechange={handleValueChange}
+                    oncellchange={handleCellChange} data={records} columns={columns} show-row-number-column="false"
+                    key-field="Id" draft-values={draftValues} onsave={handleSave} data-record="Id" onedit={handleEdit}
+                    hide-checkbox-column="true" oncancel={handleCancel}
+                    onsort={handleSort}
+                    sorted-by={sortBy}
+                    sorted-direction={sortDirection}>
+                </c-custom-datatable> -->
+
+                <c-custom-data-type class="slds-max-medium-table_stacked" key-field="Id"
+                    data={records}
+                    columns={columns}
+                    draft-values={draftValues}
+                    onsave={handleSave}
+                    onresize={handleColumnResize}
+                    hide-checkbox-column
+                    editable
+                    onsort={handleSort}
+                    sorted-by={sortBy}
+                    sorted-direction={sortDirection}>
+                </c-custom-data-type>
+
+                </div> 
+            </template>
+
+            <template if:false={records}>
+                <div class="slds-text-body_regular slds-p-around_medium">
+                    No records found for this filter or search.
+                </div>
+            </template>
+        </div>
+
+        <!-- Pagination Controls -->
+        <div class="slds-p-around_small slds-grid slds-grid_align-spread">
+            <lightning-button label="Previous" onclick={handlePrevious} disabled={isFirstPage}></lightning-button>
+            <div>{pageInfo}</div>
+            <lightning-button label="Next" onclick={handleNext} disabled={isLastPage}></lightning-button>
+        </div>
+
+        <!-- Error Message for debugging only
+        <template if:true={initialLoad}>
+            <template if:true={error}>
+                <div class="slds-text-color_error slds-p-around_medium">
+                    {error}
+                </div>
+            </template>
+        </template> -->
+    </lightning-card>
+</template>

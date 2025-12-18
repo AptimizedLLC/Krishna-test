@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Employer_Outreach_Opportunity__c</fullName>
+    <label>Employer Outreach Opportunity</label>
+    <referenceTo>Employer_Outreach_Opportunity__c</referenceTo>
+    <relationshipLabel>Patients</relationshipLabel>
+    <relationshipName>Employer_Outreach_Opportunity_Patients</relationshipName>
+    <relationshipOrder>1</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

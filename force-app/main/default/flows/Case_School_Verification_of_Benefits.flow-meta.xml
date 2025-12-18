@@ -1,0 +1,1098 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <actionCalls>
+        <name>Generate_School_VOB</name>
+        <label>Generate School VOB</label>
+        <locationX>50</locationX>
+        <locationY>782</locationY>
+        <actionName>SchoolVOBFormPDFController</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Navigate_to_New_Insurance_Plan</targetReference>
+        </connector>
+        <flowTransactionModel>NewTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>caseId</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>patientId</name>
+            <value>
+                <elementReference>Get_VOB_Case.AccountId</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>planId</name>
+            <value>
+                <elementReference>Create_School_Insurance_Plan</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>SchoolVOBFormPDFController</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Navigate_to_New_Insurance_Plan</name>
+        <label>Navigate to New Insurance Plan</label>
+        <locationX>50</locationX>
+        <locationY>890</locationY>
+        <actionName>c:NavigateToRecord</actionName>
+        <actionType>component</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>recordId</name>
+            <value>
+                <elementReference>Create_School_Insurance_Plan</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>c:NavigateToRecord</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>54.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Type_of_VOB_Case</name>
+        <label>Type of VOB Case</label>
+        <locationX>314</locationX>
+        <locationY>242</locationY>
+        <defaultConnectorLabel>Default</defaultConnectorLabel>
+        <rules>
+            <name>School_Insurance</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_VOB_Case.VOB_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>School Insurance</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>School_Verification</targetReference>
+            </connector>
+            <label>School Insurance</label>
+        </rules>
+    </decisions>
+    <dynamicChoiceSets>
+        <name>AccidentStatePicklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>PIP_Accident_State__c</picklistField>
+        <picklistObject>Case</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Aggregation_Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Aggregate_Allowance__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>AreVisitsCombinedPicklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Acupuncture_Visits_Combined__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Calendar_Or_Plan_Year_Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Coverage_Year__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>CanPatientTreatAtASC</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Can_patient_treat_at_ASC__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>CignaASHNPicklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>DME_Benefits_Cigna_ASHN__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>CountsAs1Or2Visits</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Count_As_1_Or_2_Visits__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>DecPageReceivedPicklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Declaration_Page_Received__c</picklistField>
+        <picklistObject>Case</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>E0730Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>E0730__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Fee_Schedule_Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Fee_Schedule__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>J7320Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>J7320__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>J7322DiagnosisDrivenPicklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>J7322_Diagnosis_Driven_old__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>J7324Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>J7324__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>L0180Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>L0180__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>L0631Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>L0631__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>L0637Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>L0637__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>L1833Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>L1833__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>L1843Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>L1843__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>L3000Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>L3000__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>L3764Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>L3764__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>L3906Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>L3906__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>L3919Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>L3919__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>MedicareReplacementPlanTypePicklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Medicare_Replacement_Plan_Type__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>MostUpToDatePIPLedgerPicklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>PIP_Most_Up_To_Date_PIP_Ledger__c</picklistField>
+        <picklistObject>Case</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>OfficeVisitsReqPreCertPicklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>PIP_Office_Visits_Require_Precert__c</picklistField>
+        <picklistObject>Case</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>picklistPIP_WC_SchoolInsurance</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>PIP_WC_or_School_Insurance__c</picklistField>
+        <picklistObject>Case</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>plAmbulatorySurgeryCenterCovered</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Ambulatory_Surgery_Center_Covered__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>plEmbedded_or_Aggregate</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Is_this_plan_Embedded_or_Aggregate__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>plPhysicalTherapyCombined</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>PT_OT_Combined_In_Same_Day__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>plYesNoOnly</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Policy_Follow_a_Diabetic_Mandate__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>PoliceReportReceivedPicklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Police_Report_Received__c</picklistField>
+        <picklistObject>Case</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>PolicyStatePicklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>PIP_Policy_State__c</picklistField>
+        <picklistObject>Case</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>PreferredViscosupplementationDrugPicklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Viscosupplementation_Preferred_Drug__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>PreOpTestReqAuthPicklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>PIP_Pre_Op_Testing_Req_Auth__c</picklistField>
+        <picklistObject>Case</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>SelfFullyFundedPicklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>How_Is_Policy_Funded__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>TypeOfPlanPicklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Plan_Type__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>WCConservativeCareSameDayPicklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>WC_Conservative_Care_on_Same_Day__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>X20553Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>X20553__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>X20610Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>X20610__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>X29799Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>X29799__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>X62321Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>X62321__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>X62323Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>X62323__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>X64483Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>X64483__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>X64490Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>X64490__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>X72110Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>X72110__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>X72141Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>X72141__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>X78265Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>X78265__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>X95886Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>X95886__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>X95907_95913Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>X95907_95913__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>X97124Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>X97124__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>X97139Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>X97139__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>X97140Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>X97140__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>YesNo</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Yes_No__c</picklistField>
+        <picklistObject>Insurance_Plan__c</picklistObject>
+    </dynamicChoiceSets>
+    <environments>Default</environments>
+    <formulas>
+        <name>fxInsuranceId</name>
+        <dataType>String</dataType>
+        <expression>If(
+BEGINS(&apos;SECONDARY&apos;, {!Get_VOB_Case.Subject}),
+{!Get_VOB_Case.Secondary_Member_ID__c},
+{!Get_VOB_Case.Member_ID__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>TodaysDateFormula</name>
+        <dataType>Date</dataType>
+        <expression>today()</expression>
+    </formulas>
+    <interviewLabel>Case: School Verification of Benefits {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Case: School Verification of Benefits</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>Create_School_Insurance_Plan</name>
+        <label>Create School Insurance Plan</label>
+        <locationX>50</locationX>
+        <locationY>566</locationY>
+        <connector>
+            <targetReference>Update_VOB_Case_Closed</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Error_Fault_Subflow</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>Claim_Number__c</field>
+            <value>
+                <elementReference>Please_Confirm_the_Claim_Number</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Patient_Date_Of_Birth__c</field>
+            <value>
+                <elementReference>Date_of_Birth</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Patient_Name__c</field>
+            <value>
+                <elementReference>Get_VOB_Case.Intake__r.Patient_Name__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Plan_Effective_Date__c</field>
+            <value>
+                <elementReference>Effective_Date</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Previous_Injuries_On_File__c</field>
+            <value>
+                <elementReference>Are_There_Previous_Injuries_On_File</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <elementReference>Get_School_Insurance_Record_Type.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>School_Insurance_Active_and_Open__c</field>
+            <value>
+                <elementReference>Open_and_Active</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>School_Primary_Insurance_Company__c</field>
+            <value>
+                <elementReference>Primary_Insurance_Company_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>School_Primary_Insurance__c</field>
+            <value>
+                <elementReference>Primary_Insurance_Company_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>VOB_Case__c</field>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WC_Approved_Body_Region__c</field>
+            <value>
+                <elementReference>Approved_Body_Region</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WC_Insurance_Company_City__c</field>
+            <value>
+                <elementReference>Insurance_Company_Address.city</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WC_Insurance_Company_Phone__c</field>
+            <value>
+                <elementReference>WC_Insurance_Company_Phone_Number.value</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WC_Insurance_Company_State__c</field>
+            <value>
+                <elementReference>Insurance_Company_Address.province</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WC_Insurance_Company_Street__c</field>
+            <value>
+                <elementReference>Insurance_Company_Address.street</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WC_Insurance_Company_Zip__c</field>
+            <value>
+                <elementReference>Insurance_Company_Address.postalCode</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WC_Insurance_Company__c</field>
+            <value>
+                <elementReference>Insurance_Company_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Insurance_Plan__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Get_School_Insurance_Record_Type</name>
+        <label>Get School Insurance Record Type</label>
+        <locationX>50</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Create_School_Insurance_Plan</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SobjectType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Insurance_Plan__c</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>School_Insurance</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>RecordType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_VOB_Case</name>
+        <label>Get VOB Case</label>
+        <locationX>314</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Type_of_VOB_Case</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Case</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_VOB_Case_Closed</name>
+        <label>Update VOB Case Closed</label>
+        <locationX>50</locationX>
+        <locationY>674</locationY>
+        <connector>
+            <targetReference>Generate_School_VOB</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Closed</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <screens>
+        <name>School_Verification</name>
+        <label>School Verification</label>
+        <locationX>50</locationX>
+        <locationY>350</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Get_School_Insurance_Record_Type</targetReference>
+        </connector>
+        <fields>
+            <name>CorrectNameSpelling</name>
+            <fieldText>&lt;p&gt;Please confirm the patient details?&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Patient_Name</name>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>TTPatientName</elementReference>
+            </defaultValue>
+            <fieldText>Patient Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>School_Verification_Section1</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>School_Verification_Section1_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Date_of_Birth</name>
+                    <dataType>Date</dataType>
+                    <defaultValue>
+                        <elementReference>Get_VOB_Case.Account.Date_of_Birth__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Date of Birth</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>School_Verification_Section1_Column2</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Effective_Date</name>
+                    <dataType>Date</dataType>
+                    <defaultValue>
+                        <elementReference>Get_VOB_Case.Date_of_Accident__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Effective Date</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>School_Verification_Section2</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>School_Verification_Section2_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Insurance_Company_Name</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Get_VOB_Case.School_Insurance_Company__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Insurance Company Name</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                </fields>
+                <fields>
+                    <name>WC_Insurance_Company_Phone_Number</name>
+                    <extensionName>flowruntime:phone</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Insurance Company Phone Number</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>value</name>
+                        <value>
+                            <elementReference>Get_VOB_Case.School_Insurance_Phone__c</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                </fields>
+                <fields>
+                    <name>Please_Confirm_the_Claim_Number</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Get_VOB_Case.Claim_Number__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Please Confirm the Claim Number</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                </fields>
+                <fields>
+                    <name>Open_and_Active</name>
+                    <choiceReferences>plYesNoOnly</choiceReferences>
+                    <dataType>String</dataType>
+                    <fieldText>Open and Active?</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                </fields>
+                <fields>
+                    <name>Primary_Insurance_Company_Name</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Get_VOB_Case.School_Primary_Insurance__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Primary Insurance Company Name</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>School_Verification_Section2_Column2</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Insurance_Company_Address</name>
+                    <extensionName>flowruntime:address</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>country</name>
+                        <value>
+                            <stringValue>United States</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Approved_Body_Region</name>
+            <dataType>String</dataType>
+            <fieldText>Approved Body Region</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>Are_There_Previous_Injuries_On_File</name>
+            <dataType>String</dataType>
+            <fieldText>Are There Previous Injuries On File?</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_VOB_Case</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>Subflow that shows the error message</description>
+        <name>Error_Fault_Subflow</name>
+        <label>Error Fault - Subflow</label>
+        <locationX>314</locationX>
+        <locationY>674</locationY>
+        <flowName>Error_Fault_Subflow</flowName>
+        <inputAssignments>
+            <name>varFaultMessage</name>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <textTemplates>
+        <name>TTPatientName</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>{!Get_VOB_Case.Contact.FirstName} {!Get_VOB_Case.Contact.LastName}</text>
+    </textTemplates>
+    <textTemplates>
+        <name>WCVOBInsurancePlanName</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>WC Benefits for {!Get_VOB_Case.Contact.FirstName} {!Get_VOB_Case.Contact.LastName}</text>
+    </textTemplates>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varAllowancePercentage</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <name>varFeeSchedule</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varReimbursementType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

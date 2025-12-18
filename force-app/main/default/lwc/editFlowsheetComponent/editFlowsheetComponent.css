@@ -1,0 +1,20 @@
+.label-checkbox-container {
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    font-size: 20px; /* Adjust this value as needed for medium size */
+}
+
+.label-checkbox-container label {
+    margin-right: 10px; /* Adds space between the label and checkbox */
+}
+.buttonSelected{
+    background-color: cornflowerblue;
+}
+.buttonUnselected{
+    background-color: white;
+}
+.medium-checkbox {
+    width: 18px;  /* Adjust this value as needed for medium size */
+    height: 18px; /* Adjust this value as needed for medium size */
+}

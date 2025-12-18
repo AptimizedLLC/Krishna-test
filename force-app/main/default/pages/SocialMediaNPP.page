@@ -1,0 +1,205 @@
+<apex:page standardController="NPP__c" extensions="GenerateNPPIntakePDFDocumentController" renderAs="pdf" applyBodyTag="false">
+    
+<head>
+    <style>
+      .contentWrap h3 {
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: #f00;
+}
+.contentWrap {
+    margin: 10px 30px;
+}
+span.bStrong {
+    font-weight: 600;
+    padding-right: 5px;
+}
+p {
+    line-height: 22px;
+}
+img {
+    border: 1px solid #000;
+    margin-top: 10px;
+}
+    </style>
+  </head>
+<body>
+    <div>
+            <p><img src="https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003pCyH&oid=00Df2000001HEGJ&lastMod=1715318986000"  style="width: 700px;"/></p>
+	</div>
+    <div>
+        <div class="userFormWrap">
+          <div class="contentWrap">
+            <h3>Social Media and AI Scribe HIPAA Authorization</h3>
+            <div class="form-container">
+              <form>
+                <div class="pdf-content consent-content8">
+                  <div class="form-element">
+                    <div>
+                      <p>
+                        <i>
+                          <strong>HIPAA AUTHORIZATION TO USE AND DISCLOSE PROTECTED   
+                            HEALTH INFORMATION FOR ADVERTISING AND FOR OTHER   
+							PROMOTIONAL PURPOSES  
+                          </strong>
+                        </i>
+                      </p>
+                      <p>
+                        This HIPAA authorization allows All Be Healthy, LLC d/b/a Alliance Orthopedics and its employees, as   
+                        well as its business associates, to use your protected health information (“PHI”) in all advertisements   
+                        and for other promotional purposes in all mediums and in all forms. BE SURE TO READ AND   
+                        UNDERSTAND THIS AUTHORIZATION FULLY BEFORE SIGNING. By signing this authorization, you   
+                        understand that your PHI may appear online, fully accessible to the general public, as well as on social   
+                          media, in “apps,” and in all forms of print media.</p>   
+                        <p>
+                           Intending to agree to these uses, subject to the terms below, I accept the following terms: 
+                        </p>  
+                        <p>
+                          1) I hereby authorize Alliance Orthopedics and its employees, as well as its business associates, to use   
+                        and/or disclose the PHI described below to any of their employees, business associates, and the  
+                        general public.  
+                        </p>  
+                        <p>
+                           2) The PHI that may be used and/or disclosed is as follows:  
+                        </p>  
+                            <p>
+                               o My health/medical information—including any and all components of my medical   
+                            record—as well as, but not limited to, information that relates to any of my medical diagnoses,   
+                                treatments, and results.</p>
+                           <p> o My full name, my age, dates of injury, dates of treatment  
+                            Photos and/or videos in which my full face/other unique characteristics may appear that   
+                            could be used to identify me.</p> 
+                           <p> o Photos and/or videos taken in the facility in which my full face/other unique   
+                            characteristics appear in the background.</p>
+                          <p>o Any of the above-listed information as well as any other PHI that I disclose, whether   
+                            written or otherwise, in any testimonial, review (for example, on Google or Yelp), and/or   
+                            statement. 
+                        </p>  
+                       <p>
+                            3) The PHI may be used and/or disclosed for the following purpose:   
+                        </p>
+                          <p>
+                           o For any and all advertisements, including but not limited to, advertisements appearing   
+                            online, on social media, in “apps,” and in all forms of print media (including but not limited to,   
+                              brochures, posters, flyers, mailers, and t-shirts and other apparel)  </p>
+                           <p> o For any and all other promotional purposes in all mediums, including but not limited to,   
+                            print media, electronic, and online, and in all forms.    
+                        </p> 
+                        <p>
+                           4) I understand that neither my treatment by Alliance Orthopedics, nor payment, enrollment, or   
+                        eligibility for benefits will be conditioned in any way based on whether I sign this form.   
+                        </p> 
+                        <p>
+                           5) I understand that Alliance Orthopedics will not receive direct or indirect remuneration in exchange   
+                        for disclosing my health information, however, I understand that those advertisements or other   
+                        promotional activities contemplated in this authorization which disclose/use my PHI may result in   
+                        additional business for Alliance Orthopedics and said business will result in compensation. 
+                        </p>  
+                        <p>
+                            6) I understand that I have the right to refuse to sign this authorization.
+                        </p>
+                       <p>
+                           7) I understand that, as set forth in the notice of privacy practices, I have the right to revoke this   
+                        authorization, in writing, at any time, except to the extent that Alliance Orthopedics and its   
+                        employees, as well as its business associates, have acted in reliance upon it, by sending written   
+                        notification to: Attn: HIPAA Privacy Officer, Alliance Orthopedics, 2-22 Banta Place, Fair Lawn, NJ,   
+                        07410. 
+                        </p>  
+                       <p>
+                           8) This authorization shall remain in effect unless and until I revoke it. 
+                        </p>   
+                       <p>
+                            9) I understand that PHI used or disclosed pursuant to this authorization may be redisclosed by the   
+                        recipient and its confidentiality may no longer be protected by federal or state law.  
+                        </p>
+                      <p>
+                        <i> <strong>HIPAA AUTHORIZATION TO USE AND DISCLOSE PROTECTED   
+						HEALTH INFORMATION FOR SCRIBE SOFTWARE USING   
+						ARTIFICIAL INTELLIGENCE </strong></i>
+                      </p>
+                      <p>
+                        This HIPAA authorization allows All Be Healthy, LLC d/b/a Alliance Orthopedics and its employees, as   
+                        well as its business associates, to use your protected health information (“PHI”) in its use of software   
+                        that functions as a “scribe” and utilizes artificial intelligence (“AI”) to prepare a summary of your visit   
+                        for your patient records. BE SURE TO READ AND UNDERSTAND THIS AUTHORIZATION FULLY BEFORE   
+                        SIGNING. By signing this authorization, you understand that your PHI will be used by the AI software to   
+                        prepare a summary of your visit. Your PHI will be purged from the system within seven (7) days of your   
+                          visit.  </p>
+                       <p>
+                           Intending to agree to these uses, subject to the terms below, I accept the following terms: 
+                        </p>  
+                        <p>
+                            1) I hereby authorize Alliance Orthopedics and its employees, as well as its business associates, to use   
+                        and/or disclose the PHI described below to any of their employees and business associates.  
+                        </p>
+                        <p>
+                            2) The PHI that may be used and/or disclosed is as follows:   
+                        </p>
+                          <p>
+                           	o My health/medical information—including any and all components of my medical   
+                            record—as well as, but not limited to, information that relates to any of my medical diagnoses,   
+                              treatments, and results;  </p>
+                           <p>o My full name, my age, dates of injury, dates of treatment; and  </p>  
+                            <p>o All information shared verbally during the visit with my provider. </p>
+                        <p> 3) The PHI may be used and/or disclosed for the following purpose:   </p>
+                        <p>o For transcribing conversations with my provider and storing them in my electronic health   
+                            records.  </p>
+                        <p>
+                           4) I understand that neither my treatment by Alliance Orthopedics, nor payment, enrollment, or   
+                        eligibility for benefits will be conditioned in any way based on whether I sign this form.  
+                        </p>
+                        <p>
+                            5) I understand that I have the right to refuse to sign this authorization.
+                        </p>  
+                        <p>
+                            6) I understand that, as set forth in the notice of privacy practices, I have the right to revoke this   
+                        authorization, in writing, at any time, except to the extent that Alliance Orthopedics and its   
+                        employees, as well as its business associates, have acted in reliance upon it, by sending written   
+                        notification to: Attn: HIPAA Privacy Officer, Alliance Orthopedics, 2-22 Banta Place, Fair Lawn, NJ,   
+                        07410. 
+                        </p> 
+                        <p>
+                            7) This authorization shall remain in effect unless and until I revoke it.
+                        </p>   
+                       <p>
+                        8) I understand that PHI used or disclosed pursuant to this authorization may be redisclosed by the   
+                        recipient and its confidentiality may no longer be protected by federal or state law.      
+                        </p> 
+                
+                    </div>
+                  </div>
+                 
+                </div>
+              </form>
+            </div>
+            </div><br/><br/><br/><br/><br/>
+          <div class="formCheck">
+<div class="patientNameDate">
+<div><label>Patient Name</label></div>
+                      <div class="floatLeft"><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></div>
+<div><label>Date</label></div>
+                      <div class="floatRight"><apex:outputText value="{0,date,MM/dd/yyyy}"><apex:param value="{!NPP__c.CreatedDate}" /></apex:outputText></div>
+                    </div>
+                 
+                  <div class="form-element">
+                    <div><p>Patient Signature</p></div>
+
+                      <div>
+                          <apex:outputText value="{!oppt.HQ_Signature__c}" escape="false" />
+                          
+                      </div>
+                  </div>
+            <div>
+               <img src='https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003gvo9&oid=00Df2000001HEGJ&lastMod=1714988677000' style="width: 15px; Height:15px"/><label
+                >By checking the box I acknowledge and agree to conduct business
+                electronically, that I have read the terms of the above section,
+                and that I agree to insert my electronic signature as set forth
+                below indicating my consent to terms set forth on this page.
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+</apex:page>

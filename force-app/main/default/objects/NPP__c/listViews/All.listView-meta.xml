@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>HQ_Patient_Name__c</columns>
+    <columns>HQ_Weight__c</columns>
+    <columns>HQ_Occupational_Physical_Demands__c</columns>
+    <columns>HQ_Chief_Complaint__c</columns>
+    <columns>HQ_Paperwork_Status__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Inserted__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>All</label>
+</ListView>

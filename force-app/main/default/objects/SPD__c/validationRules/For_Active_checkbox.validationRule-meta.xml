@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>For_Active_checkbox</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    ISPICKVAL( Status__c ,&apos;Active&apos;),
+    ISBLANK(Source_of_SPD_for_Group_Policy__c)
+)</errorConditionFormula>
+    <errorDisplayField>Source_of_SPD_for_Group_Policy__c</errorDisplayField>
+    <errorMessage>Please provide the Source of SPD for Group Policy when the SPD is marked as active.</errorMessage>
+</ValidationRule>

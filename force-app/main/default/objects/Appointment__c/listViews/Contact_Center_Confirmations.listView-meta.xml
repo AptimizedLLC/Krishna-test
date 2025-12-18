@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_Center_Confirmations</fullName>
+    <columns>NAME</columns>
+    <columns>Patient_s_Currently_Assigned_Staff__c</columns>
+    <columns>Provider_Name__c</columns>
+    <columns>Enter_FlowSheet_Link__c</columns>
+    <columns>Plan_Type__c</columns>
+    <columns>Out_of_Network_Deductible__c</columns>
+    <columns>Out_of_Network_Deductible_Remiaining__c</columns>
+    <columns>New_Patient_Confirmation_Call__c</columns>
+    <columns>Confirmation_Call_Notes__c</columns>
+    <columns>Appointment_Date_Time__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Payment_Arrangement__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>New_Patient_Confirmation_Call__c</field>
+        <operation>notEqual</operation>
+        <value>Confirmed,Confirmed w/ Payment Arrangement</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Cancelled</value>
+    </filters>
+    <filters>
+        <field>Appointment_Date__c</field>
+        <operation>greaterThan</operation>
+        <value>TODAY</value>
+    </filters>
+    <filters>
+        <field>New_Patient_Confirmation_Call__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>Visit_Reason__c</field>
+        <operation>notContain</operation>
+        <value>new year evaluation</value>
+    </filters>
+    <label>Contact Center Confirmations</label>
+</ListView>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Message Notification Action - Passes the Parameters to send an SMS Message</description>
+        <name>Send_SMS_To_Lead</name>
+        <label>Send SMS To Lead</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <actionName>liveMessageNotificationNotFound</actionName>
+        <actionType>liveMessageNotification</actionType>
+        <connector>
+            <targetReference>Update_Lead_After_SMS</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>templateDeveloperName</name>
+            <value>
+                <stringValue>Message_To_Lead</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>channelDeveloperName</name>
+            <value>
+                <stringValue>TEXT_US_12018784683</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>contextRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientPhone</name>
+            <value>
+                <elementReference>$Record.Phone</elementReference>
+            </value>
+        </inputParameters>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>58.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>Checks that there is a Phone Number Associated with the LEAD Record that started this flow</description>
+        <name>Does_Lead_Have_Phone_Number</name>
+        <label>Does Lead Have Phone Number?</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>No Phone Number</defaultConnectorLabel>
+        <rules>
+            <name>Phone_Number_Associated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Phone</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_SMS_To_Lead</targetReference>
+            </connector>
+            <label>Phone Number Associated</label>
+        </rules>
+    </decisions>
+    <description>This flow will be triggered by the Sales Cadence to send a SMS Message to the Lead</description>
+    <environments>Default</environments>
+    <interviewLabel>Lead - AfterSave - Send SMS In Cadence {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Lead - AfterSave - Send SMS In Cadence</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Unchecks the Send SMS Message (Send_SMS_Message__c) checkbox after the SMS message has been sent</description>
+        <name>Update_Lead_After_SMS</name>
+        <label>Update Lead After SMS</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <inputAssignments>
+            <field>Send_SMS_Message__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Does_Lead_Have_Phone_Number</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Send_SMS_Message__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Lead</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+</Flow>

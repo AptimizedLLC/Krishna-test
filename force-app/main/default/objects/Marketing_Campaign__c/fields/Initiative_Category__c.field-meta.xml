@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Initiative_Category__c</fullName>
+    <label>Initiative Category</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>MD Office (Drop In)</fullName>
+                <default>false</default>
+                <label>MD Office (Drop In)</label>
+            </value>
+            <value>
+                <fullName>Urgent Care (Drop In)</fullName>
+                <default>false</default>
+                <label>Urgent Care (Drop In)</label>
+            </value>
+            <value>
+                <fullName>Golf Outing</fullName>
+                <default>false</default>
+                <label>Golf Outing</label>
+            </value>
+            <value>
+                <fullName>Hospital Event</fullName>
+                <default>false</default>
+                <label>Hospital Event</label>
+            </value>
+            <value>
+                <fullName>Attorney (Drop In)</fullName>
+                <default>false</default>
+                <label>Attorney (Drop In)</label>
+            </value>
+            <value>
+                <fullName>School</fullName>
+                <default>false</default>
+                <label>School</label>
+            </value>
+            <value>
+                <fullName>Lunch and Learn</fullName>
+                <default>false</default>
+                <label>Lunch and Learn</label>
+            </value>
+            <value>
+                <fullName>School (Other)</fullName>
+                <default>false</default>
+                <label>School (Other)</label>
+            </value>
+            <value>
+                <fullName>Police Department (Drop In)</fullName>
+                <default>false</default>
+                <label>Police Department (Drop In)</label>
+            </value>
+            <value>
+                <fullName>Government Building (Drop In)</fullName>
+                <default>false</default>
+                <label>Government Building (Drop In)</label>
+            </value>
+            <value>
+                <fullName>Corporate Office (Drop In)</fullName>
+                <default>false</default>
+                <label>Corporate Office (Drop In)</label>
+            </value>
+            <value>
+                <fullName>Firefighter (Drop In)</fullName>
+                <default>false</default>
+                <label>Firefighter (Drop In)</label>
+            </value>
+            <value>
+                <fullName>Gym Event</fullName>
+                <default>false</default>
+                <label>Gym Event</label>
+            </value>
+            <value>
+                <fullName>Pilates Studio Event</fullName>
+                <default>false</default>
+                <label>Pilates Studio Event</label>
+            </value>
+            <value>
+                <fullName>Dance/Gymnast Studio Event</fullName>
+                <default>false</default>
+                <label>Dance/Gymnast Studio Event</label>
+            </value>
+            <value>
+                <fullName>Superfootball Conference Event</fullName>
+                <default>false</default>
+                <label>Superfootball Conference Event</label>
+            </value>
+            <value>
+                <fullName>Big Central Conference Event</fullName>
+                <default>false</default>
+                <label>Big Central Conference Event</label>
+            </value>
+            <value>
+                <fullName>NJIC Event</fullName>
+                <default>false</default>
+                <label>NJIC Event</label>
+            </value>
+            <value>
+                <fullName>Alliance Orthopedics Clinic Tour</fullName>
+                <default>false</default>
+                <label>Alliance Orthopedics Clinic Tour</label>
+            </value>
+            <value>
+                <fullName>College/University Event</fullName>
+                <default>false</default>
+                <label>College/University Event</label>
+            </value>
+            <value>
+                <fullName>Other (Drop In)</fullName>
+                <default>false</default>
+                <label>Other (Drop In)</label>
+            </value>
+            <value>
+                <fullName>Other (Event)</fullName>
+                <default>false</default>
+                <label>Other (Event)</label>
+            </value>
+            <value>
+                <fullName>Other:</fullName>
+                <default>false</default>
+                <label>Other:</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

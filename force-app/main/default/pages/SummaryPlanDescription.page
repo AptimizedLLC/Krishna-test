@@ -1,0 +1,168 @@
+<apex:page standardController="NPP__c" extensions="GenerateNPPIntakePDFDocumentController" renderAs="pdf" applyBodyTag="false">
+    
+<head>
+    <style>
+      .contentWrap h3 {
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: #f00;
+}
+.contentWrap {
+    margin: 10px 30px;
+}
+span.bStrong {
+    font-weight: 600;
+    padding-right: 5px;
+}
+p {
+    line-height: 22px;
+}
+img {
+    border: 1px solid #000;
+    margin-top: 10px;
+}
+    </style>
+  </head>
+<body>
+    <div>
+            <p><img src="https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003pCyH&oid=00Df2000001HEGJ&lastMod=1715318986000"  style="width: 700px;"/></p>
+    </div>
+    <div>
+        <div class="userFormWrap">
+          <div class="contentWrap">
+            <h3>Summary Plan Description Form</h3>
+            <div class="form-container">
+              <form>
+                <div class="pdf-content consent-content2">
+                  <div class="form-element">
+                    <div>
+                      <p>
+                        If the mandatory field does not apply to you please
+                        enter N/A into the space provided.
+                      </p>
+                      <p>
+                        I do hereby designate and authorize All Be Healthy LLC
+                        dba&nbsp;Alliance Orthopedics and or their designated
+                        legal or other representative to contact the employer
+                        shown above and/or the insurance carrier to obtain my
+                        health insurance summary plan description documents, and
+                        to act on my behalf in connection with any claim, appeal
+                        or related right or legal action that I may have under
+                        the Plan with respect to any health insurance claim
+                        related to my treatment, and which was incurred as a
+                        result of the medical services I received from All Be
+                        Healthy LLC dba&nbsp;Alliance Orthopedics.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div class="patientNameDate">
+                      <div class="floatLeft"><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></div>
+                      <div class="floatRight"><apex:outputText value="{0,date,MM/dd/yyyy}"><apex:param value="{!NPP__c.CreatedDate}" /></apex:outputText></div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div class="conditionParent">
+                      <div>
+                        <label class="question"
+                          >Do you receive insurance coverage through yours or a
+                          family member's employer?</label
+                        > 
+                      </div>
+                        <div>
+                            <apex:outputField value="{!NPP__c.HQ_Insurance_coverage_through_Family__c}"/>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="form-element fiftyByFifty">
+                    <div>
+                      <div><label class="question">Subscriber Name</label></div>
+                        <div>
+                            <apex:outputField value="{!NPP__c.HQ_Subscriber_Name__c}"/>
+                        </div>
+                    </div>
+                  </div>
+                   
+                  <div class="form-element">
+                    <div>
+                      <div><label class="question">Employer Name</label></div>
+                         <div>
+                            <apex:outputField value="{!NPP__c.HQ_Employer_Name__c}"/>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div>
+                      <div>
+                        <label class="question">Employer Address</label>
+                      </div>
+                        <div>
+                            <apex:outputField value="{!NPP__c.HQ_Employer_Address__c}"/>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div>
+                      <div><label class="question">Employer Number</label></div>
+                        <div>
+                            <apex:outputField value="{!NPP__c.HQ_Employer_Phone_Number__c}"/>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div>
+                      <div>
+                        <label class="question"
+                          >HR Contact's Name (if known)</label
+                        >
+                      </div>
+                        <div>
+                            <apex:outputField value="{!NPP__c.HQ_HR_Contact_s_Name_if_known__c}"/>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div>
+                      <div>
+                        <label class="question">Insurance Carrier Name</label>
+                      </div>
+                        <div>
+                            <apex:outputField value="{!NPP__c.HQ_Insurance_Carrier_Name__c}"/>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div><br/>    <br/><br/>    <br/><br/>    <br/><br/>    <br/>
+          <div class="formCheck">
+<div class="patientNameDate">
+    <div>Patient Name:
+                      <apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></div>
+<div>Date:
+         <apex:outputText value="{0,date,MM/dd/yyyy}"><apex:param value="{!NPP__c.CreatedDate}" /></apex:outputText></div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div><p>Patient Signature</p></div>
+
+                      <div>
+                          <apex:outputText value="{!oppt.HQ_Signature__c}" escape="false" />
+                          
+                      </div>
+                  </div>
+              
+            <div>
+               <img src='https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003gvo9&oid=00Df2000001HEGJ&lastMod=1714988677000' style="width: 15px; Height:15px"/><label
+                >By checking the box I acknowledge and agree to conduct business
+                electronically, that I have read the terms of the above section,
+                and that I agree to insert my electronic signature as set forth
+                below indicating my consent to terms set forth on this page.
+              </label>
+            </div>
+          </div>
+        </div>
+      
+    </body>
+</apex:page>

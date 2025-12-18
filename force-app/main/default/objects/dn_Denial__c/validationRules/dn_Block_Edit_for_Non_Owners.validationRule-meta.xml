@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>dn_Block_Edit_for_Non_Owners</fullName>
+    <active>false</active>
+    <description>The user&apos;s which are not the owner of the Denial&apos;s record should not be able to edit it.</description>
+    <errorConditionFormula>AND(
+    NOT(ISNEW()),                                      /* Applies only on edit */
+    $User.Id &lt;&gt; OwnerId,                               /* User is NOT the owner */
+    NOT(
+        OR(
+            $Profile.Name = &quot;System Administrator&quot;,    /* Allow System Admin */
+            $Profile.Name = &quot;NPP Integration&quot;           /* Allow NPP Integration */
+        )
+    ),
+    ISCHANGED(dn_Status__c) = FALSE                    /* They&apos;re not just changing the status */
+)</errorConditionFormula>
+    <errorMessage>Only the owner of this Denial record is allowed to make changes.</errorMessage>
+</ValidationRule>

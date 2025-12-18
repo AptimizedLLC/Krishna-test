@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Training_Grade__c</fullName>
+    <label>Training Grade</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Empathy (+)</fullName>
+                <default>false</default>
+                <label>Empathy (+)</label>
+            </value>
+            <value>
+                <fullName>Empathy (-)</fullName>
+                <default>false</default>
+                <label>Empathy (-)</label>
+            </value>
+            <value>
+                <fullName>Tone of Voice (+)</fullName>
+                <default>false</default>
+                <label>Tone of Voice (+)</label>
+            </value>
+            <value>
+                <fullName>Tone of Voice (-)</fullName>
+                <default>false</default>
+                <label>Tone of Voice (-)</label>
+            </value>
+            <value>
+                <fullName>Scheduling (+)</fullName>
+                <default>false</default>
+                <label>Scheduling (+)</label>
+            </value>
+            <value>
+                <fullName>Scheduling (-)</fullName>
+                <default>false</default>
+                <label>Scheduling (-)</label>
+            </value>
+            <value>
+                <fullName>Asked All Questions</fullName>
+                <default>false</default>
+                <label>Asked All Questions</label>
+            </value>
+            <value>
+                <fullName>Missed Questions</fullName>
+                <default>false</default>
+                <label>Missed Questions</label>
+            </value>
+            <value>
+                <fullName>MVA/PIP or WC (+)</fullName>
+                <default>false</default>
+                <label>MVA/PIP or WC (+)</label>
+            </value>
+            <value>
+                <fullName>MVA/PIP or WC (-)</fullName>
+                <default>false</default>
+                <label>MVA/PIP or WC (-)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>10</visibleLines>
+</CustomField>

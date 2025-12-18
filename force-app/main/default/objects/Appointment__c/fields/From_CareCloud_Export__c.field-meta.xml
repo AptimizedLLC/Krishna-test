@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>From_CareCloud_Export__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>From the CareCloud export provided by CareCloud as of 2/15/23.  Appointments without this field checked need to be archived as non-Alliance Ortho appointments.  Meaning they are from NJ Spine.</description>
+    <label>From CareCloud Export</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

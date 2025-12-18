@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Patients_This_Week_East_Brunswick</fullName>
+    <columns>NAME</columns>
+    <columns>Patient_s_Currently_Assigned_Staff__c</columns>
+    <columns>Provider_Name__c</columns>
+    <columns>Enter_FlowSheet_Link__c</columns>
+    <columns>Appointment_Date_Time__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Appointment_Date__c</field>
+        <operation>equals</operation>
+        <value>THIS_WEEK</value>
+    </filters>
+    <filters>
+        <field>Location_Name__c</field>
+        <operation>contains</operation>
+        <value>East Brunswick</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Pending</value>
+    </filters>
+    <filters>
+        <field>Visit_Reason__c</field>
+        <operation>contains</operation>
+        <value>New</value>
+    </filters>
+    <label>New Patients This Week East Brunswick</label>
+    <sharedTo>
+        <role>Extender</role>
+        <role>Intake</role>
+    </sharedTo>
+</ListView>

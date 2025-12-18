@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Add_Chiro_combined_details</fullName>
+    <active>false</active>
+    <description>When chiro visits combined is yes, require user to enter details</description>
+    <errorConditionFormula>ISPICKVAL( Chiro_Visits_Combined__c ,&quot;Yes&quot;) &amp;&amp; ISBLANK( If_yes_chiro_combined__c )</errorConditionFormula>
+    <errorMessage>Please enter Chiro Visits Combined details</errorMessage>
+</ValidationRule>

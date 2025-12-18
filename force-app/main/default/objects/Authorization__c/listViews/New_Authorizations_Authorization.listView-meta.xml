@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Authorizations_Authorization</fullName>
+    <columns>NAME</columns>
+    <columns>Appointment_Date__c</columns>
+    <columns>Patient__c</columns>
+    <columns>Provider__c</columns>
+    <columns>Authorization_Details__c</columns>
+    <columns>PIP_or_W_C_Request__c</columns>
+    <columns>Authorization_Notes__c</columns>
+    <columns>Note_Complete__c</columns>
+    <columns>Insurance_Company__c</columns>
+    <filterScope>Queue</filterScope>
+    <label>New Authorizations</label>
+    <queue>New_Authorizations</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

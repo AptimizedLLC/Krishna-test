@@ -1,0 +1,201 @@
+<apex:page readOnly="true"
+           standardController="Account"
+           extensions="TablePDFController"   
+           applyHtmlTag="false"           
+           sidebar="false"    
+           showHeader="false"    
+           cache="true"    
+           renderAs="advanced_pdf"
+           docType="html-5.0">
+    <head>    
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />    
+        <style type="text/css">
+            @page {
+                size: A4 landscape;
+                margin: 10mm; /* Adjust margins to maximize usable space */
+            }
+            body {
+                font-family: Arial, sans-serif;
+                font-size: 10px; /* Adjust font size for better fit */
+            }
+            table {
+                border-collapse: collapse;
+                width: 100%; /* Ensure table spans full width */
+                table-layout: fixed;
+            }
+            th, td {
+                border: 1px solid black;
+                padding: 1px; /* Reduce padding for better fit */
+                font-size: 10px; /* Adjust font size for cells */
+                text-align: left;
+                word-wrap: break-word; /* Ensure long text wraps */
+                word-break: break-word;
+            }
+            th {
+                background-color: #92d5f0;
+                color: black;
+                font-weight: bold;
+                text-align: center;
+                word-wrap: break-word; /* Ensure long text wraps */
+                word-break: break-word;
+            }
+            ul {
+                padding-left: 10px; /* Adjust the left padding */
+                margin: 0; /* Remove default margin */
+            }
+            li {
+                list-style-type: disc; /* Keeps the bullet points as discs */
+                margin-bottom: 5px; /* Optional: Adds spacing between items */
+            }
+        </style>    
+    </head>    
+    <body>
+        <center>   
+            <h3>Flowsheet History for - <apex:outputText value="{!Name}"></apex:outputText></h3>    
+        </center>    
+
+        <!-- Checkboxes for OT, PT, CHIRO -->
+        <div>
+            <label><input type="checkbox" id="otCheckbox" /> OT</label>
+            <label><input type="checkbox" id="ptCheckbox" /> PT</label>
+            <label><input type="checkbox" id="chiroCheckbox" /> CHIRO</label>
+        </div>
+
+        <!-- Button to download PDF -->
+        <button onclick="validateAndDownload()">Download PDF</button>
+
+        <table>    
+            <tr>
+                <th>Appointment Date</th>
+                <apex:repeat value="{!fsList}" var="con">
+                    <th><apex:outputText value="{!TEXT(con.Appointment__r.Appointment_Date__c)}" rendered="{!NOT(ISNULL(con.Appointment__r.Appointment_Date__c))}" /></th>
+                </apex:repeat>
+            </tr>
+            <tr>
+                <td>Therapeutic Exercises (97110)</td>
+                <apex:repeat value="{!fsList}" var="con">
+                    <td class="text-container">
+                        <!-- Minutes Spent -->
+                        <apex:outputText value="{!'<ul><li>' + SUBSTITUTE(con.Minutes_spent_1__c, ';', '</li><li>') + '</li></ul>'}" escape="false" />
+                        <!-- Other Exercises -->
+                        <apex:outputText value="{!'<ul><li>' + SUBSTITUTE(con.OtherExercises1__c, ';', '</li><li>') + '</li></ul>'}" escape="false" />
+                    </td>                
+                </apex:repeat>
+            </tr>
+            <tr>
+                <td>Therapeutic Activities (97530)</td>
+                <apex:repeat value="{!fsList}" var="con">
+                    <td class="text-container">
+                        <!-- Minutes Spent -->
+                        <apex:outputText value="{!'<ul><li>' + SUBSTITUTE(con.Minutes_spent_2__c, ';', '</li><li>') + '</li></ul>'}" escape="false" />
+                        <!-- Other Exercises -->
+                        <apex:outputText value="{!'<ul><li>' + SUBSTITUTE(con.OtherExercises2__c, ';', '</li><li>') + '</li></ul>'}" escape="false" />
+                    </td>      
+                </apex:repeat>
+            </tr>
+            <tr>
+                <td>Neuromuscular Re-Education (97112)</td>
+                <apex:repeat value="{!fsList}" var="con">
+                    <td class="text-container">
+                        <!-- Minutes Spent -->
+                        <apex:outputText value="{!'<ul><li>' + SUBSTITUTE(con.Minutes_spent_3__c, ';', '</li><li>') + '</li></ul>'}" escape="false" />
+                        <!-- Other Exercises -->
+                        <apex:outputText value="{!'<ul><li>' + SUBSTITUTE(con.OtherExercises3__c, ';', '</li><li>') + '</li></ul>'}" escape="false" />
+                    </td>    
+                </apex:repeat>
+            </tr>
+            <tr>
+                <td>Manual Therapy Techniques (97140)</td>
+                <apex:repeat value="{!fsList}" var="con">
+                    <td class="text-container">
+                        <!-- Minutes Spent -->
+                        <apex:outputText value="{!'<ul><li>' + SUBSTITUTE(con.Minutes_spent_4__c, ';', '</li><li>') + '</li></ul>'}" escape="false" />
+                        <!-- Other Exercises -->
+                        <apex:outputText value="{!'<ul><li>' + SUBSTITUTE(con.OtherExercises4__c, ';', '</li><li>') + '</li></ul>'}" escape="false" />
+                    </td>    
+                </apex:repeat>
+            </tr>
+            <tr>
+                <td>Physical Performance Test (99750)</td>
+                <apex:repeat value="{!fsList}" var="con">
+                    <td class="text-container">
+                        <!-- Minutes Spent -->
+                        <apex:outputText value="{!'<ul><li>' + SUBSTITUTE(con.Minutes_spent_5__c, ';', '</li><li>') + '</li></ul>'}" escape="false" />
+                        <!-- Other Exercises -->
+                        <apex:outputText value="{!'<ul><li>' + SUBSTITUTE(con.OtherExercises5__c, ';', '</li><li>') + '</li></ul>'}" escape="false" />
+                    </td>    
+                </apex:repeat>
+            </tr>
+            <tr>
+                <td>Traction (97012)</td>
+                <apex:repeat value="{!fsList}" var="con">
+                    <td class="text-container">
+                        <!-- Minutes Spent -->
+                        <apex:outputText value="{!'<ul><li>' + SUBSTITUTE(con.Minutes_spent_6__c, ';', '</li><li>') + '</li></ul>'}" escape="false" />
+                        <!-- Other Exercises -->
+                        <apex:outputText value="{!'<ul><li>' + SUBSTITUTE(con.OtherExercises6__c, ';', '</li><li>') + '</li></ul>'}" escape="false" />
+                    </td>    
+                </apex:repeat>
+            </tr>
+            <tr>
+                <td>Biofeedback (90901)</td>
+                <apex:repeat value="{!fsList}" var="con">
+                    <td class="text-container">
+                        <!-- Minutes Spent -->
+                        <apex:outputText value="{!'<ul><li>' + SUBSTITUTE(con.Minutes_spent_7__c, ';', '</li><li>') + '</li></ul>'}" escape="false" />
+                        <!-- Other Exercises -->
+                        <apex:outputText value="{!'<ul><li>' + SUBSTITUTE(con.OtherExercises7__c, ';', '</li><li>') + '</li></ul>'}" escape="false" />
+                    </td>    
+                </apex:repeat>
+            </tr>
+            <tr>
+                <td>Normatec/ GameReady (97016)</td>
+                <apex:repeat value="{!fsList}" var="con">
+                    <td class="text-container">
+                        <!-- Minutes Spent -->
+                        <apex:outputText value="{!'<ul><li>' + SUBSTITUTE(con.Minutes_spent_8__c, ';', '</li><li>') + '</li></ul>'}" escape="false" />
+                        <!-- Other Exercises -->
+                        <apex:outputText value="{!'<ul><li>' + SUBSTITUTE(con.OtherExercises8__c, ';', '</li><li>') + '</li></ul>'}" escape="false" />
+                    </td>    
+                </apex:repeat>
+            </tr>
+            <tr>
+                <td>Premod ES w/ MH or Ice (97014/G0283)</td>
+                <apex:repeat value="{!fsList}" var="con">
+                    <td class="text-container">
+                        <!-- Minutes Spent -->
+                        <apex:outputText value="{!'<ul><li>' + SUBSTITUTE(con.Minutes_spent_9__c, ';', '</li><li>') + '</li></ul>'}" escape="false" />
+                        <!-- Other Exercises -->
+                        <apex:outputText value="{!'<ul><li>' + SUBSTITUTE(con.OtherExercises9__c, ';', '</li><li>') + '</li></ul>'}" escape="false" />
+                    </td>    
+                </apex:repeat>
+            </tr>
+            <tr>
+                <td>Laser Therapy (9039/S8948)</td>
+                <apex:repeat value="{!fsList}" var="con">
+                    <td class="text-container">
+                        <!-- Minutes Spent -->
+                        <apex:outputText value="{!'<ul><li>' + SUBSTITUTE(con.Minutes_spent_10__c, ';', '</li><li>') + '</li></ul>'}" escape="false" />
+                        <!-- Other Exercises -->
+                        <apex:outputText value="{!'<ul><li>' + SUBSTITUTE(con.OtherExercises10__c, ';', '</li><li>') + '</li></ul>'}" escape="false" />
+                    </td>    
+                </apex:repeat>
+            </tr>
+        </table>
+
+        <script>
+            function validateAndDownload() {
+                var otCheckbox = document.getElementById('otCheckbox').checked;
+                var ptCheckbox = document.getElementById('ptCheckbox').checked;
+                var chiroCheckbox = document.getElementById('chiroCheckbox').checked;
+
+                if (!otCheckbox && !ptCheckbox && !chiroCheckbox) {
+                    alert('Please select at least one option (OT, PT, or CHIRO) before downloading the PDF.');
+                } else {
+                    // Trigger the PDF download
+                    window.location.href = '/apex/CreateAppointmentDetailsPDF';
+                }
+            }
+        </script>
+    </body>
+</apex:page>

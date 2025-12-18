@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Count_of_Pending_Appointments</name>
+        <label>Assign Count of Pending Appointments</label>
+        <locationX>182</locationX>
+        <locationY>360</locationY>
+        <assignmentItems>
+            <assignToReference>varPendingAppointmentCount</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>Get_Pending_Appts_for_Patient</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Are_There_Pending_Appointments</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Decision to check if any pending appointments were found in the previous collection.
+If there are no pending appointments for that Patient, the collection will be NULL</description>
+        <name>Are_There_Pending_Appointments</name>
+        <label>Are There Pending Appointments?</label>
+        <locationX>182</locationX>
+        <locationY>468</locationY>
+        <defaultConnectorLabel>Has Pending Appointments</defaultConnectorLabel>
+        <rules>
+            <name>No_Pending_Appointments</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varPendingAppointmentCount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Appointment</targetReference>
+            </connector>
+            <label>No Pending Appointments</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Appointment - Scheduled - Update Cancel Follow Up Confirmation Status {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Appointment - Scheduled - Update Cancel Follow Up Confirmation Status</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Get All of the Pending Appointments for a Patient and store it in a collection</description>
+        <name>Get_Pending_Appts_for_Patient</name>
+        <label>Get Pending Appts for Patient</label>
+        <locationX>182</locationX>
+        <locationY>252</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Count_of_Pending_Appointments</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Patient__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Patient__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Pending</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Appointment__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>If there are no Pending Appointments for a Patient, this will set the field Cancel Follow Up Confirmation Status to Needs to Call</description>
+        <name>Update_Appointment</name>
+        <label>Update Appointment</label>
+        <locationX>50</locationX>
+        <locationY>576</locationY>
+        <inputAssignments>
+            <field>Cancel_Follow_Up_Status__c</field>
+            <value>
+                <stringValue>Need to Call</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Pending_Appts_for_Patient</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Appointment_Date_Yesterday__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Cancelled</stringValue>
+            </value>
+        </filters>
+        <object>Appointment__c</object>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2024-01-04</startDate>
+            <startTime>06:00:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>varPendingAppointmentCount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+</Flow>

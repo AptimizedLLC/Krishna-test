@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Surgery_Indicated__c</fullName>
+    <label>Surgery Indicated</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Cervical ACDF</fullName>
+                <default>false</default>
+                <label>Cervical ACDF</label>
+            </value>
+            <value>
+                <fullName>Discectomy</fullName>
+                <default>false</default>
+                <label>Discectomy</label>
+            </value>
+            <value>
+                <fullName>Lamiectomy &amp; Discectomy</fullName>
+                <default>false</default>
+                <label>Lamiectomy &amp; Discectomy</label>
+            </value>
+            <value>
+                <fullName>Spinal Cord Simulator</fullName>
+                <default>false</default>
+                <label>Spinal Cord Simulator</label>
+            </value>
+            <value>
+                <fullName>TliF</fullName>
+                <default>false</default>
+                <label>TliF</label>
+            </value>
+            <value>
+                <fullName>Dural Tear Repair</fullName>
+                <default>false</default>
+                <label>Dural Tear Repair</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

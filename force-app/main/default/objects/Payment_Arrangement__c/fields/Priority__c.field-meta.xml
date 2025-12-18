@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Priority__c</fullName>
+    <label>Priority</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1 - Urgent/Same Day</fullName>
+                <default>false</default>
+                <label>1 - Urgent/Same Day</label>
+            </value>
+            <value>
+                <fullName>2 - Verify First</fullName>
+                <default>false</default>
+                <label>2 - Verify First</label>
+            </value>
+            <value>
+                <fullName>3 - Urgent/Next Day</fullName>
+                <default>false</default>
+                <label>3 - Urgent/Next Day</label>
+            </value>
+            <value>
+                <fullName>4 - Regular Queue</fullName>
+                <default>false</default>
+                <label>4 - Regular Queue</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

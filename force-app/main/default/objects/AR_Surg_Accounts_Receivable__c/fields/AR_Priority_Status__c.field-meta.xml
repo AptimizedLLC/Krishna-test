@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AR_Priority_Status__c</fullName>
+    <label>Priority Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>NEW</fullName>
+                <default>false</default>
+                <label>NEW</label>
+            </value>
+            <value>
+                <fullName>F/U</fullName>
+                <default>false</default>
+                <label>F/U</label>
+            </value>
+            <value>
+                <fullName>DND</fullName>
+                <default>false</default>
+                <label>DND</label>
+            </value>
+            <value>
+                <fullName>OLD</fullName>
+                <default>false</default>
+                <label>OLD</label>
+            </value>
+            <value>
+                <fullName>mPMTDUE</fullName>
+                <default>false</default>
+                <label>mPMTDUE</label>
+            </value>
+            <value>
+                <fullName>AUD</fullName>
+                <default>false</default>
+                <label>AUD</label>
+            </value>
+            <value>
+                <fullName>CRITICAL</fullName>
+                <default>false</default>
+                <label>CRITICAL</label>
+            </value>
+            <value>
+                <fullName>HIGH $ (DOLLAR)</fullName>
+                <default>false</default>
+                <label>HIGH $ (DOLLAR)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PIP_or_W_C_Request__c</fullName>
+    <label>PIP or W/C Request</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Office Visit</fullName>
+                <default>false</default>
+                <label>Office Visit</label>
+            </value>
+            <value>
+                <fullName>21 Day Notice</fullName>
+                <default>false</default>
+                <label>21 Day Notice</label>
+            </value>
+            <value>
+                <fullName>Chiro</fullName>
+                <default>false</default>
+                <label>Chiro</label>
+            </value>
+            <value>
+                <fullName>PT/OT</fullName>
+                <default>false</default>
+                <label>PT/OT</label>
+            </value>
+            <value>
+                <fullName>Body Part</fullName>
+                <default>false</default>
+                <label>Body Part</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,265 @@
+<template>
+    <div class="banner-container">
+        <img src={bannerUrl} alt="Header Banner" class="banner-img" />
+    </div>
+
+    <div class="header-container">
+        <img src={logoUrl} alt="Site Logo" class="logo" />
+        <div class="title">Welcome to Our Portal</div>
+    </div>
+
+    </br>
+
+    <template if:true={accountName}>
+        <h1 class="slds-text-heading_medium">
+            Hi {accountName}, Please enter paperwork if available
+        </h1>
+    </template>
+
+    <div class="container">
+        <lightning-card title="NPP Form" variant="Narrow">
+            <div class="slds-p-around_medium">
+
+                <!-- Section 1 -->
+                <div class="slds-m-bottom_medium">
+
+                    <h2 class="slds-text-heading_small slds-m-bottom_small">
+                        General Information & History
+                    </h2>
+
+                    <div class="slds-grid slds-wrap slds-gutters">
+
+                        <!-- Any issues or concerns with immune? (NO VALUE ADDED) -->
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+                            <lightning-combobox
+                                name="issues"
+                                label="Any issues or concerns with immune?"
+                                value={issuesValue}
+                                options={issuesOptions}
+                                onchange={handleIssuesChange}>
+                            </lightning-combobox>
+                        </div>
+
+                        <!-- Weight -->
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+                            <lightning-input
+                                label="Weight"
+                                name="Weight"
+                                type="text"
+                                value={formData.Weight}
+                                onchange={handleChange}>
+                            </lightning-input>
+                        </div>
+
+                        <!-- Employer -->
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+                            <lightning-input
+                                label="Employer"
+                                name="Employer"
+                                type="text"
+                                value={formData.Employer}
+                                onchange={handleChange}>
+                            </lightning-input>
+                        </div>
+
+                        <!-- Job Title -->
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+                            <lightning-input
+                                label="Job Title"
+                                name="Job_Title"
+                                type="text"
+                                value={formData.Job_Title}
+                                onchange={handleChange}>
+                            </lightning-input>
+                        </div>
+
+                        <!-- COVID-19 Vaccination Status -->
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+                            <lightning-combobox
+                                label="COVID-19 Vaccination Status"
+                                name="Covid_Vaccination_Status"
+                                value={formData.Covid_Vaccination_Status}
+                                options={covidOptions}
+                                onchange={handleChange}>
+                            </lightning-combobox>
+                        </div>
+
+                        <!-- Chief Complaint -->
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+                            <lightning-input
+                                label="Chief Complaint"
+                                name="Chief_Complaint"
+                                type="text"
+                                value={formData.Chief_Complaint}
+                                onchange={handleChange}>
+                            </lightning-input>
+                        </div>
+
+                        <!-- Current Medications Picklist -->
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+                            <lightning-combobox
+                                label="Current Medications?"
+                                name="Current_Medications_Status"
+                                value={formData.Current_Medications_Status}
+                                options={medicationOptions}
+                                onchange={handleChange}>
+                            </lightning-combobox>
+                        </div>
+
+                        <!-- Current Medications Text -->
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+                            <lightning-input
+                                label="Current Medications (Details)"
+                                name="Current_Medications_Text"
+                                type="text"
+                                value={formData.Current_Medications_Text}
+                                onchange={handleChange}>
+                            </lightning-input>
+                        </div>
+
+                        <!-- Year -->
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+                            <lightning-input
+                                label="Year"
+                                name="Year"
+                                type="text"
+                                value={formData.Year}
+                                onchange={handleChange}>
+                            </lightning-input>
+                        </div>
+
+                        <!-- Pain Start -->
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+                            <lightning-input
+                                label="Pain Start"
+                                name="Pain_Start"
+                                type="text"
+                                value={formData.Pain_Start}
+                                onchange={handleChange}>
+                            </lightning-input>
+                        </div>
+
+                        <!-- Height Feet -->
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+                            <lightning-input
+                                label="Height (Feet)"
+                                name="Height_Feet"
+                                type="number"
+                                value={formData.Height_Feet}
+                                onchange={handleChange}>
+                            </lightning-input>
+                        </div>
+
+                        <!-- Height Inches -->
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+                            <lightning-input
+                                label="Height (Inches)"
+                                name="Height_Inches"
+                                type="number"
+                                value={formData.Height_Inches}
+                                onchange={handleChange}>
+                            </lightning-input>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Section 2 -->
+                <div>
+                    <h2 class="slds-text-heading_small slds-m-bottom_small">
+                        Patient Questionnaire
+                    </h2>
+
+                    <div class="slds-grid slds-wrap slds-gutters">
+
+                        <!-- Pain Level -->
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+                            <lightning-combobox
+                                label="Pain Level (1–10)"
+                                name="Pain_Level"
+                                value={formData.Pain_Level}
+                                options={painLevelOptions}
+                                onchange={handleChange}>
+                            </lightning-combobox>
+                        </div>
+
+                        <!-- Onset Of Pain -->
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+                            <lightning-combobox
+                                label="Onset of Pain"
+                                name="Onset_Of_Pain"
+                                value={formData.Onset_Of_Pain}
+                                options={onsetOptions}
+                                onchange={handleChange}>
+                            </lightning-combobox>
+                        </div>
+
+                        <!-- Additional Pain Complaints -->
+                        <div class="slds-col slds-size_1-of-1">
+                            <lightning-input
+                                label="Additional Pain Complaints"
+                                name="Additional_Pain_Complaints"
+                                type="text"
+                                value={formData.Additional_Pain_Complaints}
+                                onchange={handleChange}>
+                            </lightning-input>
+                        </div>
+
+                        <!-- Medical Doctor Consultation -->
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+                            <lightning-combobox
+                                label="Medical Doctor Consultation"
+                                name="Medical_Doctor_Consultation"
+                                value={formData.Medical_Doctor_Consultation}
+                                options={yesNoOptions}
+                                onchange={handleChange}>
+                            </lightning-combobox>
+                        </div>
+
+                        <!-- Doctor's Name -->
+                        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+                            <lightning-input
+                                label="Doctor's Name"
+                                name="Doctors_Name"
+                                type="text"
+                                value={formData.Doctors_Name}
+                                onchange={handleChange}>
+                            </lightning-input>
+                        </div>
+
+                    </div>
+
+                    <!-- Signature -->
+                    <div class="slds-m-top_medium">
+                        <label class="slds-form-element__label">Signature</label>
+
+                        <div class="sig-wrapper">
+                            <canvas class="sig-pad" lwc:dom="manual"></canvas>
+                        </div>
+
+                        <lightning-button
+                            class="slds-m-top_small"
+                            label="Clear Signature"
+                            variant="destructive"
+                            onclick={clearSignature}>
+                        </lightning-button>
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="slds-m-top_large">
+                        <lightning-button
+                            variant="brand"
+                            label="Submit"
+                            onclick={handleSubmit}>
+                        </lightning-button>
+
+                        <template if:true={isLoading}>
+                            <lightning-spinner alternative-text="Loading"></lightning-spinner>
+                        </template>
+                    </div>
+
+                </div>
+            </div>
+        </lightning-card>
+    </div>
+</template>

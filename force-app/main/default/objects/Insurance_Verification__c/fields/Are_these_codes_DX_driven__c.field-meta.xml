@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Are_these_codes_DX_driven__c</fullName>
+    <inlineHelpText>Codes: E0730,A4556,A4557,L3000, E0221</inlineHelpText>
+    <label>Are these codes DX driven?</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>A4556</fullName>
+                <default>false</default>
+                <label>A4556</label>
+            </value>
+            <value>
+                <fullName>A4557</fullName>
+                <default>false</default>
+                <label>A4557</label>
+            </value>
+            <value>
+                <fullName>E0221</fullName>
+                <default>false</default>
+                <label>E0221</label>
+            </value>
+            <value>
+                <fullName>E0730</fullName>
+                <default>false</default>
+                <label>E0730</label>
+            </value>
+            <value>
+                <fullName>L3000</fullName>
+                <default>false</default>
+                <label>L3000</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

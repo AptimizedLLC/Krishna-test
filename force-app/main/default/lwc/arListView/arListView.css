@@ -1,0 +1,22 @@
+.table-scroll-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.table-container {
+    min-width: 100%;
+    overflow-x: auto;
+    scrollbar-color: #b3b3b3 #f1f1f1;
+    scrollbar-width: thin;
+}
+
+.table-container::-webkit-scrollbar {
+    height: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #a0a0a0;
+    border-radius: 5px;
+}

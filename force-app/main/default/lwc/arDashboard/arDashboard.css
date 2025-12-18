@@ -1,0 +1,127 @@
+/* --------------------------------------------------------------
+   INJECTION STATUS – full-width, sticky Owner, scroll bar under Owner
+   -------------------------------------------------------------- */
+.injection-full-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    border: 1px solid #d8dde6;
+    border-radius: 4px;
+    margin: 0;                 /* no side margin – same as Priority table */
+    width: 100%;               /* take the exact same width as the parent */
+    display: block;
+}
+
+/* Table never collapses */
+.injection-table {
+    min-width: max-content;
+    width: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
+}
+
+/* STICKY OWNER COLUMN (header + body) */
+.owner-header,
+.owner-cell {
+    position: sticky;
+    left: 0;
+    background-color: #f3f2f2;
+    z-index: 10;
+    width: 150px;
+    min-width: 150px;
+    font-weight: 600;
+    text-align: left;
+    padding-left: 12px;
+    border-right: 1px solid #d8dde6;
+}
+
+/* subtle shadow when scrolling */
+.owner-header::after,
+.owner-cell::after {
+    content: '';
+    position: absolute;
+    top: 0; right: -8px; bottom: 0;
+    width: 8px;
+    background: linear-gradient(to right, rgba(0,0,0,0.08), transparent);
+    pointer-events: none;
+}
+
+/* data cells */
+.injection-table th:not(.owner-header),
+.injection-table td:not(.owner-cell) {
+    min-width: 90px;
+    text-align: center;
+    padding: 8px 12px;
+    white-space: nowrap;
+}
+
+/* nice scrollbar */
+.injection-full-scroll::-webkit-scrollbar {
+    height: 10px;
+}
+.injection-full-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+.injection-full-scroll::-webkit-scrollbar-thumb {
+    background: #c0c0c0;
+    border-radius: 5px;
+}
+.injection-full-scroll::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+/* ============================================= */
+/* PRIORITY STATUS – EQUAL COLUMNS + TOTAL LINE  */
+/* ============================================= */
+
+.priority-table {
+    table-layout: fixed;           /* ← Forces equal column width */
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Owner column – fixed width */
+.priority-table th:first-child,
+.priority-table td:first-child {
+    width: 150px;
+    min-width: 150px;
+    position: sticky;
+    left: 0;
+    background-color: #f3f2f2;
+    z-index: 9;
+    font-weight: 600;
+    text-align: left;
+    padding-left: 12px;
+    border-right: 1px solid #d8dde6;
+}
+
+/* All value columns (NEW, F/U, DND, etc.) – EQUAL WIDTH */
+.priority-table th:not(:first-child),
+.priority-table td:not(:first-child) {
+    min-width: 110px;              /* ← Adjust for more/less gap */
+    width: 110px;
+    text-align: center;
+    white-space: nowrap;
+    padding: 8px 12px;
+}
+
+/* Line above Total row */
+.priority-table tfoot {
+    border-top: 2px solid #d8dde6;
+}
+
+/* Optional: Make Total row stand out */
+.priority-table tfoot th {
+    font-weight: 700;
+    background-color: #f8f8f8;
+}
+
+/* Shadow when Owner is sticky (optional) */
+.priority-table th:first-child::after,
+.priority-table td:first-child::after {
+    content: '';
+    position: absolute;
+    top: 0; right: -8px; bottom: 0;
+    width: 8px;
+    background: linear-gradient(to right, rgba(0,0,0,0.08), transparent);
+    pointer-events: none;
+}

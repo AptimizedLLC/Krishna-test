@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Visit_Reason</fullName>
+    <active>true</active>
+    <label>Visit Reason</label>
+    <picklistValues>
+        <picklist>Specialty__c</picklist>
+        <values>
+            <fullName>Acupuncturist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chiropractor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Durable Medical Equipment %26 Medical Supplies</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Foot %26 Ankle Surgery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Multi-Specialty</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Neurology</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Occupational Therapist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Occupational Therapy Assistant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Orthopaedic Surgery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Orthopaedic Surgeryofthe Spine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pain Medicine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Physical Therapist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Physical Therapy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Physical Therapy Assistant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Physician Assistant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sports Medicine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Surgery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Surgical</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

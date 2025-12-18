@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Orthotics_Authorizations_Saymeh</fullName>
+    <columns>NAME</columns>
+    <columns>Patient__c</columns>
+    <columns>Provider__c</columns>
+    <columns>DME__c</columns>
+    <columns>DME_Details__c</columns>
+    <columns>Status__c</columns>
+    <columns>Authorization_Notes__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>OWNER.FIRST_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Provider__c</field>
+        <operation>contains</operation>
+        <value>Saymeh</value>
+    </filters>
+    <filters>
+        <field>DME__c</field>
+        <operation>contains</operation>
+        <value>Orthotics</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notContain</operation>
+        <value>Duplicate/Error</value>
+    </filters>
+    <label>Orthotics Authorizations - Saymeh</label>
+</ListView>

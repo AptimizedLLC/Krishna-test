@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Arrangement_Confirmation</fullName>
+    <active>true</active>
+    <description>Doesn&apos;t allow for the New Patient Confirmation Call status to be Confirmed if the Payment Arrangement checkbox is TRUE.</description>
+    <errorConditionFormula>AND(
+ Payment_Arrangement__c = TRUE,
+ ISPICKVAL( New_Patient_Confirmation_Call__c , &quot;Confirmed&quot;)
+)</errorConditionFormula>
+    <errorMessage>It looks like a payment arrangement is required for this appointment.  The New Patient Confirmation Call status must be Confirmed w/ Payment Arrangement.</errorMessage>
+</ValidationRule>

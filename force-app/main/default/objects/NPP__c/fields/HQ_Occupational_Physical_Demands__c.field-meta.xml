@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HQ_Occupational_Physical_Demands__c</fullName>
+    <complianceGroup>HIPAA</complianceGroup>
+    <label>Occupational physical demands</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Active: Movement filled with standing for long periods of time and little rest</fullName>
+                <default>false</default>
+                <label>Active: Movement filled with standing for long periods of time and little rest</label>
+            </value>
+            <value>
+                <fullName>Mainly Sitting: Such as Desk Work or behind a computer</fullName>
+                <default>false</default>
+                <label>Mainly sitting: Such as desk work or behind a computer</label>
+            </value>
+            <value>
+                <fullName>Sports based: Constant movement and exercise</fullName>
+                <default>false</default>
+                <label>Sports based: Constant movement and exercise</label>
+            </value>
+            <value>
+                <fullName>Heavy: Physical demands including heavy lifting  machinery or using tools driving or using equipment</fullName>
+                <default>false</default>
+                <label>Heavy: Physical demands including heavy lifting  machinery or using tools driving or using equipment</label>
+            </value>
+            <value>
+                <fullName>Not applicable</fullName>
+                <default>false</default>
+                <label>Not applicable</label>
+            </value>
+            <value>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <label>Others</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

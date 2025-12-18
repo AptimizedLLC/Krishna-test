@@ -1,0 +1,268 @@
+<apex:page standardController="NPP__c" extensions="GenerateNPPIntakePDFDocumentController" renderAs="pdf" applyBodyTag="false">
+    
+<head>
+    <style>
+      .contentWrap h3 {
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: #f00;
+}
+.contentWrap {
+    margin: 10px 30px;
+}
+span.bStrong {
+    font-weight: 600;
+    padding-right: 5px;
+}
+p {
+    line-height: 22px;
+}
+img {
+    border: 1px solid #000;
+    margin-top: 10px;
+}
+    </style>
+  </head>
+<body>
+    <div>
+        <div>
+            <p><img src="https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003pCyH&oid=00Df2000001HEGJ&lastMod=1715318986000"  style="width: 700px;"/></p>
+		</div>
+        <div class="userFormWrap">
+          <div class="contentWrap">
+            <h3>Opioid Consent</h3>
+            <div class="form-container">
+              <form>
+                <div class="pdf-content consent-content12">
+                  <div class="form-element">
+                    <div>
+                      <p>
+                        Reason for Review and Signing of this Document: Pain
+                        relief is an important goal in your care. Opioid
+                        medications may be a helpful part of chronic pain
+                        treatment for some people; however, misuse of opioid
+                        medications may result in serious harm to patients
+                        prescribed them, and when the medications are diverted,
+                        to the public at large, As opioid use for pain
+                        management has increased in recent years, injury,
+                        addiction, and death due to misuse of opioids have also
+                        increased. Patients and health care providers have
+                        responsibilities for the safe use of opioid medications
+                        when they are prescribed for pain. This agreement
+                        provides important information on potential benefits and
+                        risks of opioid medications and serves to document that
+                        both you and your provider agree on a care plan so that
+                        opioid medications are used in a way that is safe and
+                        effective in your pain. This agreement is reviewed and
+                        signed by all patients in our practice who receive
+                        opioids for chronic pain.
+                      </p>
+                      <p>Common goals in using opioids to treat pain include</p>
+                      <ul>
+                        <li>Improved pain</li>
+                        <li>
+                          Improved ability to engage in work, social,
+                          recreational and/or physical activities
+                        </li>
+                        <li>Improved quality of life</li>
+                        <li>
+                          Your provider may discuss more specific goals for pain
+                          treatment with you as well
+                        </li>
+                      </ul>
+                      <p>Potential Risks or Side Effects of Opioid Treatment</p>
+                      <ul>
+                        <li>
+                          Physical Side Effects — May include mood changes,
+                          drowsiness, nausea, constipation, urination
+                          difficulties, depressed breathing, itching, bone
+                          thinning, and sexual difficulties, such as lowering of
+                          male hormone in men and of menstrual periods in women.
+                        </li>
+                        <li>
+                          Physical Dependence — Sudden stopping of an opioid may
+                          lead to withdrawal symptoms including abdominal
+                          cramping, pain, diarrhea, sweating, anxiety,
+                          imitability, and aching.
+                        </li>
+                        <li>
+                          Tolerance — A dose of an opioid may become less
+                          effective over time even though there is no change in
+                          your physical condition. If this happens repeatedly,
+                          your medication may need to be changed or
+                          discontinued.
+                        </li>
+                        <li>
+                          Addiction — Is more common in people with a personal
+                          or family history of addiction, but can occur in
+                          anyone. It is suggested by drug craving, loss of
+                          control, and poor outcomes of use.
+                        </li>
+                        <li>
+                          Hyperalgesia Increased sensitivity to and/or
+                          increasing experience of pain caused by the use of
+                          opioids may require change or discontinuation of
+                          medication.
+                        </li>
+                        <li>
+                          Overdose — Taking more than the prescribed amount of
+                          medication or using alcohol or other drugs can cause
+                          you to stop breathing resulting in coma, brain damage,
+                          or even death.
+                        </li>
+                        <li>
+                          Sleep Apnea — Periods of not breathing while asleep,
+                          may be caused or worsened by opioid use.
+                        </li>
+                        <li>
+                          Risk to Unborn Child — Risks to unborn children may
+                          include: physical dependence at birth, possible
+                          alterations in pain perception, possible increased
+                          risk for development of addiction, among others, Tell
+                          your provider if you are or intend to become pregnant.
+                        </li>
+                        <li>
+                          Victimization — There is a risk that you or your
+                          household may be subject to theft, deceit, assault, or
+                          abuse by persons seeking to obtain your medications
+                          for purposes of misuse.
+                        </li>
+                        <li>
+                          Life-threatening Irregular Heartbeat— Can occur with
+                          methadone, EKG may be needed.
+                        </li>
+                      </ul>
+                      <p>
+                        The provider's responsibilities include: listening
+                        carefully to your concerns, treating you with care and
+                        with due respect, and making clinical decisions based on
+                        what he/she believes is in your best interest.
+                      </p>
+                      <p>
+                        Your responsibilities: In order to maximize the
+                        potential benefits of opioid medications and to minimize
+                        the potential risks, it is important that you accept the
+                        following responsibilities. In signing this agreement,
+                        you agree to:
+                      </p>
+                      <ol>
+                        <li>
+                          Use your opioid medications as prescribed for the
+                          purpose of relieving pain.
+                        </li>
+                        <li>
+                          Keep your medications locked up to avoid intentional
+                          or unintentional use or diversion by others.
+                        </li>
+                        <li>Discard all unused medications.</li>
+                        <li>
+                          Be honest with your providers about your medications
+                          or other drug use.
+                        </li>
+                        <li>
+                          Use no illegal drugs and do not abuse alcohol while
+                          being prescribed opioids.
+                        </li>
+                        <li>
+                          Will not share, sell, trade, or in any way provide
+                          your medications to others.
+                        </li>
+                        <li>
+                          Receive opioid medications from this practice only. If
+                          opioids are prescribed unexpectedly by another office
+                          (for example due to an accident or dental procedure),
+                          inform this office within 24 hours.
+                        </li>
+                        <li>
+                          Fill your opioid medications at one pharmacy only,
+                          inform this practice within 24 hours if you must use a
+                          pharmacy different from your usual one.
+                        </li>
+                        <li>
+                          Have urine drug tests on a random basis and as
+                          requested by your provider. (opioid may be
+                          discontinued if Illicit drugs are found or medication
+                          not present when should be.)
+                        </li>
+                        <li>
+                          Bring your opioid medications to the practice when
+                          requested.
+                        </li>
+                        <li>
+                          Participate in other pain treatments agreed to with
+                          your providers.
+                        </li>
+                        <li>Keep all appointments scheduled for your care.</li>
+                        <li>
+                          Permit this practice to communicate with other care
+                          providers and/or significant others as needed to
+                          assure opioids are being used appropriately and are
+                          beneficial to your health and well-being.
+                        </li>
+                      </ol>
+                      <p>
+                        Your medications may be continued if they improve your
+                        pain, help you engage in valued activities, and/or
+                        enhance your quality of life and if you adhere to the
+                        above responsibilities. They may be discontinued if your
+                        goals for treatment are&nbsp; not met, if you experience
+                        negative effects from using them, or if you do not
+                        adhere to this agreement. If you develop complications
+                        of opioid use, such as addiction, we will assist you in
+                        finding treatment. Please be aware, however, that your
+                        practice cooperates fully with law enforcement and the
+                        US Drug Enforcement Agency and other agencies in the
+                        investigation of opioid-related crimes including
+                        sharing, selling, trading, or other potential harmful
+                        use of these powerful medications.
+                      </p>
+                      <p>&nbsp;</p>
+                      <p>
+                        <i><strong>PATIENT CONSENT/AGREEMENT</strong></i>
+                      </p>
+                      <p>
+                        I, hereby give my consent to the treatment and agree to
+                        the responsibilities as outlined above, I also
+                        acknowledge that I have reviewed this document and been
+                        given the opportunity to have any and all questions
+                        answered. I fully understand the possible benefits and
+                        risks of opioid medications and I accept the
+                        responsibilities described above.
+                      </p>
+                    </div>
+                  </div>
+                  
+                </div>
+              </form>
+            </div>
+          </div>
+            
+          <div class="formCheck">
+              <div class="patientNameDate">
+<div><label>Patient Name</label></div>
+                      <div class="floatLeft"><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></div>
+<div><label>Date</label></div>
+                      <div class="floatRight"><apex:outputText value="{0,date,MM/dd/yyyy}"><apex:param value="{!NPP__c.CreatedDate}" /></apex:outputText></div>
+                    </div>
+              <div class="form-element">
+                    <div><p>Patient Signature</p></div>
+
+                      <div>
+                          <apex:outputText value="{!oppt.HQ_Signature__c}" escape="false" />
+                          
+                      </div>
+                  </div>
+            <div>
+               <img src='https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003gvo9&oid=00Df2000001HEGJ&lastMod=1714988677000' style="width: 15px; Height:15px"/><label
+                >By checking the box I acknowledge and agree to conduct business
+                electronically, that I have read the terms of the above section,
+                and that I agree to insert my electronic signature as set forth
+                below indicating my consent to terms set forth on this page.
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+</apex:page>

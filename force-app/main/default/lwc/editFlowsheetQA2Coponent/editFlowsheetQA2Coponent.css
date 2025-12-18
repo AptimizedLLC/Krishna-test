@@ -1,0 +1,107 @@
+.label-checkbox-container {
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    font-size: 16px; /* Adjust this value as needed for medium size */
+}
+
+.label-checkbox-container label {
+    margin-right: 10px; /* Adds space between the label and checkbox */
+}
+.buttonSelected{
+    background-color: cornflowerblue;
+}
+.buttonUnselected{
+    background-color: white;
+}
+.medium-checkbox {
+    width: 18px;  /* Adjust this value as needed for medium size */
+    height: 18px; /* Adjust this value as needed for medium size */
+}
+.slds-table {
+    border: 1px solid black;/* #d8dde6;*/
+}
+
+.slds-table td {
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    vertical-align: top;
+    text-align: left;
+    border: 1px solid black;/* #d8dde6;*/
+    
+}
+.td {
+    vertical-align: top;
+    text-align: left;
+    
+}
+
+.thead {
+    border: 1px solid black;
+    
+}
+.checkbox-container .slds-checkbox__label {
+    font-size: 20px; /* Increases the font size of the label */
+}
+
+.checkbox-container .slds-checkbox {
+    transform: scale(1.5); /* Scales up the checkbox */
+    margin-right: 10px; /* Adjust spacing between checkbox and label if needed */
+}
+
+.bullet-item {
+    position: relative;
+    padding-left: 20px; /* Space between bullet and text */
+    margin-bottom: 10px; /* Space between items */
+}
+
+.bullet-item::before {
+    content: "•"; /* Unicode for a bullet point */
+    position: absolute;
+    left: 0; /* Position the bullet to the left */
+    color: #000; /* Bullet color, adjust as needed */
+    font-size: 1.2em; /* Adjust bullet size if needed */
+}
+table, th, td {
+    border:1px solid black;
+    border-collapse: collapse;
+   
+  }
+  .custom-grid {
+    margin: 1rem;
+}
+
+.custom-checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.5rem;
+    border: 1px solid white;
+    border-radius: 0.25rem;
+    height: 3rem;
+    background-color: white;
+    width: fit-content;
+}
+
+.label-help-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.custom-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.custom-checkbox {
+    flex-shrink: 0;
+    width: 1.0rem;
+    height: 1.0rem;
+}

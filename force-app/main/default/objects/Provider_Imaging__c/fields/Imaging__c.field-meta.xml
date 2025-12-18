@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Imaging__c</fullName>
+    <label>Imaging</label>
+    <referenceTo>Imaging__c</referenceTo>
+    <relationshipLabel>Provider Imaging</relationshipLabel>
+    <relationshipName>Provider_Imaging</relationshipName>
+    <relationshipOrder>1</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

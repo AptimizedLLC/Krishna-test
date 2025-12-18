@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>M2022_21_Migrated_data</fullName>
+    <columns>NAME</columns>
+    <columns>HQ_Name__c</columns>
+    <columns>HQ_Chief_Complaint__c</columns>
+    <columns>HQ_Family_Medical_History__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Account__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Year__c</field>
+        <operation>equals</operation>
+        <value>2021-22</value>
+    </filters>
+    <label>2022-21 Migrated data</label>
+</ListView>

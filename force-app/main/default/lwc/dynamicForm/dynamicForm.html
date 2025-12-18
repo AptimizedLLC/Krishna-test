@@ -1,0 +1,67 @@
+<template>
+    <template if:true={fields}>
+        <template for:each={fields} for:item="field">
+
+            <!-- Picklist -->
+            <template if:true={field.isPicklist}>
+                <lightning-combobox
+                    key={field.apiName}
+                    name={field.apiName}
+                    label={field.label}
+                    value={field.value}
+                    options={field.options}
+                    onchange={handleFieldChange}>
+                </lightning-combobox>
+            </template>
+
+            <!-- Text -->
+            <template if:true={field.isText}>
+                <lightning-input
+                    key={field.apiName}
+                    name={field.apiName}
+                    label={field.label}
+                    value={field.value}
+                    type="text"
+                    onchange={handleFieldChange}>
+                </lightning-input>
+            </template>
+
+            <!-- Number -->
+            <template if:true={field.isNumber}>
+                <lightning-input
+                    key={field.apiName}
+                    name={field.apiName}
+                    label={field.label}
+                    value={field.value}
+                    type="number"
+                    onchange={handleFieldChange}>
+                </lightning-input>
+            </template>
+
+            <!-- Date -->
+            <template if:true={field.isDate}>
+                <lightning-input
+                    key={field.apiName}
+                    name={field.apiName}
+                    label={field.label}
+                    value={field.value}
+                    type="date"
+                    onchange={handleFieldChange}>
+                </lightning-input>
+            </template>
+
+            <!-- Boolean -->
+            <template if:true={field.isBoolean}>
+                <lightning-input
+                    key={field.apiName}
+                    name={field.apiName}
+                    type="checkbox"
+                    checked={field.value}
+                    label={field.label}
+                    onchange={handleFieldChange}>
+                </lightning-input>
+            </template>
+
+        </template>
+    </template>
+</template>

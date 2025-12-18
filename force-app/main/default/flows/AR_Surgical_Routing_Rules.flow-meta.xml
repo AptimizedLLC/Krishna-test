@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Criteria_for_Assignment</name>
+        <label>Criteria for Assignment</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Financial_Class_is_not_AI_or_WC</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Logic_for_FC_not_in_AI_or_WC</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Valid</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Criteria_for_FC_is_not_AI_or_WC</targetReference>
+            </connector>
+            <label>Financial Class is not AI or WC</label>
+        </rules>
+        <rules>
+            <name>Financial_Class_is_AI_or_WC</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Logic_for_FC_in_AI_or_WC</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Valid</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Criteria_for_FC_in_AI_or_WC</targetReference>
+            </connector>
+            <label>Financial Class is AI or WC</label>
+        </rules>
+        <rules>
+            <name>Financial_Class_is_Cash_Pay</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Logic_for_FC_in_Cash_Pay</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Valid</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_User_LOIS_LEVICCHI</targetReference>
+            </connector>
+            <label>Financial Class is Cash Pay</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Criteria_for_FC_in_AI_or_WC</name>
+        <label>Criteria for FC in AI or WC</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>AI_WC_Criteria_for_YARIXA_RIVERA</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>AI_or_WC_A_to_I</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Valid</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>AI_WC_Get_User_YARIXA_RIVERA</targetReference>
+            </connector>
+            <label>Criteria for YARIXA RIVERA</label>
+        </rules>
+        <rules>
+            <name>AI_WC_Criteria_for_VICKI_GAMBLIN</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>AI_or_WC_J_to_P</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Valid</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>AI_WC_Get_User_VICKI_GAMBLIN</targetReference>
+            </connector>
+            <label>Criteria for VICKI GAMBLIN</label>
+        </rules>
+        <rules>
+            <name>AI_WC_Criteria_for_STACIE_CARBO</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>AI_or_WC_Q_to_Z</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Valid</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>AI_WC_Get_User_STACIE_CARBO</targetReference>
+            </connector>
+            <label>Criteria for STACIE CARBO</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Criteria_for_FC_is_not_AI_or_WC</name>
+        <label>Criteria for FC is not AI or WC</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Criteria_for_YARIXA_RIVERA</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Not_AI_or_WC_A_to_I</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Valid</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_user_YARIXA_RIVERA</targetReference>
+            </connector>
+            <label>Criteria for YARIXA RIVERA</label>
+        </rules>
+        <rules>
+            <name>Criteria_for_VICKI_GAMBLIN</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Not_AI_or_WC_J_to_P</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Valid</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_user_VICKI_GAMBLIN</targetReference>
+            </connector>
+            <label>Criteria for VICKI GAMBLIN</label>
+        </rules>
+        <rules>
+            <name>Criteria_for_STACIE_CARBO</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Not_AI_or_WC_Q_to_Z</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Valid</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_user_STACIE_CARBO</targetReference>
+            </connector>
+            <label>Criteria for STACIE CARBO</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>AI_or_WC_A_to_I</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        NOT(ISBLANK({!$Record.AR_Patient_Account__c.AR_Name__c})),
+        UPPER(TRIM({!$Record.AR_Patient_Account__c.AR_Name__c})) &gt;= &quot;A&quot;,
+        UPPER(TRIM({!$Record.AR_Patient_Account__c.AR_Name__c})) &lt; &quot;J&quot;
+    ),
+    &quot;Valid&quot;,
+    &quot;Invalid&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>AI_or_WC_J_to_P</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        NOT(ISBLANK({!$Record.AR_Patient_Account__c.AR_Name__c})),
+        UPPER(TRIM({!$Record.AR_Patient_Account__c.AR_Name__c})) &gt;= &quot;J&quot;,
+        UPPER(TRIM({!$Record.AR_Patient_Account__c.AR_Name__c})) &lt; &quot;Q&quot;
+    ),
+    &quot;Valid&quot;,
+    &quot;Invalid&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>AI_or_WC_Q_to_Z</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        NOT(ISBLANK({!$Record.AR_Patient_Account__c.AR_Name__c})),
+        UPPER(TRIM({!$Record.AR_Patient_Account__c.AR_Name__c})) &gt;= &quot;Q&quot;
+    ),
+    &quot;Valid&quot;,
+    &quot;Invalid&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Logic_for_FC_in_AI_or_WC</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    OR(
+        {!$Record.AR_Financial_Class__c} = &quot;Auto Insurance&quot;,
+        {!$Record.AR_Financial_Class__c} = &quot;Workers Compensation&quot;
+    ),
+    &quot;Valid&quot;,
+    &quot;Invalid&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Logic_for_FC_in_Cash_Pay</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        {!$Record.AR_Financial_Class__c} = &quot;Cash Pay&quot;,
+        OR(
+            TEXT({!$Record.Injection_Status__c}) = &quot;BTA&quot;,
+            TEXT({!$Record.Injection_Status__c}) = &quot;LOP&quot;
+        )
+    ),
+    &quot;Valid&quot;,
+    &quot;Invalid&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Logic_for_FC_not_in_AI_or_WC</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        NOT(
+            OR(
+                {!$Record.AR_Financial_Class__c} = &quot;Auto Insurance&quot;,
+                {!$Record.AR_Financial_Class__c} = &quot;Workers Compensation&quot;
+            )
+        ),
+        OR(
+            {!$Record.AR_Provider_Id__c} = &quot;34760&quot;,
+            {!$Record.AR_Provider_Id__c} = &quot;35225&quot;,
+            {!$Record.AR_Provider_Id__c} = &quot;35730&quot;,
+            {!$Record.AR_Provider_Id__c} = &quot;35392&quot;,
+            {!$Record.AR_Provider_Id__c} = &quot;37433&quot;,
+            {!$Record.AR_Provider_Id__c} = &quot;32707&quot;,
+            {!$Record.AR_Provider_Id__c} = &quot;32700&quot;,
+            {!$Record.AR_Provider_Id__c} = &quot;35974&quot;,
+            {!$Record.AR_Provider_Id__c} = &quot;38624&quot;,
+            {!$Record.AR_Provider_Id__c} = &quot;38179&quot;,
+            {!$Record.AR_Provider_Id__c} = &quot;39028&quot;,
+            {!$Record.AR_Provider_Id__c} = &quot;38625&quot;,
+            {!$Record.AR_Provider_Id__c} = &quot;39999&quot;,
+            {!$Record.AR_Provider_Id__c} = &quot;40039&quot;
+        )
+    ),
+    &quot;Valid&quot;,
+    &quot;Invalid&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Not_AI_or_WC_A_to_I</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        NOT(ISBLANK({!$Record.AR_Patient_Account__c.AR_Name__c})),
+        UPPER(TRIM({!$Record.AR_Patient_Account__c.AR_Name__c})) &gt;= &quot;A&quot;,
+        UPPER(TRIM({!$Record.AR_Patient_Account__c.AR_Name__c})) &lt; &quot;J&quot;
+    ),
+    &quot;Valid&quot;,
+    &quot;Invalid&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Not_AI_or_WC_J_to_P</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        NOT(ISBLANK({!$Record.AR_Patient_Account__c.AR_Name__c})),
+        UPPER(TRIM({!$Record.AR_Patient_Account__c.AR_Name__c})) &gt;= &quot;J&quot;,
+        UPPER(TRIM({!$Record.AR_Patient_Account__c.AR_Name__c})) &lt; &quot;Q&quot;
+    ),
+    &quot;Valid&quot;,
+    &quot;Invalid&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Not_AI_or_WC_Q_to_Z</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        NOT(ISBLANK({!$Record.AR_Patient_Account__c.AR_Name__c})),
+        UPPER(TRIM({!$Record.AR_Patient_Account__c.AR_Name__c})) &gt;= &quot;Q&quot;
+    ),
+    &quot;Valid&quot;,
+    &quot;Invalid&quot;
+)</expression>
+    </formulas>
+    <interviewLabel>AR Surgical Routing Rules {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>AR Surgical Routing Rules</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>AI_WC_Get_User_STACIE_CARBO</name>
+        <label>Get User : STACIE CARBO</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>AI_WC_Update_User_STACIE_CARBO</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Username</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>sandro.carboni@allianceortho.com.stage</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>AI_WC_Get_User_VICKI_GAMBLIN</name>
+        <label>Get User : YARIXA RIVERA</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>AI_WC_Update_user_VICKI_GAMBLIN</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Username</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>james.chang@allianceortho.com.stage</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>AI_WC_Get_User_YARIXA_RIVERA</name>
+        <label>Get User : YARIXA RIVERA</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>AI_WC_Update_user_YARIXA_RIVERA</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Username</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>john.cho@allianceortho.com.stage</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_User_LOIS_LEVICCHI</name>
+        <label>Get User : LOIS LEVICCHI</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_user_LOIS_LEVICCHI</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Username</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>nicholas.cirlincione@allianceortho.com.stage</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_user_STACIE_CARBO</name>
+        <label>Get user : STACIE CARBO</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_record_owner_as_STACIE_CARBO</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Username</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>sandro.carboni@allianceortho.com.stage</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_user_VICKI_GAMBLIN</name>
+        <label>Get user : VICKI GAMBLIN</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_record_owner_as_VICKI_GAMBLIN</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Username</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>james.chang@allianceortho.com.stage</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_user_YARIXA_RIVERA</name>
+        <label>Get user : YARIXA RIVERA</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_record_owner_as_YARIXA_RIVERA</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Username</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>john.cho@allianceortho.com.stage</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>AI_WC_Update_User_STACIE_CARBO</name>
+        <label>Update User STACIE CARBO</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>AI_WC_Get_User_STACIE_CARBO.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>AI_WC_Update_user_VICKI_GAMBLIN</name>
+        <label>Update user VICKI GAMBLIN</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>AI_WC_Get_User_YARIXA_RIVERA.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>AI_WC_Update_user_YARIXA_RIVERA</name>
+        <label>Update user YARIXA RIVERA</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>AI_WC_Get_User_YARIXA_RIVERA.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_record_owner_as_STACIE_CARBO</name>
+        <label>Update record owner as STACIE CARBO</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>Get_user_STACIE_CARBO.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_record_owner_as_VICKI_GAMBLIN</name>
+        <label>Update record owner as VICKI GAMBLIN</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>Get_user_VICKI_GAMBLIN.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_record_owner_as_YARIXA_RIVERA</name>
+        <label>Update record owner as YARIXA RIVERA</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>Get_user_YARIXA_RIVERA.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_user_LOIS_LEVICCHI</name>
+        <label>Update user LOIS LEVICCHI</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>Get_User_LOIS_LEVICCHI.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Criteria_for_Assignment</targetReference>
+        </connector>
+        <filterFormula>AND(
+    OR(
+        ISNEW(),
+        AND(
+            ISCHANGED({!$Record.AR_Re_Routing__c}),
+            {!$Record.AR_Re_Routing__c} = TRUE
+        )
+    ),
+    OR(
+        BEGINS({!$Record.AR_Procedure_Code__c}, &quot;364&quot;),
+        BEGINS({!$Record.AR_Procedure_Code__c}, &quot;6303&quot;)
+    )
+)</filterFormula>
+        <object>AR_Surg_Accounts_Receivable__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

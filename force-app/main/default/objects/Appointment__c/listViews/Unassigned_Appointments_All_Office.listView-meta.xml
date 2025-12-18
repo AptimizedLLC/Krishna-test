@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unassigned_Appointments_All_Office</fullName>
+    <columns>NAME</columns>
+    <columns>Patient_s_Currently_Assigned_Staff__c</columns>
+    <columns>Provider_Name__c</columns>
+    <columns>Appointment_Date_Time__c</columns>
+    <columns>Patient_Name__c</columns>
+    <columns>Status__c</columns>
+    <columns>Visit_Reason_Type__c</columns>
+    <columns>Location_Name__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Patient_s_Currently_Assigned_Staff__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Visit_Reason_Type__c</field>
+        <operation>equals</operation>
+        <value>Not MD</value>
+    </filters>
+    <label>Unassigned Appointments (All Office)</label>
+</ListView>

@@ -1,0 +1,154 @@
+<apex:page standardController="NPP__c" extensions="GenerateNPPIntakePDFDocumentController" renderAs="pdf" applyBodyTag="false">
+    
+<head>
+    <style>
+      .contentWrap h3 {
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: #f00;
+}
+.contentWrap {
+    margin: 10px 30px;
+}
+span.bStrong {
+    font-weight: 600;
+    padding-right: 5px;
+}
+p {
+    line-height: 22px;
+}
+img {
+    border: 1px solid #000;
+    margin-top: 10px;
+}
+    </style>
+  </head>
+<body>
+    <div>
+            <p><img src="https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003pCyH&oid=00Df2000001HEGJ&lastMod=1715318986000"  style="width: 700px;"/></p>
+	</div>
+    <div>
+        <div class="userFormWrap">
+          <div class="contentWrap">
+            <h3>X-ray Waiver - Release And Indemnification Form</h3>
+            <div class="form-container">
+              <form>
+                <div class="pdf-content consent-content13">
+                  <div class="form-element">
+                    <div>
+                      <p>
+                        I understand that the providers of All Be Healthy LLC
+                        dba&nbsp; Alliance Orthopedics (the “Practice”) may
+                        recommend that I undergo x-rays, including but not
+                        limited to spinal x-rays, in connection with the
+                        evaluation and treatment of my condition(s). Such x-rays
+                        may be necessary for the provider(s) to perform a
+                        complete and thorough evaluation of my condition(s). I
+                        understand that I have the right to refuse such x-rays
+                        and that the providers may refuse to render certain or
+                        all treatment to me in such an event if they believe it
+                        to be imprudent to render care to me without the benefit
+                        of first obtaining x-rays. In recognition of this
+                        voluntary waiver, I, as the undersigned patient (or for
+                        and on behalf of my minor child who may be subject to
+                        treatment), hereby release and forever discharge and
+                        hold harmless on behalf of myself (or on their behalf)
+                        as well as my(their) heirs, representatives, executors,
+                        administrators, and assigns the Practice including its
+                        owners, officers, agents, contractors, assigns,
+                        employees, and legal representatives, from any and all
+                        responsibility, liability, causes of action, claim, or
+                        demand, or any nature whatsoever, including, but not
+                        limited to, a claim of negligence that may arise out of
+                        or relate in any manner to the evaluation of my (their)
+                        present condition or resulting medical care which my
+                        (their) healthcare provider may be unable to fully or
+                        properly analyze without the benefit of first taking
+                        x-rays. This release is to be broadly interpreted to
+                        extend to consequential property damage, or personal
+                        injury, including death. As such, I specifically give
+                        and authorize consent to the healthcare providers from
+                        the Practice to administer treatment for my (their)
+                        condition, without the benefit of submitting to such
+                        X-rays. I further agree to indemnify and hold harmless
+                        the Practice, its owners, officers, contractors, agents,
+                        employees and assigns, from any and all causes of
+                        action, claims, demands, loss of any nature whatsoever
+                        arising out of or in any way related to the evaluation
+                        and treatment of my condition without submitting to
+                        having x-rays taken. I hereby certify and attest that
+                        this release/waiver and agreement to indemnify and hold
+                        harmless is given freely, knowingly, and voluntarily. I
+                        further understand and acknowledge that by signing this
+                        form, I am signing a legally binding agreement which I
+                        may be waiving certain legal rights to recover
+                        compensation or obtain other remedies for injury to
+                        property and myself, including death, which I may have
+                        in the event that such injury or complication should
+                        occur as a proximate result of this waiver of my
+                        submission to x-rays, now or at any time in the future.
+                        I chose to sign this waiver fully knowing that my health
+                        may be jeopardized due to this decision.
+                      </p>
+                      <p>
+                        <i><strong>Consent of Treatment of a Minor</strong></i>
+                      </p>
+                      <p>
+                        I hereby authorize the Practice and its providers to
+                        administer medical care, including X-rays, and other
+                        appropriate services as deemed reasonable and necessary
+                        for my child/ward (Test Thirupathi). I represent that I
+                        have legal authority to provide such written consent on
+                        behalf of such child/ward.
+                      </p>
+                      <p>
+                        <i
+                          ><strong
+                            >Acknowledge of Non-Pregnancy Status</strong
+                          ></i
+                        >
+                      </p>
+                      <p>
+                        If you are pregnant, X-rays will not be taken. I hereby
+                        expressly acknowledge that I am not pregnant at the
+                        present time and that the healthcare providers from the
+                        Practice are hereby expressly authorized and directed to
+                        complete a radiographic examination (x-rays) in
+                        connection with my treatment
+                      </p>
+                    </div>
+                  </div>
+                 
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="formCheck">
+              <div class="patientNameDate">
+<div><label>Patient Name</label></div>
+                      <div class="floatLeft"><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></div>
+<div><label>Date</label></div>
+                      <div class="floatRight"><apex:outputText value="{0,date,MM/dd/yyyy}"><apex:param value="{!NPP__c.CreatedDate}" /></apex:outputText></div>
+                    </div>
+              <div class="form-element">
+                    <div><p>Patient Signature</p></div>
+
+                      <div>
+                          <apex:outputText value="{!oppt.HQ_Signature__c}" escape="false" />
+                          
+                      </div>
+                  </div>
+            <div>
+              <img src='https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003gvo9&oid=00Df2000001HEGJ&lastMod=1714988677000' style="width: 15px; Height:15px"/><label
+                >By checking the box I acknowledge and agree to conduct business
+                electronically, that I have read the terms of the above section,
+                and that I agree to insert my electronic signature as set forth
+                below indicating my consent to terms set forth on this page.
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+</apex:page>

@@ -1,0 +1,764 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Alpha_Criteria_for_Injection_Workbook</name>
+        <label>Alpha Criteria for Injection Workbook</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Criteria_for_Tiana_Santos</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IR_A_to_J</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Valid</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_user_TIANA_SANTOS</targetReference>
+            </connector>
+            <label>Criteria for Tiana Santos</label>
+        </rules>
+        <rules>
+            <name>Criteria_for_Taylor_Dixon</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IR_K_to_Z</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Valid</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_user_TAYLOR_DIXON</targetReference>
+            </connector>
+            <label>Criteria for Taylor Dixon</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Alpha_Criteria_for_Surgical_1_6303</name>
+        <label>Alpha Criteria for Surgical 1 6303</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>SR_1_A_to_N</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>SR_1_6303_A_to_N</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Valid</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_user_Vickie</targetReference>
+            </connector>
+            <label>SR_1_A_to_N</label>
+        </rules>
+        <rules>
+            <name>SR_1_O_to_Z</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>SR_1_6303_O_to_Z</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Valid</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_user_Stacie</targetReference>
+            </connector>
+            <label>SR_1_O_to_Z</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Alpha_Criteria_for_Surgical_1_Pro_and_Loc</name>
+        <label>Alpha Criteria for Surgical 1 Pro and Loc</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>SR_1_Loc_Prv_A_to_N</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>SR_1_6303_A_to_N</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Valid</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_Get_user_Vickie</targetReference>
+            </connector>
+            <label>SR_1_Loc_Prv_A_to_N</label>
+        </rules>
+        <rules>
+            <name>SR_1_Loc_Prv_O_to_Z</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>SR_1_6303_O_to_Z</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Valid</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_Get_user_Stacie</targetReference>
+            </connector>
+            <label>SR_1_Loc_Prv_O_to_Z</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Alpha_Criteria_for_Surgical_1_Workbook_364</name>
+        <label>Alpha Criteria for Surgical 1 Workbook_364</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Criteria_for_YARIXA_RIVERA</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>SR_1_A_to_JOH_364</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Valid</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_user_YARIXA_RIVERA</targetReference>
+            </connector>
+            <label>Criteria for YARIXA RIVERA</label>
+        </rules>
+        <rules>
+            <name>Criteria_for_Ever_Vanegas</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>SR_1_JOL_to_Z_364</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Valid</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_user_Ever_Vanegas</targetReference>
+            </connector>
+            <label>Criteria for Ever Vanegas</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Criteria_for_Assignment</name>
+        <label>Criteria for Assignment</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Injection_Workbook</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Injection_Workbook_Logic</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Valid</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Alpha_Criteria_for_Injection_Workbook</targetReference>
+            </connector>
+            <label>Injection Workbook</label>
+        </rules>
+        <rules>
+            <name>Surgical_1_Workbook_364</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Surgical_1_Workbook_logic_364</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Valid</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Alpha_Criteria_for_Surgical_1_Workbook_364</targetReference>
+            </connector>
+            <label>Surgical 1 Workbook 364</label>
+        </rules>
+        <rules>
+            <name>Surgical_1_Workbook_6303</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Surgical_1_Workbook_logic_6303</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Valid</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Alpha_Criteria_for_Surgical_1_6303</targetReference>
+            </connector>
+            <label>Surgical 1 Workbook 6303</label>
+        </rules>
+        <rules>
+            <name>Surgical_1_Workbook_Provider_and_Location</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Surgical_1_workbook_Pro_Loc</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Valid</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Alpha_Criteria_for_Surgical_1_Pro_and_Loc</targetReference>
+            </connector>
+            <label>Surgical 1 Workbook Provider and Location</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>Injection_Workbook_Logic</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        /* --- FINANCIAL CLASS must not be blank AND must not be the excluded values --- */
+        NOT(ISBLANK({!$Record.AR_Financial_Class__c})),
+        NOT(
+            OR(
+                {!$Record.AR_Financial_Class__c} = &quot;Auto Insurance&quot;,
+                {!$Record.AR_Financial_Class__c} = &quot;Workers Compensation&quot;
+            )
+        ),
+
+        /* --- PROCEDURE CODE must match --- */
+        NOT(ISBLANK({!$Record.AR_Procedure_Code__c})),
+        CONTAINS(
+            &quot;62323,62321,64454,64624,64490,64491,64492,64493,64494,64495,64633,64634,64635,64636,64483,64484,27096,64555,64650&quot;,
+            {!$Record.AR_Procedure_Code__c}
+        ),
+
+        /* --- PROVIDER ID must match --- */
+        NOT(ISBLANK({!$Record.AR_Provider_Id__c})),
+        CONTAINS(
+            &quot;32515,32706,35227,35224,38948,40962&quot;,
+            {!$Record.AR_Provider_Id__c}
+        )
+    ),
+    &quot;Valid&quot;,
+    &quot;Invalid&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>IR_A_to_J</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        NOT(ISBLANK({!$Record.AR_Patient_Account__r.dn_Name__c})),
+        UPPER(TRIM({!$Record.AR_Patient_Account__r.dn_Name__c})) &gt;= &quot;A&quot;,
+        UPPER(TRIM({!$Record.AR_Patient_Account__r.dn_Name__c})) &lt; &quot;K&quot;
+    ),
+    &quot;Valid&quot;,
+    &quot;Invalid&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>IR_K_to_Z</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        NOT(ISBLANK({!$Record.AR_Patient_Account__r.dn_Name__c})),
+        UPPER(TRIM({!$Record.AR_Patient_Account__r.dn_Name__c})) &gt;= &quot;K&quot;
+    ),
+    &quot;Valid&quot;,
+    &quot;Invalid&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>SR_1_6303_A_to_N</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        NOT(ISBLANK({!$Record.AR_Patient_Account__r.dn_Name__c})),
+        UPPER(TRIM({!$Record.AR_Patient_Account__r.dn_Name__c})) &gt;= &quot;A&quot;,
+        UPPER(TRIM({!$Record.AR_Patient_Account__r.dn_Name__c})) &lt; &quot;O&quot;
+    ),
+    &quot;Valid&quot;,
+    &quot;Invalid&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>SR_1_6303_O_to_Z</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        NOT(ISBLANK({!$Record.AR_Patient_Account__r.dn_Name__c})),
+        UPPER(TRIM({!$Record.AR_Patient_Account__r.dn_Name__c})) &gt;= &quot;O&quot;
+    ),
+    &quot;Valid&quot;,
+    &quot;Invalid&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>SR_1_A_to_JOH_364</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        NOT(ISBLANK({!$Record.AR_Patient_Account__r.dn_Name__c})),
+        UPPER(TRIM({!$Record.AR_Patient_Account__r.dn_Name__c})) &gt;= &quot;A&quot;,
+        UPPER(TRIM({!$Record.AR_Patient_Account__r.dn_Name__c})) &lt; &quot;JOL&quot;
+    ),
+    &quot;Valid&quot;,
+    &quot;Invalid&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>SR_1_JOL_to_Z_364</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        NOT(ISBLANK({!$Record.AR_Patient_Account__r.dn_Name__c})),
+        UPPER(TRIM({!$Record.AR_Patient_Account__r.dn_Name__c})) &gt;= &quot;JOL&quot;
+    ),
+    &quot;Valid&quot;,
+    &quot;Invalid&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>SR_1_Q_to_Z</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        NOT(ISBLANK({!$Record.AR_Patient_Account__r.dn_Name__c})),
+        UPPER(TRIM({!$Record.AR_Patient_Account__r.dn_Name__c})) &gt;= &quot;Q&quot;
+    ),
+    &quot;Valid&quot;,
+    &quot;Invalid&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Surgical_1_Workbook_logic_364</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        /* CPT begins with 364 */
+        NOT(ISBLANK({!$Record.AR_Procedure_Code__c})),
+        BEGINS({!$Record.AR_Procedure_Code__c}, &quot;364&quot;),
+
+        /* Location Id not equal to 44699 */
+        {!$Record.AR_Location_Id__c} &lt;&gt; &quot;44699&quot;,
+
+        /* Financial class present AND not AI or WC */
+        NOT(ISBLANK({!$Record.AR_Financial_Class__c})),
+        {!$Record.AR_Financial_Class__c} &lt;&gt; &quot;Auto Insurance&quot;,
+        {!$Record.AR_Financial_Class__c} &lt;&gt; &quot;Workers Compensation&quot;
+    ),
+    &quot;Valid&quot;,
+    &quot;Invalid&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Surgical_1_Workbook_logic_6303</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        /* Procedure code exactly is or begins with 6303 */
+        NOT(ISBLANK({!$Record.AR_Procedure_Code__c})),
+        BEGINS({!$Record.AR_Procedure_Code__c}, &quot;6303&quot;),
+
+        /* Financial class must exist and must not be AI or WC */
+        NOT(ISBLANK({!$Record.AR_Financial_Class__c})),
+        {!$Record.AR_Financial_Class__c} &lt;&gt; &quot;Auto Insurance&quot;,
+        {!$Record.AR_Financial_Class__c} &lt;&gt; &quot;Workers Compensation&quot;
+    ),
+    &quot;Valid&quot;,
+    &quot;Invalid&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Surgical_1_workbook_Pro_Loc</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND(
+        /* Financial class must exist and must not be AI or WC */
+        NOT(ISBLANK({!$Record.AR_Financial_Class__c})),
+        {!$Record.AR_Financial_Class__c} &lt;&gt; &quot;Auto Insurance&quot;,
+        {!$Record.AR_Financial_Class__c} &lt;&gt; &quot;Workers Compensation&quot;,
+
+        /* Location Id in list */
+        CONTAINS(
+            &quot;,&quot; &amp; &quot;44810,48721,48722,51009,51834,51835,44808,44813,48503,48502,48874,44814,44815,50056,50057,44816,44699,44702,53513,53514,55097,55096,53754,55567,56641,56642&quot; &amp; &quot;,&quot;,
+            &quot;,&quot; &amp; {!$Record.AR_Location_Id__c} &amp; &quot;,&quot;
+        ),
+
+        /* Provider Id in list */
+        CONTAINS(
+            &quot;,&quot; &amp; &quot;34760,35225,35730,35392,37433,32707,32700,35974,38624,38179,39028,38625,39999&quot; &amp; &quot;,&quot;,
+            &quot;,&quot; &amp; {!$Record.AR_Provider_Id__c} &amp; &quot;,&quot;
+        )
+    ),
+    &quot;Valid&quot;,
+    &quot;Invalid&quot;
+)</expression>
+    </formulas>
+    <interviewLabel>AR : {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>AR: Routing Rules</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Copy_1_of_Get_user_Stacie</name>
+        <label>Copy 1 of Get user : Stacie</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Copy_1_of_Update_record_owner_as_Stacie</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Username</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>stacie.carbo@allianceortho.com.uat</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Copy_1_of_Get_user_Vickie</name>
+        <label>Copy 1 of Get user : Vickie</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Copy_1_of_Update_record_owner_as_Vickie</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Username</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>vicki.gamblin@allianceortho.com.uat</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_user_Ever_Vanegas</name>
+        <label>Get user : Ever Vanegas</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_record_owner_as_Ever_Vanegas</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Username</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ever.vanegas@allianceortho.com.uat</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_user_Stacie</name>
+        <label>Get user : Stacie</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_record_owner_as_Stacie</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Username</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>stacie.carbo@allianceortho.com.uat</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_user_TAYLOR_DIXON</name>
+        <label>Get user : TAYLOR DIXON</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_record_owner_as_TAYLOR_DIXON</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Username</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>taylor.dixon@allianceortho.com.uat.test</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_user_TIANA_SANTOS</name>
+        <label>Get user : TIANA SANTOS</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_record_owner_as_TIANA_SANTOS</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Username</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>tiana.santos@allianceortho.com.uat</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_user_Vickie</name>
+        <label>Get user : Vickie</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_record_owner_as_Vickie</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Username</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>vicki.gamblin@allianceortho.com.uat</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_user_YARIXA_RIVERA</name>
+        <label>Get user : YARIXA RIVERA</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_record_owner_as_YARIXA_RIVERA</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Username</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>yarixa.rivera@allianceortho.com.uat</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Copy_1_of_Update_record_owner_as_Stacie</name>
+        <label>Copy 1 of Update record owner as Stacie</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>Copy_1_of_Get_user_Stacie.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Workbook_Category__c</field>
+            <value>
+                <stringValue>Surgical Excluding PIP WC</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Copy_1_of_Update_record_owner_as_Vickie</name>
+        <label>Copy 1 of Update record owner as Vickie</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>Copy_1_of_Get_user_Vickie.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Workbook_Category__c</field>
+            <value>
+                <stringValue>Surgical Excluding PIP WC</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_record_owner_as_Ever_Vanegas</name>
+        <label>Update record owner as Ever Vanegas</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>Get_user_Ever_Vanegas.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Workbook_Category__c</field>
+            <value>
+                <stringValue>Surgical Excluding PIP WC</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_record_owner_as_Stacie</name>
+        <label>Update record owner as Stacie</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>Get_user_Stacie.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Workbook_Category__c</field>
+            <value>
+                <stringValue>Surgical Excluding PIP WC</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_record_owner_as_TAYLOR_DIXON</name>
+        <label>Update record owner as TAYLOR DIXON</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>Get_user_TAYLOR_DIXON.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Workbook_Category__c</field>
+            <value>
+                <stringValue>Injection Workbook</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_record_owner_as_TIANA_SANTOS</name>
+        <label>Update record owner as TIANA SANTOS</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>Get_user_TIANA_SANTOS.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Workbook_Category__c</field>
+            <value>
+                <stringValue>Injection Workbook</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_record_owner_as_Vickie</name>
+        <label>Update record owner as Vickie</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>Get_user_Vickie.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Workbook_Category__c</field>
+            <value>
+                <stringValue>Surgical Excluding PIP WC</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_record_owner_as_YARIXA_RIVERA</name>
+        <label>Update record owner as YARIXA RIVERA</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>Get_user_YARIXA_RIVERA.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Workbook_Category__c</field>
+            <value>
+                <stringValue>Surgical Excluding PIP WC</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Criteria_for_Assignment</targetReference>
+        </connector>
+        <filterFormula>OR(
+    ISNEW(),
+    AND(
+        ISCHANGED({!$Record.AR_Re_Routing__c}),
+        {!$Record.AR_Re_Routing__c} = TRUE
+    )
+)</filterFormula>
+        <object>AR_Accounts_Receivable__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

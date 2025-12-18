@@ -1,0 +1,277 @@
+<apex:page showHeader="false" sidebar="false" applyBodyTag="false" controller="DeductibleAccumulationFormController" renderAs="pdf">
+     <head>
+        <style>
+            body {
+                font-size: small;
+            
+                font-family: SansSerif !important;
+            }
+          
+        </style>
+    </head>
+    
+    <body>
+        
+       <div style="font-weight: bold; font-size: large;text-align: center; font-family: SansSerif !important;">
+                <u>DEDUCTIBLE ACCUMULATION FORM</u>
+       </div>
+        <br/>
+       <apex:form >
+            <div> 
+                 <table width="100%">
+                        <tr>
+                            <td style="width:60%">
+                                <c:DynamicFormMember type="textWithUnderline" label="PATIENT NAME:" width="65%" value="{!patientName}"/>
+                            </td>
+                            <td style="width:40%">
+                                <c:DynamicFormMember type="textWithUnderline" label="DOB:" width="70%" value="{!patientDOB}"/>
+                            </td>
+                           
+                        </tr>
+                    </table>
+                     <br/>
+                     <table width="100%">
+                        <tr>
+                            <td style="width:60%">
+                                <c:DynamicFormMember type="textWithUnderline" label="INSURANCE:" width="70%" value="{!caseRecord.Primary_Insurance__c}"/>
+                            </td>
+                            <td style="width:40%">
+                                <c:DynamicFormMember type="textWithUnderline" label="DATE:" width="70%" value="{!todaydate}"/>
+                            </td>
+                           
+                        </tr>
+                    </table>
+                     <br/>
+                    
+                <br/>
+                <table width="100%">
+                        <tr>
+                            <td style="font-weight: bold; font-size: small;text-align: center; font-family: SansSerif !important;width:50%">
+                                <u>IN NETWORK:</u>
+                            </td>
+                             <td style="font-weight: bold; font-size: small;text-align: center; font-family: SansSerif !important;width:50%">
+                                <u>OUT OF NETWORK:</u>
+                            </td>
+                           
+                        </tr>
+                    </table>
+                <br/>
+                <table width="100%">
+                        <tr>
+                            <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="IND DED:" width="50%" value="{!insurancePlanRecord.In_Network_Individual_Deductible__c}"/>
+                            </td>
+                           
+                            <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="MET:" value="{!coverage.In_Network_Deductible_Met__c}" width="50%"/>
+                            </td>
+                             <td style="width:10%">
+                                
+                            </td>
+                             <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="IND DED:" value="{!insurancePlanRecord.Out_of_Network_Individual_Deductible__c}" width="50%"/>
+                            </td>
+                             <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="MET:" value="{!coverage.Out_of_Network_Deductible_Met__c}" width="50%"/>
+                            </td>
+                        </tr>
+                    </table>
+                 <table width="100%">
+                        <tr>
+                            <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="FAM DED:" width="50%" value="{!insurancePlanRecord.In_Network_Family_Deductible__c }"/>
+                            </td>
+                           
+                            <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="MET:" value="{!coverage.In_Network_Family_Deductible_Met__c}" width="50%"/>
+                            </td>
+                             <td style="width:10%">
+                                
+                            </td>
+                             <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="FAM DED:" value="{!insurancePlanRecord.Out_of_Network_Family_Deductible__c}" width="50%"/>
+                            </td>
+                             <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="MET:" value="{!coverage.Out_of_Network_Family_Deductible_Met__c}" width="50%"/>
+                            </td>
+                        </tr>
+                    </table>
+                 <table width="100%">
+                        <tr>
+                            <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="IND OOP:" width="50%" value="{!insurancePlanRecord.In_Network_Out_of_Pocket_Max__c}"/>
+                            </td>
+                           
+                            <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="MET:" value="{!coverage.In_Network_Out_of_Pocket_Max_Met__c}" width="50%"/>
+                            </td>
+                             <td style="width:10%">
+                                
+                            </td>
+                             <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="IND OOP:" value="{!insurancePlanRecord.Out_of_Network_Out_of_Pocket_Max__c}" width="50%"/>
+                            </td>
+                             <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="MET:" value="{!coverage.Out_of_Network_Out_of_Pocket_Max_Met__c}" width="50%"/>
+                            </td>
+                        </tr>
+                    </table>
+                <table width="100%">
+                        <tr>
+                            <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="FAM OOP:" width="50%" value="{!coverage.In_Network_Family_Out_of_Pocket__c}"/>
+                            </td>
+                           
+                            <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="MET:" value="{!coverage.In_Network_Family_Out_of_Pocket_Met__c}" width="50%"/>
+                            </td>
+                             <td style="width:10%">
+                                
+                            </td>
+                             <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="FAM OOP:" value="{!coverage.Out_of_Network_Family_Out_of_Pocket__c}" width="50%"/>
+                            </td>
+                             <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="MET:" value="{!coverage.Out_of_Network_Family_Out_of_Pocket_Met__c}" width="50%"/>
+                            </td>
+                        </tr>
+                    </table>
+                <br/>
+                <br/>
+                <table width="100%">
+                        <tr>
+                            <td style="width:25%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Fee Schedule" width="45%" value="{!insurancePlanRecord.Fee_Schedule__c}"/>
+                            </td>
+                            <td style="width:37%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Aggregate Allowance:" width="40%" value="{!insurancePlanRecord.Aggregate_Allowance__c}"/>
+                            </td>
+                           
+                            <td style="width:38%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Aggregate Percentage:" value="{!insurancePlanRecord.Allowance_Percentage__c}" width="30%"/>
+                            </td>
+                        </tr>
+                    </table>
+                <br/>
+                <br/>
+                <table width="100%">
+                        <tr>
+                            <td style="font-weight: bold; font-size: small;width:15%">
+                                <u>VISITS Used:</u>
+                            </td>
+                            <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="CHIRO:" width="50%" value="{!insurancePlanRecord.Chiro_Visits_Allowed__c},{!insurancePlanRecord.Chiro_Visits_To_Date__c}"/>
+                            </td>
+                            <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="PT:" width="50%" value="{!insurancePlanRecord.Physical_Therapy_Visits_Allowed__c},{!insurancePlanRecord.Physical_Therapy_Visits_To_Date__c}"/>
+                            </td>
+                           
+                            <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="OT:" value="{!insurancePlanRecord.Occupation_Therapy_Visits_Allowed__c},{!insurancePlanRecord.Occupational_Therapy_Visits_To_Date__c}" width="53%"/>
+                            </td>
+                             <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Acu:" value="{!insurancePlanRecord.Acupuncture_Visits_Allowed__c},{!insurancePlanRecord.Acupuncture_Visits_To_Date__c}" width="53%"/>
+                            </td>
+                        </tr>
+                    </table>
+                <table width="100%">
+                        <tr>
+                            <td style="font-weight: bold; font-size: small;width:15%">
+                                <u>Hard Max:</u>
+                            </td>
+                            <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="CHIRO:" width="50%" value="{!chirohard}"/>
+                            </td>
+                            <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="PT:" width="50%" value="{!PThard}"/>
+                            </td>
+                           
+                            <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="OT:" value="{!OThard}" width="53%"/>
+                            </td>
+                             <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Acu:" value="{!Accuhard}" width="53%"/>
+                            </td>
+                        </tr>
+                    </table>
+                <br/>
+                 <table width="100%">
+                        <tr>
+                            <td style="width:33%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Rep Name:" width="60%" value="{!insurancePlanRecord.Insurance_Company_Representative__c}"/>
+                            </td>
+                            <td style="width:34%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Ref#:" width="65%" value="{!insurancePlanRecord.Call_Reference_Number__c}"/>
+                            </td>
+                           
+                            <td style="width:33%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Call Time:" value="{!insurancePlanRecord.Call_Length__c}" width="60%"/>
+                            </td>
+                        </tr>
+                    </table>
+                <br/>
+                   <table width="100%">
+                        <tr>
+                            <td style="width:50%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Verified by:" width="50%" value="{!$User.FirstName}"/>
+                            </td>
+                             </tr>
+                    </table>
+                <br/>
+                <br/>
+             <table width="100%">
+                        <tr>
+                            <td style="width:90%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Notes:" width="90%" value="Chiro Notes:{!insurancePlanRecord.Chiropractic_Benefits_Notes__c},OT Notes:{!insurancePlanRecord.Occupational_Therapy_Benefits_Notes__c}"/>
+                            </td>
+                             </tr>
+                    </table>
+                <table width="100%">
+                        <tr>
+                            <td style="width:90%">
+                                <c:DynamicFormMember type="textWithUnderline" label="" width="90%" value="PT Notes:{!insurancePlanRecord.Physical_Therapy_Benefits_Notes__c},ACU Notes:{!insurancePlanRecord.Acupuncture_Therapy_Benefits_Notes__c}"/>
+                            </td>
+                             </tr>
+                    </table>
+               
+                  <!--   <table style="padding-top: 20px;" width="100%">
+                    <tr>
+                        <td style="width:30%; word-wrap: break-word;">
+                            <span>Notes &amp; Auth #</span>
+                            <span style="display: inline-block;border-bottom: 0.5px solid black; min-width: 100px;text-align: center;">
+                                <apex:outputPanel rendered="{!NOT(ISNULL(insurancePlanRecord.Chiropractic_Benefits_Notes__c))}">
+                                    <b>Chiro Notes:</b> {!insurancePlanRecord.Chiropractic_Benefits_Notes__c}
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!insurancePlanRecord.Medicare_Notes__c != ''}">
+                                    <b>Medicare Notes:</b> {!insurancePlanRecord.Medicare_Notes__c}
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!insurancePlanRecord.Occupational_Therapy_Benefits_Notes__c != ''}">
+                                    <b>OT Notes:</b> {!insurancePlanRecord.Occupational_Therapy_Benefits_Notes__c}
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!insurancePlanRecord.Physical_Therapy_Benefits_Notes__c != ''}">
+                                    <b>PT Notes:</b> {!insurancePlanRecord.Physical_Therapy_Benefits_Notes__c}
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!insurancePlanRecord.Acupuncture_Therapy_Benefits_Notes__c != ''}">
+                                    <b>ACU Notes:</b> {!insurancePlanRecord.Acupuncture_Therapy_Benefits_Notes__c}
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!insurancePlanRecord.DME_Benefits_Notes__c != ''}">
+                                    <b>DME Notes:</b> {!insurancePlanRecord.DME_Benefits_Notes__c}
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!insurancePlanRecord.Procedure_Benefits_Notes__c != ''}">
+                                    <b>Procedure Notes:</b> {!insurancePlanRecord.Procedure_Benefits_Notes__c}
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!insurancePlanRecord.Deductible_Co_Insurance_Notes__c != ''}">
+                                    <b>Decutible Co Insurance Notes:</b> {!insurancePlanRecord.Deductible_Co_Insurance_Notes__c}
+                                </apex:outputPanel>
+                            </span>
+                            <span style="padding-right: 3px"></span>
+                        </td>
+                    </tr>
+                </table>-->
+                
+                </div>
+        </apex:form>
+          
+    </body>
+                
+</apex:page>

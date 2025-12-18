@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Add the start date and end date to run Appointment Sync Batch manually for failed cases</description>
+    <label>CareCloud Appointment Sync</label>
+    <pluralLabel>CareCloud Appointment Syncs</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

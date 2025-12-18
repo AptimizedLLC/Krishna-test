@@ -1,0 +1,55 @@
+<apex:page renderAs="PDF" showHeader="false" applyBodyTag="false" applyHtmlTag="false" StandardController="Insurance_Plan__c">
+    <html>
+        <head>
+            <style>
+                @page{
+                    margin: 2cm;
+                }
+                body{
+                    font-family: sans-serif;
+                    text-transform: uppercase;
+                }
+                h2, .output{
+                    text-decoration: underline;
+                }
+                h2{
+                    text-align: center;
+                }
+                p{
+                    font-size: 14px;
+                }
+                table{
+                    width: 100%;
+                    border-collapse: collapse;
+                }
+                table td{
+                    width: 50%;
+                    font-size: 14px;
+                }
+            </style>
+        </head>
+        <body>
+            <h2>School VOB</h2><br/>
+            <p><b>Patient Name:</b> <span class="output">{!Insurance_Plan__c.Patient_Name__c}</span></p>
+            <table>
+                <tr>
+                    <td><b>DOB:</b> <span class="output"><apex:outputField value="{!Insurance_Plan__c.Patient_Date_Of_Birth__c}"/></span></td>
+                    <td><b>Effective Date:</b> <span class="output"><apex:outputField value="{!Insurance_Plan__c.Plan_Effective_Date__c}"/></span></td>
+                </tr>
+            </table>
+            <p><b>Open and Active?:</b> <span class="output">{!Insurance_Plan__c.School_Insurance_Active_and_Open__c}</span></p>
+            <p><b>Claim #:</b> <span class="output">{!Insurance_Plan__c.Claim_Number__c}</span></p>
+            <p><b>Insurance Co.:</b> <span class="output">{!Insurance_Plan__c.WC_Insurance_Company__c}</span></p>
+            <p><b>Insurance Address:</b> <span class="output">{!Insurance_Plan__c.WC_Insurance_Company_Street__c} {!Insurance_Plan__c.WC_Insurance_Company_City__c} {!Insurance_Plan__c.WC_Insurance_Company_State__c} {!Insurance_Plan__c.WC_Insurance_Company_Country__c} {!Insurance_Plan__c.WC_Insurance_Company_Zip__c}</span></p>
+            <p><b>Approved Body Region:</b> <span class="output">{!Insurance_Plan__c.WC_Approved_Body_Region__c}</span></p>
+            <p><b>Are there any previous injuries on file:</b> <span class="output">{!Insurance_Plan__c.Previous_Injuries_On_File__c}</span></p>
+            <p><b>Primary Insurance:</b> <span class="output">{!Insurance_Plan__c.WC_Insurance_Company__c}</span></p>
+            <table>
+                <tr>
+                    <td><b>Verified By:</b> <span class="output">{!Insurance_Plan__c.CreatedBy.Name}</span></td>
+                    <td><b>Date:</b> <span class="output"><apex:outputText value="{0, date, M/d/yyyy}"><apex:param value="{!TODAY()}" /></apex:outputText></span></td>
+                </tr>
+            </table>
+        </body>
+    </html>
+</apex:page>

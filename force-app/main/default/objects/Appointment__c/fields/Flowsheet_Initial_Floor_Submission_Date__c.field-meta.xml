@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Flowsheet_Initial_Floor_Submission_Date__c</fullName>
+    <description>Set the first time the floor staff user submits the flowsheets. Resubmissions will not update this field</description>
+    <label>Flowsheet Initial Submission Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

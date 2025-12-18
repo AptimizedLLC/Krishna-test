@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>metadata_update</name>
+        <label>metadata update</label>
+        <locationX>1106</locationX>
+        <locationY>384</locationY>
+        <actionName>spdMetadaUpdateClass</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>stringRequests</name>
+            <value>
+                <elementReference>$Record.Current_Group_Policy_Number__c</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>spdMetadaUpdateClass</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assigning_Active_SPD</name>
+        <label>Assigning Active SPD</label>
+        <locationX>402</locationX>
+        <locationY>900</locationY>
+        <assignmentItems>
+            <assignToReference>StoreAccount.SPD_Active_SPD_Ref__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>StoreAccount.Current_Group_Policy_Number__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Current_Group_Policy_Number__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>StoreAccount.SPD_is_Active__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>StoreAccount.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Update_spd_active_ref_in_Account.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Storing_records</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Storing_records</name>
+        <label>Storing records</label>
+        <locationX>402</locationX>
+        <locationY>1008</locationY>
+        <assignmentItems>
+            <assignToReference>StoreAccountvariable</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>StoreAccount</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_spd_active_ref_in_Account</targetReference>
+        </connector>
+    </assignments>
+    <customErrors>
+        <name>Showing_Error</name>
+        <label>Showing Error</label>
+        <locationX>314</locationX>
+        <locationY>1416</locationY>
+        <customErrorMessages>
+            <errorMessage>Please provide the Source of SPD for Group Policy when the SPD is marked as active.</errorMessage>
+            <fieldSelection>Source_of_SPD_for_Group_Policy__c</fieldSelection>
+            <isFieldError>true</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Source_of_SPD_error</name>
+        <label>Source of SPD error</label>
+        <locationX>578</locationX>
+        <locationY>1308</locationY>
+        <customErrorMessages>
+            <errorMessage>Please provide the Source of SPD for Group Policy when the SPD is marked as active.</errorMessage>
+            <fieldSelection>Source_of_SPD_for_Group_Policy__c</fieldSelection>
+            <isFieldError>true</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <name>check_Source_of_SPD_for_Group_Policy_Field_Not_null</name>
+        <label>check Source of SPD for Group Policy Field Not null</label>
+        <locationX>314</locationX>
+        <locationY>1200</locationY>
+        <defaultConnector>
+            <targetReference>Source_of_SPD_error</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Source_of_SPD_for_Group_Policy_Staus_not_null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Source_of_SPD_for_Group_Policy__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_SPD</targetReference>
+            </connector>
+            <label>Source of SPD for Group Policy Staus not null</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Checking_GPN_Not_required_checkbox</name>
+        <label>Checking GPN Not required checkbox</label>
+        <locationX>1238</locationX>
+        <locationY>276</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Checking_GPN_Not_required_checkbox1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SPD_Not_Applicable_to_GPN__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>metadata_update</targetReference>
+            </connector>
+            <label>Checking GPN Not required checkbox1</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Follow_Up_Type</name>
+        <label>Follow Up Type</label>
+        <locationX>578</locationX>
+        <locationY>276</locationY>
+        <defaultConnector>
+            <targetReference>Status_is_active</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Follow_Up_Date</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>FollowUpTypeFlag</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Records_3</targetReference>
+            </connector>
+            <label>Follow Up Date</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Status_is_active</name>
+        <label>Status is active</label>
+        <locationX>578</locationX>
+        <locationY>576</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Active</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Active</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Getting_Account</targetReference>
+            </connector>
+            <label>Active</label>
+        </rules>
+    </decisions>
+    <description>Trigger:  
+Once the SPD case is submitted and the status set to active 
+
+Logic: 
+
+Set the SPD_Acquisition_Date__c field on the SPD record with the current datetime stamp 
+
+Query for all account records with the same Group Policy Number as set on the SPD record. 
+
+With the list of all patients who are under the applicable Group Policy, iterate through each and update SPD_Active_SPD_Ref__c field to point to the newly activated SPD 
+
+Also update the field SPD_is_Active__c to be true for all these accounts.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>FollowupDateValue</name>
+        <dataType>Date</dataType>
+        <expression>IF(ISPICKVAL({!$Record.Follow_Up_Type__c}, &apos;Email and Call&apos;), Today()+7, IF(ISPICKVAL({!$Record.Follow_Up_Type__c}, &apos;Email and Call 2nd Attempt&apos;), Today()+14, IF(ISPICKVAL({!$Record.Follow_Up_Type__c}, &apos;Email and Text&apos;), Today()+21, {!$Record.Follows_Up_Date__c})))</expression>
+    </formulas>
+    <formulas>
+        <name>FollowUpTypeFlag</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(ISNEW(),ISCHANGED({!$Record.Follow_Up_Type__c}))</expression>
+    </formulas>
+    <formulas>
+        <name>TodayDate</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
+    </formulas>
+    <interviewLabel>Update Group Policy Patients with new SPD {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update Group Policy Patients with new SPD</label>
+    <loops>
+        <name>Update_spd_active_ref_in_Account</name>
+        <label>Update spd active ref in Account</label>
+        <locationX>314</locationX>
+        <locationY>792</locationY>
+        <collectionReference>Getting_Account</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Assigning_Active_SPD</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>check_Source_of_SPD_for_Group_Policy_Field_Not_null</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Getting_Account</name>
+        <label>Getting Account</label>
+        <locationX>314</locationX>
+        <locationY>684</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_spd_active_ref_in_Account</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Current_Group_Policy_Number__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Current_Group_Policy_Number__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Account</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Accounts</name>
+        <label>Update Accounts</label>
+        <locationX>50</locationX>
+        <locationY>1416</locationY>
+        <inputReference>StoreAccountvariable</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Records_3</name>
+        <label>Update Records 3</label>
+        <locationX>446</locationX>
+        <locationY>384</locationY>
+        <connector>
+            <targetReference>Status_is_active</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Follows_Up_Date__c</field>
+            <value>
+                <elementReference>FollowupDateValue</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_SPD</name>
+        <label>Update SPD</label>
+        <locationX>50</locationX>
+        <locationY>1308</locationY>
+        <connector>
+            <targetReference>Update_Accounts</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Showing_Error</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>Active__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>SPD_Acquisition_Date__c</field>
+            <value>
+                <elementReference>TodayDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>782</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Follow_Up_Type</targetReference>
+        </connector>
+        <object>SPD__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <name>Updating_GPN_to_metadata</name>
+            <connector>
+                <targetReference>Checking_GPN_Not_required_checkbox</targetReference>
+            </connector>
+            <label>Updating GPN to metadata</label>
+            <offsetNumber>1</offsetNumber>
+            <offsetUnit>Minutes</offsetUnit>
+            <recordField>LastModifiedDate</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>StoreAccount</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+    <variables>
+        <name>StoreAccountvariable</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+</Flow>

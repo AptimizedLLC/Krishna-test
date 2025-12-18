@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CPT_Units_Total_3__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+AND( Minutes_Total_3__c &gt;= 8, Minutes_Total_3__c &lt;= 22), 1,
+IF(
+AND(Minutes_Total_3__c &gt;= 23, Minutes_Total_3__c &lt;= 37), 2,
+IF(
+AND(Minutes_Total_3__c &gt;= 38, Minutes_Total_3__c &lt;= 52), 3,
+IF(
+AND(Minutes_Total_3__c &gt;= 53, Minutes_Total_3__c &lt;= 67), 4,
+IF(
+AND(Minutes_Total_3__c &gt;= 68, Minutes_Total_3__c &lt;= 82), 5,
+IF(
+AND(Minutes_Total_3__c &gt;= 83, Minutes_Total_3__c &lt;= 97), 6,
+IF(
+AND(Minutes_Total_3__c &gt;= 98, Minutes_Total_3__c &lt;= 112), 7,
+IF(
+AND(Minutes_Total_3__c &gt;= 113), 8,
+0
+)
+)
+)
+)
+)
+)
+)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>CPT-Units Total 3</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Approvals</fullName>
+    <columns>NAME</columns>
+    <columns>Patient_s_Currently_Assigned_Staff__c</columns>
+    <columns>Provider_Name__c</columns>
+    <columns>Enter_FlowSheet_Link__c</columns>
+    <columns>Appointment_Date_Time__c</columns>
+    <columns>Status__c</columns>
+    <columns>Location_Name__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Provider_Review</value>
+    </filters>
+    <filters>
+        <field>Visit_Reason_Type__c</field>
+        <operation>equals</operation>
+        <value>Not MD</value>
+    </filters>
+    <label>My Approvals</label>
+</ListView>

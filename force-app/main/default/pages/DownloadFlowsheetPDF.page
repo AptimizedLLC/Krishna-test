@@ -1,0 +1,178 @@
+<apex:page standardController="Account" extensions="TablePDFController" applyHtmlTag="false" sidebar="false" showHeader="false" cache="true" renderAs="advanced_pdf" docType="html-5.0">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+        <style type="text/css">
+            @page {
+                size: A4 landscape;
+                margin: 3mm;
+            }
+            body {
+                font-family: Arial, sans-serif;
+                font-size: 9px;
+            }
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                table-layout: fixed;
+                page-break-after: always;
+            }
+            col.first-column {
+                width: 100px;
+            }
+            col.dynamic-column {
+                width: calc((100% - 50px) / 4);
+            }
+            th, td {
+                border: 1px solid black;
+                padding: 2px;
+                font-size: 9px;
+                text-align: left;
+                word-wrap: break-word;
+                word-break: break-word;
+            }
+            th {
+                background-color: #92d5f0;
+                color: black;
+                font-weight: bold;
+                text-align: center;
+            }
+            ul {
+                padding-left: 8px;
+                margin: 0;
+            }
+            li {
+                list-style-type: disc;
+                margin-bottom: 3px;
+            }
+        </style>
+    </head>
+
+    <apex:repeat value="{!fsListBatches}" var="batch">
+        <center>
+            <div style="height: 150px;">
+                <p><img src="https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003pCyH&oid=00Df2000001HEGJ&lastMod=1715318986000" style="width: 725px; height: 80px; object-fit: contain;" /></p>
+                <h1 style="margin: 5px 0;">Flowsheet History</h1>
+            </div>
+            <div style="text-align: left;">
+                <h3 style="margin: 2px 0;"><strong>Patient Name - </strong><span style="font-weight: normal;"><apex:outputText value="{!Name}" /></span></h3>
+                <h3 style="margin: 2px 0;"><strong>Visit Reason - </strong><span style="font-weight: normal;"><apex:outputText value="{!selectedReasons}" /></span></h3>
+ 
+            </div>
+        </center>
+
+        <table>
+            <colgroup>
+                <col class="first-column" />
+                <apex:repeat value="{!batch}" var="con">
+                    <col class="dynamic-column" />
+                </apex:repeat>
+            </colgroup>
+            <thead>
+                <tr>
+    <th>Appointment Date</th>
+    <apex:repeat value="{!batch}" var="con">
+        <th>
+            <apex:outputText value="{0,date,MM/dd/yyyy}" rendered="{!NOT(ISNULL(con.Appointment__r))}">
+                <apex:param value="{!con.Appointment__r.Appointment_Date__c}" />
+            </apex:outputText>
+        </th>
+    </apex:repeat>
+</tr>
+                
+                 <!-- Appointment Date Row -->
+   
+                
+                 <!-- Provider Row -->
+    <tr>
+    <th>Provider(License No)</th>
+    <apex:repeat value="{!batch}" var="con">
+        <th>
+            <apex:outputText value="{!con.Appointment__r.Provider_Name__c}" />
+            <apex:outputText value="{!IF(NOT(ISBLANK(con.Appointment__r.Provider_License_Number__c)), 
+                                         ' (' + con.Appointment__r.Provider_License_Number__c + ')', 
+                                         '')}" />
+        </th>
+    </apex:repeat>
+</tr>
+                
+                <!-- Approved Date Row -->
+    <tr>
+    <th>Approved Date</th>
+    <apex:repeat value="{!batch}" var="con">
+        <th>
+            <apex:outputText value="{0,date,MM/dd/yyyy}" rendered="{!NOT(ISNULL(con.Appointment__r))}">
+                <apex:param value="{!con.Appointment__r.Flowsheet_Provider_Approval_Date__c}" />
+            </apex:outputText>
+        </th>
+    </apex:repeat>
+</tr>
+
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Therapeutic Exercises (97110)</td>
+                    <apex:repeat value="{!batch}" var="con">
+                        <td>
+                            <apex:outputText value="{!IF(ISBLANK(con.Minutes_spent_1__c), '', '<ul><li>' + SUBSTITUTE(con.Minutes_spent_1__c, ';', '</li><li>') + '</li></ul>')}" escape="false" />
+                            <apex:outputText value="{!IF(ISBLANK(con.OtherExercises1__c), '', '<ul><li>' + SUBSTITUTE(con.OtherExercises1__c, ';', '</li><li>') + '</li></ul>')}" escape="false" />
+                        </td>
+                    </apex:repeat>
+                </tr>
+                <tr>
+                    <td>Therapeutic Activities (97530)</td>
+                    <apex:repeat value="{!batch}" var="con">
+                        <td>
+                            <apex:outputText value="{!IF(ISBLANK(con.Minutes_spent_2__c), '', '<ul><li>' + SUBSTITUTE(con.Minutes_spent_2__c, ';', '</li><li>') + '</li></ul>')}" escape="false" />
+                            <apex:outputText value="{!IF(ISBLANK(con.OtherExercises2__c), '', '<ul><li>' + SUBSTITUTE(con.OtherExercises2__c, ';', '</li><li>') + '</li></ul>')}" escape="false" />
+                        </td>
+                    </apex:repeat>
+                </tr>
+                <tr>
+                    <td>Neuromuscular Re-Education (97112)</td>
+                    <apex:repeat value="{!batch}" var="con">
+                        <td>
+                            <apex:outputText value="{!IF(ISBLANK(con.Minutes_spent_3__c), '', '<ul><li>' + SUBSTITUTE(con.Minutes_spent_3__c, ';', '</li><li>') + '</li></ul>')}" escape="false" />
+                            <apex:outputText value="{!IF(ISBLANK(con.OtherExercises3__c), '', '<ul><li>' + SUBSTITUTE(con.OtherExercises3__c, ';', '</li><li>') + '</li></ul>')}" escape="false" />
+                        </td>
+                    </apex:repeat>
+                </tr>
+                <tr>
+                    <td>Manual Therapy Techniques (97140)</td>
+                    <apex:repeat value="{!batch}" var="con">
+                        <td>
+                            <apex:outputText value="{!IF(ISBLANK(con.Minutes_spent_4__c), '', '<ul><li>' + SUBSTITUTE(con.Minutes_spent_4__c, ';', '</li><li>') + '</li></ul>')}" escape="false" />
+                            <apex:outputText value="{!IF(ISBLANK(con.OtherExercises4__c), '', '<ul><li>' + SUBSTITUTE(con.OtherExercises4__c, ';', '</li><li>') + '</li></ul>')}" escape="false" />
+                        </td>
+                    </apex:repeat>
+                </tr>
+                <tr>
+                    <td>Physical Performance Test (97750)</td>
+                    <apex:repeat value="{!batch}" var="con">
+                        <td>
+                            <apex:outputText value="{!IF(ISBLANK(con.Minutes_spent_5__c), '', '<ul><li>' + SUBSTITUTE(con.Minutes_spent_5__c, ';', '</li><li>') + '</li></ul>')}" escape="false" />
+                            <apex:outputText value="{!IF(ISBLANK(con.OtherExercises5__c), '', '<ul><li>' + SUBSTITUTE(con.OtherExercises5__c, ';', '</li><li>') + '</li></ul>')}" escape="false" />
+                        </td>
+                    </apex:repeat>
+                </tr>
+                <tr>
+                    <td>Traction (97012)</td>
+                    <apex:repeat value="{!batch}" var="con">
+                        <td>
+                            <apex:outputText value="{!IF(ISBLANK(con.Minutes_spent_6__c), '', '<ul><li>' + SUBSTITUTE(con.Minutes_spent_6__c, ';', '</li><li>') + '</li></ul>')}" escape="false" />
+                            <apex:outputText value="{!IF(ISBLANK(con.OtherExercises6__c), '', '<ul><li>' + SUBSTITUTE(con.OtherExercises6__c, ';', '</li><li>') + '</li></ul>')}" escape="false" />
+                        </td>
+                    </apex:repeat>
+                </tr>
+                <tr>
+                    <td>Range of Motion Testing (95851)</td>
+                    <apex:repeat value="{!batch}" var="con">
+                        <td>
+                            <apex:outputText value="{!IF(ISBLANK(con.Minutes_spent_7__c), '', '<ul><li>' + SUBSTITUTE(con.Minutes_spent_7__c, ';', '</li><li>') + '</li></ul>')}" escape="false" />
+                            <apex:outputText value="{!IF(ISBLANK(con.OtherExercises7__c), '', '<ul><li>' + SUBSTITUTE(con.OtherExercises7__c, ';', '</li><li>') + '</li></ul>')}" escape="false" />
+                        </td>
+                    </apex:repeat>
+                </tr>
+            </tbody>
+        </table>
+    </apex:repeat>
+</apex:page>

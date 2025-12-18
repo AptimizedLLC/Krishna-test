@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HQ_How_many_doses_received_and_when__c</fullName>
+    <complianceGroup>HIPAA</complianceGroup>
+    <label>How many doses received and when?</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Doses:</fullName>
+                <default>false</default>
+                <label>Doses</label>
+            </value>
+            <value>
+                <fullName>☐1 Date_________</fullName>
+                <default>false</default>
+                <label>1 Date</label>
+            </value>
+            <value>
+                <fullName>☐2 Date_________</fullName>
+                <default>false</default>
+                <label>2 Date</label>
+            </value>
+            <value>
+                <fullName>☐3 Date_________</fullName>
+                <default>false</default>
+                <label>3 Date</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

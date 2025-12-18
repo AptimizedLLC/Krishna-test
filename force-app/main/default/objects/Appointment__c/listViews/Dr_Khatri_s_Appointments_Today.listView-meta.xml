@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dr_Khatri_s_Appointments_Today</fullName>
+    <columns>NAME</columns>
+    <columns>Patient_s_Currently_Assigned_Staff__c</columns>
+    <columns>Provider_Name__c</columns>
+    <columns>Enter_FlowSheet_Link__c</columns>
+    <columns>Visit_Reason__c</columns>
+    <columns>Visits_Per_Week__c</columns>
+    <columns>Appointment_Date_Time__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Appointment_Date_Time__c</field>
+        <operation>equals</operation>
+        <value>TODAY</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Cancelled</value>
+    </filters>
+    <filters>
+        <field>Provider_Name__c</field>
+        <operation>contains</operation>
+        <value>Vishal Khatri</value>
+    </filters>
+    <label>Dr. Khatri&apos;s Appointments Today</label>
+    <sharedTo>
+        <role>Extender</role>
+    </sharedTo>
+</ListView>

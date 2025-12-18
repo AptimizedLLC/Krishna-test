@@ -1,0 +1,1350 @@
+<apex:page standardController="Opportunity" extensions="GenerateIntakePDFDocumentController" renderAs="pdf" applyBodyTag="false">
+
+
+    <head>
+        <title></title>
+    </head>
+
+    <body>       
+
+        <strong>
+            <u>
+                <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">Patient Name</span>
+            </u>
+        </strong>
+        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">: {!oppt.Patient_Name__c} &nbsp; &nbsp;
+            <u>
+                <strong>Phone Number</strong>
+            </u>: {!oppt.Patient_Number__c}</span>
+        <br/>
+        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+            <strong>
+                <u>How did you hear about our office?</u>
+            </strong>: {!oppt.LeadSource}&nbsp;</span>
+        <br/>
+        <br/>
+        <strong>
+            <u>
+                <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">Appointment Location</span>
+            </u>
+        </strong>
+        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">: {!locationName} &nbsp; &nbsp;
+            <u>
+                <strong>Appointment Date &#38; Time:</strong>
+            </u>{!appDatetime}</span>
+        <br/>
+        <strong>
+            <u>
+                <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">Provider:</span>
+            </u>
+        </strong>
+        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!providerName} &nbsp; &nbsp;
+            <u>
+                <strong>Intake Completed By :</strong>
+            </u>{!oppt.Intake_Completed_By__r.Name}</span>
+        <br/>
+        
+        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+            <strong>
+                <u>Front Desk Rep :</u>
+            </strong>: {!oppt.Intake_Completed_By_picklist__c}&nbsp;</span>
+        <br/>
+        <hr/>
+
+        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+            <strong>
+                <u>Walk me through your conditions</u>
+            </strong>:</span>
+        <br/>
+
+        <apex:outputPanel layout="block" rendered="{!midbackPain}">
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Body Part</u>
+                </strong>:&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">Mid Back Pain&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>What Side If Applicable?</u>
+                </strong>: </span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How long have you had these symptoms?</u>
+                </strong> {!oppt.How_Long_Mid_Back_Pain__c}&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How would you describe the pain you&apos;re currently experiencing?</u>
+                </strong> {!oppt.Describe_Mid_Back_Pain__c}</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Does this pertain to a legal case?</u>
+                </strong> {!oppt.Related_To_PIP_MVA_Or_WC__c}</span>
+            <br/>
+            <br/>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="block" rendered="{!neckPain}">
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Body Part</u>
+                </strong>:&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">Neck Pain&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>What Side If Applicable?</u>
+                </strong>: {!oppt.Neck_Pain_Location__c}&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How long have you had these symptoms?</u>
+                </strong> {!oppt.How_Long_Neck_Pain__c}&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How would you describe the pain you&apos;re currently experiencing?</u>
+                </strong> {!oppt.Describe_Neck_Pain__c}</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Does this pertain to a legal case?</u>
+                </strong> {!oppt.Related_To_PIP_MVA_Or_WC__c}</span>
+            <br/>
+            <br/>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="block" rendered="{!sciaticaPain}">
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Body Part</u>
+                </strong>:&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">Sciatica Pain&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>What Side If Applicable?</u>
+                </strong>: {!oppt.Sciatica_Pain_Location__c}&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How long have you had these symptoms?</u>
+                </strong> {!oppt.How_Long_Lower_Back_Pain_Sciatica__c}&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How would you describe the pain you&apos;re currently experiencing?</u>
+                </strong> {!oppt.Describe_Lower_Back_Pain_Sciatica__c}</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Does this pertain to a legal case?</u>
+                </strong> {!oppt.Related_To_PIP_MVA_Or_WC__c}</span>
+            <br/>
+            <br/>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="block" rendered="{!legPain}">
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Body Part</u>
+                </strong>:&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">Leg Pain&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>What Side If Applicable?</u>
+                </strong>: {!oppt.Leg_Pain_Location__c} &nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How long have you had these symptoms?</u>
+                </strong> {!oppt.How_Long_Leg_Pain__c}&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How would you describe the pain you&apos;re currently experiencing?</u>
+                </strong> {!oppt.Describe_Leg_Pain__c}</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Does this pertain to a legal case?</u>
+                </strong> {!oppt.Related_To_PIP_MVA_Or_WC__c}</span>
+            <br/>
+            <br/>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="block" rendered="{!kneePain}">
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Body Part</u>
+                </strong>:&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">Knee Pain&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>What Side If Applicable?</u>
+                </strong>: {!oppt.Knee_Pain_Location__c} &nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How long have you had these symptoms?</u>
+                </strong> {!oppt.How_Long_Knee_Pain__c}&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How would you describe the pain you&apos;re currently experiencing?</u>
+                </strong> {!oppt.Describe_Knee_Pain__c}</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Does this pertain to a legal case?</u>
+                </strong> {!oppt.Related_To_PIP_MVA_Or_WC__c}</span>
+            <br/>
+            <br/>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="block" rendered="{!hipPain}">
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Body Part</u>
+                </strong>:&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">Hip Pain&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>What Side If Applicable?</u>
+                </strong>: {!oppt.Hip_Pain_Location__c} &nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How long have you had these symptoms?</u>
+                </strong> {!oppt.How_Long_Hip_Pain__c}&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How would you describe the pain you&apos;re currently experiencing?</u>
+                </strong> {!oppt.Describe_Hip_Pain__c}</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Does this pertain to a legal case?</u>
+                </strong> {!oppt.Related_To_PIP_MVA_Or_WC__c}</span>
+            <br/>
+            <br/>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="block" rendered="{!footAnklePain}">
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Body Part</u>
+                </strong>:&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">Foot/Ankle Pain&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>What Side If Applicable?</u>
+                </strong>: {!oppt.Foot_Ankle_Pain_Location__c} &nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How long have you had these symptoms?</u>
+                </strong> {!oppt.How_Long_Foot_Ankle_Pain__c}&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How would you describe the pain you&apos;re currently experiencing?</u>
+                </strong> {!oppt.Describe_Foot_Ankle_Pain__c}</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Does this pertain to a legal case?</u>
+                </strong> {!oppt.Related_To_PIP_MVA_Or_WC__c}</span>
+            <br/>
+            <br/>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="block" rendered="{!shoulderPain}">
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Body Part</u>
+                </strong>:&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">Shoulder Pain&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>What Side If Applicable?</u>
+                </strong>: {!oppt.Shoulder_Pain_Location__c} &nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How long have you had these symptoms?</u>
+                </strong> {!oppt.How_Long_Shoulder_Pain__c}&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How would you describe the pain you&apos;re currently experiencing?</u>
+                </strong> {!oppt.Describe_Shoulder_Pain__c}</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Does this pertain to a legal case?</u>
+                </strong> {!oppt.Related_To_PIP_MVA_Or_WC__c}</span>
+            <br/>
+            <br/>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="block" rendered="{!elbowPain}">
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Body Part</u>
+                </strong>:&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">Elbow Pain&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>What Side If Applicable?</u>
+                </strong>: {!oppt.Elbow_Pain_Location__c} &nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How long have you had these symptoms?</u>
+                </strong> {!oppt.How_Long_Elbow_Pain__c}&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How would you describe the pain you&apos;re currently experiencing?</u>
+                </strong> {!oppt.Describe_Elbow_Pain__c}</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Does this pertain to a legal case?</u>
+                </strong> {!oppt.Related_To_PIP_MVA_Or_WC__c}</span>
+            <br/>
+            <br/>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="block" rendered="{!wristPain}">
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Body Part</u>
+                </strong>:&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">Wrist/Hand Pain&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>What Side If Applicable?</u>
+                </strong>: {!oppt.Wrist_Hand_Pain_Location__c} &nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How long have you had these symptoms?</u>
+                </strong> {!oppt.How_Long_Wrist_Hand_Pain__c}&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How would you describe the pain you&apos;re currently experiencing?</u>
+                </strong> {!oppt.Describe_Wrist_Hand_Pain__c}</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Does this pertain to a legal case?</u>
+                </strong> {!oppt.Related_To_PIP_MVA_Or_WC__c}</span>
+            <br/>
+            <br/>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="block" rendered="{!scoliosis}">
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Body Part</u>
+                </strong>:&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">Scoliosis Pain&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>What Side If Applicable?</u>
+                </strong>: &nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How long have you had these symptoms?</u>
+                </strong> {!oppt.How_Long_Scoliosis__c}&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How would you describe the pain you&apos;re currently experiencing?</u>
+                </strong> {!oppt.Describe_Scoliosis_Pain__c}</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Does this pertain to a legal case?</u>
+                </strong> {!oppt.Related_To_PIP_MVA_Or_WC__c}</span>
+            <br/>
+            <br/>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="block" rendered="{!headache}">
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Body Part</u>
+                </strong>:&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">Headache/Migraine Pain&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>What Side If Applicable?</u>
+                </strong>: &nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How long have you had these symptoms?</u>
+                </strong> {!oppt.How_Long_Headache_Migraine__c}&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How would you describe the pain you&apos;re currently experiencing?</u>
+                </strong> {!oppt.Describe_Headache_Migraine_Pain__c}</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Does this pertain to a legal case?</u>
+                </strong> {!oppt.Related_To_PIP_MVA_Or_WC__c}</span>
+            <br/>
+            <br/>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="block" rendered="{!vertigo}">
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Body Part</u>
+                </strong>:&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">Vertigo Pain&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>What Side If Applicable?</u>
+                </strong>: &nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How long have you had these symptoms?</u>
+                </strong> {!oppt.How_Long_Vertigo__c}&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How would you describe the pain you&apos;re currently experiencing?</u>
+                </strong> {!oppt.Describe_Vertigo_Pain__c}</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Does this pertain to a legal case?</u>
+                </strong> {!oppt.Related_To_PIP_MVA_Or_WC__c}</span>
+            <br/>
+            <br/>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="block" rendered="{!neurological}">
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Body Part</u>
+                </strong>:&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">Neurological Condition&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>What Side If Applicable?</u>
+                </strong>: &nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How long have you had these symptoms?</u>
+                </strong> {!oppt.How_Long_Neurological_Condition__c}&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How would you describe the pain you&apos;re currently experiencing?</u>
+                </strong> {!oppt.Describe_Neurological_Condition_Pain__c}</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Does this pertain to a legal case?</u>
+                </strong> {!oppt.Related_To_PIP_MVA_Or_WC__c}</span>
+            <br/>
+            <br/>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="block" rendered="{!wellness}">
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Body Part</u>
+                </strong>:&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">Wellness&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>What Side If Applicable?</u>
+                </strong>: &nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How long have you had these symptoms?</u>
+                </strong> {!oppt.How_Long_Wellness_No_Pain__c}&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How would you describe the pain you&apos;re currently experiencing?</u>
+                </strong>
+            </span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Does this pertain to a legal case?</u>
+                </strong> {!oppt.Related_To_PIP_MVA_Or_WC__c}</span>
+            <br/>
+            <br/>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="block" rendered="{!otherCondition}">
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Body Part</u>
+                </strong>:&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">Other Condition&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>What Side If Applicable?</u>
+                </strong>: &nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How long have you had these symptoms?</u>
+                </strong> {!oppt.How_Long_Other_Condition__c}&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How would you describe the pain you&apos;re currently experiencing?</u>
+                </strong>
+            </span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Does this pertain to a legal case?</u>
+                </strong> {!oppt.Related_To_PIP_MVA_Or_WC__c}</span>
+            <br/>
+            <br/>
+        </apex:outputPanel>
+
+        <hr/>
+        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+            <strong>
+                <u>What were you doing when the pain started?</u>
+            </strong>: {!oppt.What_were_you_doing_when_pain_started__c}&nbsp;</span>
+        <br/>
+
+        <apex:outputPanel layout="block" rendered="{!fourCondition}">
+            <hr/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+        </apex:outputPanel>
+
+        <hr/>
+
+        <apex:outputPanel layout="block" rendered="{!IF(oppt.Have_you_had_previous_treatment_NEW__c != '',true, false )}">
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;padding: 3px;">
+                <strong>
+                    <u>Have you had previous treatment?</u>
+                </strong>&nbsp;&nbsp;&nbsp;{!oppt.Have_you_had_previous_treatment_NEW__c}</span>
+            <br/>
+            <apex:outputPanel layout="block" rendered="{!IF(oppt.Have_you_had_previous_treatment_NEW__c = 'Yes',true, false )}">
+                <br/>
+                <table style="width: 100%;border: none;">
+                    <tbody>
+                        <apex:outputPanel layout="block" rendered="{!IF((oppt.Acupuncture_Practice__r.Name != null || oppt.Chiropractic_Practice__r.Name != null),true, false )}">
+                            <tr>
+                                <td style="width: 23.421%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Acupuncture_Practice__r.Name != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                                            <strong>
+                                                <u>Acupuncture Practice</u>
+                                            </strong>
+                                        </span>
+                                    </apex:outputPanel>
+                                </td>
+                                <td style="width: 25.0000%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Acupuncture_Practice__r.Name != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.Acupuncture_Practice__r.Name} </span>
+                                        <br/>
+                                    </apex:outputPanel>
+                                </td>
+                                <td style="width: 25.0000%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Chiropractic_Practice__r.Name != null,true, false )}">
+                                        <span style="font-size: 11px; font-family: Verdana, Geneva, sans-serif;">
+                                            <u>
+                                                <strong>Chiropractic Practice</strong>
+                                            </u>
+                                        </span>
+                                    </apex:outputPanel>
+
+                                </td>
+                                <td style="width: 26.4288%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Chiropractic_Practice__r.Name != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.Chiropractic_Practice__r.Name} </span>
+                                    </apex:outputPanel>
+                                </td>
+                            </tr>
+                        </apex:outputPanel>
+
+                        <apex:outputPanel layout="block" rendered="{!IF((oppt.New_Acupuncture_Practice__c != null || oppt.New_Chiropractic_Practice__c != null),true, false )}">
+                            <tr>
+                                <td style="width: 23.421%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.New_Acupuncture_Practice__c != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                                            <strong>
+                                                <u>New Acupuncture Practice</u>
+                                            </strong>
+                                        </span>
+                                    </apex:outputPanel>
+                                </td>
+                                <td style="width: 25.0000%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.New_Acupuncture_Practice__c != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.New_Acupuncture_Practice__c} </span>
+                                        <br/>
+                                    </apex:outputPanel>
+                                </td>
+                                <td style="width: 25.0000%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.New_Chiropractic_Practice__c != null,true, false )}">
+                                        <span style="font-size: 11px; font-family: Verdana, Geneva, sans-serif;">
+                                            <u>
+                                                <strong> New Chiropractic Practice</strong>
+                                            </u> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+                                    </apex:outputPanel>
+
+                                </td>
+                                <td style="width: 26.4288%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.New_Chiropractic_Practice__c != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.New_Chiropractic_Practice__c} </span>
+                                    </apex:outputPanel>
+                                </td>
+                            </tr>
+                        </apex:outputPanel>
+
+                        <apex:outputPanel layout="block" rendered="{!IF((oppt.Physical_Therapy_Practice__r.Name != null || oppt.Occupational_Therapy_Practice__r.Name != null),true, false )}">
+                            <tr>
+                                <td style="width: 23.421%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Physical_Therapy_Practice__r.Name != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                                            <strong>
+                                                <u>Physical Therapy Practice</u>
+                                            </strong>
+                                        </span>
+                                    </apex:outputPanel>
+                                </td>
+                                <td style="width: 25.0000%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Physical_Therapy_Practice__r.Name != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.Physical_Therapy_Practice__r.Name} </span>
+                                        <br/>
+                                    </apex:outputPanel>
+                                </td>
+                                <td style="width: 25.0000%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Occupational_Therapy_Practice__r.Name != null,true, false )}">
+                                        <span style="font-size: 11px; font-family: Verdana, Geneva, sans-serif;">
+                                            <u>
+                                                <strong>Occupational Therapy Practice</strong>
+                                            </u>
+                                        </span>
+                                    </apex:outputPanel>
+
+                                </td>
+                                <td style="width: 26.4288%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Occupational_Therapy_Practice__r.Name != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.Occupational_Therapy_Practice__r.Name} </span>
+                                    </apex:outputPanel>
+                                </td>
+                            </tr>
+                        </apex:outputPanel>
+
+                        <apex:outputPanel layout="block" rendered="{!IF((oppt.New_Physical_Therapy_Practice__c != null || oppt.New_Occupational_Therapy_Practice__c != null),true, false )}">
+                            <tr>
+                                <td style="width: 23.421%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.New_Physical_Therapy_Practice__c != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                                            <strong>
+                                                <u> New Physical Therapy Practice</u>
+                                            </strong>
+                                        </span>
+                                    </apex:outputPanel>
+                                </td>
+                                <td style="width: 25.0000%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.New_Physical_Therapy_Practice__c != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.New_Physical_Therapy_Practice__c} </span>
+                                        <br/>
+                                    </apex:outputPanel>
+                                </td>
+                                <td style="width: 25.0000%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.New_Occupational_Therapy_Practice__c != null,true, false )}">
+                                        <span style="font-size: 11px; font-family: Verdana, Geneva, sans-serif;">
+                                            <u>
+                                                <strong>New Occupational Therapy Practice</strong>
+                                            </u>
+                                        </span>
+                                    </apex:outputPanel>
+
+                                </td>
+                                <td style="width: 26.4288%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.New_Occupational_Therapy_Practice__c != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.New_Occupational_Therapy_Practice__c} </span>
+                                    </apex:outputPanel>
+                                </td>
+                            </tr>
+                        </apex:outputPanel>
+
+                        <apex:outputPanel layout="block" rendered="{!IF((oppt.Orthopedic_Spine_Practice__r.Name != null || oppt.Ophthalmology_Practice__r.Name != null),true, false )}">
+                            <tr>
+                                <td style="width: 23.421%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Orthopedic_Spine_Practice__r.Name != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                                            <strong>
+                                                <u> Orthopedic Spine Practicectice</u>
+                                            </strong>
+                                        </span>
+                                    </apex:outputPanel>
+                                </td>
+                                <td style="width: 25.0000%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Orthopedic_Spine_Practice__r.Name != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.Orthopedic_Spine_Practice__r.Name} </span>
+                                        <br/>
+                                    </apex:outputPanel>
+                                </td>
+                                <td style="width: 25.0000%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Ophthalmology_Practice__r.Name != null,true, false )}">
+                                        <span style="font-size: 11px; font-family: Verdana, Geneva, sans-serif;">
+                                            <u>
+                                                <strong>Ophthalmology Practice</strong>
+                                            </u>
+                                        </span>
+                                    </apex:outputPanel>
+
+                                </td>
+                                <td style="width: 26.4288%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Ophthalmology_Practice__r.Name != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.Ophthalmology_Practice__r.Name} </span>
+                                    </apex:outputPanel>
+                                </td>
+                            </tr>
+                        </apex:outputPanel>
+
+                        <apex:outputPanel layout="block" rendered="{!IF((oppt.New_Orthopedic_Spine_Practice__c != null || oppt.New_Ophthalmology_Practice__c != null),true, false )}">
+                            <tr>
+                                <td style="width: 23.421%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.New_Orthopedic_Spine_Practice__c != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                                            <strong>
+                                                <u> New Orthopedic Spine Practice</u>
+                                            </strong>
+                                        </span>
+                                    </apex:outputPanel>
+                                </td>
+                                <td style="width: 25.0000%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.New_Orthopedic_Spine_Practice__c != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.New_Orthopedic_Spine_Practice__c} </span>
+                                        <br/>
+                                    </apex:outputPanel>
+                                </td>
+                                <td style="width: 25.0000%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.New_Ophthalmology_Practice__c != null,true, false )}">
+                                        <span style="font-size: 11px; font-family: Verdana, Geneva, sans-serif;">
+                                            <u>
+                                                <strong>Ophthalmology Practice</strong>
+                                            </u>
+                                        </span>
+                                    </apex:outputPanel>
+
+                                </td>
+                                <td style="width: 26.4288%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.New_Ophthalmology_Practice__c != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.New_Ophthalmology_Practice__c} </span>
+                                    </apex:outputPanel>
+                                </td>
+                            </tr>
+                        </apex:outputPanel>
+
+                        <apex:outputPanel layout="block" rendered="{!IF((oppt.ENT_Allergy_Practice__r.Name != null || oppt.Neurology_Practice__r.Name != null),true, false )}">
+                            <tr>
+                                <td style="width: 23.421%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.ENT_Allergy_Practice__r.Name != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                                            <strong>
+                                                <u> ENT/Allergy Practice </u>
+                                            </strong>
+                                        </span>
+                                    </apex:outputPanel>
+                                </td>
+                                <td style="width: 25.0000%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.ENT_Allergy_Practice__r.Name != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.ENT_Allergy_Practice__r.Name} </span>
+                                        <br/>
+                                    </apex:outputPanel>
+                                </td>
+                                <td style="width: 25.0000%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Neurology_Practice__r.Name != null,true, false )}">
+                                        <span style="font-size: 11px; font-family: Verdana, Geneva, sans-serif;">
+                                            <u>
+                                                <strong>Neurology Practice</strong>
+                                            </u>
+                                        </span>
+                                    </apex:outputPanel>
+
+                                </td>
+                                <td style="width: 26.4288%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Neurology_Practice__r.Name != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.Neurology_Practice__r.Name} </span>
+                                    </apex:outputPanel>
+                                </td>
+                            </tr>
+                        </apex:outputPanel>
+
+                        <apex:outputPanel layout="block" rendered="{!IF((oppt.New_ENT_Allergy_Practice__c != null || oppt.New_Neurology_Practice__c != null),true, false )}">
+                            <tr>
+                                <td style="width: 23.421%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.New_ENT_Allergy_Practice__c != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                                            <strong>
+                                                <u> New ENT Allergy Practice </u>
+                                            </strong>
+                                        </span>
+                                    </apex:outputPanel>
+                                </td>
+                                <td style="width: 25.0000%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.New_ENT_Allergy_Practice__c != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.New_ENT_Allergy_Practice__c} </span>
+                                        <br/>
+                                    </apex:outputPanel>
+                                </td>
+                                <td style="width: 25.0000%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.New_Neurology_Practice__c != null,true, false )}">
+                                        <span style="font-size: 11px; font-family: Verdana, Geneva, sans-serif;">
+                                            <u>
+                                                <strong> New Neurology Practice</strong>
+                                            </u>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>
+                                    </apex:outputPanel>
+
+                                </td>
+                                <td style="width: 26.4288%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.New_Neurology_Practice__c != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.New_Neurology_Practice__c} </span>
+                                    </apex:outputPanel>
+                                </td>
+                            </tr>
+                        </apex:outputPanel>
+
+                        <apex:outputPanel layout="block" rendered="{!IF((oppt.Orthopedic_Extremity_Practice__r.Name != null || oppt.Pain_Management_Practice__r.Name != null),true, false )}">
+                            <tr>
+                                <td style="width: 23.421%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Orthopedic_Extremity_Practice__r.Name != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                                            <strong>
+                                                <u> Orthopedic Extremity Practice </u>
+                                            </strong>
+                                        </span>
+                                    </apex:outputPanel>
+                                </td>
+                                <td style="width: 25.0000%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Orthopedic_Extremity_Practice__r.Name != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.Orthopedic_Extremity_Practice__r.Name} </span>
+                                        <br/>
+                                    </apex:outputPanel>
+                                </td>
+                                <td style="width: 25.0000%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Pain_Management_Practice__r.Name != null,true, false )}">
+                                        <span style="font-size: 11px; font-family: Verdana, Geneva, sans-serif;">
+                                            <u>
+                                                <strong> Pain Management Practice</strong>
+                                            </u>
+                                        </span>
+                                    </apex:outputPanel>
+
+                                </td>
+                                <td style="width: 26.4288%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Pain_Management_Practice__r.Name != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.Pain_Management_Practice__r.Name} </span>
+                                    </apex:outputPanel>
+                                </td>
+                            </tr>
+                        </apex:outputPanel>
+
+                        <apex:outputPanel layout="block" rendered="{!IF((oppt.New_Orthopedic_Extremity_Practice__c != null || oppt.New_Pain_Management_Practice__c != null),true, false )}">
+                            <tr>
+                                <td style="width: 23.421%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.New_Orthopedic_Extremity_Practice__c != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                                            <strong>
+                                                <u> New Orthopedic Extremity Practice </u>
+                                            </strong>
+                                        </span>
+                                    </apex:outputPanel>
+                                </td>
+                                <td style="width: 25.0000%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.New_Orthopedic_Extremity_Practice__c != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.New_Orthopedic_Extremity_Practice__c} </span>
+                                        <br/>
+                                    </apex:outputPanel>
+                                </td>
+                                <td style="width: 25.0000%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.New_Pain_Management_Practice__c != null,true, false )}">
+                                        <span style="font-size: 11px; font-family: Verdana, Geneva, sans-serif;">
+                                            <u>
+                                                <strong> New Pain Management Practice </strong>
+                                            </u>
+                                        </span>
+                                    </apex:outputPanel>
+
+                                </td>
+                                <td style="width: 26.4288%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.New_Pain_Management_Practice__c != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.New_Pain_Management_Practice__c} </span>
+                                    </apex:outputPanel>
+                                </td>
+                            </tr>
+                        </apex:outputPanel>
+
+                        <apex:outputPanel layout="block" rendered="{!IF((oppt.Dental_Practice__r.Name != null || oppt.Primary_Care_Physician_Practice__r.Name != null),true, false )}">
+                            <tr>
+                                <td style="width: 23.421%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Dental_Practice__r.Name != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                                            <strong>
+                                                <u> Dental Practice </u>
+                                            </strong>
+                                        </span>
+                                    </apex:outputPanel>
+                                </td>
+                                <td style="width: 25.0000%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Dental_Practice__r.Name != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.Dental_Practice__r.Name} </span>
+                                        <br/>
+                                    </apex:outputPanel>
+                                </td>
+                                <td style="width: 25.0000%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Primary_Care_Physician_Practice__r.Name != null,true, false )}">
+                                        <span style="font-size: 11px; font-family: Verdana, Geneva, sans-serif;">
+                                            <u>
+                                                <strong> New Pain Management Practice </strong>
+                                            </u>
+                                        </span>
+                                    </apex:outputPanel>
+
+                                </td>
+                                <td style="width: 26.4288%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Primary_Care_Physician_Practice__r.Name != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.Primary_Care_Physician_Practice__r.Name} </span>
+                                    </apex:outputPanel>
+                                </td>
+                            </tr>
+                        </apex:outputPanel>
+
+                        <apex:outputPanel layout="block" rendered="{!IF((oppt.MRI_CT_Facility__r.Name != null || oppt.X_Ray_Facility__r.Name != null),true, false )}">
+
+                        </apex:outputPanel>
+
+                        <apex:outputPanel layout="block" rendered="{!IF((oppt.Urgent_Care_Facility__r.Name != null || oppt.Hospital__r.Name != null),true, false )}">
+                            <tr>
+                                <td style="width: 23.421%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Urgent_Care_Facility__r.Name != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                                            <strong>
+                                                <u> Urgent Care Facility </u>
+                                            </strong>
+                                        </span>
+                                    </apex:outputPanel>
+                                </td>
+                                <td style="width: 25.0000%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Urgent_Care_Facility__r.Name != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.Urgent_Care_Facility__r.Name} </span>
+                                        <br/>
+                                    </apex:outputPanel>
+                                </td>
+                                <td style="width: 25.0000%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Hospital__r.Name != null,true, false )}">
+                                        <span style="font-size: 11px; font-family: Verdana, Geneva, sans-serif;">
+                                            <u>
+                                                <strong> Hospital </strong>
+                                            </u>
+                                        </span>
+                                    </apex:outputPanel>
+
+                                </td>
+                                <td style="width: 26.4288%;">
+                                    <apex:outputPanel layout="block" rendered="{!IF(oppt.Hospital__r.Name != null,true, false )}">
+                                        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.Hospital__r.Name} </span>
+                                    </apex:outputPanel>
+                                </td>
+                            </tr>
+                        </apex:outputPanel>
+
+
+                    </tbody>
+                </table>
+            </apex:outputPanel>
+        </apex:outputPanel>
+       <br/>
+        <br/>
+        <hr/>
+
+        <tr>
+            <td style="width: 23.421%;">
+               <!-- <apex:outputPanel layout="block" rendered="{!IF(oppt.MRI_CT_Facility__r.Name != null,true, false )}">-->
+                    <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                        <strong>
+                            <u> MRI/CT Facility </u>
+                        </strong>
+                    </span>
+              <!--  </apex:outputPanel>-->
+            </td>
+            <td style="width: 25.0000%;">
+                <apex:outputPanel layout="block" rendered="{!IF(oppt.MRI_CT_Facility__r.Name != null,true, false )}">
+                    <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.MRI_CT_Facility__r.Name} </span>
+                    <br/>
+                </apex:outputPanel>
+            </td>
+            <td style="width: 25.0000%;">
+              <!--    <apex:outputPanel layout="block" rendered="{!IF(oppt.X_Ray_Facility__r.Name != null,true, false )}">-->
+                    <span style="font-size: 11px; font-family: Verdana, Geneva, sans-serif;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp;
+                        <u>
+                            <strong> X-Ray Facility </strong>
+                        </u>
+                    </span>
+               <!--   </apex:outputPanel>-->
+
+            </td>
+            <td style="width: 26.4288%;">
+                <apex:outputPanel layout="block" rendered="{!IF(oppt.X_Ray_Facility__r.Name != null,true, false )}">
+                    <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">{!oppt.X_Ray_Facility__r.Name} </span>
+                </apex:outputPanel>
+            </td>
+        </tr>
+         <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;text-align:left;">
+                        <strong>
+                            <u> New MRI/CT Facility: </u>
+                        </strong>
+                    </span>
+            
+                    <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;text-align:left;">{!oppt.New_MRI_CT_Facility__c}&nbsp; &nbsp; 
+                        <u>
+                            <strong> New X-Ray Facility:  </strong>
+                        </u>
+                    </span>
+           
+                    <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;text-align:left;">{!oppt.New_X_Ray_Facility__c} </span>
+            
+        <hr/>
+        
+       
+        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+            <strong>
+                <u>Home Address:</u>
+            </strong> {!oppt.Patient_Address__c} &nbsp;</span>
+        <br/>
+        <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+            <strong>
+                <u>DOB:</u>
+            </strong> {!dobPatient} &nbsp;&nbsp;&nbsp;
+            <strong>
+                <u>Email:</u>
+            </strong> {!oppt.Account.PersonEmail}</span>
+        <!--   <br/>-->
+        <hr/>
+
+        <apex:outputPanel layout="block" rendered="{!twoCondition}">
+        </apex:outputPanel>
+      <br/>
+       
+        <apex:outputpanel rendered="{!isCasePresent}">
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Insurance Company:</u>
+                </strong> {!cs.Primary_Insurance__c}</span>
+            <br/>
+            <apex:outputPanel rendered="{!otherPrimaryInsurance}">
+                <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                    <strong>
+                        <u>Other Primary Insurance Company:</u>
+                    </strong>{!cs.Other_Primary_Insurance_Company__c} </span>
+                <br/>
+                <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                    <strong>
+                        <u>Other Relationship Detail:</u>
+                    </strong>{!cs.Other_Relationship_Detail__c} </span>
+                <br/>
+            </apex:outputPanel>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>ID#:</u>
+                </strong>&nbsp; {!cs.Member_ID__c}</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Insurance Phone #:</u>
+                </strong> {!cs.Primary_Insurance_Phone__c}
+                <strong>
+                    <u>Group #:</u>
+                </strong> {!cs.Group_Number__c}&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Primary Insured:</u>
+                </strong> {!cs.Primary_Subscriber_Relationship__c}
+                <strong>
+                    <u>Name of Primary (if not self):</u>
+                </strong>&nbsp;{!cs.Primary_Subscriber_Name__c}
+                <strong>
+                    <u>DOB of Primary Insured:</u>
+                </strong>&nbsp;{!dobPrimary}&nbsp;</span>
+            <br/>
+
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Primary Insured (secondary):</u>
+                </strong> &nbsp;{!cs.Secondary_Subscriber_Relationship__c}
+                <strong>
+                    <u>Name of Primary (secondary):</u>
+                </strong>&nbsp;{!cs.Secondary_Subscriber_Name__c}
+                <strong>
+                    <u>DOB of Primary Insured (secondary):</u>
+                </strong>&nbsp;{!dobSecondary}</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Was Payment Arrangement Discussed?</u>
+                </strong> {!cs.Was_Payment_Arrangement_Discussed__c}&nbsp;</span>
+           
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">&nbsp;</span>
+            <br/>
+            <hr/>
+
+            <apex:outputPanel layout="block" rendered="{!oneCondition}">
+                <br/>
+                <br/>
+                <hr/>
+            </apex:outputPanel>
+
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Secondary Insurance Company:</u>
+                </strong>&nbsp; {!cs.Secondary_Insurance__c} &nbsp;
+                <strong>
+                    <u>ID#:</u>
+                </strong>&nbsp;{!cs.Secondary_Member_ID__c}</span>
+            <br/>
+            <apex:outputPanel rendered="{!otherSecondaryInsurance}">
+                <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                    <strong>
+                        <u>Other Secondary Insurance Company :</u>
+                    </strong>{!cs.Other_Secondary_Insurance_Company__c} </span>
+                <br/>
+                <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                    <strong>
+                        <u>Other Secondary Relationship Detail :</u>
+                    </strong>{!cs.Other_Secondary_Relationship_Detail__c} </span>
+                <br/>
+            </apex:outputPanel>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Insurance Phone #:</u>
+                </strong>&nbsp; {!cs.Secondary_Insurance_Phone__c}
+                <strong>
+                    <u>Group #:</u>
+                </strong>&nbsp; {!cs.Secondary_Group_Number__c}&nbsp;</span>
+            <br/>
+        </apex:outputpanel>
+
+        <apex:outputpanel rendered="{!!isCasePresent}">
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Insurance Company:</u>
+                </strong>
+            </span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>ID#:</u>
+                </strong>&nbsp; </span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Insurance Phone #:</u>
+                </strong>
+                <strong>
+                    <u>Group #:</u>
+                </strong> &nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Primary Insured:</u>
+                </strong>
+                <strong>
+                    <u>Name of Primary (if not self):</u>
+                </strong>&nbsp;
+                <strong>
+                    <u>DOB of Primary Insured:</u>
+                </strong>&nbsp;&nbsp;</span>
+            <br/>
+
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Primary Insured (secondary):</u>
+                </strong> &nbsp;
+                <strong>
+                    <u>Name of Primary (secondary):</u>
+                </strong>&nbsp;
+                <strong>
+                    <u>DOB of Primary Insured (secondary):</u>
+                </strong>&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Was Payment Arrangement Discussed?</u>
+                </strong> &nbsp;</span>
+          
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">&nbsp;</span>
+            <br/>
+            <hr/>
+
+
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Secondary Insurance Company:</u>
+                </strong>&nbsp; &nbsp;
+                <strong>
+                    <u>ID#:</u>
+                </strong>&nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Insurance Phone #:</u>
+                </strong>&nbsp;
+                <strong>
+                    <u>Group #:</u>
+                </strong>&nbsp; &nbsp;</span>
+        </apex:outputpanel>
+
+        <br/>
+        <br/>
+        <hr/>
+        
+  <apex:outputPanel layout="block">
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>PIP or W/C Insurance:</u>
+                </strong>{!cs.PIP_WC_or_School_Insurance__c} </span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Claim Number:</u>
+                </strong>{!cs.Claim_Number__c} </span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Adjuster Name:</u>
+                </strong>{!cs.Adjuster__c} </span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Adjuster Phone no.:</u>
+                </strong>{!cs.Adjuster_Phone__c} </span>
+            <br/>
+            <hr/>
+        </apex:outputPanel>
+        
+        <apex:outputPanel layout="block">
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Personal Injury Attorney:</u>
+                </strong>{!oppt.Personal_Injury_Attorney__r.Name} </span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Slip &nbsp; Fall Location:</u>
+                </strong>{!oppt.Slip_Fall_Location__c} </span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>Date of Accident:</u>
+                </strong>
+                <strong>
+                    <u>{!dateofaccident}</u>
+                </strong> &nbsp;</span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>State Where Accident Occurred:</u>
+                </strong>{!oppt.State_Where_Accident_Occurred__c} </span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>New Personal Injury Attorney:</u>
+                </strong>{!oppt.New_Personal_Injury_Attorney__c}</span>
+            <br/>
+            <hr/>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="block">
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>WC Attorney:</u>
+                </strong>{!oppt.WC_Attorney__R.Name} </span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>How WC Accident Happened:</u>
+                </strong>{!oppt.How_WC_Accident_Happened__c} </span>
+            <br/>
+            <span style="font-family: Verdana, Geneva, sans-serif; font-size: 11px;">
+                <strong>
+                    <u>New WC Attorney:</u>
+                </strong>
+                <strong>
+                    <u>{!oppt.New_WC_Attorney__c}</u>
+                </strong> &nbsp;</span>
+            <br/>
+
+            <hr/>
+        </apex:outputPanel>
+
+        <p>
+            <br/>
+        </p>
+        <p>
+            <br/>
+        </p>
+        <p>
+            <br/>
+        </p>
+
+    </body>
+
+</apex:page>

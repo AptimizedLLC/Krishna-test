@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Appointments_Requiring_Precert</fullName>
+    <booleanFilter>1 AND 3 AND NOT(2)</booleanFilter>
+    <columns>NAME</columns>
+    <columns>Patient_s_Currently_Assigned_Staff__c</columns>
+    <columns>Provider_Name__c</columns>
+    <columns>Enter_FlowSheet_Link__c</columns>
+    <columns>Visit_Reason__c</columns>
+    <columns>Status__c</columns>
+    <columns>Location_Name__c</columns>
+    <columns>Appointment_Date_Time__c</columns>
+    <columns>Precert_Appointment__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Precert_Appointment__c</field>
+        <operation>equals</operation>
+        <value>Precert Appointment Required</value>
+    </filters>
+    <filters>
+        <field>Visit_Reason__c</field>
+        <operation>contains</operation>
+        <value>PRECERT</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Pending</value>
+    </filters>
+    <label>Appointments Requiring Precert</label>
+</ListView>

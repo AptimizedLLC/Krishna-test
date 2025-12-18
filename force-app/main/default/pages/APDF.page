@@ -1,0 +1,85 @@
+<apex:page standardController="NPP__c" extensions="GenerateNPPIntakePDFDocumentController" renderAs="pdf" applyBodyTag="false">
+    
+<head>
+    <style>
+      .contentWrap h3 {
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: #f00;
+}
+.contentWrap {
+    margin: 10px 30px;
+}
+span.bStrong {
+    font-weight: 600;
+    padding-right: 5px;
+}
+p {
+    line-height: 22px;
+}
+img {
+    border: 1px solid #000;
+    margin-top: 10px;
+}
+    </style>
+  </head>
+<body>
+    <div>
+            <p><img src="https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003pCyH&oid=00DU8000003DPQH&lastMod=1715318986000"  style="width: 700px;"/></p>
+	</div>
+    <div>
+        <div class="userFormWrap">
+          <div class="contentWrap">
+            <h3>Auto Policy Declaration Form</h3>
+            <div class="form-container">
+              <form>
+                <div class="pdf-content consent-content14">
+                  <div class="form-element">
+                    <div>
+                      <p>
+                        To whom it may concern, I &nbsp; <apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/> , give the
+                        right to verbally and/or hard copy release of my
+                        insurance policy max limits as well as the exhausted
+                        amounts to All Be Healthy LLC dba&nbsp; Alliance
+                        Orthopedics. Kindly fax a hard copy of the named
+                        patients Declaration sheet and accident report to this
+                        office as soon as possible. Thank you for your
+                        anticipated cooperation in this matter.
+                      </p>
+                    </div>
+                  </div>
+                  
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="formCheck">
+              <div class="patientNameDate">
+<div><label>Patient Name</label></div>
+                      <div class="floatLeft"><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></div>
+<div><label>Date</label></div>
+                      <div class="floatRight"><apex:outputText value="{0,date,MM/dd/yyyy}"><apex:param value="{!NPP__c.CreatedDate}" /></apex:outputText></div>
+                    </div>
+                 
+                  <div class="form-element">
+                    <div><p>Patient Signature</p></div>
+
+                      <div>
+                          <apex:outputText value="{!oppt.HQ_Signature__c}" escape="false" />
+                          
+                      </div>
+                  </div>
+            <div>
+              <img src='https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003gvo9&oid=00DU8000003DPQH&lastMod=1714988677000' style="width: 15px; Height:15px"/><label
+                >By checking the box I acknowledge and agree to conduct business
+                electronically, that I have read the terms of the above section,
+                and that I agree to insert my electronic signature as set forth
+                below indicating my consent to terms set forth on this page.
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+</apex:page>

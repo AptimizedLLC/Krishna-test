@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Arrangement_Score__c</fullName>
+    <externalId>false</externalId>
+    <formula>Effectively_Explained_OON_benefits__c  +  Explained_Patient_Process_at_NJSW__c  +  Leveraged_Benchmarks_DxTests_Equiptment__c +  Educated_Patient_of_Risk_Condition_s__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Payment Arrangement Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

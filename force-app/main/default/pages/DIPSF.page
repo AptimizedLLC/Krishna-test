@@ -1,0 +1,374 @@
+<apex:page standardController="NPP__c" extensions="GenerateNPPIntakePDFDocumentController" renderAs="pdf" applyBodyTag="false">
+    
+<head>
+    <style>
+      .contentWrap h3 {
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: #f00;
+}
+.contentWrap {
+    margin: 10px 30px;
+}
+span.bStrong {
+    font-weight: 600;
+    padding-right: 5px;
+}
+p {
+    line-height: 22px;
+}
+img {
+    border: 1px solid #000;
+    margin-top: 10px;
+}
+    </style>
+  </head>
+<body>
+<div>
+            <p><img src="https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003pCyH&oid=00Df2000001HEGJ&lastMod=1715318986000"  style="width: 700px;"/></p>
+</div>
+<div>
+        <div class="userFormWrap">
+          <div class="contentWrap">
+            <h3>Disclosure Of Insurance Participation Status And Fees</h3>
+            <div class="form-container">
+              <form>
+                <div class="pdf-content consent-content7">
+                  <div class="form-element">
+                    <div>
+                      <p>
+                        The laws of the State of New Jersey and New Jersey
+                        Department of Health requires that a healthcare
+                        professional inform patients of the health care plans in
+                        which the professional participates in and the
+                        facilities with which the professional is affiliated
+                        with. In compliance with these laws, the undersigned
+                        patient is hereby notified, in writing, that:
+                      </p>
+                      <p>Health Plans Our Practice Participates With:</p>
+                      <ul>
+                        <li>Novitas Solutions Medicare</li>
+                        <li>MedRisk EPO</li>
+                      </ul>
+                      <p>
+                        If the patient’s health plan is not listed above, the
+                        physician and/or facilities providing services do not
+                        participate with the patient’s health plan. In order to
+                        proceed with any health care services, the patient
+                        hereby acknowledges and agrees:
+                      </p>
+                      <p>
+                        Facilities Our Practice is Associated with and
+                        Addresses:
+                      </p>
+                      <ul>
+                        <li>
+                          Accelerated Surgical Center – 680 Broadway, Suite 203,
+                          Paterson, NJ 07514
+                        </li>
+                        <li>
+                          Allegra Arthritis Associates – 282 Broad Street, Red
+                          Bank, NJ 07701
+                        </li>
+                        <li>
+                          Alliance Medical DME LLC – 300 Perrine Road, Suite
+                          330, Old Bridge NJ Panther 08857
+                        </li>
+                        <li>
+                          Ambulatory Surgical Center at Old Bridge – 400 Perrine
+                          Road, Suite 408, Old Bridge 08857
+                        </li>
+                        <li>
+                          Ani Orthopedics – 300 Perrine Road, suite 301, Old
+                          Bridge, NJ 08857
+                        </li>
+                        <li>
+                          ASC OB Anesthesia Group –&nbsp; 441 Central Park Ave,
+                          #1370 Scarsdale, NY 10583-1016
+                        </li>
+                        <li>
+                          Barnabas Medical Center – 94 Old Short Hills Rd,
+                          Livingston, NJ 07039
+                        </li>
+                        <li>
+                          Clara Maass Medical Center - 1 Clara Maass Dr,
+                          Belleville, NJ 07109
+                        </li>
+                        <li>
+                          Comprehensive Medical Care - 72 NJ - 27 Edison, NJ
+                          08820
+                        </li>
+                        <li>
+                          Dr. Arun Kandra - 501 Omni Dr, Hillsborough Township,
+                          NJ 08844
+                        </li>
+                        <li>
+                          Dr. Brian Skovrlj - 275 Forest Ave #120 Paramus, NJ
+                          07652
+                        </li>
+                        <li>
+                          Dr. Christine Keane – 220 Jack Martin Blvd, Brick, NJ
+                          08724
+                        </li>
+                        <li>
+                          Dr. Douglas Spiel - 222 Schanck Rd # 102, Freehold, NJ
+                          07728
+                        </li>
+                        <li>
+                          Dr Jonathan Arad&nbsp; - 1053 Sawmill River Road
+                          Ardsley, NY 10502&nbsp;
+                        </li>
+                        <li>
+                          Dr. Hadong Song – 2698 County Road 516 Old Bridge, NJ
+                          08857
+                        </li>
+                        <li>
+                          Dr. Rovner Progressive Spine &amp; Orthopedics - 440
+                          Curry Ave, Englewood NJ 07631
+                        </li>
+                        <li>
+                          Dr Ramzan Zakir - 317 George Street Suite 440&nbsp;
+                          New Brunswick NJ 08901
+                        </li>
+                        <li>
+                          Dr Scott Sundick - 433 Central Ave, Westfield NJ,
+                          07090&nbsp;
+                        </li>
+                        <li>
+                          Dr. Shaiu VIP Medical Wellness- 146 Rt 17 N, 3rd
+                          Floor, Hackensack, NJ 07601
+                        </li>
+                        <li>
+                          Dr. Stuart Ort – 3663 Route 9 North, Suite 102, Old
+                          Bridge, NJ 08857
+                        </li>
+                        <li>
+                          Dr Tamir Tawfik MD - Futura Health, LLC&nbsp;- 825
+                          Riverview Dr Totowa, NJ 07512
+                        </li>
+                        <li>
+                          EBI East Brunswick Imaging - 647 NJ - 18 S Unit W,
+                          East Brunswick, NJ 08816&nbsp;
+                        </li>
+                        <li>
+                          Family Foot and Ankle Center of Central Jersey – 600
+                          Bridge Plaza Manalapan 07726
+                        </li>
+                        <li>
+                          FNL Medical Supply- 497 New Brunswick Ave, Fords, NJ
+                          08863
+                        </li>
+                        <li>
+                          Hudson Regional Hospital – 55 Meadowlands Pkwy,
+                          Secaucus, NJ 07094
+                        </li>
+                        <li>
+                          Image Care Radiology - 530 Green St Woodbridge Twp NJ
+                          08830&nbsp;
+                        </li>
+                        <li>
+                          Manalapan Surgery Center – 50 Franklin Lane,
+                          Manalapan, NJ 07728
+                        </li>
+                        <li>
+                          McBride Surgical Center - 1167 McBride Ave, Woodland
+                          Park, NJ 07424
+                        </li>
+                        <li>
+                          Medical Supplies – 405 N Reo St. Suite 100 Tampa FL
+                          33609
+                        </li>
+                        <li>
+                          Menlo Park Surgery Center – 10 Parsonage Rd, Suite
+                          2014, Edison, NJ 08837
+                        </li>
+                        <li>
+                          New Horizon Surgical Center – 680 Broadway, Suite 201,
+                          Paterson, NJ 07514
+                        </li>
+                        <li>
+                          Old Bridge Spine and Wellness Center - 144 Route 34,
+                          Matawan, NJ, 07747
+                        </li>
+                        <li>
+                          Olena Medical 143 Anderson Ave, Floor 1, Fairview, NJ
+                          07022
+                        </li>
+                        <li>
+                          Orthopedic Associates – 2 Worlds Fair Drive Somerset,
+                          NJ, 08873
+                        </li>
+                        <li>
+                          Orthopedics – 901 W. Main Street, Bldg A Ste 265
+                          Freehold, NJ 07728 IGEA
+                        </li>
+                        <li>
+                          Padmarekha Rao – 141 Woodward Drive, Old Bridge, NJ
+                          08857
+                        </li>
+                        <li>
+                          Palisades Medical Center – 7600 River Rd, North
+                          Bergen, NJ 07047
+                        </li>
+                        <li>
+                          Premier Pain Institute Multiple Locations in NJ, NJ,
+                          &amp; CT
+                        </li>
+                        <li>
+                          Quality Laboratory Service - 2651 E 14th St, Brooklyn,
+                          NY 11235
+                        </li>
+                        <li>
+                          Riverview Foot and Ankle Assoc. – 509 Stillwells
+                          Corner Road, Freehold NJ 07724
+                        </li>
+                        <li>
+                          Samra Group – 300 Perrine Road, suite 333, Old Bridge
+                          NJ 08857
+                        </li>
+                        <li>
+                          Team MD Ambulatory Surgery Center - 1167 McBride Ave,
+                          Woodland Park NJ, 07424
+                        </li>
+                        <li>
+                          The InstaDoc Urgent Care of Marlboro – 167 US 9 #5,
+                          Englishtown, NJ 07726
+                        </li>
+                        <li>
+                          Vascular &amp; Interventional Specialists, PC – 300
+                          Perrine Road, Suite 301, Old Bridge 08857
+                        </li>
+                      </ul>
+                      <p>
+                        The patient is hereby notified and understands that
+                        these assistants, anesthesia, radiology, laboratory
+                        and/or pathology services may not participate with the
+                        patient’s health insurance plan and may be “out-of-
+                        network” providers subject to the following disclosures.
+                        Patients should inquire with each provider to determine
+                        their participation status and/or contact the patient’s
+                        health plan or administrator for further consultation on
+                        costs associated with these services.
+                      </p>
+                      <p>
+                        <strong>Mandatory Disclosures</strong>
+                      </p>
+                      <p>
+                        1) I understand that the health care professional that I
+                        am seeking healthcare services from is “out-of-network”
+                        with and does not participate with my health insurance
+                        plan.
+                      </p>
+                      <p>
+                        <strong><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></strong>
+                      </p>
+                      <p>
+                        2) I understand that the amount or estimated amount the
+                        health care professional will bill me or the covered
+                        person for the services is available upon request.
+                      </p>
+                      <p>
+                        <strong><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></strong>
+                      </p>
+                      <p>
+                        3) I understand that I may request from the provider an
+                        estimated charge for the services proposed and the
+                        Current Procedural Terminology (CPT) codes associated
+                        with that service, and the health care professional
+                        shall disclose to me, the patient, in writing, the
+                        amount or estimated amount that the health care
+                        professional will bill the covered person for the
+                        service, and the CPT codes associated with that service,
+                        absent unforeseen medical circumstances that may arise
+                        when the health care service is provided.
+                      </p>
+                      <p>
+                        <strong><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></strong>
+                      </p>
+                      <p>
+                        4) I understand that I will have a financial
+                        responsibility applicable to health care services
+                        provided by an out-of-network professional, in excess of
+                        my in-network copayment, deductible, or coinsurance, and
+                        that I may be responsible for any costs in excess of
+                        those allowed by my health benefits plan.
+                      </p>
+                      <p>
+                        <strong><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></strong>
+                      </p>
+                      <p>
+                        5) I have been advised that I should contact my health
+                        insurance plan or administrator for further consultation
+                        on those costs.
+                      </p>
+                      <p>
+                        <strong><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></strong>
+                      </p>
+                      <p>
+                        The health care provider and patient both acknowledge
+                        and agree that receipt or acknowledgement by patient of
+                        these disclosures shall not waive or otherwise affect
+                        any protection under existing statutes or regulations
+                        regarding in-network health benefits plan coverage
+                        available to the patient under the law. The health care
+                        provider further acknowledges and agrees that, if,
+                        between the time these disclosures are made to the
+                        patient and the time the health care service takes
+                        place, the network status of any of the health care
+                        professionals changes as it relates to the patient’s
+                        health benefits plan, the professional shall notify the
+                        patient promptly.
+                      </p>
+                      <p>
+                        I, the undersigned patient, acknowledge receipt of this
+                        disclosure form from my health care provider, and have
+                        read it and understand the contents. I have discussed my
+                        option to obtain treatment with other health care
+                        providers, service providers, or at alternative health
+                        care facilities that may participate with my health plan
+                        and I waive the right to do so and wish to obtain my
+                        treatment at this office with full notice of these
+                        disclosures and potential cost sharing consequences. I
+                        certify that I am at least 18 years of age, competent,
+                        not under the influence of any drug, alcohol or other
+                        substance that would impair my ability to understand
+                        these disclosures, am not being coerced to sign this
+                        disclosure, and do so upon my own free will.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+          <div class="formCheck">
+<div class="patientNameDate">
+<div><label>Patient Name</label></div>
+                      <div class="floatLeft"><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></div>
+<div><label>Date</label></div>
+                      <div class="floatRight"><apex:outputText value="{0,date,MM/dd/yyyy}"><apex:param value="{!NPP__c.CreatedDate}" /></apex:outputText></div>
+                    </div>
+          <br/>       
+                  <div class="form-element">
+                    <div><p>Patient Signature</p></div>
+
+                      <div>
+                          <apex:outputText value="{!oppt.HQ_Signature__c}" escape="false" />
+                          
+                      </div>
+                  </div>
+            <div>
+               <img src='https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003gvo9&oid=00Df2000001HEGJ&lastMod=1714988677000' style="width: 15px; Height:15px"/><label
+                >By checking the box I acknowledge and agree to conduct business
+                electronically, that I have read the terms of the above section,
+                and that I agree to insert my electronic signature as set forth
+                below indicating my consent to terms set forth on this page.
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+</apex:page>

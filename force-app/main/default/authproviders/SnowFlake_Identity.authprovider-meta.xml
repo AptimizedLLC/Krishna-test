@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuthProvider xmlns="http://soap.sforce.com/2006/04/metadata">
+    <authorizeUrl>https://ztb70321.us-east-1.snowflakecomputing.com/oauth/authorize</authorizeUrl>
+    <consumerKey>h7USiArkmLbU7xMjMNLKxBv4rAk=</consumerKey>
+    <consumerSecret>Placeholder_Value</consumerSecret>
+    <friendlyName>SnowFlake_Identity</friendlyName>
+    <includeOrgIdInIdentifier>false</includeOrgIdInIdentifier>
+    <isPkceEnabled>true</isPkceEnabled>
+    <providerType>OpenIdConnect</providerType>
+    <requireMfa>false</requireMfa>
+    <sendAccessTokenInHeader>true</sendAccessTokenInHeader>
+    <sendClientCredentialsInHeader>false</sendClientCredentialsInHeader>
+    <sendSecretInApis>true</sendSecretInApis>
+    <tokenUrl>https://ztb70321.us-east-1.snowflakecomputing.com/oauth/token-request</tokenUrl>
+</AuthProvider>

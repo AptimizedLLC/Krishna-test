@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Decision_1</name>
+        <label>Decision 1</label>
+        <locationX>182</locationX>
+        <locationY>719</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Outcome_1_of_Decision_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.Alias</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.RUL_Assigned_To__r.Alias</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RUL_Assignee_s_Comments__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Date_Worked_By_Assigned</targetReference>
+            </connector>
+            <label>Outcome 1 of Decision 1</label>
+        </rules>
+    </decisions>
+    <description>Updating &quot;Date Worked by Assigned&quot; field when &quot;Assignee&apos;s Comments&quot; field is updated</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>AssignedToEqualsLastModifiedBy</name>
+        <dataType>Boolean</dataType>
+        <expression>{!$Record__Prior.RUL_Assigned_To__r.Id}= {!$Record.LastModifiedById}</expression>
+    </formulas>
+    <interviewLabel>RUL - Updating &quot; {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>RUL - Updating &quot;Date Worked by Assigned&quot; field</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Changing_Owner</name>
+        <label>Changing Owner</label>
+        <locationX>182</locationX>
+        <locationY>503</locationY>
+        <connector>
+            <targetReference>Copy_2_of_Changing_Owner</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>RUL_Assigned_To__c</field>
+            <operator>NotEqualTo</operator>
+        </filters>
+        <filters>
+            <field>RUL_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Pending Assignee</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$Record.RUL_Assigned_To__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Copy_2_of_Changing_Owner</name>
+        <label>Copy 2 of Changing Owner</label>
+        <locationX>182</locationX>
+        <locationY>611</locationY>
+        <connector>
+            <targetReference>Decision_1</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>RUL_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Pending Assignor</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$Record.CreatedBy.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Checkbox</name>
+        <label>Update Checkbox</label>
+        <locationX>182</locationX>
+        <locationY>395</locationY>
+        <connector>
+            <targetReference>Changing_Owner</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Record_Saved__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Updating &quot;Date Worked By Assigned&quot; field when &quot;Assignee&apos;s Comments&quot; is updated</description>
+        <name>Update_Date_Worked_By_Assigned</name>
+        <label>Update Date Worked By Assigned</label>
+        <locationX>50</locationX>
+        <locationY>827</locationY>
+        <inputAssignments>
+            <field>RUL_Date_Worked_by_Assigned_Flow__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Records_4</name>
+        <label>Update Records 4</label>
+        <locationX>182</locationX>
+        <locationY>287</locationY>
+        <connector>
+            <targetReference>Update_Checkbox</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>RUL_Assigned_To__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record__Prior.RUL_Assigned_To__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>RUL_Assigned_To_Updated_Date__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Records_4</targetReference>
+        </connector>
+        <object>RUL__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

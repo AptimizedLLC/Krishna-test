@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HQ_Date_Diagnosed_Pulmonary_Embolism__c</fullName>
+    <complianceGroup>HIPAA</complianceGroup>
+    <description>Pulmonary Embolism</description>
+    <inlineHelpText>Pulmonary Embolism</inlineHelpText>
+    <label>Date Diagnosed</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

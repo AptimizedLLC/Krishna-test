@@ -1,0 +1,511 @@
+<apex:page standardController="NPP__c" extensions="GenerateNPPIntakePDFDocumentController" renderAs="pdf" applyBodyTag="false">
+    
+<head>
+    <style>
+      .contentWrap h3 {
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: #f00;
+}
+.contentWrap {
+    margin: 10px 30px;
+}
+span.bStrong {
+    font-weight: 600;
+    padding-right: 5px;
+}
+p {
+    line-height: 22px;
+}
+img {
+    border: 1px solid #000;
+    margin-top: 10px;
+}
+    </style>
+  </head>
+<body>
+    <div>
+            <p><img src="https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003pCyH&oid=00Df2000001HEGJ&lastMod=1715318986000"  style="width: 700px;"/></p>
+	</div>
+    <div>
+        <div class="userFormWrap">
+          <div class="contentWrap">
+            <h3>Notice Of Privacy Practices</h3>
+            <div class="form-container">
+              <form>
+                <div class="pdf-content consent-content8">
+                  <div class="form-element">
+                    <div>
+                      <p>
+						THIS NOTICE DESCRIBES HOW MEDICAL INFORMATION ABOUT YOU MAY BE   
+						USED AND DISCLOSED AND HOW YOU CAN GET ACCESS TO THIS   
+						INFORMATION. PLEASE REVIEW IT CAREFULLY.  
+                      </p>
+                      <p>
+                        <i>
+                          <strong
+                            >WHO WILL FOLLOW THIS NOTICE: </strong ></i>
+                      </p>
+                      <p>
+						This notice addresses the use of your medical information by your physician (the   
+						“Practice,” “we,” “our,” or “us”) and its business associates.  
+						We may use your medical information, also known as protected health   
+						information (“PHI”), for treatment, payment, operations, or research purposes as   
+						described in this notice. All employees of the Practice follow these privacy   
+						practices. The practitioners on our staff will also follow this notice when they work   
+						at the Practice.   
+                      </p>
+                      <p>
+                        <i> <strong>ABOUT THIS NOTICE</strong></i>
+                      </p>
+                      <p>
+						This notice will tell you about the ways we may use and disclose medical   
+						information about you. We also describe your rights and certain obligations we   
+						have regarding the use and disclosure of medical information.  
+                        We are required by law to:  </p>
+                          <p>• make sure that medical information that identifies you is kept private;</p>
+						  <p>• give you this notice of our legal duties and privacy practices with respect to   
+							  your medical information; </p>  
+							<p>• follow the terms of the notice that is currently in effect; and  </p>
+							<p>• notify individuals, either known or reasonably believed to be affected,   
+							  following a breach of unsecured protected health information. </p> 
+                      
+                      <p>
+                        <i><strong>HOW WE MAY USE AND DISCLOSE MEDICAL INFORMATION ABOUT YOU</strong></i>
+                      </p>
+                      <p>
+						The following categories describe different ways that we use and disclose medical   
+						information. For each category of uses or disclosures, we will explain what we   
+						mean and give examples. Not every use or disclosure in a category will be listed.   
+						However, all of the ways we are permitted to use and disclose information will fall   		
+                          within one or more of the categories.</p>
+						<p>
+                         • <strong>For Treatment. </strong>We may use medical information about you to provide you   
+                          with medical treatment or services. We may disclose medical information   
+                          about you to physicians, nurses or other Practice personnel who are   
+                          involved in your care.    
+                        </p>  
+                       	<p>
+                           • <strong>For Payment. </strong>We may use and disclose medical information about you so   
+                        that we may bill for our services you receive at the Practice and collect   
+                        payment from you, an insurance company or another party. For example,   
+                        we may need to give information about the medical care you received at the   
+                        Practice to your health plan so that the plan will pay us or reimburse you for   
+                        the applicable treatment. We may also tell your health plan about a   
+                        treatment you are going to receive to obtain prior approval or to determine   
+                        whether your plan will cover the treatment. We may also disclose   
+                        information about you to other healthcare facilities for purposes of payment   
+                        as permitted by law. 
+                        </p>  
+                        <p>
+                          • <strong>For Healthcare Operations. </strong>We may use and disclose medical information   
+                        about you for operations of the Practice. These uses and disclosures are   
+                        necessary to run the Practice and make sure that all of our patients receive   
+                        quality care. For example, we may use medical information to evaluate the   
+                        performance of our staff in caring for you or the outcome of your treatment.   
+                        We may also combine medical information about many patients to decide   
+                        what additional services the Practice should offer, what services are not   
+                        needed and whether certain new treatments are effective. We may also   
+                        combine medical information we have with medical information from other   
+                        practices to compare our performance and to make improvements in the   
+                        care and services we offer. We may also disclose information to doctors,   
+                        nurses, technicians, medical students, and other Practice personnel for   
+                        educational purposes. We may also disclose information about you to other   
+                        healthcare facilities as permitted by law.  
+                        </p>  
+                        <p>
+                          • <strong>Appointment Reminders. </strong>Appointment Reminders. We may use and disclose medical information to   
+                        contact you to remind you that you have an appointment for treatment or   
+                        medical care.  
+                        </p>  
+                        <p>
+                          • <strong>Treatment Alternatives. </strong>We may use and disclose medical information to   
+                        tell you about possible treatment options that may be of interest to you.  
+                        </p>
+                        <p>
+                         • <strong>Health-Related Benefits and Services. </strong>We may use and disclose medical   
+                        information to tell you about health-related benefits or services that may be   
+                        of interest to you.   
+                        </p>  
+                        <p>
+                          • <strong>Individuals Involved in Your Care or Payment for Your Care. </strong>We may   
+                        release medical information about you to a friend or family member who is   
+                        involved in your medical care. We may also give information to someone   
+                        who helps pay for your care. In addition, we may disclose medical   
+                        information about you to an entity assisting in a disaster relief effort so that   
+                        your family can be notified about your condition, status and location.   
+                        </p> 
+                        <p>
+                          • <strong>Research. </strong>In certain circumstances, we may use and disclose PHI about a   
+                        patient for research purposes. For example, a research project may involve   
+                        comparing the health and recovery of all patients who received one   
+                        medication to those who received another for the same condition. All   
+                        research projects, however, are subject to an approval process. This process   
+                        evaluates a proposed research project and its use of PHI to balance research   
+                        needs with patients’ needs for privacy. Before we use or disclose PHI for   
+                        research, the project will be approved through this process. However, we   
+                        may disclose medical information of a patient to people preparing to   
+                        conduct a research project, for example, to help them look for patients with   
+                        specific medical needs, so long as the PHI they review does not leave the   
+                        Practice premises. When required by law, we will ask for specific written   
+                        authorization if the researcher will: (i) have access to a patient’s name,   
+                        address or other information that reveals who the patient is, or (ii) be   
+                        involved in patient care at the Practice.   
+                        </p>
+                        <p>
+                         • <strong>As Required By Law. </strong>We will disclose medical information about you when   
+                        required to do so by federal, state or local law.   
+                        </p>  
+                        <p>
+                          • <strong>To Avert a Serious Threat to Health or Safety. </strong>We may use and disclose   
+                        medical information about you when necessary to prevent a serious threat   
+                        to your health and safety or the health and safety of the public or another   
+                        person.   
+                        </p>
+                      <p>
+                        <i><strong>SPECIAL SITUATIONS</strong></i>
+                      </p>
+                      <p>
+                        • <strong>State Law. </strong>In certain states, special privacy protections apply to certain   
+                        information, including genetic, sexually transmitted disease, or mental 
+                        health information. Some parts of this general Notice of Privacy Practices   
+                        may not apply to these types of information. If your treatment involves this   
+                        information, and if applicable state laws govern, such information will be   
+                        further protected pursuant to applicable state law. For further information,   
+                        please contact us using the contact information listed on the last page of this   
+                        Notice.  </p>
+                        <p>
+                         • <strong>Drug and Alcohol Abuse Information. </strong>The confidentiality of alcohol and   
+                        drug abuse patient records is protected by Federal law and regulations.   
+                        Generally, a healthcare provider may not say to a person outside a treatment   
+                        program that a patient attends a program, or disclose any information   
+                            identifying a patient as an alcohol or drug abuser unless:</p>   
+                            <p>o The patient consents in writing:</p>
+                            <p>o The disclosure is allowed by a court order; or</p> 
+                            <p>o The disclosure is made to medical personnel in a medical emergency   
+                            or to qualified personnel for research, audit, or program evaluation.</p>
+                        <p>
+                          • <strong>Organ and Tissue Donation. </strong>If you are an organ or tissue donor, we may   
+                        release medical information about you to organizations that handle organ   
+                        procurement or organ, eye or tissue transplantation or to an organ donation   
+                        bank.   
+                      </p> 
+                       <p>
+                         • <strong>Military and Veterans. </strong>If you are a member of the armed forces of the   
+                        United States or another country, we may release medical information about   
+                        you as required by military command authorities.     
+                      </p>
+                        <p>
+                          • <strong>Workers' Compensation. </strong>We may release medical information about you   
+                        for workers' compensation or similar programs.    
+                      </p>
+                       <p>
+                         • <strong>Public Health Risks. </strong>We may disclose medical information about you to   
+                        authorized public health or government officials for public health activities.   
+                        These activities generally include the following:  </p>
+                            <p>o to a person subject to the jurisdiction of the Food and Drug   
+                            Administration (FDA) for purposes related to the quality, safety or   
+                      effectiveness of an FDA-regulated product or service;  </p>
+                           <p>
+                               o to prevent or control disease, injury or disability;  
+                      </p> 
+                          <p>
+                               o to report disease or injury;
+                      </p> 
+                        <p>
+                            o to report births and deaths;
+                      </p>     
+                           <p>
+                                o to report child abuse or neglect;  
+                      </p>
+                          <p> o to report reactions to medications and food or problems with   
+                            products; </p>   
+                            <p>o to notify people of recalls or replacements of products they may be   
+                            using; </p>
+                            <p>o to notify a person who may have been exposed to a disease or may be   
+                            at risk for contracting or spreading a disease or condition; </p>  
+                           <p> o to notify the appropriate government authority if we believe a patient   
+                            has been the victim of abuse, neglect or domestic violence. We will   
+                            only make this disclosure if you agree or when required or authorized   
+                            by law. </p> 
+
+                       <p>
+                          • <strong>Health Oversight Activities. </strong>We may disclose medical information about   
+                        you to a health oversight agency for activities authorized by law. These   
+                        oversight activities include, for example, audits, investigations, inspections,   
+                        and licensure.    
+                      </p>
+                       <p>
+                          • <strong>Lawsuits and Disputes. </strong>If you are involved in a lawsuit or a dispute, we   
+                        may disclose medical information about you in response to a court or   
+                        administrative order. We may also disclose medical information about you   
+                        in response to a subpoena, discovery request or other legal demand by   
+                        someone else involved in the dispute, but only if efforts have been made to   
+                        tell you about the request or to obtain an order protecting the information   
+                        requested.    
+                      </p>
+                        <p>• <strong>Law Enforcement. </strong>We may release medical information about you if asked   
+                        to do so by a law enforcement official:</p>  
+                           <p> o in response to a court order, subpoena, warrant, summons or similar   
+                            process;</p>
+                            <p>o to identify or locate a suspect, fugitive, material witness or missing   
+                            person;</p>
+                            <p>o about the victim of a crime if, under certain circumstances, we are   
+                            unable to obtain the person’s agreement;</p>  
+                            <p>o about a death we believe may be the result of criminal conduct;</p>
+                            <p>o about criminal conduct at the Practice or by healthcare providers   
+                            affiliated with the Practice;</p>
+                            <p>o in emergency circumstances to report a crime, the location of the   
+                            crime or victims, or the identity, description or location of the person   
+                            who committed the crime; and </p>
+                            <p>o to authorized federal officials so they may provide protection for the   
+                            President and other authorized persons or conduct special   
+                            investigations.</p>
+                       <p>
+                          • <strong>Coroners, Medical Examiners and Funeral Directors. </strong>We may release   
+                        medical information about you to a coroner or medical examiner. This may   
+                        be necessary, for example, to identify a deceased person or determine the   
+                        cause of death. We may also release medical information to funeral directors   
+                        so they can carry out their duties.    
+                      </p>
+                       <p>
+                          • <strong>National Security and Intelligence Activities. </strong>We may release medical   
+                        information about you to authorized federal officials for intelligence,   
+                        counterintelligence and other national security activities authorized by law.  
+                      </p>  
+                       <p>• <strong>To a School. </strong>We may disclose information to a school, about an individual   
+                           who is a student or prospective student of the school, if:</p>   
+                            <p>o The protected health information that is disclosed is limited to proof   
+                            of immunization;</p>
+                            <p>o The school is required by State or other law to have such proof of   
+                            immunization prior to admitting the individual; and</p>  
+                            <p>o The covered entity obtains and documents the agreement to the   
+                            disclosure from either:</p>
+                                <p>o A parent, guardian, or other person acting in loco parentis of   
+                                the individual, if the individual is an un-emancipated minor; or</p>  
+                                <p>o The individual, if the individual is an adult or emancipated   
+                                minor.</p>
+
+                       <p>
+                          • <strong>Other Uses and Disclosures. </strong>Other uses and disclosures not described in   
+                        this Notice will be made only with your written authorization, and you   
+                        may revoke such authorization provided under this section at any time,   
+                        provided that the revocation is in writing, except to the extent that we have   
+                        taken action(s) in reliance upon your authorization; or if the authorization   
+                        was obtained as a condition of obtaining insurance coverage.   
+                      </p>  
+                      <p>
+                        <i><strong>YOUR RIGHTS REGARDING MEDICAL INFORMATION ABOUT YOU</strong></i>
+                      </p>
+                      <p>
+                        You have the following rights regarding medical information we maintain about   
+                          you:</p>
+                       <p>
+                         • <strong>Right to Inspect and Copy. </strong>You have the right to inspect and copy medical   
+                        information that may be used to make decisions about your care. Usually,   
+                        this includes medical and billing records. This right does not include   
+                        psychotherapy notes, information compiled for use in a legal proceeding or   
+                        certain information maintained by laboratories. To inspect and copy   
+                        medical information that may be used to make decisions about you, you   
+                        must submit your request in writing to the Privacy Officer listed at the end   
+                        of this Notice. If you request a copy of the information, we may charge a fee   
+                        for the costs of copying, mailing or other supplies associated with your   
+                        request. We may deny your request to inspect and copy in certain limited   
+                        circumstances. If you are denied access to medical information, you may   
+                        request in writing that the denial be reviewed. To request a review, contact   
+                        the Privacy Officer. A licensed healthcare professional will conduct the   
+                          review. We will comply with the outcome of the review.    
+                      </p>
+                       <p>
+                         • <strong>Right to Amend. </strong>If you think that the medical information we have about   
+                        you is incorrect or incomplete, you may ask us to amend the information.   
+                        You have the right to request an amendment for as long as the information   
+                        is kept by or for the Practice. To request an amendment, your request must   
+                        be made in writing and submitted to the Privacy Officer, listed on the last   
+                        page of this Notice, for the location at which you were treated. In addition,   
+                        you must give a reason that supports your request. We may deny your   
+                        request for an amendment if it is not in writing or does not include a reason   
+                        to support the request. In addition, we may deny your request if you ask us   
+                           to amend information that:  </p>
+                            <p>o was not created by us, unless the person or entity that created the   
+                            information is no longer available to make the amendment; </p>                            
+							<p>o is not part of the medical information kept by or for the Practice;  </p>
+                           <p>o is not part of the information that you would be permitted to inspect   
+                            and copy; or   </p>   
+                            <p>o is accurate and complete.</p> 
+                       <p>We will provide you with written notice of action we take in response to   
+                        your request for an amendment.   
+                      </p>  
+                       <p>
+                          • <strong>Right to an Accounting of Disclosures. </strong>You have the right to request an   
+                        “accounting of disclosures.” This is a list of certain disclosures we made of   
+                        medical information about you. We are not required to account for any   
+                        disclosures you specifically requested or for disclosures related to 
+                        treatment, payment or healthcare operations or made pursuant to an   
+                        authorization signed by you. To request an accounting of disclosures, you   
+                        must submit your request in writing to the Privacy Officer. The contact   
+                        information is listed on the last page of this Notice. Your request must state   
+                        a time period, which may not be longer than six years. We will attempt to   
+                        honor your request. If you request more than one accounting in any 12-  
+                        month period, we may charge you for our reasonable retrieval, list   
+                        preparation and mailing costs for the second and subsequent requests. We   
+                        will notify you of the costs involved and you may choose to withdraw or   
+                        modify your request at that time before any costs are incurred.    
+                      </p>
+                       <p>
+                          • <strong>Right to Request Restrictions. </strong>You have the right to request a restriction or   
+                        limitation on the medical information we use or disclose about you for   
+                        treatment, payment, or healthcare operations. You also have the right to   
+                        request a limit on the medical information we disclose about you to someone   
+                        who is involved in your care or the payment for your care, such as a family   
+                        member or friend. Additionally, you can request restrictions on medical   
+                        information disclosed to a health plan if the disclosure is for the purpose of   
+                        carrying out payment or health care operations and is not otherwise   
+                        required by law, and the information pertains solely to a health care item or   
+                        service for which you, or person other than the health plan on your behalf,   
+                        has paid us in full. To request a restriction, you must contact the Privacy   
+                        Officer. This contact information is listed on the last page of this Notice.  
+                      </p>
+                      
+                            <p>
+                           o <strong>We are not required to agree to your request. </strong>If we agree to your   
+                            request, we will comply with your request unless the information is   
+                            needed to provide you emergency treatment. You may terminate the   
+                            restriction at any time. If we terminate the restriction, we will notify   
+                            you of the termination. We are not able to terminate or refuse your   
+                            request for restrictions to disclosures to health plans if the disclosure   
+                            is for the purpose of carrying out payment or health care operations   
+                            and is not otherwise required by law, and the information pertains   
+                            solely to a health care item or service for which you, or person other   
+                            than the health plan on your behalf, has paid us in full.  </p>       
+                        <p>
+                           •<strong> Right to Request Confidential Communications.</strong>You have the right to   
+                        request that we communicate with you about medical matters in a certain   
+                        way or at a certain location. For example, you can ask that we only contact   
+                        you at work or by mail. To request confidential communications, you must 
+                        submit a written request to the Privacy Officer. This contact information is   
+                        listed at the end of this Notice. We will not ask you the reason for your   
+                        request. Your request must specify how or where you wish to be contacted.   
+                        We will attempt to accommodate reasonable requests.  
+                      </p> 
+                        <p>
+                           •<strong> Right to a Paper Copy of This Notice. </strong> You have the right to a paper copy of   
+                        this Notice upon written request from the Practice or at your first treatment   
+                        encounter with the Practice. You may get an additional copy of this Notice at   
+                        any time by contacting us. This contact information is listed at the end of this   
+                        Notice.</p>
+                      <p>
+                        <i><strong>CHANGES TO THIS NOTICE</strong></i>
+                      </p>   
+                      <p>
+                        We reserve the right to change this Notice. We reserve the right to make the revised   
+                        or changed Notice effective for medical information about you we already have as   
+                        well as any information we receive in the future. We will post copies of the current   
+                        Notice at the Practice virtually. The Notice will contain the effective date. In   
+                        addition, each time you register with the Practice for treatment or healthcare   
+                        services, we will make available copies of the current Notice. Any revisions to our   
+                        Notice will also be posted on our website.                            
+                      </p>
+                      <p>
+                        <i><strong>COMPLAINTS</strong></i>
+                      </p> 
+                      <p>
+                        If you believe your privacy rights have been violated, you may file a complaint   
+                        with the Practice or with the Secretary of the Department of Health and Human   
+                        Services, Office of Civil Rights. To file a complaint with the Practice, please call or   
+                        write to the Privacy Office. This contact information is listed at the end of this   
+                        Notice. You will not be penalized for filing a complaint.                            
+                      </p>
+                      <p>
+                        <i><strong>OTHER USES OF MEDICAL INFORMATION</strong></i>
+                      </p>
+                      <p>
+                        Other uses and disclosures of medical information not described in this Notice or   
+                        the laws that apply to us will be made only with your written authorization on a   
+                        Practice authorization form. If you provide us authorization to use or disclose   
+                        medical information about you, you may revoke that authorization, in writing, at   
+                        any time. If you revoke your authorization, we will no longer use or disclose   
+                        medical information about you for the reasons covered by your written   
+                        authorization. However, we may continue to use or disclose that information to   
+                        the extent we have relied on your authorization. You also understand that we are   
+                        unable to take back any disclosures we have already made with your   
+                        authorization, and that we are required to retain our records of the care that we   
+                        provided to you.                           
+                      </p>
+                      <p>
+                        <i><strong>Acknowledgement of Notice of Privacy Practices  </strong></i>
+                      </p> 
+					  <p>
+                        The Notice of Privacy Practices describes how Protected Health Information about   
+                        you may be used and disclosed and how you can get access to this information. Please   
+                        review it carefully.  
+                      </p>
+                      <p>
+                        We are required by law to protect the privacy of health information that may   
+                        reveal your identity, and to provide you with a copy of this notice, which describes   
+                        the health information privacy practices of our practice, its medical staff, and   
+                        affiliated healthcare providers that jointly perform payment activities and   
+                        business operations with our Practice. “Protected Health Information” is   
+                        information about you, including demographic information that may identify you   
+                        and genetic information, and that relates to your past, present or future physical   
+                        or mental health or condition and related health care services.  
+                      </p>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div class="conditionParent">
+                      <div>
+                        <label class="question">Privacy Response</label>
+                      </div>
+                        <div><apex:outputField value="{!NPP__c.HQ_Privacy_Response__c}"/></div>
+                      </div>
+                  </div>
+                 
+                </div>
+              </form>
+            </div>
+            </div><br/><br/>
+          <div class="formCheck">
+<div class="patientNameDate">
+<div><label>Patient Name</label></div>
+                      <div class="floatLeft"><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></div>
+<div><label>Date</label></div>
+                      <div class="floatRight"><apex:outputText value="{0,date,MM/dd/yyyy}"><apex:param value="{!NPP__c.CreatedDate}" /></apex:outputText></div>
+                    </div>
+                 
+                  <div class="form-element">
+                    <div><p>Patient Signature</p></div>
+
+                      <div>
+                          <apex:outputText value="{!oppt.HQ_Signature__c}" escape="false" />
+                          
+                      </div>
+                  </div><div>
+                            <p> (This signature indicates having received a copy of the Notice of Privacy   
+                  Practices.)  </p>
+               <p> _ Patient is unable to sign due to medical reasons</p>
+                <p>_ Patient refuses to sign</p>  
+               <p> _ Other (Please Explain)</p> 
+                <p>This Acknowledgement Form will become part of your permanent medical   
+                record.  
+              </p>
+              <p><strong>FOR MORE INFORMATION OR FURTHER QUESTIONS PLEASE CONTACT:</strong>  </p>
+			  <p><strong>Practice Name: All Be Healthy, LLC d/b/a Alliance Orthopedics</strong></p>
+              </div>
+
+              <div><p>Address: </p></div><br/>
+              <p>Privacy Officer Contact Information: </p>              
+            <div>
+               <img src='https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003gvo9&oid=00Df2000001HEGJ&lastMod=1714988677000' style="width: 15px; Height:15px"/><label
+                >By checking the box I acknowledge and agree to conduct business
+                electronically, that I have read the terms of the above section,
+                and that I agree to insert my electronic signature as set forth
+                below indicating my consent to terms set forth on this page.
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+</apex:page>

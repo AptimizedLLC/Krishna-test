@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_of_HOT_Leads__c</fullName>
+    <description>Did You Book Any Patient Appointments?
+If Yes</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Only include patients who were given specific dates and times for an appointment with an Alliance Orthopedics provider</inlineHelpText>
+    <label>No of HOT Leads</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

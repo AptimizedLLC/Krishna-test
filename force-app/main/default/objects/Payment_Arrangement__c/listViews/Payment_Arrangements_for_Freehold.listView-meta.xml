@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Arrangements_for_Freehold</fullName>
+    <columns>NAME</columns>
+    <columns>Patient_Account__c</columns>
+    <columns>Potential_Patient__c</columns>
+    <columns>Insurance_Verification__c</columns>
+    <columns>Office__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>PA_Complete__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>PA_Created_By__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>PA_Complete__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>1 - PENDING Payment Arrangements</label>
+</ListView>

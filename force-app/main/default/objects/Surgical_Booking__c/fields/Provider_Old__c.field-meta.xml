@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Provider_Old__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Provider</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Uh oh.  It looks like the user you are looking for is not tagged as an MD.  Please alert your awesome Salesforce Administrator to update the title on the user record to MD.</errorMessage>
+        <filterItems>
+            <field>User.Title</field>
+            <operation>equals</operation>
+            <value>MD</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Surgical_Bookings</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

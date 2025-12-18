@@ -1,0 +1,138 @@
+<apex:page standardController="NPP__c" extensions="GenerateNPPIntakePDFDocumentController" renderAs="pdf" applyBodyTag="false">
+    
+<head>
+    <style>
+      .contentWrap h3 {
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: #f00;
+}
+.contentWrap {
+    margin: 10px 30px;
+}
+span.bStrong {
+    font-weight: 600;
+    padding-right: 5px;
+}
+p {
+    line-height: 22px;
+}
+img {
+    border: 1px solid #000;
+    margin-top: 10px;
+}
+    </style>
+  </head>
+<body>
+    <div>
+            <p><img src="https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003pCyH&oid=00Df2000001HEGJ&lastMod=1715318986000"  style="width: 700px;"/></p>
+	</div>
+    <div>
+        <div class="userFormWrap">
+          <div class="contentWrap">
+            <h3>Agreement To Forward Payment</h3>
+            <div class="form-container">
+              <form>
+                <div class="pdf-content consent-content11">
+                  <div class="form-element">
+                    <div>
+                      <p>
+                        I, <apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/>, am aware that my insurance company
+                        may send me payments for services rendered by All Be
+                        Healthy LLC dba&nbsp; Alliance Orthopedics, which
+                        include chiropractic, physical therapy, MD, acupuncture,
+                        and nerve testing with written report.
+                      </p>
+                      <p>
+                        I agree that when I receive any payments from those
+                        services, I will:
+                      </p>
+                      <ul>
+                        <li>
+                          Sign the check and I WILL NOT DEPOSIT OR CASH IT.
+                          (Personal checks will only be accepted on multiple
+                          payer Insurance checks)
+                        </li>
+                        <li>
+                          Under my signature, I will print the following: “Make
+                          Payable Only to All Be Healthy LLC dba&nbsp; Alliance
+                          Orthopedics
+                        </li>
+                        <li>
+                          I will enclose the check with ALL OTHER PAGES
+                          ACCOMPANYING THE CHECK, such as Explanation of
+                          Benefits, etc.
+                        </li>
+                        <li>
+                          Please bring in checks and explanation of benefits to
+                          one of the All Be Healthy locations or place all of
+                          the above in an envelope and mail immediately to:
+                        </li>
+                      </ul>
+                      <p>All Be Healthy LLC</p>
+                      <p>2-22 Banta Pl, Fair Lawn, NJ 07410</p>
+                      <p>
+                        The billing department will notify you via letter and
+                        text when your insurance issues you a check. Please
+                        understand, that in the event that we do not receive the
+                        check within 45 days from the date of the check being
+                        issued, the credit card on file will be charged the full
+                        amount of the services rendered plus a 4% processing fee
+                        as well as any additional collection fees and legal
+                        costs in connection with collecting this debt. Please
+                        note, the card on file will only be charged if payment
+                        for services rendered is not turned over to our office,
+                        and we receive no response to our attempts to contact
+                        you regarding the check/payment. You will be contacted
+                        by our billing department 7 days prior to your credit
+                        card being charged.
+                      </p>
+                      <p>
+                        I agree that All Be Healthy LLC dba&nbsp;Alliance
+                        Orthopedics, is hereby given the right to endorse/sign
+                        my name on any and all checks for payment of my bills;
+                        in connection with services provided by All Be Healthy
+                        LLC dba&nbsp;Alliance Orthopedics.
+                      </p>
+                      <p>
+                        I will keep a copy of this agreement as a reminder as to
+                        what is required of me when I receive the payment from
+                        my insurance company.
+                      </p>
+                    </div>
+                  </div>
+                  
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="formCheck">
+               <div class="patientNameDate">
+<div><label>Patient Name</label></div>
+                      <div class="floatLeft"><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></div>
+<div><label>Date</label></div>
+                      <div class="floatRight"><apex:outputText value="{0,date,MM/dd/yyyy}"><apex:param value="{!NPP__c.CreatedDate}" /></apex:outputText></div>
+                    </div>
+                 
+                  <div class="form-element">
+                    <div><p>Patient Signature</p></div>
+
+                      <div>
+                          <apex:outputText value="{!oppt.HQ_Signature__c}" escape="false" />
+                          
+                      </div>
+                  </div>
+            <div>
+               <img src='https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003gvo9&oid=00Df2000001HEGJ&lastMod=1714988677000' style="width: 15px; Height:15px"/><label
+                >By checking the box I acknowledge and agree to conduct business
+                electronically, that I have read the terms of the above section,
+                and that I agree to insert my electronic signature as set forth
+                below indicating my consent to terms set forth on this page.
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+</apex:page>

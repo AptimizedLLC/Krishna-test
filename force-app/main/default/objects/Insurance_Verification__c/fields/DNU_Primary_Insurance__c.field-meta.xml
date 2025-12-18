@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DNU_Primary_Insurance__c</fullName>
+    <label>DNU - 12.8.2020 Primary Insurance</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1199</fullName>
+                <default>false</default>
+                <label>1199</label>
+            </value>
+            <value>
+                <fullName>AARP</fullName>
+                <default>false</default>
+                <label>AARP</label>
+            </value>
+            <value>
+                <fullName>Aetna</fullName>
+                <default>false</default>
+                <label>Aetna</label>
+            </value>
+            <value>
+                <fullName>Amerigroup</fullName>
+                <default>false</default>
+                <label>Amerigroup</label>
+            </value>
+            <value>
+                <fullName>AmeriHealth</fullName>
+                <default>false</default>
+                <label>AmeriHealth</label>
+            </value>
+            <value>
+                <fullName>Anthem Blue Cross Blue Shield</fullName>
+                <default>false</default>
+                <label>Anthem Blue Cross Blue Shield</label>
+            </value>
+            <value>
+                <fullName>BCBS</fullName>
+                <default>false</default>
+                <label>BCBS</label>
+            </value>
+            <value>
+                <fullName>BCBS of NJ</fullName>
+                <default>false</default>
+                <label>BCBS of NJ</label>
+            </value>
+            <value>
+                <fullName>Cash Pay</fullName>
+                <default>false</default>
+                <label>Cash Pay</label>
+            </value>
+            <value>
+                <fullName>Cigna</fullName>
+                <default>false</default>
+                <label>Cigna</label>
+            </value>
+            <value>
+                <fullName>Emblem Health/GHI</fullName>
+                <default>false</default>
+                <label>Emblem Health/GHI</label>
+            </value>
+            <value>
+                <fullName>Geha</fullName>
+                <default>false</default>
+                <label>Geha</label>
+            </value>
+            <value>
+                <fullName>Health Net</fullName>
+                <default>false</default>
+                <label>Health Net</label>
+            </value>
+            <value>
+                <fullName>Horizon BCBS</fullName>
+                <default>false</default>
+                <label>Horizon BCBS</label>
+            </value>
+            <value>
+                <fullName>Humana</fullName>
+                <default>false</default>
+                <label>Humana</label>
+            </value>
+            <value>
+                <fullName>Magnacare</fullName>
+                <default>false</default>
+                <label>Magnacare</label>
+            </value>
+            <value>
+                <fullName>Medicaid</fullName>
+                <default>false</default>
+                <label>Medicaid</label>
+            </value>
+            <value>
+                <fullName>Medicare</fullName>
+                <default>false</default>
+                <label>Medicare</label>
+            </value>
+            <value>
+                <fullName>Omaha Life</fullName>
+                <default>false</default>
+                <label>Omaha Life</label>
+            </value>
+            <value>
+                <fullName>Optum Health</fullName>
+                <default>false</default>
+                <label>Optum Health</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Oxford</fullName>
+                <default>false</default>
+                <label>Oxford</label>
+            </value>
+            <value>
+                <fullName>PIP/MVA</fullName>
+                <default>false</default>
+                <label>PIP/MVA</label>
+            </value>
+            <value>
+                <fullName>Qualcare</fullName>
+                <default>false</default>
+                <label>Qualcare</label>
+            </value>
+            <value>
+                <fullName>United Health Care</fullName>
+                <default>false</default>
+                <label>United Health Care</label>
+            </value>
+            <value>
+                <fullName>Wellcare</fullName>
+                <default>false</default>
+                <label>Wellcare</label>
+            </value>
+            <value>
+                <fullName>Workers&apos; Compensation</fullName>
+                <default>false</default>
+                <label>Workers&apos; Compensation</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

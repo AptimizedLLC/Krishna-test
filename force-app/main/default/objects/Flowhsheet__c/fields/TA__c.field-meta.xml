@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TA__c</fullName>
+    <externalId>false</externalId>
+    <formula>TEXT(CPT_Units_Total_2__c) &amp; &quot; Unit&quot; &amp; IF(CPT_Units_Total_2__c = 1, &quot;&quot;, &quot;s&quot;) &amp; &quot; / &quot; &amp; TEXT(Minutes_Total_2__c) &amp; &quot; min&quot;</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>TA</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

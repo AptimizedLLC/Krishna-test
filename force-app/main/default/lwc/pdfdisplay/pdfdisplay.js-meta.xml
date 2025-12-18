@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Display PDF (LWR Only)</masterLabel>
+    <description>Displays a Visualforce PDF inside an LWR Digital Experience site.</description>
+
+    <targets>
+        <!-- Only expose to LWR Experience Builder pages -->
+        <target>lightningCommunity__Page</target>
+    </targets>
+
+   
+</LightningComponentBundle>

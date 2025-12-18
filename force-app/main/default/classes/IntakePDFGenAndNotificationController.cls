@@ -1,0 +1,202 @@
+public without sharing class IntakePDFGenAndNotificationController {
+    
+    @InvocableMethod(label='Generate Intake PDF Doc' description='Generate Intake PDF Doc And Send Email Notification' category='Appointment__c')
+    public static void generateAndSendPDFDocument(List<Id> appointmentId) {
+        generateIntakePDFDocument(appointmentId[0]);
+    }
+    
+    public static void generateIntakePDFDocument(Id appointmentId) {
+        Map<Id, Opportunity> mapOfAcctAndOpp = new Map<Id, Opportunity>();
+        List<Opportunity> oppList = new List<Opportunity>();
+        Appointment__c apt = new Appointment__c();
+		        
+
+        List<Appointment__c> newList = [SELECT Id, Intake__c , Appointment_Date_Time__c, Location_Name__c, Patient__c,Patient_Chart_Number__c,Provider_Name__c,Location_Email__c 
+                                        FROM Appointment__c WHERE Id =: appointmentId];
+        System.debug('::: Appointments - '+newList); 
+        
+        if(!newList.isEmpty()){
+            apt = newList[0];
+            oppList = [SELECT Id, Name, AccountId,Patient_Name__c,CreatedDate,Related_To_PIP_MVA_Or_WC__c 
+                                            FROM Opportunity 
+                                            WHERE Id=: apt.Intake__c AND StageName = 'Initial Appointment'];
+        }
+        
+        if(oppList.size() > 0){
+            Opportunity op = oppList[0];
+            if(op != null){
+                ContentDocumentLink cd = generateContentFilesForIntakes(op, appointmentId);
+                if(apt.Appointment_Date_Time__c.Date() == Date.today()){
+                    sendUrgentEmailWithAttachment(cd, apt, op);
+                } else if(apt.Appointment_Date_Time__c.Date() > Date.today()){
+                    sendEmailWithAttachment(cd, apt, op);
+                }
+                //-----------pip/mva scenario-----------------
+                 If(op.Related_To_PIP_MVA_Or_WC__c=='PIP/MVA' ){
+                    
+                    sendEmailWithAttachment2(cd, apt, op);
+                }
+                //----------------pip/mva----------------------
+            }
+        }
+    }
+    
+    public static void sendEmailWithAttachment(ContentDocumentLink contDoc, Appointment__c appt, Opportunity opt) {
+        
+        Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage();
+        Messaging.EmailFileAttachment attach = new Messaging.EmailFileAttachment();
+        String messageBody = '';
+
+        ContentDocumentLink cdl = [Select Id, ContentDocument.LatestPublishedVersion.VersionData from ContentDocumentLink where Id =: contDoc.Id];
+        Blob b = cdl.ContentDocument.LatestPublishedVersion.VersionData;
+        //system.debug('ContentDocument.Title---->' + ContentDocument.LatestPublishedVersion.Title);
+        attach.setFileName(opt.Patient_Name__c + '.pdf');
+        attach.setBody(b);
+        
+        messageBody = '<html>\n'+
+                        '\n'+
+                        '<head>\n'+
+                        '    <title></title>\n'+
+                        '</head>\n'+
+                        '\n'+
+                        '<body>\n'+
+                        '    <p><span style="font-family: Verdana, Geneva, sans-serif;">The following patient has been booked for an appointment:</span></p>\n'+
+                        '    <p><span style="font-family: Verdana, Geneva, sans-serif;">&nbsp; &nbsp;Patient Chart Number :' +appt.Patient_Chart_Number__c+'<br>&nbsp; &nbsp;Provider Name :' +appt.Provider_Name__c+'<br>&nbsp; &nbsp;Appointment Date&Time :' +appt.Appointment_Date_Time__c+'<br><br>Please find Intake attached.&nbsp;</span></p>\n'+
+                        '</body>\n'+
+                        '\n'+
+                        '</html>';
+        
+        system.debug('attach---->' + attach);
+        system.debug('attachwwefefrg---->' + contDoc);
+        email.setSubject('Appointment Notification');
+        email.setHtmlBody(messageBody);
+        email.setToAddresses(new String[]{appt.Location_Email__c});        
+        email.setFileAttachments(new Messaging.EmailFileAttachment[]{attach});
+
+        if(!Test.isRunningTest()) {
+        	Messaging.SendEmailResult [] r = Messaging.sendEmail(new Messaging.SingleEmailMessage[]{email});
+            System.debug('Email result ' + r[0].IsSuccess());
+        }
+         
+    }
+    
+    //------------------------------------------pip/mva---------
+    public static void sendEmailWithAttachment2(ContentDocumentLink contDoc, Appointment__c appt, Opportunity opt) {
+        
+        Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage();
+        Messaging.EmailFileAttachment attach = new Messaging.EmailFileAttachment();
+        String messageBody = '';
+		String setAddress = System.Label.IntakePDFGenAndNotificationEmail;
+
+        ContentDocumentLink cdl = [Select Id, ContentDocument.LatestPublishedVersion.VersionData from ContentDocumentLink where Id =: contDoc.Id];
+        Blob b = cdl.ContentDocument.LatestPublishedVersion.VersionData;
+        //system.debug('ContentDocument.Title---->' + ContentDocument.LatestPublishedVersion.Title);
+        attach.setFileName(opt.Patient_Name__c + '.pdf');
+        attach.setBody(b);
+        
+        messageBody = '<html>\n'+
+                        '\n'+
+                        '<head>\n'+
+                        '    <title></title>\n'+
+                        '</head>\n'+
+                        '\n'+
+                        '<body>\n'+
+                        '    <p><span style="font-family: Verdana, Geneva, sans-serif;">The following patient has been booked for an appointment:</span></p>\n'+
+                        '    <p><span style="font-family: Verdana, Geneva, sans-serif;">&nbsp; &nbsp;Patient Chart Number :' +appt.Patient_Chart_Number__c+'<br>&nbsp; &nbsp;Provider Name :' +appt.Provider_Name__c+'<br>&nbsp; &nbsp;Appointment Date&Time :' +appt.Appointment_Date_Time__c+'<br><br>Please find Intake attached.&nbsp;</span></p>\n'+
+                        '</body>\n'+
+                        '\n'+
+                        '</html>';
+        
+        system.debug('attach---->' + attach);
+        system.debug('attachwwefefrg---->' + contDoc);
+        email.setSubject('Appointment Notification');
+        email.setHtmlBody(messageBody);      
+        email.setToAddresses(new String[]{setAddress});       
+
+        email.setFileAttachments(new Messaging.EmailFileAttachment[]{attach});
+
+        if(!Test.isRunningTest()) {
+        	Messaging.SendEmailResult [] r = Messaging.sendEmail(new Messaging.SingleEmailMessage[]{email});
+            System.debug('Email result ' + r[0].IsSuccess());
+        }
+         
+    }
+    
+    //------------------------------------------------------------
+    
+    public static void sendUrgentEmailWithAttachment(ContentDocumentLink contDoc, Appointment__c appt, Opportunity opt) {
+        
+        Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage();
+        Messaging.EmailFileAttachment attach = new Messaging.EmailFileAttachment();
+        String messageBody = '';
+
+        ContentDocumentLink cdl = [Select Id, ContentDocument.LatestPublishedVersion.VersionData from ContentDocumentLink where Id =: contDoc.Id];
+        Blob b = cdl.ContentDocument.LatestPublishedVersion.VersionData;
+        //system.debug('ContentDocument.Title---->' + ContentDocument.LatestPublishedVersion.Title);
+        attach.setFileName(opt.Patient_Name__c + '.pdf');
+        attach.setBody(b);
+        
+        messageBody = '<html>\n'+
+                        '\n'+
+                        '<head>\n'+
+                        '    <title></title>\n'+
+                        '</head>\n'+
+                        '\n'+
+                        '<body>\n'+
+                        '    <p><span style="font-family: Verdana, Geneva, sans-serif;">The following patient has been booked for an appointment today:</span></p>\n'+
+                        '    <p><span style="font-family: Verdana, Geneva, sans-serif;">&nbsp; &nbsp;Patient Chart Number :' +appt.Patient_Chart_Number__c+'<br>&nbsp; &nbsp;Provider Name :' +appt.Provider_Name__c+'<br>&nbsp; &nbsp;Appointment Date&Time :' +appt.Appointment_Date_Time__c+'<br><br>Please find Intake attached.&nbsp;</span></p>\n'+
+                        '</body>\n'+
+                        '\n'+
+                        '</html>';
+        
+        system.debug('attach---->' + attach);
+        system.debug('attachwwefefrg---->' + contDoc);
+        email.setSubject('URGENT: Same Day Appointment Notification');
+        email.setHtmlBody(messageBody);
+        email.setToAddresses(new String[]{appt.Location_Email__c});
+        email.setFileAttachments(new Messaging.EmailFileAttachment[]{attach});
+        
+        if(!Test.isRunningTest()) {
+            Messaging.SendEmailResult [] r = Messaging.sendEmail(new Messaging.SingleEmailMessage[]{email});
+            System.debug('Email result ' + r[0].IsSuccess()); 
+        }
+        
+    }
+    
+    // DESC : To generate the file
+    public static ContentDocumentLink generateContentFilesForIntakes(Opportunity opp, String aptId) {
+        
+        
+        //generate and attach the PDF document
+        PageReference pdfPage = Page.GenerateIntakePDFDocument; 
+        pdfPage.getParameters().put('id',opp.Id);
+        pdfPage.getParameters().put('appid',aptId);
+        Blob pdfBlob; //create a blob for the PDF content
+        if (!Test.isRunningTest()) { //if we are not in testing context
+            pdfBlob = pdfPage.getContent(); //generate the pdf blob
+        } else { //otherwise, we are in testing context and getContent() gets funky so create the blob manually
+            pdfBlob = Blob.valueOf('Some Text for a boring PDF file...');
+        }
+            
+        ContentVersion conVer = new ContentVersion();
+        conVer.ContentLocation = 'S'; // to use S specify this document is in Salesforce, to use E for external files
+        conVer.PathOnClient = opp.Patient_Name__c + '.pdf'; // The files name, extension is very important here which will help the file in preview.
+        conVer.Title = opp.Patient_Name__c; // Display name of the files
+        conVer.VersionData = pdfBlob; // converting your binary string to Blog
+        insert conVer;    //Insert ContentVersion
+        
+        
+            
+        // First get the Content Document Id from ContentVersion Object
+        Id conDoc = [SELECT ContentDocumentId FROM ContentVersion WHERE Id =:conVer.Id].ContentDocumentId;
+        //create ContentDocumentLink  record 
+        ContentDocumentLink conDocLink = New ContentDocumentLink();
+        conDocLink.LinkedEntityId = opp.Id; // Specify RECORD ID here i.e Any Object ID (Standard Object/Custom Object)
+        conDocLink.ContentDocumentId = conDoc;  //ContentDocumentId Id from ContentVersion
+        conDocLink.shareType = 'V';
+        insert conDocLink;  
+            
+        return conDocLink;
+        
+    }
+}

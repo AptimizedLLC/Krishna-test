@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X21_Day_Letter</fullName>
+    <columns>NAME</columns>
+    <columns>Appointment_Date__c</columns>
+    <columns>Patient__c</columns>
+    <columns>Provider__c</columns>
+    <columns>Authorization_Details__c</columns>
+    <columns>PIP_or_W_C_Request__c</columns>
+    <columns>Authorization_Notes__c</columns>
+    <columns>Authorization_Requested_Date__c</columns>
+    <columns>Status__c</columns>
+    <filterScope>Queue</filterScope>
+    <filters>
+        <field>PIP_or_W_C_Request__c</field>
+        <operation>equals</operation>
+        <value>21 Day Notice</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>New</value>
+    </filters>
+    <label>21 Day Letter</label>
+    <queue>New_Authorizations</queue>
+    <sharedTo>
+        <role>VOB_Specialist</role>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HQ_Quality_of_the_pain__c</fullName>
+    <complianceGroup>HIPAA</complianceGroup>
+    <label>Quality of the pain</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Constant</fullName>
+                <default>false</default>
+                <label>Constant</label>
+            </value>
+            <value>
+                <fullName>Aching</fullName>
+                <default>false</default>
+                <label>Aching</label>
+            </value>
+            <value>
+                <fullName>Burning Sporadic/Intermitten</fullName>
+                <default>false</default>
+                <label>Burning Sporadic/Intermitten</label>
+            </value>
+            <value>
+                <fullName>Throbbing</fullName>
+                <default>false</default>
+                <label>Throbbing</label>
+            </value>
+            <value>
+                <fullName>Sharp</fullName>
+                <default>false</default>
+                <label>Sharp</label>
+            </value>
+            <value>
+                <fullName>Shooting</fullName>
+                <default>false</default>
+                <label>Shooting</label>
+            </value>
+            <value>
+                <fullName>Popping</fullName>
+                <default>false</default>
+                <label>Popping</label>
+            </value>
+            <value>
+                <fullName>Clicking</fullName>
+                <default>false</default>
+                <label>Clicking</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

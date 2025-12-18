@@ -1,0 +1,174 @@
+<apex:page standardController="NPP__c" extensions="GenerateNPPIntakePDFDocumentController" renderAs="pdf" applyBodyTag="false">
+<head>
+    <style>
+      .contentWrap h3 {
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: #f00;
+}
+.contentWrap {
+    margin: 10px 30px;
+}
+span.bStrong {
+    font-weight: 600;
+    padding-right: 5px;
+}
+p {
+    line-height: 22px;
+}
+img {
+    border: 1px solid #000;
+    margin-top: 10px;
+}
+    </style>
+  </head>
+<body>
+    <div>
+            <p><img src="https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003pCyH&oid=00Df2000001HEGJ&lastMod=1715318986000"  style="width: 700px;"/></p>
+    </div>
+    <div>
+        <div class="userFormWrap">
+          <div class="contentWrap">
+            <h3>Insurance And Billing Policies</h3>
+            <div class="form-container">
+              <form>
+                <div class="pdf-content consent-content6">
+                  <div class="form-element">
+                    <div>
+                      <p>
+                        INSURANCE: All Be Healthy LLC dba&nbsp; Alliance
+                        Orthopedics will gladly submit your claims to insurance
+                        carriers. In order to do so, we need your cooperation.
+                        Complete and current insurance information is required
+                        in order for our office to submit a claim to your
+                        primary insurance plan. This information needs to be
+                        provided at EACH visit or you may be required to
+                        reschedule or make payment at the time of service. It is
+                        the patient’s responsibility to notify All Be Healthy
+                        LLC dba&nbsp;Alliance Orthopedics of any changes in or
+                        termination of their insurance. If using a parent’s
+                        insurance, the patient must sign accepting financial
+                        responsibility if not covered with the EXCEPTION of
+                        minors. All Be Healthy LLC dba&nbsp; Alliance
+                        Orthopedics is an out of network practice and will bill
+                        as such. HRA plan payments are subject to the insurance
+                        carrier’s discretion, rates will be paid at a UCR out of
+                        network rate.
+                      </p>
+                      <p>
+                        REFERRAL/AUTHORIZATIONS: It is the patient’s
+                        responsibility to make sure that the referral has been
+                        obtained from their Primary Care Physician and to bring
+                        a copy of that referral to our office. If you do not
+                        have a referral you may be asked to reschedule your
+                        appointment or you may choose to pay in full for
+                        services that day.
+                      </p>
+                      <p>
+                        CO-PAYS, COINSURANCE, AND DEDUCTIBLES: Co-pays are fixed
+                        amounts that your insurance plan has designated as your
+                        responsibility or each office visit. This amount may be
+                        collected prior to your office visit, unless there are
+                        prior arrangements made waiving the co-pay for that day.
+                        If coinsurance or deductible is applied to your
+                        responsibility instead, you may be billed for the
+                        additional amount once your insurance processes the
+                        claims or prior arrangements have been made.
+                      </p>
+                      <p>
+                        MEDICARE: Our doctors and physical therapists are
+                        participating with Medicare part B and will bill for
+                        services provided. You will be responsible for any
+                        deductible or coinsurance. We will submit to a secondary
+                        insurance as a courtesy. If payment is not received
+                        within 60 days, you will be billed for the amount owed
+                        as per Medicare. If you would like to submit your
+                        secondary insurance, we will gladly issue you a receipt
+                        for services rendered.
+                      </p>
+                      <p>
+                        WORKER’S COMP &amp; MOTOR VEHICLE ACCIDENTS: We will
+                        bill the insurance carrier directly. You are responsible
+                        for providing the complete claim information, claim
+                        address, and adjuster’s contact information. If your
+                        worker’s comp or PIP insurance denies your claim, we
+                        will bill your medical insurance if the appropriate
+                        information or referrals needed were provided in a
+                        timely manner. We will await the result of any
+                        litigation to receive payment. We do accept “Letters of
+                        Protection”. You will not be billed for any patient
+                        co-insurance, deductibles, or if claims are denied
+                        during treatment provided “All Be Healthy LLC dba&nbsp;
+                        Alliance Orthopedics agreement is signed”.
+                      </p>
+                      <p>
+                        SELF PAY: If you do not have medical insurance coverage
+                        payment as per All Be Healthy LLC dba&nbsp; Alliance
+                        Orthopedics fee schedule is required at time of service.
+                      </p>
+                      <p>
+                        AUTHORIZATIONS: Prior authorizations are required by
+                        some insurance for certain services whether provided in
+                        or office, hospital, or at a radiology facility.
+                        Patients should know their insurance plan and should
+                        advise front desk personnel that authorizations are
+                        required prior to your visit. We will gladly submit the
+                        authorization for you. If authorization is not given
+                        prior to the date of service you may have to reschedule
+                        and or pay in full for services that day.
+                      </p>
+                      <p>
+                        CANCELLATION POLICY: If you fail to call and cancel your
+                        appointment 24 hours prior, we reserve the right to bill
+                        you a cancellation fee of $25.00.
+                      </p>
+                      <p>
+                        RETURNED CHECKS: If a check you issued as payment is
+                        returned by your bank (for any reason) you will be
+                        charged a fee of $20.00. Any future payments to our
+                        office may be required to pay cash or credit/debit card
+                        ONLY.
+                      </p>
+                      <p>
+                        I have read and understand the above policy regarding my
+                        financial responsibility to All Be Healthy LLC dba&nbsp;
+                        Alliance Orthopedics. My failure to fulfill my financial
+                        obligation may cause interruption or delays in my care.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="patientNameDate">
+<div><label>Patient Name</label></div>
+                      <div class="floatLeft"><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></div>
+<div><label>Date</label></div>
+                      <div class="floatRight"><apex:outputText value="{0,date,MM/dd/yyyy}"><apex:param value="{!NPP__c.CreatedDate}" /></apex:outputText></div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div><p>Patient Signature</p></div>
+
+                      <div>
+                          <apex:outputText value="{!oppt.HQ_Signature__c}" escape="false" />
+                          
+                      </div>
+                  </div>
+              
+                
+              </form>
+            </div>
+          </div>
+          <div class="formCheck">
+            <div>
+               <img src='https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003gvo9&oid=00Df2000001HEGJ&lastMod=1714988677000' style="width: 15px; Height:15px"/><label
+                >By checking the box I acknowledge and agree to conduct business
+                electronically, that I have read the terms of the above section,
+                and that I agree to insert my electronic signature as set forth
+                below indicating my consent to terms set forth on this page.
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+</apex:page>

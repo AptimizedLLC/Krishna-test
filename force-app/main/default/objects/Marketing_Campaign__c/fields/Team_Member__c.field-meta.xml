@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Team_Member__c</fullName>
+    <label>Team Member</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Alexa Spanvill</fullName>
+                <default>false</default>
+                <label>Alexa Spanvill</label>
+            </value>
+            <value>
+                <fullName>Dr. Michael Zolotnitsky PT, DPT</fullName>
+                <default>false</default>
+                <label>Dr. Michael Zolotnitsky PT, DPT</label>
+            </value>
+            <value>
+                <fullName>Bill Klepper</fullName>
+                <default>false</default>
+                <label>Bill Klepper</label>
+            </value>
+            <value>
+                <fullName>Kristian Elvina</fullName>
+                <default>false</default>
+                <label>Kristian Elvina</label>
+            </value>
+            <value>
+                <fullName>Amy Muniz</fullName>
+                <default>false</default>
+                <label>Amy Muniz</label>
+            </value>
+            <value>
+                <fullName>Gionna Postglione</fullName>
+                <default>false</default>
+                <label>Gionna Postglione</label>
+            </value>
+            <value>
+                <fullName>Colleen Bradley</fullName>
+                <default>false</default>
+                <label>Colleen Bradley</label>
+            </value>
+            <value>
+                <fullName>Giaci Vitolo</fullName>
+                <default>false</default>
+                <label>Giaci Vitolo</label>
+            </value>
+            <value>
+                <fullName>Tanner Caccavale</fullName>
+                <default>false</default>
+                <label>Tanner Caccavale</label>
+            </value>
+            <value>
+                <fullName>Suzanna Casler</fullName>
+                <default>false</default>
+                <label>Suzanna Casler</label>
+            </value>
+            <value>
+                <fullName>Alex Lamattina</fullName>
+                <default>false</default>
+                <label>Alex Lamattina</label>
+            </value>
+            <value>
+                <fullName>Haley Kampschmidt</fullName>
+                <default>false</default>
+                <label>Haley Kampschmidt</label>
+            </value>
+            <value>
+                <fullName>Chuk Mozie</fullName>
+                <default>false</default>
+                <label>Chuk Mozie</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

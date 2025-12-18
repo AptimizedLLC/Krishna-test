@@ -1,0 +1,62 @@
+/* Make the path container take full width of screen */
+.slds-path__scroller_inner {
+    display: flex;
+    justify-content: center;
+    width: 100vw; /* Full viewport width */
+    overflow-x: auto;
+}
+
+/* Each stage in the path has a fixed size and centers its content */
+.slds-path__item {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+}
+
+/* Title styling for better readability */
+.slds-path__title {
+    font-size: 0.9rem;
+}
+
+/* Current stage (active) - blue highlight */
+.slds-path__item.current-stage .slds-path__link {
+    background-color: #0176d3; /* Salesforce blue */
+    color: white;
+    border-radius: 4px;
+}
+
+/* Completed stages - green background */
+.slds-path__item.completed .slds-path__link {
+    background-color: #2e844a; /* Salesforce green */
+    color: white;
+    border-radius: 4px;
+}
+
+
+.highlight {
+    animation: pulseHighlight 1s ease-in-out;
+    border-radius: 4px;
+    box-shadow: 0 0 0 3px #0070d2;
+}
+
+/* Make sure text is visible on completed stages */
+.slds-path__item.slds-is-complete .slds-path__title {
+    color: #f2ebeb !important;
+    font-weight: 500;
+}
+
+@keyframes pulseHighlight {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 112, 210, 0.6);
+    }
+    50% {
+        box-shadow: 0 0 0 4px rgba(0, 112, 210, 0.9);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 112, 210, 0.6);
+    }
+}
+
+.slds-path__item.slds-is-complete lightning-icon svg {
+    fill: white !important;
+}

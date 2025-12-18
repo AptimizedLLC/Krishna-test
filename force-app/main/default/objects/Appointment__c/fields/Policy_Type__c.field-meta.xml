@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Policy_Type__c</fullName>
+    <label>Policy Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Auto Insurance</fullName>
+                <default>false</default>
+                <label>Auto Insurance</label>
+            </value>
+            <value>
+                <fullName>Blue Cross Blue Shield</fullName>
+                <default>false</default>
+                <label>Blue Cross Blue Shield</label>
+            </value>
+            <value>
+                <fullName>Capitation</fullName>
+                <default>false</default>
+                <label>Capitation</label>
+            </value>
+            <value>
+                <fullName>Choice EPO</fullName>
+                <default>false</default>
+                <label>Choice EPO</label>
+            </value>
+            <value>
+                <fullName>Choice Plus</fullName>
+                <default>false</default>
+                <label>Choice Plus</label>
+            </value>
+            <value>
+                <fullName>Commercial Insurance</fullName>
+                <default>false</default>
+                <label>Commercial Insurance</label>
+            </value>
+            <value>
+                <fullName>Exclusive Provider Organization (EPO)</fullName>
+                <default>false</default>
+                <label>Exclusive Provider Organization (EPO)</label>
+            </value>
+            <value>
+                <fullName>Federal Employees Program</fullName>
+                <default>false</default>
+                <label>Federal Employees Program</label>
+            </value>
+            <value>
+                <fullName>HMO</fullName>
+                <default>false</default>
+                <label>HMO</label>
+            </value>
+            <value>
+                <fullName>Indemnity Insurance</fullName>
+                <default>false</default>
+                <label>Indemnity Insurance</label>
+            </value>
+            <value>
+                <fullName>Medicaid HMO</fullName>
+                <default>false</default>
+                <label>Medicaid HMO</label>
+            </value>
+            <value>
+                <fullName>Medicare A</fullName>
+                <default>false</default>
+                <label>Medicare A</label>
+            </value>
+            <value>
+                <fullName>Medicare B</fullName>
+                <default>false</default>
+                <label>Medicare B</label>
+            </value>
+            <value>
+                <fullName>Medicare HMO</fullName>
+                <default>false</default>
+                <label>Medicare HMO</label>
+            </value>
+            <value>
+                <fullName>Medicare POS</fullName>
+                <default>false</default>
+                <label>Medicare POS</label>
+            </value>
+            <value>
+                <fullName>Medicare PPO</fullName>
+                <default>false</default>
+                <label>Medicare PPO</label>
+            </value>
+            <value>
+                <fullName>Medicare Supplement</fullName>
+                <default>false</default>
+                <label>Medicare Supplement</label>
+            </value>
+            <value>
+                <fullName>Open Access</fullName>
+                <default>false</default>
+                <label>Open Access</label>
+            </value>
+            <value>
+                <fullName>Other Federal Program</fullName>
+                <default>false</default>
+                <label>Other Federal Program</label>
+            </value>
+            <value>
+                <fullName>Other Non-Federal Programs</fullName>
+                <default>false</default>
+                <label>Other Non-Federal Programs</label>
+            </value>
+            <value>
+                <fullName>Out of State</fullName>
+                <default>false</default>
+                <label>Out of State</label>
+            </value>
+            <value>
+                <fullName>POS</fullName>
+                <default>false</default>
+                <label>POS</label>
+            </value>
+            <value>
+                <fullName>PPO</fullName>
+                <default>false</default>
+                <label>PPO</label>
+            </value>
+            <value>
+                <fullName>Self Pay</fullName>
+                <default>false</default>
+                <label>Self Pay</label>
+            </value>
+            <value>
+                <fullName>Workers Compensation</fullName>
+                <default>false</default>
+                <label>Workers Compensation</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

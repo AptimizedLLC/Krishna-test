@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Financials_Class__c</fullName>
+    <label>Financial Class</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Aetna</fullName>
+                <default>false</default>
+                <label>Aetna</label>
+            </value>
+            <value>
+                <fullName>Auto Insurance</fullName>
+                <default>false</default>
+                <label>Auto Insurance</label>
+            </value>
+            <value>
+                <fullName>Blue Cross Blue Shield</fullName>
+                <default>false</default>
+                <label>Blue Cross Blue Shield</label>
+            </value>
+            <value>
+                <fullName>Cash Pay</fullName>
+                <default>false</default>
+                <label>Cash Pay</label>
+            </value>
+            <value>
+                <fullName>Cigna</fullName>
+                <default>false</default>
+                <label>Cigna</label>
+            </value>
+            <value>
+                <fullName>Government</fullName>
+                <default>false</default>
+                <label>Government</label>
+            </value>
+            <value>
+                <fullName>Humana</fullName>
+                <default>false</default>
+                <label>Humana</label>
+            </value>
+            <value>
+                <fullName>Medicaid</fullName>
+                <default>false</default>
+                <label>Medicaid</label>
+            </value>
+            <value>
+                <fullName>Medicare / Supplement</fullName>
+                <default>false</default>
+                <label>Medicare / Supplement</label>
+            </value>
+            <value>
+                <fullName>Medicare Replacement Plan</fullName>
+                <default>false</default>
+                <label>Medicare Replacement Plan</label>
+            </value>
+            <value>
+                <fullName>Miscellaneous</fullName>
+                <default>false</default>
+                <label>Miscellaneous</label>
+            </value>
+            <value>
+                <fullName>Out of State</fullName>
+                <default>false</default>
+                <label>Out of State</label>
+            </value>
+            <value>
+                <fullName>United HealthCare</fullName>
+                <default>false</default>
+                <label>United HealthCare</label>
+            </value>
+            <value>
+                <fullName>Workers Compensation</fullName>
+                <default>false</default>
+                <label>Workers Compensation</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

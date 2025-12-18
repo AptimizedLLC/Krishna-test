@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Checking_appointment</name>
+        <label>Checking appointment</label>
+        <locationX>270</locationX>
+        <locationY>539</locationY>
+        <assignmentItems>
+            <assignToReference>StoringAppointmentid</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Getting_past_Appointments.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Floorstaff_changed</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Checking_current_floorstaff</name>
+        <label>Checking current floorstaff</label>
+        <locationX>270</locationX>
+        <locationY>1031</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Present</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Patient_s_Currently_Assigned_Staff__r.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Updating_Account</targetReference>
+            </connector>
+            <label>Present</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Checking_Existing_Appointments</name>
+        <label>Checking Existing Appointments</label>
+        <locationX>50</locationX>
+        <locationY>755</locationY>
+        <defaultConnector>
+            <targetReference>Checking_current_floorstaff</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Existinng_Appointment</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>StoringAppointmentid</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Appointment_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pending Flowsheet Entry</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Floorstaff_changed__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Checking_current_floorstaff</targetReference>
+            </connector>
+            <label>Existinng Appointment</label>
+        </rules>
+        <rules>
+            <name>Provider_review</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Appointment_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Provider Review</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Floorstaff_changed__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Checking_current_floorstaff</targetReference>
+            </connector>
+            <label>Provider review</label>
+        </rules>
+        <rules>
+            <name>Sending_Back_to_Floorstaff</name>
+            <conditionLogic>(1 OR 2 ) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Appointment_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Sent Back To Floor staff</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Checked-In</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Patient_s_Currently_Assigned_Staff__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Checking_current_floorstaff</targetReference>
+            </connector>
+            <label>Sending Back to Floorstaff</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Floorstaff_changed</name>
+        <label>Floorstaff changed</label>
+        <locationX>270</locationX>
+        <locationY>647</locationY>
+        <defaultConnector>
+            <targetReference>Checking_current_floorstaff</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Change_check</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Patient_s_Currently_Assigned_Staff__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Checking_Existing_Appointments</targetReference>
+            </connector>
+            <label>Change check</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>Location_formulae</name>
+        <dataType>String</dataType>
+        <expression>CASE(
+  {!$Record.Location_Id__c},
+  &quot;44811&quot;, &quot;FREEHOLD&quot;,
+  &quot;44812&quot;, &quot;EAST BRUNSWICK&quot;,
+  &quot;46964&quot;, &quot;BLOOMFIELD&quot;,
+ &quot;38637&quot;, &quot;FAIR LAWN&quot;,
+&quot;48844&quot;, &quot;RANDOLPH&quot;,
+&quot;50687&quot;, &quot;OLD BRIDGE&quot;,
+&quot;48980&quot;, &quot;OLD BRIDGE OFFICE MD&quot;,
+&quot;46965&quot;, &quot;BLOOMFIELD MD&quot;,
+&quot;44697&quot;, &quot;FREEHOLD OFFICE MD&quot;,
+&quot;44695&quot;, &quot;EAST BRUNSWICK MD&quot;,
+&quot;44816&quot;, &quot;TEAMMD SUGERY CENTER, LLC`&quot;,
+&quot;48845&quot;, &quot;RANDOLPH MD&quot;,
+&quot;45547&quot;, &quot;FAIR LAWN MD&quot;,
+&quot;53312&quot;, &quot;Union&quot;,
+&quot;48874&quot;, &quot;MORRIS COUNTY SURGICAL CENTER&quot;,
+&quot;52434&quot;, &quot;MIDDLETOWN&quot;,
+  &quot;default value&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>RemoveDr</name>
+        <dataType>String</dataType>
+        <expression>SUBSTITUTE({!$Record.Provider_Name__c}, &quot;Dr. &quot;, &quot;&quot;)</expression>
+    </formulas>
+    <interviewLabel>Assinging Appointments to Queues and users {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Assinging Appointments to Queues and users</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Getting_past_Appointments</name>
+        <label>Getting past Appointments</label>
+        <locationX>270</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Checking_appointment</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account_ID__c</field>
+            <operator>Contains</operator>
+            <value>
+                <elementReference>$Record.Account_ID__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Visit_Reason_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Not MD</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Appointment__c</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Copy_1_of_Update_Records_2</name>
+        <label>Copy 1 of Update Records 2</label>
+        <locationX>270</locationX>
+        <locationY>323</locationY>
+        <connector>
+            <targetReference>Getting_past_Appointments</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Location__c</field>
+            <value>
+                <elementReference>Location_formulae</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Updating_Account</name>
+        <label>Updating Account</label>
+        <locationX>138</locationX>
+        <locationY>1139</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Patient__r.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Currently_Assigned_Floor_Staff__c</field>
+            <value>
+                <elementReference>$Record.Patient_s_Currently_Assigned_Staff__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>FS_Last_Assignment_Done_Date__c</field>
+            <value>
+                <elementReference>$Record.LastModifiedDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Floorstaff_Assigned__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Last_Assignment_Done_By__c</field>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <start>
+        <locationX>144</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Copy_1_of_Update_Records_2</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Visit_Reason_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Not MD</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Patient__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Appointment__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>AppointmentId</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Appointment__c</objectType>
+    </variables>
+    <variables>
+        <name>StoringAppointmentid</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

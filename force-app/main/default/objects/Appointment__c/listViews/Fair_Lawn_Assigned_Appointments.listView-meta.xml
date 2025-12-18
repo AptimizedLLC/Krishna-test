@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fair_Lawn_Assigned_Appointments</fullName>
+    <columns>NAME</columns>
+    <columns>Patient_s_Currently_Assigned_Staff__c</columns>
+    <columns>Provider_Name__c</columns>
+    <columns>Enter_FlowSheet_Link__c</columns>
+    <columns>Appointment_Date_Time__c</columns>
+    <columns>Location__c</columns>
+    <columns>VOB_Case__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Patient_s_Currently_Assigned_Staff__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>Location_Id__c</field>
+        <operation>equals</operation>
+        <value>38637</value>
+    </filters>
+    <filters>
+        <field>Visit_Reason_Type__c</field>
+        <operation>equals</operation>
+        <value>Not MD</value>
+    </filters>
+    <label>Fair Lawn Assigned Appointments</label>
+</ListView>

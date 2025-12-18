@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Brand__c</fullName>
+    <label>Brand</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Alliance Orthopedics</fullName>
+                <default>false</default>
+                <label>Alliance Orthopedics</label>
+            </value>
+            <value>
+                <fullName>Alliance Performance</fullName>
+                <default>false</default>
+                <label>Alliance Performance</label>
+            </value>
+            <value>
+                <fullName>Alliance Health Systems</fullName>
+                <default>false</default>
+                <label>Alliance Health Systems</label>
+            </value>
+            <value>
+                <fullName>Alliance University</fullName>
+                <default>false</default>
+                <label>Alliance University</label>
+            </value>
+            <value>
+                <fullName>TeamMD</fullName>
+                <default>false</default>
+                <label>TeamMD</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

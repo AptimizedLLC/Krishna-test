@@ -1,0 +1,138 @@
+<template> 
+    <div class="slds-box slds-theme--default">
+        <lightning-card title="Log Monitoring">
+            <lightning-layout multiple-rows class="slds-p-left_small slds-p-right_small">
+                <lightning-layout-item size="12" small-device-size="12" medium-device-size="6" large-device-size="6"  class="slds-p-around_xxx-small">
+                   <lightning-input type="date" label="Date"  class="slds-m-top_small" onchange={handleDateChange}>
+                   </lightning-input>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="12" small-device-size="12" medium-device-size="6" large-device-size="6"  class="slds-p-around_xxx-small">
+                    <lightning-input type="text" label="Class Name"  class="slds-m-top_small" onchange={handleClassNameChange}>
+                    </lightning-input>
+                  </lightning-layout-item>
+
+                <lightning-layout-item size="12" small-device-size="12" medium-device-size="6" large-device-size="6"  class="slds-p-around_xxx-small">
+                    <c-generic-picklist object-name="Transaction_Log__c" field-name="Status__c" label="Status" onselected={onStatusSelection} ></c-generic-picklist>
+                </lightning-layout-item>
+                
+                <lightning-layout-item size="12" small-device-size="12" medium-device-size="6" large-device-size="6"  class="slds-p-around_xxx-small">
+                </lightning-layout-item>
+            </lightning-layout>
+            <div class="slds-align_absolute-center slds-p-around_medium">
+                <lightning-button class="slds-m-around_xx-small" variant="brand-outline" label="Reset" title="Reset" onclick={handleReset} ></lightning-button>
+                <lightning-button class="slds-m-around_xx-small" label="Search" type="search" variant="brand" onclick={handleSearch} ></lightning-button>
+            </div>  
+            <template if:true={showdiv}>
+                <template if:true={loader}>
+                    <lightning-spinner alternative-text="Loading..." size="small"></lightning-spinner>
+                </template>    
+                <div class="slds-box slds-theme_default">
+                    <lightning-card  title="Log Details">
+                        <table  class="slds-table slds-table_bordered slds-table_striped slds-table_cell-buffer slds-table_fixed-layout">
+                            <thead>
+                                <tr class="slds-line-height_reset slds-text-title_caps">
+                                    <th  class="slds-is-resizable" scope="col">
+                                        <div class="slds-truncate" title="Name">
+                                            Name
+                                        </div>
+                                    </th>
+                                    <th  class="slds-is-resizable" scope="col">
+                                        <div class="slds-truncate" title="Class Name">
+                                            Class Name
+                                        </div>
+                                    </th>
+                                    <th  class="slds-is-resizable" scope="col">
+                                        <div class="slds-truncate" title="Method Name">
+                                            Method Name
+                                        </div>
+                                    </th>
+                                    <th class="slds-is-resizable" scope="col">
+                                        <div class="slds-truncate" title="Status">
+                                            Status 
+                                        </div>
+                                    </th>
+                                    <th class="slds-is-resizable" scope="col">
+                                        <div class="slds-truncate" title="Error Log Time">
+                                            Error Log Time
+                                        </div>
+                                    </th>
+                                    <th class="slds-is-resizable" scope="col">
+                                        <div class="slds-truncate" title="Error Log">
+                                            Error Log
+                                        </div>
+                                    </th>
+                                    <th class="slds-is-resizable" scope="col">
+                                        <div class="slds-truncate" title="Custom Message">
+                                            Custom Message 
+                                        </div>                                       
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template if:true={logsList}>
+                                    <template for:each={logsList} for:item="acc">
+                                        <tr key={acc.Id}>
+                                            <th scope="row" data-label="Name">
+                                                <div class="slds-truncate" title={acc.Name}>{acc.Name}</div>
+                                            </th>
+                                            <th scope="row" data-label="Class Name">
+                                                <div class="slds-truncate" title={acc.Class_Name__c}>{acc.Class_Name__c}</div>
+                                            </th>
+                                            <th scope="row" data-label="Method Name">
+                                                <div class="slds-truncate" title={acc.Method_Name__c}>{acc.Method_Name__c}</div>
+                                            </th>
+                                            <th scope="row" data-label="Status">
+                                               <div class="slds-truncate" title={acc.Status__c}>{acc. Status__c}</div>
+                                           </th>
+                                           <th scope="row" data-label="Error Log Time">
+                                              <div class="slds-truncate" title={acc.Error_Log_Time__c}>{acc. Error_Log_Time__c}</div>
+                                           </th>
+                                           <th scope="row" data-label="Error Log">
+                                              <div class="slds-truncate" title={acc.Error_Log__c}>{acc. Error_Log__c}</div>
+                                            </th>
+                                           <th scope="row" data-label="Custom Message">
+                                               <div class="slds-truncate" title={acc.Custom_Message__c}>{acc. Custom_Message__c}</div>
+                                           </th>
+                                        </tr>
+                                    </template>
+                                </template>
+                            </tbody>
+                        </table>
+                        <template if:true={isDisplayNoRecords}>
+                            <div class="slds-align_absolute-center">
+                                <br/>
+                                No records found
+                            </div>
+                        </template>
+                        <br/>
+                        <div class="slds-align_absolute-center"> 
+                            <div class="slds-p-right_xx-small">
+                                    
+                                <lightning-button label="Prev"
+                                                   disabled={isPrev} onclick={handlePrev}
+                                                    variant="brand"
+                                                    icon-name="utility:back"
+                                                    name="prev">
+                                </lightning-button>  
+                            </div>
+                            <span class="slds-badge slds-badge_lightest">
+                                {recordStart}-{recordEnd} of {totalRecords} | Page {pageNumber} of {totalPages}
+                            </span>
+                            <div class="slds-p-left_xx-small">
+                                <lightning-button label="Next"
+                                                   disabled={isNext} onclick={handleNext}
+                                                    variant="brand"
+                                                    icon-name="utility:forward"
+                                                    icon-position="right"
+                                                    name="next">
+                                </lightning-button>
+                            </div>
+                        </div>  
+                    </lightning-card>
+                </div>
+            </template>
+
+       </lightning-card>
+   </div>
+</template>

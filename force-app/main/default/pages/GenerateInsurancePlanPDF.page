@@ -1,0 +1,1753 @@
+<apex:page showHeader="false" sidebar="false" applyBodyTag="false" controller="InsurancePlanPDFController"  renderAs="pdf">
+    
+    <head>
+        <style>
+            table,
+            th,
+            td {
+            font-family: helvetica !important;
+            font-size: 11pt !important;
+            border: 0.6px solid black;
+            border-collapse: collapse !important;
+            border-spacing: 0px;
+            vertical-align:top;
+            
+            }
+            
+            /* Solid border */
+            hr.solid {
+            border-top: 3px solid #bbb;
+            }
+            
+            .subtitle {
+            text-align: center;
+            font-style: italic;
+            font-weight: bold;
+            }
+            
+            body {
+            font-family: helvetica;
+            }
+            
+            body td {
+            font-family: helvetica;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div>
+            <p><img src="{!URLFOR($Resource.insurance)}" style="width: 725px;"/></p>
+        </div>
+        
+        
+        <apex:form >
+            <div id="content">
+                <div style="">
+                    <div class='titleBlock'>
+                        <p class='title' style="font-weight: bold; text-align: center; font-family: helvetica !important;">Patient Demographics:</p>
+                    </div>
+                   
+                    <table width="100%">
+                        <tr>
+                            <td>
+                                <div><apex:outputLabel id="patientNameLabel" value="Patient Name : " />
+                                    <apex:outputText value="{!patientName}" id="patientName" />
+                                </div>
+                                <div>
+                                    
+                                    <apex:outputLabel id="patientDOBLabel" value="Patient DOB : " />
+                                    <apex:outputText value="{!patientDOB}" id="patientDOB" />
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <br/><br/><br/><br/><br/><br/><br/>
+                 
+                    
+                    <div class='titleBlock'>
+                        <p class='title' style="font-weight: bold; text-align: center;">Medicare, In Network,&amp; Out of Network Benefits</p>
+                    </div>
+                   
+                   
+                    
+                    <table width="100%">
+                        <tr>
+                            <td>
+                                <apex:panelGrid columns="4" id="Grid7">
+                                    <apex:panelGroup id="theGroup23">
+                                        <div class="subtitle">Medicare</div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="deductibleLabel" value="Deductible: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Medicare_Annual_Deductible__c}" id="deductible" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="dedAppliedLabel" value="Ded Applied: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Medicare_Deductible_Met__c}" id="dedApplied" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="effDateLabel" value="Eff Date: " />
+                                            <apex:outputText value="{!effectiveDate}" id="effDate2" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="pTUsedLabel" value="PT Used?: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Medicare_PT_Benefits_Used_To_Date__c}" id="pTUsed" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="oTUsedLabel" value="OT Used?:" />
+                                            
+                                            <apex:outputText value="{!insurancePlanRecord.Medicare_OT_Benefits_Used_To_Date__c}" id="oTUsed" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="repPlanLabel" value="Rep. Plan?:" />
+                                            <apex:outputText value="{!insurancePlanRecord.Is_There_a_Medicare_Replacement_Plan_NEW__c}" id="repPlan" />
+                                        </div>
+                                        <!--<div>
+
+                                        <apex:outputLabel id="followcapLabel" value="Follows cap?: "  />
+                                        <apex:outputText value="" id="followcap"/>
+                                        </div>-->
+                                        <div>
+                                            
+                                            <apex:outputLabel id="secondaryLabel" value="Secondary?:" />
+                                            <apex:outputText value="{!insurancePlanRecord.Supplemental_Policy_On_File_NEW__c}" id="secondary" />
+                                        </div>
+                                     	<!--<div>
+                                            
+                                            <apex:outputLabel id="followsMedicareGuidelinesLabel" value="Follows Medicare Guidelines?: " />
+                                            <apex:outputText value="" id="followsMedicareGuidelines"/>
+                                        </div>-->
+                                        <div>
+                                            
+                                            <apex:outputLabel id="medicareNotesLabel" value="Medicare Notes:" />
+                                            <apex:outputText value="{!insurancePlanRecord.Medicare_Notes__c}" id="medicareNotes"/>
+                                        </div>
+                                        <br />
+                                        <br />
+                                        <div class="subtitle">Pharmacy</div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="handledByLabel" value="Handled By:" />
+                                            <apex:outputText value="{!insurancePlanRecord.Pharmacy_Benefits__c}" id="handledBy" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="pLabel" value="P#: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Pharmacy_Benefits_Phone__c}" id="p" />
+                                        </div>
+                                        <!--<div>
+                                        <u>
+                                        <apex:outputLabel id="pharmacyNotesLabel" value="Pharmacy Notes: " /></u>
+                                        <apex:outputText value="" id="pharmacyNotes" />
+                                        </div>-->
+                                    </apex:panelGroup>
+                                    <apex:panelGroup id="theGroup24">
+                                        <div class="subtitle">Insurance Details</div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="phoneLabel" value="Phone #: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Insurance_Phone__c}" id="phone"/>
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="primaryEffDateLabel" value="Primary Eff Date:" />
+                                            <apex:outputText value="{!primaryeffectiveDate}" id="primaryEffDate"/>
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="primaryTermDateLabel" value="Primary Term Date: " />
+                                            <apex:outputText value="{!primarytermDate}" id="primaryTermDate" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="secondaryEffDate" value="Secondary Eff Date: " />
+                                            <apex:outputText value="{!secondaryeffectDate}" id="secondaryEffDate2" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="fundingLabel" value="Funding: " />
+                                            <apex:outputText value="{!insurancePlanRecord.How_Is_Policy_Funded__c}" id="funding"/>
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="timelyFilingLabel" value="Timely Filing: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Timely_Filing_Requirement_Original_Claim__c}" id="timelyFiling" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="reprocessingLabel" value="Reprocessing:" />
+                                            <apex:outputText value="{!insurancePlanRecord.Timely_Filing_Requirement_Reprocessing__c}" id="reprocessing" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="calYearLabel" value="Cal Year?: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Coverage_Year__c}" id="calYear"/>
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="embeddedorAggregateLabel" value="Embedded or Aggregate?: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Is_this_plan_Embedded_or_Aggregate__c}" id="embeddedorAggregate"/>
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="crossAccLabel" value="Cross Acc: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Deductible_Cross_Applies_NEW__c}" id="crossAcc"/>
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="hSAFSAFlexCardHRALabel" value="HSA/FSA/Flex Card/HRA?: " />
+                                            <apex:outputText value="{!insurancePlanRecord.HSA_FSA_Flex_Card_HRA__c}" id="hSAFSAFlexCardHRA"/>
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="methodofPaymentLabel" value="Method of Payment: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Method_of_Payment__c}" id="methodofPayment"/>
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="amountRemainingLabel" value="Amount Remaining: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Amount_Remaining__c}" id="amountRemaining"/>
+                                        </div>
+                                        
+                                    </apex:panelGroup>
+                                    <apex:panelGroup id="theGroup25">
+                                        <div class="subtitle">In Network</div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="inNetworkCoInsLabel" value="In Network Co Ins: " />
+                                            <apex:outputText value="{!insurancePlanRecord.In_Network_Co_Insurance__c}" id="inNetworkCoIns" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="inNetworkIndlDedLabel" value="In Network Indl Ded: " />
+                                            <apex:outputText value="{!insurancePlanRecord.In_Network_Individual_Deductible__c}" id="inNetworkIndlDed" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="inNetworkIndDedMETLabel" value="In Network Ind Ded MET: " />
+                                            <apex:outputText value="{!coverage.In_Network_Deductible_Met__c}" id="inNetworkIndDedMET" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="inNetworkFamDedLabel" value="In Network Fam Ded: " />
+                                            <apex:outputText value="{!insurancePlanRecord.In_Network_Family_Deductible__c}" id="inNetworkFamDed" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="In Network Fam Ded MET:" id="inNetworkFamDedMETLabel"/>
+                                            <apex:outputText value="{!coverage.In_Network_Family_Deductible_Met__c }" id="inNetworkFamDedMET"/>
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="In Network Ind OOP:" id="inNetworkIndOOPLabel"/>
+                                            <apex:outputText value="{!insurancePlanRecord.In_Network_Out_of_Pocket_Max__c}" id="inNetworkIndOOP"/>
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="In Network Ind OOP MET:" id="inNetworkIndOOPMETLabel"/>
+                                            <apex:outputText value="{!coverage.In_Network_Out_of_Pocket_Max_Met__c}" id="inNetworkIndOOPMET"/>
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="In Network Fam OOP:" id="inNetworkFamOOPLabel"/>
+                                            <apex:outputText value="{!coverage.In_Network_Family_Out_of_Pocket__c}" id="inNetworkFamOOP"/>
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="In Network Fam OOP MET: " id="inNetworkFamOOPMETLabel"/>
+                                            <apex:outputText value="{!coverage.In_Network_Family_Out_of_Pocket_Met__c}" id="inNetworkFamOOPMET"/>
+                                        </div>
+                                    </apex:panelGroup>
+                                    <apex:panelGroup id="theGroup26">
+                                        <div class="subtitle">Out of Network</div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="patienthaveOONbenefitsLabel" value="Does patient have OON benefits?: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Patient_Have_Out_of_Network_Benefits__c}" id="patienthaveOONbenefits" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="oONCoInsLabel" value="OON Co Ins: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Out_of_Network_Co_Insurance__c}" id="oONCoIns" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="oONIndDedLabel" value="OON Ind Ded: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Out_of_Network_Individual_Deductible__c}" id="oONIndDed" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="oONIndDedMETLabel" value="OON Ind Ded MET: " />
+                                            <apex:outputText value="{!coverage.Out_of_Network_Deductible_Met__c}" id="oONIndDedMET" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="OON Fam Ded: " id="oONFamDedLabel"/>
+                                            <apex:outputText value="{!insurancePlanRecord.Out_of_Network_Family_Deductible__c}" id="oONFamDed"/>
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="OON Fam Ded MET:" id="oONFamDedMETLabel"/>
+                                            <apex:outputText value="{!coverage.Out_of_Network_Family_Deductible_Met__c}" id="oONFamDedMET"/>
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="OON Ind OOP:" id="oONIndOOPLabel"/>
+                                            <apex:outputText value="{!insurancePlanRecord.Out_of_Network_Out_of_Pocket_Max__c}" id="oONIndOOP"/>
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="OON Ind OOP MET:" id="oONIndOOPMETLabel"/>
+                                            <apex:outputText value="{!coverage.Out_of_Network_Out_of_Pocket_Max_Met__c }" id="oONIndOOPMET"/>
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="OON Fam OOP: " id="oONFamOOPLabel"/>
+                                            <apex:outputText value="{!coverage.Out_of_Network_Family_Out_of_Pocket__c }" id="oONFamOOP"/>
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="OON Fam OOP MET: " id="oONFamOOPMETLabel"/>
+                                            <apex:outputText value="{!coverage.Out_of_Network_Family_Out_of_Pocket_Met__c }" id="oONFamOOPMET"/>
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="OON Specialist Copay: " id="oONSpecialistCopayLabel"/>
+                                            <apex:outputText value="{!insurancePlanRecord.Out_of_Network_Speciality_Co_Pay__c}" id="oONSpecialistCopay"/>
+                                        </div>
+                                        <!--<div>
+                                            <u>
+                                            <apex:outputLabel value="OON Notes:" id="oONNotesLabel"/></u>
+                                            <apex:outputText value="" id="oONNotes"/>
+                                            </div>-->
+                                    </apex:panelGroup>
+                                </apex:panelGrid>
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br /><br/><br/><br/>
+                    
+                    <div class='titleBlock'>
+                        <p class='title' style="font-weight: bold; text-align: center; font-family: helvetica !important;">Conservative Departments &amp; Imaging</p>
+                    </div>
+                    <table width="100%">
+                        <tr>
+                            <td>
+                                <apex:panelGrid columns="5" id="Grid2">
+                                    <apex:panelGroup id="theGroup6">
+                                        <div class="subtitle">Chiro</div>
+                                        <div>
+                                            <apex:outputLabel id="chiroLabel" value="Is Chiro Covered? : " />
+                                            <apex:outputText value="{!insurancePlanRecord.Chiropractor_Covered_by_WC_NEW__c}" id="covered" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="visitLabel" value="# of Visits : " />
+                                            <apex:outputText value="{!insurancePlanRecord.Chiro_Visits_Allowed__c}" id="visit" />
+                                        </div>
+                                        <!--div>
+                                            <u>
+                                            <apex:outputLabel id="ioLabel" value="IN/OUT: " /></u>
+                                            <apex:outputText value="Yes" id="io" />
+                                            </div-->
+                                        <div>
+                                            
+                                            <apex:outputLabel id="visitsUsedLabel" value="Visits Used : " />
+                                            <apex:outputText value="{!insurancePlanRecord.Chiro_Visits_To_Date__c}" id="visitsUsed" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel id="visitsCombinedLabel" value="Visits Combined : "/>
+                                            <apex:outputText value="{!insurancePlanRecord.Chiro_Visits_Combined__c}" id="visitsCombined" />
+                                        </div>
+                                        <!--<div>
+                                                    <u>
+                                                    <apex:outputLabel id="hardMaxLabel" value="Hard Max : " /></u>
+                                                    <apex:outputText value="Yes" id="hardMax" />
+                                                    </div>-->
+                                        <div>
+                                            <apex:outputLabel value="Modality Limit # : "/>
+                                            <apex:outputText value="{!insurancePlanRecord.Chiro_Modality_Limit_Per_Date_of_Service__c}" />
+                                        </div>
+                                        <!--<div>
+                                        <u><apex:outputLabel value="Limit Type: "/></u>
+                                        <apex:outputText value="Per Day" />
+                                        </div>-->
+                                        <div>
+                                            <apex:outputLabel value="Auth Required? : "/>
+                                            <apex:outputText value="{!insurancePlanRecord.Authorization_Required_for_Chiro__c}"/>
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel value="CIGNA ASHN? : " />
+                                            <apex:outputText value="{!insurancePlanRecord.Chiropractic_Benefits_Cigna_ASHN__c}" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel value="Referral : " />
+                                            <apex:outputText value="{!insurancePlanRecord.Chiropractic_Referral_Required__c}" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel value="Auth Phone# : " />
+                                            <apex:outputText value="{!insurancePlanRecord.WC_Authorization_Phone__c}" />
+                                        </div>
+                                        <!--<div>
+                                        <u>
+                                        <apex:outputLabel value="Will X-Ray apply to Chiro $$ max?: " /></u>
+                                        <apex:outputText value="No" />
+                                        </div>-->
+                                        <div>
+                                            <apex:outputLabel value="Notes: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Chiropractic_Benefits_Notes__c}" />
+                                        </div>
+                                        <br />
+                                        <br />
+                                        <hr class="solid" />
+                                        <div class="subtitle">Can Chiro Bill</div>
+                                        <div>
+                                            <apex:outputLabel value="97124(Massage) : " />
+                                            <apex:outputText value="{!insurancePlanRecord.X97124__c}" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel value="29530(Strapping of knee) : " />
+                                            <apex:outputText value="{!insurancePlanRecord.X29530__c}" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel value="29799(Strapping of L/S) : " />
+                                            <apex:outputText value="{!insurancePlanRecord.X29799__c}" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel value="72110(X-Ray) : " />
+                                            <apex:outputText value="{!insurancePlanRecord.X72110__c}" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel value="97140(Manual Therapy) : " />
+                                            <apex:outputText value="{!insurancePlanRecord.X97140__c}" />
+                                        </div>
+                                    </apex:panelGroup>
+                                    <apex:panelGroup id="theGroup7">
+                                        <div class="subtitle">PT</div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="Is PT Covered?: " />
+                                            <apex:outputText value="{!insurancePlanRecord.WC_PT_Covered_NEW__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="# of Visits: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Physical_Therapy_Visits_Allowed__c}" />
+                                        </div>
+                                        <!--div>
+                                        <u><apex:outputLabel value="IN/OUT: " /></u>
+                                        <apex:outputText value="Yes" />
+                                        </div-->
+                                        <div>
+                                            
+                                            <apex:outputLabel value="Visits Used: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Physical_Therapy_Visits_To_Date__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="Visits Combined: " />
+                                            <apex:outputText value="{!insurancePlanRecord.PT_OT_Combined_In_Same_Day__c}" />
+                                        </div>
+                                        <!--<div>
+                                                <u><apex:outputLabel value="Hard Max: " /></u>
+                                                <apex:outputText value="Yes" />
+                                                </div>-->
+                                        <div>
+                                            
+                                            <apex:outputLabel value="Modality Limit #: " />
+                                            <apex:outputText value="{!insurancePlanRecord.PT_Modality_Limit_Per_Date_of_Service__c}" />
+                                        </div>
+                                        <!--<div>
+                                        <u>
+                                        <apex:outputLabel value="Limit Type: " /></u>
+                                        <apex:outputText value="Per Day" />
+                                        </div>-->
+                                        <div>
+                                            <apex:outputLabel value="Auth Required?: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Authorization_Required_for_PT__c}" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel value="CIGNA ASHN?:" />
+                                            <apex:outputText value="{!insurancePlanRecord.Physical_Therapy_Benefits_Cigna_ASHN__c}" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel value="Referral: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Physical_Therapy_Referral_Required__c}" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel value="Auth Phone#: " />
+                                            <apex:outputText value="{!insurancePlanRecord.How_to_Obtain_PT_Authorization__c}" />
+                                        </div>
+                                        
+                                        <div>
+                                            <apex:outputLabel value="Notes: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Physical_Therapy_Benefits_Notes__c}" />
+                                        </div>
+                                    </apex:panelGroup>
+                                    <apex:panelGroup id="theGroup8">
+                                        <div class="subtitle">OT</div>
+                                        <div>
+                                            <apex:outputLabel value="Is OT Covered?: " />
+                                            <apex:outputText value="{!insurancePlanRecord.WC_OT_Covered_NEW__c}" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel value="# of Visits: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Occupation_Therapy_Visits_Allowed__c}" />
+                                        </div>
+                                        <!--div>
+                                        <u><apex:outputLabel value="IN/OUT: " /></u>
+                                        <apex:outputText value="Yes" />
+                                        </div-->
+                                        <div>
+                                            <apex:outputLabel value="Visits Used: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Occupational_Therapy_Visits_To_Date__c}" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel value="Visits Combined: " />
+                                            <apex:outputText value="{!insurancePlanRecord.PT_OT_Combined_In_Same_Day__c}" />
+                                        </div>
+                                        <!--<div>
+                                        <u>
+                                        <apex:outputLabel value="Hard Max: " /></u>
+                                        <apex:outputText value="Yes" />
+                                        </div>-->
+                                        <div>
+                                            <apex:outputLabel value="Modality Limit #: " />
+                                            <apex:outputText value="{!insurancePlanRecord.OT_Modality_Limit_Per_Date_of_Service__c}" />
+                                        </div>
+                                        <!--<div>
+                                        <u>
+                                        <apex:outputLabel value="Limit Type: " /></u>
+                                        <apex:outputText value="Per Day" />
+                                        </div>-->
+                                        <div>
+                                            <apex:outputLabel value="Auth Required?: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Authorization_Required_for_OT__c}" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel value="CIGNA ASHN?: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Occupational_Therapy_Benefits_Cigna_ASHN__c}" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel value="Referral: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Occupational_Therapy_Referral_Required__c}" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel value="Auth Phone#: " />
+                                            <apex:outputText value="{!insurancePlanRecord.How_to_Obtain_OT_Authorization__c}" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel value="Notes: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Occupational_Therapy_Benefits_Notes__c}" />
+                                        </div>
+                                    </apex:panelGroup>
+                                    
+                                    <apex:panelGroup id="theGroup9">
+                                        <div class="subtitle">Can OT Bill</div>
+                                        <div>
+                                            <apex:outputLabel value="97535(ADL's &amp; Self/Home Care): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X97535__c}" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel value="L3764(Elbow): " />
+                                            <apex:outputText value="{!insurancePlanRecord.L3764__c}" />
+                                        </div>
+                                        <!--div>
+                                            <apex:outputLabel value="L3765(Elbow): " />
+                                            <apex:outputText value="Yes" />
+                                            </div>
+                                            <div>
+                                            
+                                            <apex:outputLabel value="L3806(W/H/F): " />
+                                            <apex:outputText value="Yes" />
+                                            </div>
+                                            <div>
+                                            <u>
+                                            <apex:outputLabel value="L3905(W/H/F): " /></u>
+                                            <apex:outputText value="Yes" />
+                                            </div-->
+                                        <div>
+                                            <apex:outputLabel value="L3906(W/H/F): " />
+                                            <apex:outputText value="{!insurancePlanRecord.L3906__c}" />
+                                        </div>
+                                        <!--div>
+                                        <u>
+                                        <apex:outputLabel value="L3915(W/H/F): " /></u>
+                                        <apex:outputText value="Yes" />
+                                        </div-->
+                                        <div>
+                                            
+                                            <apex:outputLabel value="L3919(W/H/F): " />
+                                            <apex:outputText value="{!insurancePlanRecord.L3919__c}" />
+                                        </div>
+                                        <!--div>
+                                        <u><apex:outputLabel value="L3921(W/H/F): " /></u>
+                                        <apex:outputText value="Yes" />
+                                        </div>
+                                        <div>
+                                        <u><apex:outputLabel value="L3933(W/H/F): " /></u>
+                                        <apex:outputText value="Yes" />
+                                        </div-->
+                                        <div>
+                                            
+                                            <apex:outputLabel value="L3935(W/H/F): " />
+                                            <apex:outputText value="{!insurancePlanRecord.L3935__c}" />
+                                        </div>
+                                        <br/>
+                                        <br/>
+                                        <hr class="solid" />
+                                        <div class="subtitle">Imaging</div>
+                                        <!--<div>
+                                        <u>
+                                        <apex:outputLabel value="Is auth required for 00N X-Ray?: " /></u>
+                                        <apex:outputText value="No" />
+                                        </div>-->
+                                        <!--<div>
+                                        <u><apex:outputLabel value="X-Ray Auth Ph #(if auth required): "/></u>
+                                        <apex:outputText value="{!insurancePlanRecord.X72110__c}" />
+                                        </div>-->
+                                        <div>
+                                            <apex:outputLabel value="MRI In network auth: " />
+                                            <apex:outputText value="{!insurancePlanRecord.X72141__c}" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel value="Ph #: " />
+                                            <apex:outputText value="{!insurancePlanRecord.How_to_Obtain_Procedure_Authorization__c}" />
+                                        </div>
+                                        <!--div>
+                                        <u><apex:outputLabel value="MRI 00N auth: " /></u>
+                                        <apex:outputText value="Yes" />
+                                        </div>
+                                        <div>
+                                        <u><apex:outputLabel value="Ph #: " /></u>
+                                        <apex:outputText value="8664966200" />
+                                        </div-->
+                                        
+                                    </apex:panelGroup>
+                                    <apex:panelGroup id="theGroup10">
+                                        <div class="subtitle">Acupuncture</div>
+                                        <div>
+                                            <apex:outputLabel value="Is Acu Covered?: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Acupuncture_Covered_by_WC_NEW__c}" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel value="# of Visits: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Acupuncture_Visits_Allowed__c}" />
+                                        </div>
+                                        <!--div>
+                                        <u><apex:outputLabel value="IN/OUT: " /></u>
+                                        <apex:outputText value="" />
+                                        </div-->
+                                        <div>
+                                            <apex:outputLabel value="Visits Used: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Acupuncture_Visits_To_Date__c}" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel value="Visits Combined: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Acupuncture_Visits_Combined__c}" />
+                                        </div>
+                                        <!--div>
+                                        <u><apex:outputLabel value="Hard Max: " /></u>
+                                        <apex:outputText value="" />
+                                        </div-->
+                                        <div>
+                                            <apex:outputLabel value="Modality Limit #: " />
+                                            <apex:outputText value="{!insurancePlanRecord.ACU_Modality_Limit_Per_Date_of_Service__c}" />
+                                        </div>
+                                        <!--<div>
+                                        <u>
+                                        <apex:outputLabel value="Limit Type: " /></u>
+                                        <apex:outputText value="" />
+                                        </div>-->
+                                        <div>
+                                            <apex:outputLabel value="Auth Required?: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Authorization_Required_for_Acupuncture__c}"/>
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel value="CIGNA ASHN?: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Acupuncture_Benefits_Cigna_ASHN__c }" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="Referral: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Acupuncture_Referral_Required__c}" />
+                                        </div>
+                                        <!--div>
+                                        <u><apex:outputLabel value="Covered for Pain Mgmt: " /></u>
+                                        <apex:outputText value="" />
+                                        </div-->
+                                        <div>
+                                            <apex:outputLabel value="Auth Phone#: " />
+                                            <apex:outputText value="{!insurancePlanRecord.How_to_Obtain_Acupuncture_Authorization__c}" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel value="DX Limitations: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Exclusions_in_Covering_Acupuncture__c}" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel value="ACU Notes: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Acupuncture_Therapy_Benefits_Notes__c}" />
+                                        </div>
+                                        <br />
+                                        <br />
+                                        <hr class="solid" />
+                                        <div class="subtitle">Can ACU bill</div>
+                                        <div>
+                                            <apex:outputLabel value="97139(Cupping/manual Therapy): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X97139__c}" />
+                                        </div>
+                                    </apex:panelGroup>
+                                </apex:panelGrid>
+                            </td>
+                        </tr>
+                    </table>
+                    <br  />
+                    <br  />
+                    <br  />
+                    <br  />
+                  
+                    
+                    <table width="100%">
+                        <tr>
+                            <td>
+                                <apex:panelGrid columns="4" id="Grid3">
+                                    <apex:panelGroup style="padding-left: 150px" id="theGroup11">
+                                        <div>
+                                            <apex:outputLabel id="timestampLabel" value="Timestamp: " />
+                                            <apex:outputText value="{!timestmp}" id="timeStamp" />
+                                        </div>
+                                        <!--div>
+                                    <u><apex:outputLabel id="typeOfVerificationLabel" value="Type of Verification: " /></u>
+                                    <apex:outputText value="{!insurancePlanRecord.CreatedDate}" id="typeOfVerification" />
+                                    </div-->
+                                    </apex:panelGroup>
+                                    <apex:panelGroup id="theGroup12" style="padding-left: 100px">
+                                      <!--<div>
+                                            <apex:outputLabel id="dateofAppointmentLabel" value="Date of Appointment: " />
+                                            <apex:outputText value="{!caseRecord.Intake__r.Appointment__r.Appointment_Date_Time__c}" id="dateofAppointment" />
+                                        </div>-->
+                                        <div>
+                                            <apex:outputLabel id="dateofAppointmentLabel" value="Date of Appointment: " />
+                                            <apex:outputText value="{!AppointmentDate}" id="dateofAppointment" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel id="officeLocationLabel" value="Office Location: " />
+                                            <apex:outputText value="{!caseRecord.Intake__r.Appointment__r.Location_Name__c}" id="officeLocation" />
+                                        </div>
+                                    </apex:panelGroup>
+                                    <apex:panelGroup style="padding-left: 200px" id="theGroup13">
+                                        <div>
+                                            
+                                            <apex:outputLabel id="NJSWNetnew"
+                                                              value="NJSW net new: " />
+                                            <apex:outputText value="{!insurancePlanRecord.NJSW_Net_New__c}"  />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel id="callLengthminLabel"
+                                                              value="Call Length (min): " />
+                                            <apex:outputText value="{!insurancePlanRecord.Call_Length__c}" id="callLengthmin" />
+                                        </div>
+                                    </apex:panelGroup>
+                                    <apex:panelGroup id="theGroup14" style="padding-left: 200px">
+                                        <div>
+                                            
+                                            <apex:outputLabel id="carrierRepLabel"
+                                                              value="Carrier rep: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Insurance_Company_Representative__c}" id="carrierRep" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="referenceLabel"
+                                                              value="Reference #: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Call_Reference_Number__c}" id="reference" />
+                                        </div>
+                                    </apex:panelGroup>
+                                </apex:panelGrid>
+                            </td>
+                        </tr>
+                    </table>
+                    <br  />
+
+                    
+                    
+                    <div class='titleBlock'>
+                        <p class='title' style="font-weight: bold; text-align: center;"> DME &amp; Orthotics</p>
+                    </div>
+                    <table width="100%">
+                        <tr>
+                            <td>
+                                <apex:panelGrid columns="3" id="Grid4">
+                                    <apex:panelGroup id="theGroup15">
+                                        <div class="subtitle">DME</div>
+                                        <!--<div>
+                                    <u>
+                                    <apex:outputLabel id="DMEcovered" value="Is DME Covered?: " /></u>
+                                    <apex:outputText value="Yes" id="DME" />
+                                    </div>-->
+                                        <div>
+                                            <apex:outputLabel id="Auth" value="Auth Req: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Authorization_Required_for_DME__c}" id="Authreq" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel id="PhNo" value="Ph # " />
+                                            <apex:outputText value="{!insurancePlanRecord.How_To_Obtain_DME_Authorization__c}" id="Ph" />
+                                        </div>
+                                        
+                                        <hr class="solid" />
+                                        <div>
+                                            
+                                            <apex:outputLabel id="TENSELIGIBLE" value="Is the patient TENS eligible?: " />
+                                            
+                                            <apex:outputText value="{!coverage.Patient_Eligible_for_TENS_Unit__c}" id="eligible" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel id="TENS30"
+                                                              value="E0730 (TENS): " />
+                                            <apex:outputText value="{!insurancePlanRecord.E0730__c}" id="Tense0730" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel id="TENS56" value="A4556 (TENS): " />
+                                            <apex:outputText value="{!insurancePlanRecord.A4556__c}" id="Tense4556" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel id="TENS557" value="A4557 (TENS): " />
+                                            <apex:outputText value="{!insurancePlanRecord.A4557__c}" id="Tense4557" />
+                                        </div>
+                                        
+                                        <hr class="solid" />
+                                        <div>
+                                            <apex:outputLabel id="LSO30" value="L3030 (LSO): " />
+                                            <apex:outputText value="{!insurancePlanRecord.L3030__c}" id="Lso030" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel id="LSO637" value="L0637 (LSO): " />
+                                            <apex:outputText value="{!insurancePlanRecord.L0637__c}" id="Lso0637" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel id="LSO180" value="L0180 (LSO): " />
+                                            <apex:outputText value="{!insurancePlanRecord.L0180__c}" id="Lso0180" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel id="LSO648" value="L0648 (LSO): " />
+                                            <apex:outputText value="{!insurancePlanRecord.L0648__c}" id="Lso0648" />
+                                        </div>
+                                    </apex:panelGroup>
+                                    <apex:panelGroup id="theGroup16" >
+                                        <div>
+                                            <apex:outputLabel id="WRISTSPLINT" value="L3807 (Wrist Splint): " />
+                                            <apex:outputText value="{!insurancePlanRecord.L3807__c}" id="wrist" />
+                                        </div>
+                                        
+                                        <hr class="solid" />
+                                        <div>
+                                            <apex:outputLabel id="KB" value="L1843(Knee Brace): " />
+                                            <apex:outputText value="{!insurancePlanRecord.L1843__c}" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel id="KNEEBRACE" value="L1845 (Knee Brace): " />
+                                            <apex:outputText value="{!insurancePlanRecord.L1845__c}" id="knee" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel id="KNEEBRACE846" value="L1846 (Knee Brace): " /> 
+                                            <apex:outputText value="{!insurancePlanRecord.L1846__c}" id="knee46" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel id="AIRCAST50" value="L4350 (Air Cast): " />
+                                            <apex:outputText value="{!insurancePlanRecord.L4350__c}" id="aircast350" />
+                                        </div>
+                                        
+                                        <hr class="solid" />
+                                        <div>
+                                            <apex:outputLabel id="BOOT61" value="L4361 (Boot): " />
+                                            <apex:outputText value="{!insurancePlanRecord.L4361__c}" id="boot361" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel id="PLANTAR397" value="L4397 (Plantar Fasciitis Night Brace): " />
+                                            <apex:outputText value="{!insurancePlanRecord.L4397__c}" id="plantar" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel id="ANKLEBRACE" value="L1902 (ASO Ankle Brace): " />
+                                            <apex:outputText value="{!insurancePlanRecord.L1902__c}" id="asoankle" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel id="MBB940" value="L1940 (MBB): " />
+                                            <apex:outputText value="{!insurancePlanRecord.L1940__c}" id="mbb40" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel id="Wristsplin1" value="L3807 (Wrist Splint): " />
+                                            <apex:outputText value="{!insurancePlanRecord.L3807__c}" />
+                                        </div>
+                                        <!--<div>
+                                        <u><apex:outputLabel id="MBB820" value="L2820 (MBB): " /></u>
+                                        <apex:outputText value="{!insurancePlanRecord.L3807__c}" id="mbb20" />
+                                        </div>-->
+                                        
+                                        
+                                        <hr class="solid" />
+                                        
+                                    </apex:panelGroup>
+                                    <apex:panelGroup id="theGroup17" >
+                                        <div class="subtitle">Orthotics</div>
+                                        <!--<div>
+                                    <u>
+                                    <apex:outputLabel id="COVERED1"
+                                    value="Covered: " /></u>
+                                    <apex:outputText value="Yes" id="cvrd" />
+                                    </div>-->
+                                        <div>
+                                            <apex:outputLabel id="DXDRIVEN" value="DX Driven: " />
+                                            <apex:outputText value="{!insurancePlanRecord.DME_Diagnosis_Dependent__c}" id="dxdrvn" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="CBPDX" value="CPB/DX: " />
+                                            
+                                            <apex:outputText value="{!insurancePlanRecord.DME_Diagnosis_Codes__c}" id="cbp" />
+                                        </div>
+                                        <!--<div>
+                                        <u>
+                                        <apex:outputLabel id="AUTHREQ1"
+                                        value="Is Auth Req?: " /></u>
+                                        <apex:outputText value="nO" id="auth1" />
+                                        </div>-->
+                                        <div>
+                                            <apex:outputLabel id="AUTHPH" value="Auth Phone #: " />
+                                            <apex:outputText value="{!insurancePlanRecord.How_To_Obtain_DME_Authorization__c}" id="authph1" />
+                                        </div>
+                                        
+                                        <div>
+                                            <apex:outputLabel id="PAIRS" value="Pairs per year: " />
+                                            <apex:outputText value="{!insurancePlanRecord.How_many_pairs_of_orthotics_per_year__c}" id="pairs1" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel id="PATIENTELIGBLE" value="Is the patient eligible?:: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Patient_Eligible_For_Orhtotics__c}" id="ptntelgle" />
+                                        </div> 
+                                        <!--<div>
+                                        <u><apex:outputLabel id="DED" value="Separate ded for orthotics?: " /></u>
+                                        <apex:outputText value="No" id="ded1" />
+                                        </div>-->
+                                        <!--<div>
+                                        <u><apex:outputLabel id="ORTHOTICS1" value="Orthotics Ded Amt:: " /></u>
+                                        <apex:outputText value="0" id="orthtcs" />
+                                        </div>-->
+                                        <div>
+                                            <apex:outputLabel id="NJORTHOTICS" value="Follows NJ Orthotic Mandate:: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Policy_Follow_the_Orthotics_Mandate__c}" id="njorthtcs" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="LIMITMN"
+                                                              value="Orthotics Notes: " />
+                                            <apex:outputText value="{!insurancePlanRecord.DME_Benefits_Notes__c}" id="lmtmn" />
+                                        </div>
+                                    </apex:panelGroup>
+                                </apex:panelGrid>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <div class='titleBlock'>
+                        <p class='title' style="font-weight: bold; text-align: center;">MD Services</p>
+                    </div>
+                    <table width="100%">
+                        <tr>
+                            <td>
+                                <apex:panelGrid columns="3" id="Grid5">
+                                    <apex:panelGroup id="theGroup18">
+                                        <div class="subtitle">Injections</div>
+                                        <div>
+                                            <apex:outputLabel id="majorJointInjectionLabel" value="20610 (Major joint injection): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X20610__c}" id="majorJointInjection" />
+                                        </div>
+                                        <div>
+                                            <apex:outputLabel id="triggerPointInjectionLabel" value="20552 (Trigger Point Injection): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X20552__c}" id="triggerPointInjection" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="tPointInjectionLabel" value="20553 (Trigger Point Injection): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X20553__c}" id="tPointInjection" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="csTSEpiduralSteroidInjectionLabel" value="62321 (C/S & T/S Epidural Steroid Injection): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X62321__c}" id="csTSEpiduralSteroidInjection" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="lSEpiduralSteroidInjectionLabel" value="62323 (L/S Epidural Steroid Injection): " />
+                                            
+                                            <apex:outputText value="{!insurancePlanRecord.X62323__c}" id="lSEpiduralSteroidInjection" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="transforaminalEpiduralLabel" value="64483 (Transforaminal Epidural):" />
+                                            <apex:outputText value="{!insurancePlanRecord.X64483__c}" id="transforaminalEpidural" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="iNJTendonLigamentLabel" value="20550 (INJ Tendon Ligament): "  />
+                                            <apex:outputText value="{!insurancePlanRecord.X20550__c}" id="iNJTendonLigament"/>
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="stemCellLabel" value="38220 (Stem Cell): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X38220__c}" id="stemCell" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="sCellLabel" value="23405 (Stem Cell): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X23405__c}" id="sCell"/>
+                                        </div>
+                                        <br />
+                                        <br />
+                                        
+                                        <div class="subtitle">Visco</div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="jGenviscLabel" value="J7320 (Genvisc): " />
+                                            <apex:outputText value="{!insurancePlanRecord.J7320__c}" id="jGenvisc" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="jHymovisLabel" value="J7322 (Hymovis): " />
+                                            <apex:outputText value="{!insurancePlanRecord.J7322__c}" id="jHymovis" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="jOrthoviscLabel" value="J7324 (Orthovisc): " />
+                                            <apex:outputText value="{!insurancePlanRecord.J7324__c}" id="jOrthovisc" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="jSynviscLabel" value="J7325 (Synvisc):  " />
+                                            <apex:outputText value="{!insurancePlanRecord.J7325__c}" id="jSynvisc" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="jMonoviscLabel" value="J7327 (Monovisc):  " />
+                                            <apex:outputText value="{!insurancePlanRecord.J7327__c}" id="jMonovisc" />
+                                        </div>
+                                        
+                                    </apex:panelGroup>
+                                    <apex:panelGroup id="theGroup19">
+                                        <div class="subtitle">Procedures</div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="644590 (Cervical Facet Block): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X644590__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="64633 (CRF): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X64633__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="64772 (Transection/Avulsion): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X64772__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="63650 (Neurostimulator): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X63650__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="20931 (TLIF/ACDF): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X20931__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="64640 (Iovera): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X64640__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="64624 (Iovera): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X64624__c}" />
+                                        </div>
+                                        <br />
+                                        <br />
+                                        <hr class="solid" />
+                                        <div class="subtitle">Diagnostics</div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="95886 (EMG): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X95886__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="95907-95913 (NCV): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X95907_95913__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="93970 (Ultrasound):" />
+                                            <apex:outputText value="{!insurancePlanRecord.X93970__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="95700 (Set up/takedown EEG): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X95700__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="95716 (Long Term EEG Monitoring): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X95716__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="95719 (EEG Continuous Recording and Review): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X95719__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="95720 (Long Term EEG Monitoring): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X95720__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="72131 (CT Scan): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X72131__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="62290 (Lumbar Discogram): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X62290__c}" />
+                                        </div>
+                                    </apex:panelGroup>
+                                    <apex:panelGroup id="theGroup20">
+                                        <div class="subtitle">Vein</div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="93998 (Venous Insufficiency)]: " />
+                                            <apex:outputText value="{!insurancePlanRecord.X93998__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="36475 (Radio Ablation of Vein): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X36475__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="29805 (Stem Cell):" />
+                                            <apex:outputText value="{!insurancePlanRecord.X29805__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="36465 (Inj of sclerosant, single vein):" />
+                                            <apex:outputText value="{!insurancePlanRecord.X36465__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="36466 (Inj of sclerosant, multiple veins,same leg): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X36466__c}" />
+                                        </div>
+                                        
+                                        <br />
+                                        <br />
+                                        <hr class="solid" />
+                                        <div>
+                                            
+                                            <apex:outputLabel value="97750 (PPT): " />
+                                            <apex:outputText value="{!insurancePlanRecord.X97750__c}" />
+                                        </div>
+                                        <br />
+                                        <br />
+                                        <div>
+                                            
+                                            <apex:outputLabel value="DX Codes for MD Procedures: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Procedure_Diagnosis_Codes__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="Buy and Bill?: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Can_we_buy_and_bill_injection_codes__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="Preferred J Code:  " />
+                                            <apex:outputText value="C/W PHARM" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="Can patient treat at ASC: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Can_patient_treat_at_ASC__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel value="Auth Phone #'s: " />
+                                            <apex:outputText value="{!insurancePlanRecord.How_To_Obtain_MD_Service_Authorization__c}" />
+                                        </div>
+                                        
+                                    </apex:panelGroup>
+                                    
+                                </apex:panelGrid>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <!--
+                    <div class='titleBlock'>
+                        <p class='title' style="font-weight: bold; text-align: center;"> Medicaid/No-OON Section</p>
+                    </div>
+                    <table width="100%">
+                        <tr>
+                            <td>
+                                <apex:panelGrid columns="2" id="Grid6">
+                                    <apex:panelGroup  id="theGroup21">
+                                        
+                                        <div>
+                                            <apex:outputLabel id="MEDICAID" value="If Medicaid: " />
+                                            <br />
+                                            <apex:outputText value="Eff Date:Self/Fully Funded:" id="effdate" />
+                                        </div>
+                                        
+                                    </apex:panelGroup>
+                                    <apex:panelGroup id="theGroup22" >
+                                        <div>
+                                            <apex:outputLabel id="OON"
+                                                              value="If No-OON: " /><br />
+                                            <apex:outputText value="Self/Fully FundedSpending Account:Cal year?:Claims Address:MRI Auth:" id="elffully" />
+                                        </div>
+                                        
+                                    </apex:panelGroup>
+                                </apex:panelGrid>
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                     <br />
+                    <br />
+                    -->
+                    
+                    
+                    <div class='titleBlock'>
+                        <p class='title' style="font-weight: bold; text-align: center;"> PIP-W/C Section</p>
+                    </div>
+                    <table width="100%">
+                        <tr>
+                            <td>
+                                <apex:panelGrid columns="4" id="Grid8">
+                                    <apex:panelGroup style="padding-left: 5px" id="theGroup27">
+                                        <div class="subtitle">PIP</div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="ACCISTATE1" value="PIP Primary: " />
+                                            <apex:outputText value="{!caseRecord.PIP_Primary_NEW__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="ACCISTATE" value="Accident State: " />
+                                            <apex:outputText value="{!caseRecord.PIP_Accident_State__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="POLICY" value="Policy State:" />
+                                            <apex:outputText value="{!caseRecord.PIP_Policy_State__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="POLICY1" value="DOL:" />
+                                            <apex:outputText value="{!dateOfloss}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="INSURANCECOMP" value="Insurance Company " />
+                                            <apex:outputText value="{!caseRecord.PIP_Insurance_Company__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="PH3" value="Ph #: " />
+                                            <apex:outputText value="{!caseRecord.PIP_Insurance_Phone__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="ADD" value="Address: " />
+                                            <apex:outputText value="{!caseRecord.PIP_Insurance_Street_Address__c}"  />
+                                        </div>
+                                        <!--<div>
+                                        <u>
+                                        <apex:outputLabel id="PLCY" value="Policy #: " /></u>
+                                        <apex:outputText value="" />
+                                        </div>-->
+                                        <div>
+                                            
+                                            <apex:outputLabel id="CLM2" value="Claim #: " />
+                                            <apex:outputText value="{!caseRecord.PIP_Claim_Number__c}"  />
+                                        </div>
+                                        
+                                        
+                                        <div>
+                                            
+                                            <apex:outputLabel id="ADNAME" value="Adjuster Name:: " />
+                                            <apex:outputText value="{!caseRecord.PIP_Adjuster__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="ADFAX" value="Adjuster fax:: " />
+                                            <apex:outputText value="{!caseRecord.PIP_Adjuster_Fax__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="ADPH" value="Adjuster Ph #: " />
+                                            <apex:outputText value="{!caseRecord.PIP_Adjuster_Phone__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="FAX" value="Fax # " />
+                                            <apex:outputText value="{!caseRecord.PIP_Pre_Cert_Fax__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="COMPADRS" value="Precert company and address: " />
+                                            <apex:outputText value="{!caseRecord.PIP_Pre_Cert_Street_Address__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="PERPH" value="Precert phone #: " />
+                                            <apex:outputText value="{!caseRecord.PIP_Pre_Cert_Phone__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="TESTPROP" value="Pre-Op Testing Process: " />
+                                            <apex:outputText value="{!caseRecord.PIP_Pre_Op_Testing_More_Details__c}" />
+                                        </div>
+                                        
+                                        <div>
+                                            
+                                            <apex:outputLabel id="OVREQ" value="OV req Precert: " />
+                                            <apex:outputText value="{!caseRecord.PIP_Office_Visits_Require_Precert__c}"                                            />
+                                        </div>
+                                        <!--<div>
+                                        <u>
+                                        <apex:outputLabel id="CUTOFF1" value="Cutoff Specialties: " /></u>
+                                        <apex:outputText value="" />
+                                        </div>-->
+                                        
+                                        
+                                    </apex:panelGroup>
+                                    <apex:panelGroup id="theGroup28" style="padding-left: 5px">
+                                        <div>
+                                            
+                                            <apex:outputLabel id="PENDPIP" value="Pending PIP IME: " />
+                                            <apex:outputText value="{!caseRecord.PIP_Pending_IMEs__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="PIPPOLICY" value="Does the PIP policy belong to the patient?: " />
+                                            <apex:outputText value="{!caseRecord.PIP_Policy_Belong_to_Patient_NEW__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="FUNDSAVAIL" value="Funds Available?: " />
+                                            <apex:outputText value="{!caseRecord.PIP_Funds_Available_NEW__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="DAYLETTER" value="21 Day Letter Fax #: " />
+                                            <apex:outputText value="{!caseRecord.PIP_Fax_Number_21_Day_Letter__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="SENDRELEASE" value="Send release to fax #: " />
+                                            <apex:outputText value="{!caseRecord.PIP_Fax_Number_Send_Release__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="PLCYAMNT" value="Policy max amount: " />
+                                            <apex:outputText value="{!caseRecord.PIP_Policy_Max_Amount__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="ATTORNEY" value="Attorney Info: " />
+                                            <apex:outputText value="{!caseRecord.Personal_Injury_Attorney__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="LOPFILE" value="LOP on File?: " />
+                                            <apex:outputText value="{!caseRecord.PIP_LOP_on_File_NEW__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="DECPAGE" value="Dec Page Received?: " />
+                                            <apex:outputText value="{!caseRecord.Declaration_Page_Received__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="POLICYREPORT" value="Police Report Received?: " />
+                                            <apex:outputText value="{!caseRecord.Police_Report_Received__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="PIPLEDGER" value="PIP Ledger Received?: " />
+                                            <apex:outputText value="{!caseRecord.PIP_Most_Up_To_Date_PIP_Ledger__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="NTS" value="Notes: " />
+                                            <apex:outputText value="{!caseRecord.PIP_Notes__c}"  />
+                                        </div>
+                                        
+                                    </apex:panelGroup>
+                                    <apex:panelGroup style="padding-left: 5px" id="theGroup29">
+                                        <div class="subtitle">W/C</div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="CANTREAT" value="Can they treat W/C out of network?: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Can_Out_Of_Network_Provider_Treat_Here__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="STATE1" value="State: " />
+                                            <apex:outputText value="{!insurancePlanRecord.WC_Injury_State__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="DOL1" value="DOL:" />
+                                            <apex:outputText value="{!dateOfAccident}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="INSCOMP" value="Insurance Company: " />
+                                            <apex:outputText value="{!insurancePlanRecord.WC_Insurance_Company__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="ADDR1" value="Address: " />
+                                            <apex:outputText value="{!insurancePlanRecord.WC_Insurance_Company_Street__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="PHN1" value="Phone #: " />
+                                            <apex:outputText value="{!insurancePlanRecord.WC_Authorization_Phone__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="WCB" value="WCB Case # " />
+                                            <apex:outputText value="{!insurancePlanRecord.WCB_Case_Number__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="CLM" value="Claim #: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Claim_Number__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="ADJSTR" value="Adjuster: " />
+                                            <apex:outputText value="{!insurancePlanRecord.WC_Adjuster__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="FAX1" value="Fax #:" />
+                                            <apex:outputText value="{!insurancePlanRecord.WC_Adjuster_Fax__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="MG2" value="MG2/C4 Form (NY only): " />
+                                            <apex:outputText value="{!insurancePlanRecord.Where_To_Submit_MG2_C4_Form__c}"  />
+                                        </div>
+                                     	<!--<div>
+                                            
+                                            <apex:outputLabel id="PREOP" value="Pre-Op Testing: " />
+                                            <apex:outputText value=""  />
+                                        </div>-->
+                                        <div>
+                                            
+                                            <apex:outputLabel id="MDOV" value="MD OV Auth: " />
+                                            <apex:outputText value="{!insurancePlanRecord.WC_Authorization_Required_for_Visits_NEW__c}"  />
+                                        </div>
+                                        
+                                     	<!--<div>
+                                            
+                                            <apex:outputLabel id="IME" value="IME Details: " />
+                                            <apex:outputText value="" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="CUTOFF" value="Cutoff Specialties: " />
+                                            <apex:outputText value=""  />
+                                        </div>--> 
+                                        <div>
+                                            
+                                            <apex:outputLabel id="DXBODY" value="DX/Body Parts Listed on Claim: " />
+                                            <apex:outputText value="{!insurancePlanRecord.WC_Approved_Body_Region__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="EMPLOYER" value="Employer Info: " />
+                                            <apex:outputText value="{!caseRecord.Employer__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="PTCHIROACU" value="Can they treat PT/Chiro/Acu same day?: " />
+                                            <apex:outputText value="{!insurancePlanRecord.PT_OT_Combined_In_Same_Day__c}"/>
+                                        </div>
+                                    </apex:panelGroup>
+                                    <apex:panelGroup id="theGroup30">
+                                        <div>
+                                            
+                                            <apex:outputLabel id="NYCLAIM" value="If NY claim, is the patient's address listed on the claim in NJ or NY?: " />
+                                            <apex:outputText value="{!insurancePlanRecord.If_NY_Is_Patient_Address_Listed_In_NY__c}" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="WCATT" value="W/C Attorney: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Workers_Comp_Attorney__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="PH2" value="Ph #:" />
+                                            <apex:outputText value="{!insurancePlanRecord.Workers_Comp_Attorney_Phone__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="FAX4" value="Fax #: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Workers_Comp_Attorney_Fax__c}"  />
+                                        </div>
+                                        <br />
+                                        <div>
+                                            
+                                            <apex:outputLabel id="WCNOTES" value="W/C Notes: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Workers_Comp_Notes__c}"  />
+                                        </div>
+                                    </apex:panelGroup>
+                                </apex:panelGrid>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <br  />
+                    <br  />
+                    <br  />
+                    
+                    <!--<div>
+                    <p><img src="{!URLFOR($Resource.supplyverification)}" style="width: 725px;"></img></p>
+                    </div>-->
+                    <div class='titleBlock'>
+                        <p class='title' style="font-weight: bold; text-align: center;">Alliance Medical Supply Verification</p>
+                    </div>
+                    <table width="100%">
+                        <br  />
+                        <tr>
+                            <td>
+                                
+                                <apex:panelGrid columns="3" id="Grid9">
+                                    <apex:panelGroup style="padding-left: 5px" id="theGroup31">
+                                        <div>
+                                            
+                                            <apex:outputLabel id="isthepatientTENSeligibleLabel" value="Is the patient TENS eligible?:" />
+                                            <apex:outputText value="{!insurancePlanRecord.WC_Patient_Eligible_For_TENS__c}" id="isthepatientTENSeligible" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="patientisineligiblewhyLabel" value="If the patient is ineligible, why?: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Patient_TENS_Ineligible_Reason__c}" id="patientisineligiblewhy" />
+                                        </div> 
+                                        <div>
+                                            
+                                            <apex:outputLabel id="eTENSUnitLabel" value="E0730 (TENS Unit) : " />
+                                            <apex:outputText value="{!insurancePlanRecord.E0730__c}" id="eTENSUnit" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="aTENSElectrodeLabel" value="A4556 (TENS Electrode): " />
+                                            <apex:outputText value="{!insurancePlanRecord.A4556__c}" id="aTENSElectrode" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="aTENSLeadWiresLabel" value="A4557 (TENS Lead Wires): " />
+                                            <apex:outputText value="{!insurancePlanRecord.A4557__c}" id="aTENSLeadWires" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="eBoneStimLabel" value="E0748 (Bone Stim): " />
+                                            <apex:outputText value="{!insurancePlanRecord.E0748__c}" id="eBoneStim" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="eInfraredHeatingPadLabel" value="E0221 (Infrared Heating Pad): " />
+                                            <apex:outputText value="{!insurancePlanRecord.E0221__c}" id="eInfraredHeatingPad" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="eColdPadwithPumpLabel" value="E0218 (Cold Pad with Pump): " />
+                                            <apex:outputText value="{!insurancePlanRecord.E0218__c}" id="eColdPadwithPump" />
+                                        </div>
+                                      <!--  <div>
+                                            
+                                            <apex:outputLabel id="dMECPTNotesLabel" value="DME CPT Notes: " />
+                                            <apex:outputText value="" id="dMECPTNotes" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="dMEClinicalPolicyLabel" value="DME Clinical Policy #'s: " />
+                                            <apex:outputText value="" id="dMEClinicalPolicy" />
+                                        </div>--> 
+                                        <br />
+                                        <br />
+                                       
+                                      <!-- <div>
+                                            
+                                            <apex:outputLabel id="authrequiredforpurchaseoverLabel" value="Is auth required for purchase over $500: " />
+                                            <apex:outputText value="" id="authrequiredforpurchaseover" />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="phAuthutilizationdeptLabel" value="Ph # for Auth utilization dept?: " />
+                                            <apex:outputText value="" id="phAuthutilizationdept" />
+                                        </div>-->
+                                    </apex:panelGroup>
+                                    <apex:panelGroup id="theGroup32" style="padding-left: 5px">
+                                       <!-- <div>
+                                            
+                                            <apex:outputLabel id="followingprovidersLabel"
+                                                              value="Can any of the following providers script for the previous DME? " /><br />
+                                            
+                                            <apex:outputLabel value="[DPT]: " />
+                                            
+                                            <apex:outputLabel value="[OT]: " />
+                                            
+                                            <apex:outputLabel value="[Chiro]: " />
+                                            
+                                            <apex:outputLabel value="[Acu]: " />
+                                            
+                                            <apex:outputLabel value="[NP]: " />
+                                            
+                                            <apex:outputLabel value="[APN]: " />
+                                            
+                                            <apex:outputLabel value="[PT]: " />
+                                            
+                                            <apex:outputLabel value="[MD]: " />
+                                            
+                                            <apex:outputLabel value="[DO]: " />
+                                        </div>
+                                        <br />
+                                        <br />
+                                        <hr class="solid" />-->
+                                        <div>
+                                         
+                                            <div>
+                                                <br  />
+                                                
+                                                <apex:outputLabel id="E0730tens" value="E0730 (TENS Unit): " />
+                                                <apex:outputText value="{!insurancePlanRecord.Rental_Required_For_Purchase_E0730__c}"  />
+                                            </div>
+                                            
+                                            <div>
+                                                
+                                                <apex:outputLabel id="E0748Bone" value="E0748 (Bone Stim): " />
+                                                <apex:outputText value="{!insurancePlanRecord.Rental_Required_For_Purchase_E0748__c}"  />
+                                            </div>
+                                            <div>
+                                                
+                                                <apex:outputLabel id="E0221infrered" value="E0221 (Infrared Heating Pad): " />
+                                                <apex:outputText value="{!insurancePlanRecord.Rental_Required_For_Purchase_E0221__c}"  />
+                                            </div>
+                                            <div>
+                                                
+                                                <apex:outputLabel id="E0218cold" value="E0218 (Cold Pad with Pump): " />
+                                                <apex:outputText value="{!insurancePlanRecord.Rental_Required_For_Purchase_E0218__c}"  />
+                                            </div>
+                                        </div> 
+                                    </apex:panelGroup>
+                                    <apex:panelGroup id="theGroup33" style="padding-left: 5px">
+                                        <div>
+                                            
+                                            <apex:outputLabel id="E0730BEENPRSCRIBED" value="Has E0730 been prescribed at any time within the last three years?: " />
+                                            <apex:outputText value="{!insurancePlanRecord.E0730_Been_Prescribed_in_Last_3_Years__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="PREVIOUSLYPRESCRIBED" value="Who previously prescribed the unit?: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Who_Prescribed_E0730__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="UNITPRESCRIBED" value="When was the unit prescribed?: " />
+                                            <apex:outputText value="{!insurancePlanRecord.When_Was_E0730_Prescribed__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="PATIENTALLOWEDAUNIT" value="How often is the patient allowed a unit?:" />
+                                            <apex:outputText value="{!insurancePlanRecord.How_Often_is_Patient_Allowed_TENS_Unit__c}"  />
+                                        </div>
+                                        <div class="subtitle">Billable limits time for</div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="A4556" value="A4556: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Billable_Time_Limit_For_A4556__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="A4557" value="A4557: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Billable_Time_Limit_For_A4557__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="E0748" value="E0748: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Billable_Time_Limit_For_E0748__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="E0218" value="E0218: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Billable_Time_Limit_For_E0218__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="E0221" value="E0221: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Billable_Time_Limit_For_E0221__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="DOESPLANHAVEMULTIPLEBENEFIT" value="Does this plan have multiplan benefit?: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Does_This_Plan_Have_Multiplan_Benefit__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="WHORECEIVES" value="Who receives the payment?: " />
+                                            <apex:outputText value="{!insurancePlanRecord.Who_Receives_The_Multiplan_Payment__c}"  />
+                                        </div>
+                                        <div>
+                                            
+                                            <apex:outputLabel id="DMEGENNOTES" value="DME General Notes: " />
+                                            <apex:outputText value="{!insurancePlanRecord.DME_Benefits_Notes__c}"  />
+                                        </div>
+                                        
+                                    </apex:panelGroup>
+                                    
+                                </apex:panelGrid>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </apex:form>
+    </body>
+    
+</apex:page>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EOO_Updated_By_Provider_Today</fullName>
+    <columns>NAME</columns>
+    <columns>Notes_Updated_By__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Date_Notes_Last_Updated__c</field>
+        <operation>equals</operation>
+        <value>TODAY</value>
+    </filters>
+    <label>EOO Updated By Provider Today</label>
+</ListView>

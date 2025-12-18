@@ -1,0 +1,13 @@
+<template>
+    <lightning-button label="Create Contact" onclick={navigateToNewContact}></lightning-button>
+       <lightning-card title="Create SPD Record">
+        <lightning-record-form
+            object-api-name="SPD__c"
+            layout-type="Full"
+            mode="edit"
+            onsuccess={handleSuccess}
+            onerror={handleError}>
+        </lightning-record-form>
+    </lightning-card>
+
+</template>

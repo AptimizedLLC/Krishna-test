@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RUL_Patient_Name__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>Lookup to Account</description>
+    <label>Patient Name</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>RUL&apos;s</relationshipLabel>
+    <relationshipName>RUL_s</relationshipName>
+    <required>true</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

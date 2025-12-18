@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HQ_Date_Diagnosed_Lymphedema__c</fullName>
+    <complianceGroup>HIPAA</complianceGroup>
+    <description>Lymphedema</description>
+    <inlineHelpText>Lymphedema</inlineHelpText>
+    <label>Date Diagnosed</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_SPD_Acquisition_When_Active</fullName>
+    <active>true</active>
+    <description>Ensures that SPD Acquisition Source is filled when setting SPD to Active.</description>
+    <errorConditionFormula>ISPICKVAL(  Status__c , &quot;Active&quot;)  &amp;&amp;  ISBLANK(  SPD_Acquisition_Source_c__c  )</errorConditionFormula>
+    <errorMessage>Please specify where you acquired the SPD before you activate it.</errorMessage>
+</ValidationRule>

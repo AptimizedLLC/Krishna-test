@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>Online Sales</label>
+    <navType>Standard</navType>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>LOP</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>LOP__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <tabs>standard-OnlineSalesHome</tabs>
+    <tabs>NPP__c</tabs>
+    <tabs>standard-SalesforceContract</tabs>
+    <tabs>standard-SalesforceInvoice</tabs>
+    <tabs>standard-SalesforceProductCatalog</tabs>
+    <tabs>LOP__c</tabs>
+    <tabs>Medication__c</tabs>
+    <tabs>Provider_Medication__c</tabs>
+    <tabs>Provider_Procedure__c</tabs>
+    <tabs>Test__c</tabs>
+    <uiType>Lightning</uiType>
+</CustomApplication>

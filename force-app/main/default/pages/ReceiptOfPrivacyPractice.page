@@ -1,0 +1,210 @@
+<apex:page standardController="NPP__c" extensions="GenerateNPPIntakePDFDocumentController" renderAs="pdf" applyBodyTag="false">
+    
+<head>
+    <style>
+      .contentWrap h3 {
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: #f00;
+}
+.contentWrap {
+    margin: 10px 30px;
+}
+span.bStrong {
+    font-weight: 600;
+    padding-right: 5px;
+}
+p {
+    line-height: 22px;
+}
+img {
+    border: 1px solid #000;
+    margin-top: 10px;
+}
+    </style>
+  </head>
+<body>
+    <div>
+            <p><img src="https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003pCyH&oid=00Df2000001HEGJ&lastMod=1715318986000"  style="width: 700px;"/></p>
+	</div>
+     <div>
+        <div class="userFormWrap">
+          <div class="contentWrap">
+            <h3>
+              Acknowledgement Of Receipt Of Notice Of Privacy Practice And
+              Patient Policies And Procedures
+            </h3>
+            <div class="form-container">
+              <form>
+                <div class="pdf-content consent-content17">
+                  <div class="form-element">
+                    <div class="question">Patient Name</div>
+                    <div><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></div>
+                  </div>
+                  <div class="form-element">
+                    <div>
+                      <p>
+                        I hereby acknowledge that I have received, read and had
+                        an opportunity to ask questions concerning the All Be
+                        Healthy LLC dba Alliance Orthopedics NOTICE OF PRIVACY
+                        PRACTICE POLICIES AND PROCEDURES. All Be Healthy LLC dba
+                        Alliance Orthopedics may discuss my treatment with the
+                        following people. (Include any family, friends or other
+                        contacts.)
+                      </p>
+                      <p>I may be contacted at the following locations:</p>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div>
+                      <div>
+                        <label class="question">Emergency Contact Name</label>
+                      </div>
+                        <div>
+                            <apex:outputField value="{!NPP__c.HQ_Related_Person_Name__c}"/>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div>
+                      <div>
+                        <label class="question"
+                          >Emergency Contact Phone Number</label
+                        >
+                      </div>
+                        <div>
+                            <apex:outputField value="{!NPP__c.HQ_Related_person_Contact__c}"/>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div>
+                      <div>
+                        <label class="question">Relationship To Patient:</label>
+                      </div>
+                        <div>
+                            <apex:outputField value="{!NPP__c.HQ_Relationship_to_Patient__c}"/>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div>
+                      <div><label class="question">Home Phone</label></div>
+                        <div>
+                            <apex:outputField value="{!NPP__c.HQ_Home_Phone_Number__c}"/>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div class="conditionParent">
+                      <div>
+                        <label class="question"
+                          >I want to be contacted at home phone</label
+                        >
+                      </div>
+                        <div>
+                            <apex:outputField value="{!NPP__c.HQ_I_may_be_concacted_at_home_phone__c}"/>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div class="question">Cell Phone Number</div>
+                    <div><apex:outputField value="{!NPP__c.Account__r.Phone}"/></div>
+                  </div>
+                  <div class="form-element">
+                    <div class="conditionParent">
+                      <div>
+                        <label class="question"
+                          >I may be contacted at Cell Phone</label
+                        >
+                      </div>
+                         <div><apex:outputField value="{!NPP__c.HQ_I_may_be_contacted_at_cell_phone__c	}"/></div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div class="question">Email</div>
+                    <div><apex:outputField value="{!NPP__c.Account__r.PersonEmail}"/></div>
+                  </div>
+                  <div class="form-element">
+                    <div class="conditionParent">
+                      <div>
+                        <label class="question"
+                          >I may be contacted at email address</label
+                        >
+                      </div>
+                        <div><apex:outputField value="{!NPP__c.HQ_I_may_be_contaced_at_email_address__c	}"/></div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div class="conditionParent">
+                      <div>
+                        <label class="question"
+                          >May we leave a message regarding your medical
+                          care/test results on your answering machine?</label
+                        >
+                      </div>
+                        <div><apex:outputField value="{!NPP__c.HQ_MESSAGE_REGARDING_MEDICAL_CARE_TEST__c	}"/></div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div class="conditionParent">
+                      <div>
+                        <label class="question"
+                          >I may be contacted by text message or email to
+                          confirm scheduled appointments</label
+                        >
+                      </div>
+                        <div><apex:outputField value="{!NPP__c.HQ_CONTACT_TO_CONFIRM_APPOINTMENT__c	}"/></div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div>
+                      <p>
+                        I understand and agree that, regardless of my insurance
+                        status, I am financially responsible for my account for
+                        any professional services rendered that are not
+                        otherwise paid or reimbursed.&nbsp;
+                      </p>
+                      <p>
+                        I hereby authorize my insurance company to assign my
+                        benefits directly to All Be Healthy LLC dba Alliance
+                        Orthopedics, benefits payable to me. I also agree to be
+                        responsible for payment of all services rendered on my
+                        behalf for my dependents.
+                      </p>
+                    </div>
+                  </div>
+                  
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="formCheck">
+              <div class="patientNameDate">
+<div><label>Patient Name</label></div>
+                      <div class="floatLeft"><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></div>
+<div><label>Date</label></div>
+                      <div class="floatRight"><apex:outputText value="{0,date,MM/dd/yyyy}"><apex:param value="{!NPP__c.CreatedDate}" /></apex:outputText></div>
+                    </div>
+              <div class="form-element">
+                    <div><p>Patient Signature</p></div>
+
+                      <div>
+                          <apex:outputText value="{!oppt.HQ_Signature__c}" escape="false" />
+                          
+                      </div>
+                  </div>
+            <div>
+              <img src='https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003gvo9&oid=00Df2000001HEGJ&lastMod=1714988677000' style="width: 15px; Height:15px"/><label
+                >By checking the box I acknowledge and agree to conduct business
+                electronically, that I have read the terms of the above section,
+                and that I agree to insert my electronic signature as set forth
+                below indicating my consent to terms set forth on this page.
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+</apex:page>

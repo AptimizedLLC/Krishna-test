@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Imaging_with_No_Procedure_Date</fullName>
+    <columns>NAME</columns>
+    <columns>Provider__c</columns>
+    <columns>Patient__c</columns>
+    <columns>Treating_Office__c</columns>
+    <columns>Imaging__c</columns>
+    <columns>Imaging_Details__c</columns>
+    <columns>Imaging_Location__c</columns>
+    <columns>Status__c</columns>
+    <columns>Procedure_Date__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Imaging_Checkbox__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Procedure_Date__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Denied,Not Covered,Duplicate/Error,Canceled</value>
+    </filters>
+    <label>Imaging with No Procedure Date</label>
+    <sharedTo>
+        <role>Authorizations</role>
+        <role>Clinical_Manager</role>
+        <role>Extender</role>
+        <role>Intake</role>
+    </sharedTo>
+</ListView>

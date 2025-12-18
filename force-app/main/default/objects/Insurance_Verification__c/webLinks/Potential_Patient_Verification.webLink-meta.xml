@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Potential_Patient_Verification</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Potential Patient Verification</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/lightning/o/Insurance_Verification__c/new?defaultFieldValues=Appointment_Date__c={!TEXT( Lead.Initial_Appointment_Date_2__c)},Provider__c={!Lead.Initial_Provider__c},Appointment_Time__c={!Lead.Initial_Appointment_Time__c},Office__c={!Lead.Office__c},Potential_Patient__c={!Lead.Id},Submitted_By__c={!Lead.Intake_By__c}</url>
+</WebLink>

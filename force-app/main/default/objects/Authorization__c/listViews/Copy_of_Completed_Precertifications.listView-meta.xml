@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Copy_of_Completed_Precertifications</fullName>
+    <columns>NAME</columns>
+    <columns>Patient__c</columns>
+    <columns>Insurance_Company__c</columns>
+    <columns>Provider__c</columns>
+    <columns>Authorization_Notes__c</columns>
+    <columns>Precertification_Status__c</columns>
+    <columns>OWNER.FIRST_NAME</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Type__c</field>
+        <operation>equals</operation>
+        <value>PT Precertification,OT Precertification,Chiro Precertification</value>
+    </filters>
+    <filters>
+        <field>Precertification_Status__c</field>
+        <operation>equals</operation>
+        <value>Approved,Not Req,Denied &amp; Appealed,Modified &amp; Appealed,HC Primary,72 Hour Sent,Duplicate</value>
+    </filters>
+    <label>My Completed Precertifications</label>
+</ListView>

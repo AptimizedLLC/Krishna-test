@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Scott Margolin</label>
+    <protected>false</protected>
+    <values>
+        <field>CareCloud_Provider_Id__c</field>
+        <value xsi:type="xsd:string">28949</value>
+    </values>
+    <values>
+        <field>Provider_Email__c</field>
+        <value xsi:type="xsd:string">scott.margolin@spineandwellness.com</value>
+    </values>
+    <values>
+        <field>Provider_NPI__c</field>
+        <value xsi:type="xsd:string">1871019638</value>
+    </values>
+    <values>
+        <field>Provider_Name__c</field>
+        <value xsi:type="xsd:string">Scott Margolin</value>
+    </values>
+    <values>
+        <field>Provider_Specialty_Taxonomy__c</field>
+        <value xsi:type="xsd:string">225200000X</value>
+    </values>
+    <values>
+        <field>Provider_Specialty__c</field>
+        <value xsi:type="xsd:string">Physical Therapy Assistant</value>
+    </values>
+    <values>
+        <field>Reviews_Business_ID__c</field>
+        <value xsi:type="xsd:string">106850</value>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Chiro_Paid_Under_Capitation__c</fullName>
+    <defaultValue>false</defaultValue>
+    <label>Chiro Paid Under Capitation</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

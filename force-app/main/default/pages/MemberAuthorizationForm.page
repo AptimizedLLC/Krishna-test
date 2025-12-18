@@ -1,0 +1,136 @@
+<apex:page standardController="NPP__c" extensions="GenerateNPPIntakePDFDocumentController" renderAs="pdf" applyBodyTag="false">
+  
+<head>
+    <style>
+      .contentWrap h3 {
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: #f00;
+}
+.contentWrap {
+    margin: 10px 30px;
+}
+span.bStrong {
+    font-weight: 600;
+    padding-right: 5px;
+}
+p {
+    line-height: 22px;
+}
+img {
+    border: 1px solid #000;
+    margin-top: 10px;
+}
+    </style>
+  </head>
+<body>
+    <div>
+            <p><img src="https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003pCyH&oid=00Df2000001HEGJ&lastMod=1715318986000"  style="width: 700px;"/></p>
+    </div>
+    <div>
+        <div class="userFormWrap">
+          <div class="contentWrap">
+            <h3>
+              Member Authorization Form For A Designated Representative To
+              Appeal A Determination
+            </h3>
+            <div class="form-container">
+              <form>
+                <div class="pdf-content consent-content5">
+                  <div class="form-element">
+                    <div>
+                      <h4><strong>To:</strong></h4>
+                      <h4>
+                        <strong>Date:</strong>
+                      </h4>
+                      <h4><strong>Member Name:</strong></h4>
+                      <p>
+                        <strong>Member DOB:</strong>
+                      </p>
+                      <h4>
+                        <strong>Member ID:</strong>
+                      </h4>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div>
+                      <p>
+                        I hereby authorize All Be Healthy LLC dba&nbsp; Alliance
+                        Orthopedics to appeal my plan administrator’s
+                        determination on my behalf, as my Authorized
+                        Representative, and, as a part of the appeal, I hereby
+                        authorize my health plan administrator in its decision
+                        letter and in connection with the processing of my
+                        appeal, to communicate with my Designated Representative
+                        in all aspects of the appeal. I understand that these
+                        communications may contain the following:
+                      </p>
+                      <p>
+                        A copy of my Summary Plan Description (SPD) and
+                        description of the Plan’s Claim Appeal Procedure for the
+                        subject period, as well as all medical and financial
+                        information contained in my insurance file, including
+                        but not limited to treatment for venereal disease,
+                        alcoholism and drug abuse, abortion, mental disorder,
+                        and HIV status relating to my examination, treatment and
+                        hospital confinement in connection with the
+                        determination which is being appealed. I understand this
+                        information is privileged and confidential and will only
+                        be released as specified in this Authorization, or as
+                        required or permitted by law. This authorization is
+                        valid for a period of six years unless otherwise limited
+                        by the plan or the governing law.
+                      </p>
+                    </div>
+                    </div><br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+                  <div class="form-element">
+                    <div>
+                      <h4>
+                        <strong>Signature of Designated Representative:</strong>
+                      </h4>
+                        <div
+                      style="
+                        width: 400px;
+                        height: 200px;
+                        border: 1px solid black;
+                      "
+                    ></div>
+                      <h4>
+                        <strong>Name of Designated Representative:</strong>
+                      </h4>
+                      <h4>
+                        <strong>Title:</strong>
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+            <div class="form-element">
+                    <div><p>Patient Signature</p></div>
+
+                      <div>
+                          <apex:outputText value="{!oppt.HQ_Signature__c}" escape="false" />
+                          
+                      </div>
+                  </div>
+          <div class="formCheck">
+            <div>
+               <img src='https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003gvo9&oid=00Df2000001HEGJ&lastMod=1714988677000' style="width: 15px; Height:15px"/><label
+                >By checking the box I acknowledge and agree to conduct business
+                electronically, that I have read the terms of the above section,
+                and that I agree to insert my electronic signature as set forth
+                below indicating my consent to terms set forth on this page.
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+</apex:page>

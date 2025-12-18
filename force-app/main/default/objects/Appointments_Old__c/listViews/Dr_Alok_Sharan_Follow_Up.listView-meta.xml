@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dr_Alok_Sharan_Follow_Up</fullName>
+    <columns>NAME</columns>
+    <columns>Appointment_Date__c</columns>
+    <columns>Patient__c</columns>
+    <columns>Potential_Patient__c</columns>
+    <columns>Need_the_Following__c</columns>
+    <columns>Scheduled_for__c</columns>
+    <columns>Follow_Up_Contact_For__c</columns>
+    <columns>All_Follow_Up_Complete__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Provider__c</field>
+        <operation>equals</operation>
+        <value>&quot;SHARAN, ALOK&quot;</value>
+    </filters>
+    <filters>
+        <field>All_Follow_Up_Complete__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>Dr. Alok Sharan Follow Up</label>
+</ListView>

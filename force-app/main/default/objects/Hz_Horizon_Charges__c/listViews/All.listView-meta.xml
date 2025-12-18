@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Hz_VOB_Case__c</columns>
+    <columns>Hz_Expected_Reimbursement__c</columns>
+    <columns>Hz_Insurance_Plan__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

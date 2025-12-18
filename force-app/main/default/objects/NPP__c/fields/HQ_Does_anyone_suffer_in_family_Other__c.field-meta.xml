@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HQ_Does_anyone_suffer_in_family_Other__c</fullName>
+    <complianceGroup>HIPAA</complianceGroup>
+    <label>Does anyone suffer in family Other</label>
+    <length>2555</length>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

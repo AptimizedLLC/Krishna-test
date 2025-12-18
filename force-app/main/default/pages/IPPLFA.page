@@ -1,0 +1,195 @@
+<apex:page standardController="NPP__c" extensions="GenerateNPPIntakePDFDocumentController" renderAs="pdf" applyBodyTag="false">    
+<head>
+    <style>
+      .contentWrap h3 {
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: #f00;
+}
+.contentWrap {
+    margin: 10px 30px;
+}
+span.bStrong {
+    font-weight: 600;
+    padding-right: 5px;
+}
+p {
+    line-height: 22px;
+}
+img {
+    border: 1px solid #000;
+    margin-top: 10px;
+}
+    </style>
+  </head>
+<body>
+    <div>
+            <p><img src="https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003pCyH&oid=00Df2000001HEGJ&lastMod=1715318986000"  style="width: 700px;"/></p>
+    </div>
+    <div>
+        <div class="userFormWrap">
+          <div class="contentWrap">
+            <h3>Irrevocable Practice Lien-patient Financial Agreement</h3>
+            <div class="form-container">
+              <form>
+                <div class="pdf-content consent-content4">
+                  <div class="form-element">
+                    <div>
+                      <p>
+                        I fully understand that I am directly and fully
+                        responsible to said practice for all medical and/or
+                        surgical bills submitted by All Be Healthy LLC
+                        dba&nbsp;Alliance Orthopedics, its
+                        affiliates,employees,and contractors
+                        (hereinafter“Practice”),for health care services
+                        rendered me and that this agreement is made solely in
+                        consideration of the health care providers awaiting
+                        payment. It has been disclosed and fully explained to me
+                        that the procedures,services,supplies, and other fees
+                        associated with my treatment may not be covered by my
+                        No-Fault Insurance Carrier.
+                      </p>
+                      <p>
+                        By signing below, I hereby acknowledge that I understand
+                        this disclosure and it is my voluntary desire to proceed
+                        with the procedure(s) on a self-pay basis.I also am
+                        granting a lien on my personal injury case from which my
+                        injuries arise pursuant to this Agreement and understand
+                        that All Be Healthy LLC dba&nbsp;Alliance Orthopedics,
+                        has agreed to wait for my cost sharing payments such as
+                        deductible,copay and non-covered services pending the
+                        completion of the personal injury case.
+                      </p>
+                      <p>
+                        However, I also understand that, if my personal injury
+                        case is not successful or if I do not recover sufficient
+                        proceeds to pay All Be Healthy LLC dba&nbsp;Alliance
+                        Orthopedics complete bill,that I am individually
+                        responsible for their fees.
+                      </p>
+                      <p>
+                        I agree to promptly notify All Be Healthy LLC dba&nbsp;
+                        Alliance Orthopedics, of any change or addition of
+                        attorney(s) used by me in connection with this
+                        accident,and I instruct my attorney to do the same and
+                        to promptly deliver a copy of this lien to any such
+                        substituted or added attorney(s).
+                      </p>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div>
+                      <div>
+                        <label class="question"
+                          >I hereby authorize and direct my attorney,</label
+                        >
+                      </div>
+                        <div>
+                            <apex:outputField value="{!NPP__c.HQ_Attorney_Name__c}"/>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div>
+                      <div>
+                        <label class="question">with an address of</label>
+                      </div>
+                        <div>
+                            <apex:outputField value="{!NPP__c.HQ_Attorney_Address__c}"/>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div>
+                      <p>
+                        &nbsp;to pay directly to said All Be Healthy LLC
+                        dba&nbsp; Alliance Orthopedics, Market Street such sums
+                        as may be due and owing for medical/surgical service
+                        rendered to me both by reason of this accident and by
+                        reason of any other bills that are due the practice and
+                        its employees, contractors and affiliates and to
+                        withhold such sums from any settlement, judgment, or
+                        verdict as may be necessary to adequately protect and
+                        fully compensate All Be Healthy LLC dba&nbsp; Alliance
+                        Orthopedics, and its employees, contractors and
+                        affiliates.In consideration of the health care services
+                        received by patient,patient hereby further gives an
+                        irrevocable lien on my case to said All Be Healthy LLC
+                        dba&nbsp;Alliance Orthopedics, and its
+                        employees,contractors and affiliates against any and all
+                        proceeds of my settlement, judgment, or verdict which
+                        may be paid to my attorney,or myself,as a result of the
+                        injuries for which I have been treatment or injuries in
+                        connection therewith.
+                      </p>
+                      <p>
+                        Please acknowledge this letter by signing below and
+                        returning to practice.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div class="patientNameDate">
+<div><label>Patient Name</label></div>
+                      <div class="floatLeft"><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></div>
+<div><label>Date</label></div>
+                      <div class="floatRight"><apex:outputText value="{0,date,MM/dd/yyyy}"><apex:param value="{!NPP__c.CreatedDate}" /></apex:outputText></div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div>
+                      <div>
+                        <label class="question">Date of Accident</label>
+                      </div>
+                        <apex:outputField value="{!NPP__c.HQ_Date_of_Accident__c}"/>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div>
+                      <div><label class="question">Address</label></div>
+                        <apex:outputField value="{!NPP__c.HQ_Accident_Address__c}"/>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div>
+                      <p>
+                        The undersigned attorney of record for the above patient
+                        is being placed on notice of this irrevocable lien via
+                        certified and regular mail of this Agreement and is
+                        directed by the patient / client, to observe all the
+                        terms of the above and to withhold any such sums from
+                        any settlement, judgment,or verdict,as maybe necessary
+                        to adequately protect and fully compensate said health
+                        care providers above-named.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div class="question">Attorney Signature</div>
+                    <div
+                      style="
+                        width: 400px;
+                        height: 200px;
+                        border: 1px solid black;
+                      "
+                    ></div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="formCheck">
+            <div>
+               <img src='https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003gvo9&oid=00Df2000001HEGJ&lastMod=1714988677000' style="width: 15px; Height:15px"/><label
+                >By checking the box I acknowledge and agree to conduct business
+                electronically, that I have read the terms of the above section,
+                and that I agree to insert my electronic signature as set forth
+                below indicating my consent to terms set forth on this page.
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+</apex:page>

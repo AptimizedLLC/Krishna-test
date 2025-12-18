@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_of_COOL_Leads__c</fullName>
+    <description>Captured Prospective Patient Contacts?
+If Yes</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Do not include the patients &quot;booked&quot; from this initiative. These people should be separate and distinct from the people counted as &quot;booked</inlineHelpText>
+    <label>No of COOL Leads</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Insurance_Company__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(CONTAINS(Appointment__r.Visit_Reason__c, &quot;PIP&quot;),   Text( Patient__r.PIP_WC_or_School_Insurance__c ) , Text( Patient__r.Insurance__c ))
+
+
+/*
+If(
+CONTAINS( Appointment__r.Visit_Reason__c , &apos;PIP&apos;),
+&quot;PIP&quot;, 
+Text( Patient__r.Insurance__c )
+)
+
+Brandom Made me change this formula on 9/16/2024. - Juanus was against this notion
+*/</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Insurance Company</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PT_visits_combined_details</fullName>
+    <active>false</active>
+    <description>when pt visits combined is yes, require user to enter details</description>
+    <errorConditionFormula>ISPICKVAL( PT_Visits_Combined__c ,&quot;Yes&quot;) &amp;&amp; ISBLANK( If_yes_PT_Combined__c )</errorConditionFormula>
+    <errorMessage>Please enter PT Visits combined details</errorMessage>
+</ValidationRule>

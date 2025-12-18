@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Patient_s_Currently_Assigned_Staff__c</columns>
+    <columns>Provider_Name__c</columns>
+    <columns>Enter_FlowSheet_Link__c</columns>
+    <columns>Patient__c</columns>
+    <columns>Appointment_Date_Time__c</columns>
+    <columns>Provider_Name2__c</columns>
+    <columns>Status__c</columns>
+    <columns>Location__c</columns>
+    <columns>Visit_Reason_Type__c</columns>
+    <columns>Is_Today__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Appointment_Is_Today__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Patient__c</field>
+        <operation>contains</operation>
+        <value>test july</value>
+    </filters>
+    <label>All</label>
+</ListView>

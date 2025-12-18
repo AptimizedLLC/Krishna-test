@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HQ_Do_you_have_history_of_following__c</fullName>
+    <complianceGroup>HIPAA</complianceGroup>
+    <label>Do you have history of following?</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Diabetes</fullName>
+                <default>false</default>
+                <label>Diabetes</label>
+            </value>
+            <value>
+                <fullName>High Blood Pressure</fullName>
+                <default>false</default>
+                <label>High Blood Pressure</label>
+            </value>
+            <value>
+                <fullName>Heart Attack</fullName>
+                <default>false</default>
+                <label>Heart attack</label>
+            </value>
+            <value>
+                <fullName>Stroke</fullName>
+                <default>false</default>
+                <label>Stroke</label>
+            </value>
+            <value>
+                <fullName>Cancer</fullName>
+                <default>false</default>
+                <label>Cancer</label>
+            </value>
+            <value>
+                <fullName>Hepatitis</fullName>
+                <default>false</default>
+                <label>Hepatitis</label>
+            </value>
+            <value>
+                <fullName>HIV</fullName>
+                <default>false</default>
+                <label>HIV</label>
+            </value>
+            <value>
+                <fullName>Rheumatoid Arthritis</fullName>
+                <default>false</default>
+                <label>Rheumatoid arthritis</label>
+            </value>
+            <value>
+                <fullName>Menstrual Problems</fullName>
+                <default>false</default>
+                <label>Menstrual problems</label>
+            </value>
+            <value>
+                <fullName>Kidney Stones</fullName>
+                <default>false</default>
+                <label>Kidney stones</label>
+            </value>
+            <value>
+                <fullName>N/A</fullName>
+                <default>false</default>
+                <label>N/A</label>
+            </value>
+            <value>
+                <fullName>Anemia</fullName>
+                <default>false</default>
+                <label>Anemia</label>
+            </value>
+            <value>
+                <fullName>Anxiety</fullName>
+                <default>false</default>
+                <label>Anxiety</label>
+            </value>
+            <value>
+                <fullName>Emphysema/COPD</fullName>
+                <default>false</default>
+                <label>Emphysema/COPD</label>
+            </value>
+            <value>
+                <fullName>Depression</fullName>
+                <default>false</default>
+                <label>Depression</label>
+            </value>
+            <value>
+                <fullName>High/Low Cholesterol</fullName>
+                <default>false</default>
+                <label>High/Low Cholesterol</label>
+            </value>
+            <value>
+                <fullName>Hyper/Hypo Thyroidism</fullName>
+                <default>false</default>
+                <label>Hyper/Hypo Thyroidism</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

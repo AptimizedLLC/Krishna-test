@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IV_Type__c</fullName>
+    <label>IV Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Major Med Primary Only</fullName>
+                <default>false</default>
+                <label>Major Med Primary Only</label>
+            </value>
+            <value>
+                <fullName>Major Med Primary &amp; Secondary</fullName>
+                <default>false</default>
+                <label>Major Med Primary &amp; Secondary</label>
+            </value>
+            <value>
+                <fullName>Medicare Only</fullName>
+                <default>false</default>
+                <label>Medicare Only</label>
+            </value>
+            <value>
+                <fullName>Medicare w/ Supplemental</fullName>
+                <default>false</default>
+                <label>Medicare w/ Supplemental</label>
+            </value>
+            <value>
+                <fullName>Medicare w/ True Secondary</fullName>
+                <default>false</default>
+                <label>Medicare w/ True Secondary</label>
+            </value>
+            <value>
+                <fullName>Medicare Advantage Only</fullName>
+                <default>false</default>
+                <label>Medicare Advantage Only</label>
+            </value>
+            <value>
+                <fullName>PIP/MVA Only</fullName>
+                <default>false</default>
+                <label>PIP/MVA Only</label>
+            </value>
+            <value>
+                <fullName>PIP/MVA w/ Major Med</fullName>
+                <default>false</default>
+                <label>PIP/MVA w/ Major Med</label>
+            </value>
+            <value>
+                <fullName>WC Only</fullName>
+                <default>false</default>
+                <label>WC Only</label>
+            </value>
+            <value>
+                <fullName>WC w/ Major Med</fullName>
+                <default>false</default>
+                <label>WC w/ Major Med</label>
+            </value>
+            <value>
+                <fullName>Cash Pay</fullName>
+                <default>false</default>
+                <label>Cash Pay</label>
+            </value>
+            <value>
+                <fullName>Options (in this exact order):</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Options (in this exact order):</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

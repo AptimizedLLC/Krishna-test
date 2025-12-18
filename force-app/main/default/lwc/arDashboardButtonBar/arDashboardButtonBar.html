@@ -1,0 +1,27 @@
+<template>
+    <div class="button-bar">
+        <lightning-button 
+            label="Pending Inventory" 
+            variant="brand" 
+            onclick={handlePendingInventory}>
+        </lightning-button>
+
+        <lightning-button 
+            label="New Request" 
+            variant="neutral" 
+            onclick={handleNewRequest}>
+        </lightning-button>
+
+        <lightning-button 
+            label="Previous Request" 
+            variant="neutral" 
+            onclick={handlePreviousRequest}>
+        </lightning-button>
+
+        <lightning-button 
+            label="Completed Request" 
+            variant="success" 
+            onclick={handleCompletedRequest}>
+        </lightning-button>
+    </div>
+</template>

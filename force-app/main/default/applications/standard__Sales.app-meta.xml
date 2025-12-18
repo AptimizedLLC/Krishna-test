@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <defaultLandingTab>standard-home</defaultLandingTab>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <tabs>standard-Contact</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Lead</tabs>
+    <tabs>standard-Opportunity</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
+    <tabs>standard-Chatter</tabs>
+    <tabs>standard-File</tabs>
+    <tabs>standard-Product2</tabs>
+    <tabs>standard-Forecasting3</tabs>
+    <tabs>standard-Quote</tabs>
+    <tabs>Office_Location__c</tabs>
+    <tabs>Appointments_Old__c</tabs>
+    <tabs>Insurance_Verification__c</tabs>
+    <tabs>Payment_Arrangement__c</tabs>
+    <tabs>Employees__c</tabs>
+    <tabs>Surgical_Booking__c</tabs>
+    <tabs>Quality_Assurance__c</tabs>
+    <tabs>Authorization__c</tabs>
+    <tabs>standard-WaveHome</tabs>
+    <tabs>NPP__c</tabs>
+    <tabs>LOP__c</tabs>
+    <tabs>Medication__c</tabs>
+    <tabs>Provider_Medication__c</tabs>
+    <tabs>Provider_Procedure__c</tabs>
+    <tabs>Test__c</tabs>
+</CustomApplication>

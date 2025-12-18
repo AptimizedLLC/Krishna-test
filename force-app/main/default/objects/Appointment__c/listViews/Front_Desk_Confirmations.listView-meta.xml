@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Front_Desk_Confirmations</fullName>
+    <columns>NAME</columns>
+    <columns>Patient_s_Currently_Assigned_Staff__c</columns>
+    <columns>Provider_Name__c</columns>
+    <columns>Enter_FlowSheet_Link__c</columns>
+    <columns>Location_Name__c</columns>
+    <columns>New_Patient_Confirmation_Call__c</columns>
+    <columns>Confirmation_Call_Notes__c</columns>
+    <columns>Appointment_Date_Time__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Visit_Reason__c</field>
+        <operation>contains</operation>
+        <value>New</value>
+    </filters>
+    <filters>
+        <field>Payment_Arrangement__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>New_Patient_Confirmation_Call__c</field>
+        <operation>notEqual</operation>
+        <value>Confirmed</value>
+    </filters>
+    <filters>
+        <field>Visit_Reason__c</field>
+        <operation>notContain</operation>
+        <value>ESTABLISHED</value>
+    </filters>
+    <filters>
+        <field>New_Patient_Confirmation_Call__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Cancelled</value>
+    </filters>
+    <filters>
+        <field>Appointment_Date__c</field>
+        <operation>greaterThan</operation>
+        <value>TODAY</value>
+    </filters>
+    <filters>
+        <field>Visit_Reason__c</field>
+        <operation>notContain</operation>
+        <value>NEW YEAR EVALUATION</value>
+    </filters>
+    <label>Front Desk Confirmations</label>
+    <sharedTo>
+        <role>Extender</role>
+        <role>Intake</role>
+    </sharedTo>
+</ListView>

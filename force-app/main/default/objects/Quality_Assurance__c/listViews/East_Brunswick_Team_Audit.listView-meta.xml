@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>East_Brunswick_Team_Audit</fullName>
+    <columns>Call_Audit_Type__c</columns>
+    <columns>Employee__c</columns>
+    <columns>General_Notes__c</columns>
+    <columns>NAME</columns>
+    <columns>Date_of_Call__c</columns>
+    <columns>Intake_Score_Percentage__c</columns>
+    <columns>Insurance_Score_Percent__c</columns>
+    <columns>Claim_Information_Percent__c</columns>
+    <columns>Delivery_Comprehension_Percentage__c</columns>
+    <columns>Payment_Arrangement_Score_Percent__c</columns>
+    <columns>Delivery_Score_Percentage__c</columns>
+    <columns>Appointment_Change_Score_Percentage__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Employee__c</field>
+        <operation>equals</operation>
+        <value>Carol O&apos;Oconnor,Kim Montagnino,Sharee Collins,Valerie Chopak</value>
+    </filters>
+    <filters>
+        <field>Manager_Audit__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>East Brunswick Team Audit</label>
+</ListView>

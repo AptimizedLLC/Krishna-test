@@ -1,0 +1,244 @@
+<apex:page standardController="NPP__c" extensions="GenerateNPPIntakePDFDocumentController" renderAs="pdf" applyBodyTag="false">
+    
+<head>
+    <style>
+      .contentWrap h3 {
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: #f00;
+}
+.contentWrap {
+    margin: 10px 30px;
+}
+span.bStrong {
+    font-weight: 600;
+    padding-right: 5px;
+}
+p {
+    line-height: 22px;
+}
+img {
+    border: 1px solid #000;
+    margin-top: 10px;
+}
+    </style>
+  </head>
+<body>
+    <div>
+            <p><img src="https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003pCyH&oid=00Df2000001HEGJ&lastMod=1715318986000"  style="width: 700px;"/></p>
+	</div>
+    <div>
+        <div class="userFormWrap">
+          <div class="contentWrap">
+			<div style="text-align: center; margin-top: 10px;">
+    			<div style="font-weight: bold; font-size: 18px;">
+        			ASSIGNMENT OF BENEFITS<br/>
+        			&amp;<br/>
+        			LIMITED POWER OF ATTORNEY
+    			</div>
+                <div style="margin-top: 20px; font-weight: bold; font-size: 16px;">
+        			All be Healthy DBA Alliance Orthopedics
+   				 </div>
+			</div>
+            <div class="form-container">
+              <form>
+                <div class="pdf-content consent-content10">
+                  <div class="form-element">
+                    <div class="question">PatientName</div>
+                    <div><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></div>
+                  </div>
+                  <div class="form-element">
+                    <div>
+                      <div><label class="question">Insurance</label></div>
+                        <div>
+                            <apex:outputField value="{!NPP__c.HQ_Insurance_Carrier_Name__c}"/>
+                        </div>
+                      
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div>
+                      <p>
+                        <strong>Claim /SSN:&nbsp;</strong><br /><br />
+                        <strong>Date Loss:&nbsp;</strong><br /><br />
+                      </p>
+
+                      <p>
+						I hereby irrevocably assign, transfer, and convey to <strong>All be Healthy DBA Alliance Orthopedics</strong>, my medical provider, 
+						all rights, title, and interest in and to all applicable benefits and rights of recovery under any 
+                        insurance contract/policy, or plan providing for Personal Injury Protection (PIP) benefits, medical 
+                        payments, health insurance, or any other applicable insurance coverage for services rendered to me 
+                        by All be Healthy DBA Alliance Orthopedics, including but not limited to all of my rights under 
+                        “ERISA” that pertain to the medical services provided to me by All be Healthy DBA Alliance Orthopedics. 
+                      </p>
+                      <p>
+                        <strong>Authorization to Act on My Behalf</strong>
+                      </p>
+					  <p style="margin-top: 10px;">
+            			I authorize and give consent to <strong>All be Healthy DBA Alliance Orthopedics</strong> to do all the following, as may be necessary:
+        			  </p>
+
+        			  <ul style="margin-left: 30px;">
+            		  <li>
+                		File insurance claims and collect payment on my behalf for services rendered to me.
+            		  </li>
+           			  <li>
+                    	Pursue all necessary legal actions, specifically including but not limited to filing arbitration/litigation in its own name or on my behalf against any responsible PIP carrier, health care carrier, or third-party payer.
+                	  </li>
+                	  <li>
+                    	Retain legal counsel of its choosing, in its own name or on my behalf, for collection payment for services rendered, including but not limited to filing arbitration claims under New Jersey’s No-Fault (PIP) arbitration system or initiating lawsuits against responsible insurers.
+          			  </li>
+            		  <li>
+		                Pursue any administrative appeals conducted pursuant to PIP, “ERISA”, or any other applicable authority granting benefits, including pre-service, concurrent, or post-service appeals.
+           			  </li>
+        			  </ul>
+
+        			  <p>
+            			I direct that all reimbursable medical payments go directly to <strong>All be Healthy DBA Alliance Orthopedics</strong>. 
+                        I further authorize All be Healthy DBA Alliance Orthopedics to act on my behalf in 
+                        obtaining all information related to my PIP or health insurance coverages, including but
+                        not limited to policy limits, benefits exhausted, remaining PIP coverage, and prior payment
+                        history, and/or as set forth in the “Authorization for Release of Information” herein.
+        			  </p>
+
+        			  <p>
+            			In the event that any insurance carrier imposes conditions to this assignment, I hereby 
+                        authorize <strong>All be Healthy DBA Alliance Orthopedics</strong> to take necessary steps to meet those conditions, in 
+                        its own name, or on my behalf so as to effectuate the assignment.
+        			  </p>
+                      <p>
+                        <strong>Limited Power of Attorney</strong>
+                      </p>
+                      <p>
+						In the event the insurance carrier responsible for making medical payments in this matter 
+                        does not accept my assignment, or my assignment is challenged or deemed invalid,  I hereby 
+                        grant <strong>All be Healthy DBA Alliance Orthopedics</strong> and its agents, directors, 
+                        and officers, and/or its collection attorney, limited power of attorney to take all necessary  
+                        legal action to recover payment for medical services rendered to me, directly against any responsible PIP 
+                        carrier/health care carrier in my name or on my behalf, including but not limited to: (a) 
+                        filing an arbitration demand or lawsuit; (b) negotiating and settling claims related to my 
+                        medical bills; (c) executing documents necessary to effectuate the collection of payment 
+                        from the responsible insurance carrier; (d) endorsing checks or other instruments issued for 
+                        payment of services rendered by <strong>All be Healthy DBA Alliance Orthopedics</strong>.                           
+                      </p>
+                      <p>
+                        I further grant limited power of attorney to <strong>All be Healthy DBA Alliance Orthopedics</strong> and its agents, directors,
+                        and officers, to receive and collect directly from the insurance carrier money due to it for 
+                        services rendered in relation to this matter and hereby instruct the insurance carrier to pay 
+                        <strong>All be Healthy DBA Alliance Orthopedics</strong> directly any monies due for medical services rendered to me in relation 
+                        to this matter. Additionally, I hereby authorize any applicable Insurance Company to make payments
+                        directly by check made out/mailed to:   
+                      </p>
+        			  <div style="text-align: center; font-weight: bold; font-size: 14px; margin-top: 10px;">
+            		  	All be Healthy DBA Alliance Orthopedics<br/>
+                      	1455 Broad St, Ste 250<br/>
+                     	Bloomfield, NJ 07003 - 3066
+                      </div>
+                      <p>
+                        <strong>Authorization for Release of Information</strong>
+                      </p>
+                      <p>
+                        I specifically authorize/designate <strong>All be Healthy DBA Alliance Orthopedics</strong> and/or its attorney the right to 
+                        obtain from the responsible PIP insurer all relevant policy and claim information as it pertains 
+                        to PIP policy coverage limits and payments, including but not limited to: (a) a copy of the applicable 
+                        PIP Policy Declarations page; (b) PIP Payment Ledgers detailing all payments made to all providers (c), 
+                        the date of last medical payment made to any provider on my PIP claim; and (d) the balance of available
+                        benefits remaining under my PIP coverage. 
+                      </p>
+                      <p>
+                        This Assignment of Benefits specifically authorizes any responsible PIP carrier to release said information
+                        directly to <strong>All be Healthy DBA Alliance Orthopedics</strong> and/or its attorney, immediately upon verbal/written 
+                        request, and I waive any privacy or confidentiality rights necessary to effectuate this request. 
+                      </p>
+					  <div style="text-align: center; font-weight: bold; font-size: 14px;">
+            			THIS IS A DIRECT ASSIGNMENT OF MY RIGHTS AND BENEFITS UNDER ANY APPLICABLE<br/>
+            			INSURANCE POLICY THAT MAY COVER SERVICES RENDERED TO ME.
+        			  </div>
+
+        			  <p style="margin-top: 20px; text-align: justify;">
+            			I authorize <strong>All be Healthy DBA Alliance Orthopedics</strong> and/or its attorney to obtain medical information 
+            			regarding my physical condition as it relates to this claim, from any other health care provider as necessary, 
+            			including but not limited to hospitals and diagnostic centers. I specifically authorize such health care provider(s) 
+            			to release all such information to <strong>All be Healthy DBA Alliance Orthopedics</strong> about me as requested, including 
+            			but not limited to, medical reports, X-ray reports, narrative reports, billing information, pre-certification requests 
+            			and administrative appeals and any other report or information regarding my physical condition.
+        			  </p>
+                      <p>
+                        <strong>Acknowledgement and Agreement</strong>
+                      </p>
+		        	  <p style="margin-top: 10px; text-align: justify;">
+            			I understand that this <strong>Assignment of Benefits and Limited Power of Attorney</strong> is a <strong>direct and 
+                        irrevocable assignment of my rights and benefits</strong> under any applicable insurance policy that may cover the 
+                        services rendered to me. I further understand that this assignment is being executed in consideration of 
+                        <strong>All be Healthy DBA Alliance Orthopedics</strong>’s agreement to render services to me.
+          			  </p>
+
+        			  <p style="text-align: justify;">
+            			I acknowledge that <strong>All be Healthy DBA Alliance Orthopedics</strong> is providing medical care and treatment with the expectation 
+                        of direct payment from any available insurance coverage. If payment is delayed, reduced, or denied, I remain personally
+                        responsible for any unpaid balance, including any applicable co-pays, deductibles, or co-insurance as required by my
+                        policy or applicable law.
+        			  </p>
+
+        			  <p style="text-align: justify;">
+            			A photocopy of this Assignment shall be considered as effective and valid as the original. I also authorize the release 
+                        of any information pertinent to my case or collection of my bills to any insurance company, adjuster, or attorney involved 
+                        in this case.
+        			  </p>
+                      <p>
+                        In the event that any provision of this Assignment, in whole or in part (or the application of any provision to a specific
+                        situation), is held to be invalid or unenforceable, such unenforceability shall be limited to such specific provision or 
+                        portion thereof (or to such situation), and this Assignment shall be construed and applied in such manner as to minimize 
+                        such unenforceability. This Assignment shall otherwise remain in full force and effect.
+                      </p>
+                    </div>
+                  </div>
+                  
+                    
+<br/><br/><br/><br/><br/><br/><br/>
+                  <div class="form-element">
+<div class="patientNameDate">
+<div><label>Patient Name</label></div>
+                      <div class="floatLeft"><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></div>
+<div><label>Date</label></div>
+                      <div class="floatRight"><apex:outputText value="{0,date,MM/dd/yyyy}"><apex:param value="{!NPP__c.CreatedDate}" /></apex:outputText></div>
+                    </div>
+                 
+                  <div class="form-element">
+                    <div><p>Patient Signature</p></div>
+
+                      <div>
+                          <apex:outputText value="{!oppt.HQ_Signature__c}" escape="false" />
+                          
+                      </div>
+                  </div>
+                    <div class="question">
+                      Signature of Claimant, if other than Policyholder
+                    </div>
+                    <div
+                      style="
+                        width: 400px;
+                        height: 200px;
+                        border: 1px solid black;
+                      "
+                    ></div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="formCheck">
+            <div>
+                <img src='https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003gvo9&oid=00Df2000001HEGJ&lastMod=1714988677000' style="width: 15px; Height:15px"/>
+<label>By checking the box I acknowledge and agree to conduct business
+                electronically, that I have read the terms of the above section,
+                and that I agree to insert my electronic signature as set forth
+                below indicating my consent to terms set forth on this page.
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+</apex:page>

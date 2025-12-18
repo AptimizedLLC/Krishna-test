@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Specialty__c</fullName>
+    <label>Specialty</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Acupuncturist</fullName>
+                <default>false</default>
+                <label>Acupuncturist</label>
+            </value>
+            <value>
+                <fullName>Chiropractor</fullName>
+                <default>false</default>
+                <label>Chiropractor</label>
+            </value>
+            <value>
+                <fullName>Durable Medical Equipment &amp; Medical Supplies</fullName>
+                <default>false</default>
+                <label>Durable Medical Equipment &amp; Medical Supplies</label>
+            </value>
+            <value>
+                <fullName>Foot &amp; Ankle Surgery</fullName>
+                <default>false</default>
+                <label>Foot &amp; Ankle Surgery</label>
+            </value>
+            <value>
+                <fullName>Multi-Specialty</fullName>
+                <default>false</default>
+                <label>Multi-Specialty</label>
+            </value>
+            <value>
+                <fullName>Neurology</fullName>
+                <default>false</default>
+                <label>Neurology</label>
+            </value>
+            <value>
+                <fullName>Occupational Therapist</fullName>
+                <default>false</default>
+                <label>Occupational Therapist</label>
+            </value>
+            <value>
+                <fullName>Occupational Therapy Assistant</fullName>
+                <default>false</default>
+                <label>Occupational Therapy Assistant</label>
+            </value>
+            <value>
+                <fullName>Orthopaedic Surgery</fullName>
+                <default>false</default>
+                <label>Orthopaedic Surgery</label>
+            </value>
+            <value>
+                <fullName>Orthopaedic Surgeryofthe Spine</fullName>
+                <default>false</default>
+                <label>Orthopaedic Surgeryofthe Spine</label>
+            </value>
+            <value>
+                <fullName>Pain Medicine</fullName>
+                <default>false</default>
+                <label>Pain Medicine</label>
+            </value>
+            <value>
+                <fullName>Physical Therapist</fullName>
+                <default>false</default>
+                <label>Physical Therapist</label>
+            </value>
+            <value>
+                <fullName>Physical Therapy</fullName>
+                <default>false</default>
+                <label>Physical Therapy</label>
+            </value>
+            <value>
+                <fullName>Physical Therapy Assistant</fullName>
+                <default>false</default>
+                <label>Physical Therapy Assistant</label>
+            </value>
+            <value>
+                <fullName>Physician Assistant</fullName>
+                <default>false</default>
+                <label>Physician Assistant</label>
+            </value>
+            <value>
+                <fullName>Sports Medicine</fullName>
+                <default>false</default>
+                <label>Sports Medicine</label>
+            </value>
+            <value>
+                <fullName>Surgery</fullName>
+                <default>false</default>
+                <label>Surgery</label>
+            </value>
+            <value>
+                <fullName>Surgical</fullName>
+                <default>false</default>
+                <label>Surgical</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

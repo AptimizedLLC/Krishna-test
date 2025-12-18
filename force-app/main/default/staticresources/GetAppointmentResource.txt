@@ -1,0 +1,542 @@
+[
+  {
+    "appointment": {
+      "id": "a92c9228-9bf2-48cf-ac69-16044adb2724",
+      "appointment_status": {
+        "id": 3,
+        "code": "O",
+        "name": "Checked-Out"
+      },
+      "patient": {
+        "id": "9869dcf9-67ee-4d05-bea6-a799c5dfb555",
+        "chart_number": "228168852",
+        "date_of_birth": "1948-01-25 12:00:00",
+        "first_name": "ANJUM",
+        "last_name": "DANISH",
+        "middle_initial": null,
+        "gender_id": "2",
+        "email": "shabbirdanish@gmail.com",
+        "patient_status": "A",
+        "primary_phone_number": "9143109322"
+      },
+      "location": {
+        "id": 30234,
+        "name": "OLD BRIDGE OFFICE"
+      },
+      "cancellation_details": {
+        "id": null,
+        "detail": null,
+        "comments": null
+      },
+      "chief_complaint": null,
+      "task_id": null,
+      "updated_by_application": null,
+      "appointment_cancellation_reason_id": null,
+      "arrived_at": "2022-03-21T08:37:45-04:00",
+      "business_entity_id": 5052,
+      "comments": "9/25",
+      "confirmation_details": null,
+      "departed_at": "2022-03-21T09:47:27-04:00",
+      "exam_room_id": null,
+      "is_confirmed": false,
+      "is_force_overbook": false,
+      "patient_contacted": null,
+      "recurrence_id": 3871631,
+      "recurrence_index": 7,
+      "referring_physician_npi": "1881757268",
+      "visit_reason_id": 81914,
+      "resource_id": 25235,
+      "provider_id": "25277",
+      "start_time": "2022-03-21T08:45:00-04:00",
+      "end_time": "2022-03-21T09:15:00-04:00",
+      "created_at": "2022-03-17T11:02:23-04:00",
+      "updated_at": "2022-03-21T09:47:28-04:00"
+    }
+  },
+  {
+    "appointment": {
+      "id": "08314725-ba4d-476d-9da8-d1c2bdfb264a",
+      "appointment_status": {
+        "id": 3,
+        "code": "O",
+        "name": "Checked-Out"
+      },
+      "patient": {
+        "id": "176c386c-1739-4770-8ac2-e90fd8a800e3",
+        "chart_number": "4303",
+        "date_of_birth": "1968-06-13 12:00:00",
+        "first_name": "JOSEPH",
+        "last_name": "DOMINGUEZ",
+        "middle_initial": null,
+        "gender_id": "1",
+        "email": null,
+        "patient_status": "A",
+        "primary_phone_number": "7327576850"
+      },
+      "location": {
+        "id": 30232,
+        "name": "MATAWAN 144"
+      },
+      "cancellation_details": {
+        "id": null,
+        "detail": null,
+        "comments": null
+      },
+      "chief_complaint": null,
+      "task_id": null,
+      "updated_by_application": null,
+      "appointment_cancellation_reason_id": null,
+      "arrived_at": "2022-03-21T09:04:36-04:00",
+      "business_entity_id": 5052,
+      "comments": null,
+      "confirmation_details": null,
+      "departed_at": "2022-03-21T10:47:48-04:00",
+      "exam_room_id": null,
+      "is_confirmed": false,
+      "is_force_overbook": false,
+      "patient_contacted": null,
+      "recurrence_id": 3884765,
+      "recurrence_index": 1,
+      "referring_physician_npi": null,
+      "visit_reason_id": 95620,
+      "resource_id": 25234,
+      "provider_id": "25288",
+      "start_time": "2022-03-21T09:00:00-04:00",
+      "end_time": "2022-03-21T09:15:00-04:00",
+      "created_at": "2022-03-10T17:03:52-05:00",
+      "updated_at": "2022-03-21T10:50:18-04:00"
+    }
+  },
+  {
+    "appointment": {
+      "id": "6887aeb6-2d39-4ac4-89c7-922242d9d70b",
+      "appointment_status": {
+        "id": 3,
+        "code": "O",
+        "name": "Checked-Out"
+      },
+      "patient": {
+        "id": "9da17f22-93e2-46d2-8fd7-e2d32edb5692",
+        "chart_number": "228169002",
+        "date_of_birth": "1975-12-30 12:00:00",
+        "first_name": "KAREN",
+        "last_name": "PISANI",
+        "middle_initial": "M",
+        "gender_id": "2",
+        "email": "kpisani11@gmail.com",
+        "patient_status": "A",
+        "primary_phone_number": "9178820266"
+      },
+      "location": {
+        "id": 30232,
+        "name": "MATAWAN 144"
+      },
+      "cancellation_details": {
+        "id": null,
+        "detail": null,
+        "comments": null
+      },
+      "chief_complaint": null,
+      "task_id": null,
+      "updated_by_application": null,
+      "appointment_cancellation_reason_id": null,
+      "arrived_at": "2022-03-21T09:01:39-04:00",
+      "business_entity_id": 5052,
+      "comments": null,
+      "confirmation_details": null,
+      "departed_at": "2022-03-21T10:47:44-04:00",
+      "exam_room_id": null,
+      "is_confirmed": false,
+      "is_force_overbook": false,
+      "patient_contacted": null,
+      "recurrence_id": 3892787,
+      "recurrence_index": 1,
+      "referring_physician_npi": null,
+      "visit_reason_id": 81914,
+      "resource_id": 25234,
+      "provider_id": "25288",
+      "start_time": "2022-03-21T09:00:00-04:00",
+      "end_time": "2022-03-21T09:15:00-04:00",
+      "created_at": "2022-03-18T09:08:30-04:00",
+      "updated_at": "2022-03-21T10:50:17-04:00"
+    }
+  },
+  {
+    "appointment": {
+      "id": "8a3a960d-bf63-4c97-a1aa-6807aff873c2",
+      "appointment_status": {
+        "id": 4,
+        "code": "C",
+        "name": "Cancelled"
+      },
+      "patient": {
+        "id": "0f2f83ae-c9d1-453f-a2be-5caa10871c9f",
+        "chart_number": "9424",
+        "date_of_birth": "1979-10-30 00:00:00",
+        "first_name": "THERESA",
+        "last_name": "MANGAM",
+        "middle_initial": null,
+        "gender_id": "2",
+        "email": "theresamangam@optonline.com",
+        "patient_status": "A",
+        "primary_phone_number": "9177101515"
+      },
+      "location": {
+        "id": 30232,
+        "name": "MATAWAN 144"
+      },
+      "cancellation_details": {
+        "id": 3,
+        "detail": "NO SHOW",
+        "comments": null
+      },
+      "chief_complaint": null,
+      "task_id": null,
+      "updated_by_application": null,
+      "appointment_cancellation_reason_id": 3,
+      "arrived_at": null,
+      "business_entity_id": 5052,
+      "comments": null,
+      "confirmation_details": null,
+      "departed_at": null,
+      "exam_room_id": null,
+      "is_confirmed": false,
+      "is_force_overbook": false,
+      "patient_contacted": null,
+      "recurrence_id": 3893306,
+      "recurrence_index": 1,
+      "referring_physician_npi": "1649577495",
+      "visit_reason_id": 81914,
+      "resource_id": 25234,
+      "provider_id": "25288",
+      "start_time": "2022-03-21T09:00:00-04:00",
+      "end_time": "2022-03-21T09:15:00-04:00",
+      "created_at": "2022-03-18T13:04:13-04:00",
+      "updated_at": "2022-03-21T09:55:18-04:00"
+    }
+  },
+  {
+    "appointment": {
+      "id": "670fc26c-c68f-4c98-a3b3-c14faea8b1bb",
+      "appointment_status": {
+        "id": 3,
+        "code": "O",
+        "name": "Checked-Out"
+      },
+      "patient": {
+        "id": "25068244-689a-4746-80f5-f34373243456",
+        "chart_number": "228167925",
+        "date_of_birth": "1988-04-07 12:00:00",
+        "first_name": "VERONICA",
+        "last_name": "BRITOS",
+        "middle_initial": null,
+        "gender_id": "2",
+        "email": "veroakavee@gmail.com",
+        "patient_status": "A",
+        "primary_phone_number": "9082305541"
+      },
+      "location": {
+        "id": 30232,
+        "name": "MATAWAN 144"
+      },
+      "cancellation_details": {
+        "id": null,
+        "detail": null,
+        "comments": null
+      },
+      "chief_complaint": null,
+      "task_id": null,
+      "updated_by_application": null,
+      "appointment_cancellation_reason_id": null,
+      "arrived_at": "2022-03-21T08:59:29-04:00",
+      "business_entity_id": 5052,
+      "comments": null,
+      "confirmation_details": null,
+      "departed_at": "2022-03-21T10:28:30-04:00",
+      "exam_room_id": null,
+      "is_confirmed": false,
+      "is_force_overbook": false,
+      "patient_contacted": null,
+      "recurrence_id": 3885821,
+      "recurrence_index": 1,
+      "referring_physician_npi": "1265569255",
+      "visit_reason_id": 95620,
+      "resource_id": 25237,
+      "provider_id": "25284",
+      "start_time": "2022-03-21T09:00:00-04:00",
+      "end_time": "2022-03-21T09:15:00-04:00",
+      "created_at": "2022-03-11T13:07:31-05:00",
+      "updated_at": "2022-03-21T10:28:30-04:00"
+    }
+  },
+  {
+    "appointment": {
+      "id": "220de6fa-5d8a-4334-a924-600a28b28dd5",
+      "appointment_status": {
+        "id": 3,
+        "code": "O",
+        "name": "Checked-Out"
+      },
+      "patient": {
+        "id": "a0f6058c-39af-4c6c-ba8c-dacafbae6c4a",
+        "chart_number": "228168645",
+        "date_of_birth": "1982-10-18 12:00:00",
+        "first_name": "CHRIS",
+        "last_name": "MELCHIONNA",
+        "middle_initial": null,
+        "gender_id": "1",
+        "email": "chrisny13@aol.com",
+        "patient_status": "A",
+        "primary_phone_number": "7326874079"
+      },
+      "location": {
+        "id": 30232,
+        "name": "MATAWAN 144"
+      },
+      "cancellation_details": {
+        "id": null,
+        "detail": null,
+        "comments": null
+      },
+      "chief_complaint": null,
+      "task_id": null,
+      "updated_by_application": null,
+      "appointment_cancellation_reason_id": null,
+      "arrived_at": "2022-03-21T09:00:49-04:00",
+      "business_entity_id": 5052,
+      "comments": null,
+      "confirmation_details": null,
+      "departed_at": "2022-03-21T10:04:15-04:00",
+      "exam_room_id": null,
+      "is_confirmed": false,
+      "is_force_overbook": false,
+      "patient_contacted": null,
+      "recurrence_id": 3889811,
+      "recurrence_index": 1,
+      "referring_physician_npi": "1417111600",
+      "visit_reason_id": 95620,
+      "resource_id": 25237,
+      "provider_id": "25284",
+      "start_time": "2022-03-21T09:00:00-04:00",
+      "end_time": "2022-03-21T09:15:00-04:00",
+      "created_at": "2022-03-16T08:52:02-04:00",
+      "updated_at": "2022-03-21T10:04:15-04:00"
+    }
+  },
+  {
+    "appointment": {
+      "id": "277bba19-d266-4b34-8694-aca3c5430344",
+      "appointment_status": {
+        "id": 3,
+        "code": "O",
+        "name": "Checked-Out"
+      },
+      "patient": {
+        "id": "8c9894e1-85da-47c3-85f3-cb04e504d181",
+        "chart_number": "228162372",
+        "date_of_birth": "1954-02-01 12:00:00",
+        "first_name": "ZBIGNIEW",
+        "last_name": "MACIAG",
+        "middle_initial": null,
+        "gender_id": "1",
+        "email": null,
+        "patient_status": "A",
+        "primary_phone_number": "9086163087"
+      },
+      "location": {
+        "id": 30232,
+        "name": "MATAWAN 144"
+      },
+      "cancellation_details": {
+        "id": null,
+        "detail": null,
+        "comments": null
+      },
+      "chief_complaint": null,
+      "task_id": null,
+      "updated_by_application": null,
+      "appointment_cancellation_reason_id": null,
+      "arrived_at": "2022-03-21T09:03:36-04:00",
+      "business_entity_id": 5052,
+      "comments": null,
+      "confirmation_details": null,
+      "departed_at": "2022-03-21T10:36:46-04:00",
+      "exam_room_id": null,
+      "is_confirmed": false,
+      "is_force_overbook": false,
+      "patient_contacted": null,
+      "recurrence_id": 3871748,
+      "recurrence_index": 3,
+      "referring_physician_npi": "1457798316",
+      "visit_reason_id": 81915,
+      "resource_id": 25243,
+      "provider_id": "25293",
+      "start_time": "2022-03-21T09:00:00-04:00",
+      "end_time": "2022-03-21T09:15:00-04:00",
+      "created_at": "2022-03-02T10:20:59-05:00",
+      "updated_at": "2022-03-21T10:36:46-04:00"
+    }
+  },
+  {
+    "appointment": {
+      "id": "b82b309b-8f5b-4002-b681-91c67a48eb51",
+      "appointment_status": {
+        "id": 3,
+        "code": "O",
+        "name": "Checked-Out"
+      },
+      "patient": {
+        "id": "a0bdae8b-aeb2-4906-966f-88985bec003c",
+        "chart_number": "228169043",
+        "date_of_birth": "1968-02-16 12:00:00",
+        "first_name": "SCOTT",
+        "last_name": "WHITE",
+        "middle_initial": null,
+        "gender_id": "1",
+        "email": "smw2home@verizon.net",
+        "patient_status": "A",
+        "primary_phone_number": "7326737152"
+      },
+      "location": {
+        "id": 30232,
+        "name": "MATAWAN 144"
+      },
+      "cancellation_details": {
+        "id": null,
+        "detail": null,
+        "comments": null
+      },
+      "chief_complaint": null,
+      "task_id": null,
+      "updated_by_application": null,
+      "appointment_cancellation_reason_id": null,
+      "arrived_at": "2022-03-21T09:08:54-04:00",
+      "business_entity_id": 5052,
+      "comments": null,
+      "confirmation_details": null,
+      "departed_at": "2022-03-21T09:56:31-04:00",
+      "exam_room_id": null,
+      "is_confirmed": false,
+      "is_force_overbook": false,
+      "patient_contacted": null,
+      "recurrence_id": null,
+      "recurrence_index": null,
+      "referring_physician_npi": null,
+      "visit_reason_id": 81915,
+      "resource_id": 25250,
+      "provider_id": "25297",
+      "start_time": "2022-03-21T09:00:00-04:00",
+      "end_time": "2022-03-21T09:15:00-04:00",
+      "created_at": "2022-03-21T09:04:14-04:00",
+      "updated_at": "2022-03-21T09:56:31-04:00"
+    }
+  },
+  {
+    "appointment": {
+      "id": "8ffbe8a1-b8b3-45bf-be42-66f9b0b3407d",
+      "appointment_status": {
+        "id": 3,
+        "code": "O",
+        "name": "Checked-Out"
+      },
+      "patient": {
+        "id": "a0bdae8b-aeb2-4906-966f-88985bec003c",
+        "chart_number": "228169043",
+        "date_of_birth": "1968-02-16 12:00:00",
+        "first_name": "SCOTT",
+        "last_name": "WHITE",
+        "middle_initial": null,
+        "gender_id": "1",
+        "email": "smw2home@verizon.net",
+        "patient_status": "A",
+        "primary_phone_number": "7326737152"
+      },
+      "location": {
+        "id": 30232,
+        "name": "MATAWAN 144"
+      },
+      "cancellation_details": {
+        "id": null,
+        "detail": null,
+        "comments": null
+      },
+      "chief_complaint": null,
+      "task_id": null,
+      "updated_by_application": null,
+      "appointment_cancellation_reason_id": null,
+      "arrived_at": "2022-03-21T08:59:35-04:00",
+      "business_entity_id": 5052,
+      "comments": null,
+      "confirmation_details": null,
+      "departed_at": "2022-03-21T10:58:56-04:00",
+      "exam_room_id": null,
+      "is_confirmed": false,
+      "is_force_overbook": false,
+      "patient_contacted": null,
+      "recurrence_id": null,
+      "recurrence_index": null,
+      "referring_physician_npi": null,
+      "visit_reason_id": 81902,
+      "resource_id": 28812,
+      "provider_id": "29023",
+      "start_time": "2022-03-21T09:00:00-04:00",
+      "end_time": "2022-03-21T09:15:00-04:00",
+      "created_at": "2022-03-18T15:30:21-04:00",
+      "updated_at": "2022-03-21T10:58:56-04:00"
+    }
+  },
+  {
+    "appointment": {
+      "id": "99f6bb06-e3c3-43d9-a756-46ad41367cb9",
+      "appointment_status": {
+        "id": 3,
+        "code": "O",
+        "name": "Checked-Out"
+      },
+      "patient": {
+        "id": "2dfa0617-cbe6-497a-8e4c-c33c896cbf15",
+        "chart_number": "16724",
+        "date_of_birth": "1961-07-23 12:00:00",
+        "first_name": "DEBRA",
+        "last_name": "WISOWATY",
+        "middle_initial": null,
+        "gender_id": "2",
+        "email": "bewise723@optononline.net",
+        "patient_status": "A",
+        "primary_phone_number": "8482034934"
+      },
+      "location": {
+        "id": 30234,
+        "name": "OLD BRIDGE OFFICE"
+      },
+      "cancellation_details": {
+        "id": null,
+        "detail": null,
+        "comments": null
+      },
+      "chief_complaint": null,
+      "task_id": null,
+      "updated_by_application": null,
+      "appointment_cancellation_reason_id": null,
+      "arrived_at": "2022-03-21T08:55:32-04:00",
+      "business_entity_id": 5052,
+      "comments": null,
+      "confirmation_details": null,
+      "departed_at": "2022-03-21T09:33:36-04:00",
+      "exam_room_id": null,
+      "is_confirmed": false,
+      "is_force_overbook": false,
+      "patient_contacted": null,
+      "recurrence_id": 3891376,
+      "recurrence_index": 1,
+      "referring_physician_npi": "1003112244",
+      "visit_reason_id": 81902,
+      "resource_id": 29936,
+      "provider_id": "30180",
+      "start_time": "2022-03-21T09:00:00-04:00",
+      "end_time": "2022-03-21T09:30:00-04:00",
+      "created_at": "2022-03-17T08:58:14-04:00",
+      "updated_at": "2022-03-21T09:33:36-04:00"
+    }
+  }
+]

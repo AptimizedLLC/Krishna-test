@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>AR Surgical 1 Manager</label>
+    <tabSettings>
+        <tab>AR_Surgical_1_Manager_Home_Page</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Accounts_Receivable_Surgical_Team</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+</PermissionSet>

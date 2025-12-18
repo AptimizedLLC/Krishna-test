@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Imaging_Reviewed__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This checkbox is not on the page layout, and is only used in the appointment screen flow which asks the provider extender whether or not imaging was reviewed.  If the extender indicates that imaging was reviewed, the checkbox is marked true, and the screen flow no longer has to display for that authorization.</description>
+    <label>Imaging Reviewed</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

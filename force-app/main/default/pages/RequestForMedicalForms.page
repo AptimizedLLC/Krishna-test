@@ -1,0 +1,145 @@
+<apex:page standardController="NPP__c" extensions="GenerateNPPIntakePDFDocumentController" renderAs="pdf" applyBodyTag="false">
+    
+<head>
+    <style>
+      .contentWrap h3 {
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: #f00;
+}
+.contentWrap {
+    margin: 10px 30px;
+}
+span.bStrong {
+    font-weight: 600;
+    padding-right: 5px;
+}
+p {
+    line-height: 22px;
+}
+img {
+    border: 1px solid #000;
+    margin-top: 10px;
+}
+    </style>
+  </head>
+    <body>
+    <div>
+            <p><img src="https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003pCyH&oid=00Df2000001HEGJ&lastMod=1715318986000"  style="width: 700px;"/></p>
+    </div>
+    <div>
+        <div class="userFormWrap">
+          <div class="contentWrap">
+            <h3>Request For Medical Records</h3>
+            <div class="form-container">
+              <form>
+                <div class="pdf-content consent-content3">
+                  <div class="form-element">
+                    <div>
+                      <p>
+                        From time to time, patients will be sent for advanced
+                        medical imaging (MRI, X-Ray, CT Scan, etc.) or our
+                        office will have to request records of previous
+                        surgeries or procedures from other doctors or hospitals.
+                        This form authorizes All Be Healthy LLC dba&nbsp;
+                        Alliance Orthopedics to reach out to them on your behalf
+                        in order to obtain the necessary records.
+                      </p>
+                      <p>
+                        For receiving doctors and/or hospitals: Please refer to
+                        this form as the below patient’s authorization of All Be
+                        Healthy LLC dba&nbsp; Alliance Orthopedics to request
+                        medical records on their behalf. To expedite the
+                        patient’s care, please provide the requested
+                        documentation at your earliest convenience.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div class="patientNameDate">
+                      <div class="floatLeft"><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/>
+</div>
+                      <div class="floatRight"><apex:outputText value="{0,date,MM/dd/yyyy}"><apex:param value="{!NPP__c.CreatedDate}" /></apex:outputText></div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div class="question">Date of Birth</div>
+                    <div><apex:outputField value="{!NPP__c.Account__r.Date_of_Birth__c}"/></div>
+                  </div>
+                  <div class="form-element">
+                    <div>
+                      <p>
+                        I hereby authorize the release of my medical records or
+                        copies transferred to All Be Healthy LLC dba Alliance
+                        Orthopedics
+                      </p>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div class="conditionParent">
+                      <div>
+                        <label class="question"
+                          >Do you want to release the medical record to your
+                          physician?</label
+                        >
+                      </div>
+                        <div><apex:outputField value="{!NPP__c.HQ_Release_the_medical_records__c}"/></div>
+                        
+    							<apex:outputPanel id="messagePanel" rendered="{!NPP__c.HQ_Release_the_medical_records__c='Yes'}">
+        						
+                          		<div>
+                        			<label class="question">Doctor or Hospital Release</label>
+                      			</div>
+                        		<div><apex:outputField value="{!NPP__c.HQ_Doctor_or_Hospital_Release__c}"/></div>
+                                 <div>
+                        			<label class="question">Address</label>
+                      			</div>
+                        		<div><apex:outputField value="{!NPP__c.Address_City_State_and_Zip_of_Doctor_o__c}"/></div>
+                                 <div>
+                        			<label class="question">Date or Range Authrized for Release</label>
+                      			</div>
+                        		<div><apex:outputField value="{!NPP__c.HQ_Date_Range_Authorized_for_Release__c}"/></div>
+                                 <div>
+                        			<label class="question">Please Fax Records to</label>
+                      			</div>
+                        		<div><apex:outputField value="{!NPP__c.HQ_Fax_Records_to__c}"/></div>
+    							</apex:outputPanel>
+
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+            <br/><br/><br/><br/><br/><br/>    <br/>
+            <div class="patientNameDate">
+<div>Patient Name</div>
+                      <div class="floatLeft"><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></div>
+<div>Date</div>
+                      <div class="floatRight"><apex:outputText value="{0,date,MM/dd/yyyy}"><apex:param value="{!NPP__c.CreatedDate}" /></apex:outputText></div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div><p>Patient Signature</p></div>
+
+                      <div>
+                          <apex:outputText value="{!oppt.HQ_Signature__c}" escape="false" />
+                          
+                      </div>
+                  </div>
+              
+          <div class="formCheck">
+            <div>
+               <img src='https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003gvo9&oid=00Df2000001HEGJ&lastMod=1714988677000' style="width: 15px; Height:15px"/><label
+                >By checking the box I acknowledge and agree to conduct business
+                electronically, that I have read the terms of the above section,
+                and that I agree to insert my electronic signature as set forth
+                below indicating my consent to terms set forth on this page.
+              </label>
+            </div>
+          </div>
+        </div>
+      
+    </body>
+</apex:page>

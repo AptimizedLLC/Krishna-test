@@ -1,0 +1,103 @@
+<template>
+    <!-- Card 1: Pending Flowsheets -->
+    <lightning-card title="Pending Flowsheets for Approval">
+        
+        <!-- Search bar for Pending Flowsheets -->
+        <lightning-input
+            type="search"
+            placeholder="Enter patient name..."
+            onchange={handleSearch}>
+        </lightning-input>
+
+        <!-- Table / Empty state -->
+        <div class="slds-p-horizontal_medium">
+            <template if:true={data.length}>
+                <lightning-datatable
+                    key-field="flowsheetId"
+                    data={data}
+                    columns={columns}
+                    hide-checkbox-column
+                    onrowaction={handleRowAction}>
+                </lightning-datatable>
+            </template>
+            <template if:false={data.length}>
+                <div class="empty-state">
+                    <lightning-icon icon-name="custom:custom63" size="large" alternative-text="No Data"></lightning-icon>
+                    <p>No pending flowsheets found.</p>
+                </div>
+            </template>
+        </div>
+
+        <!-- Pagination -->
+        <template if:true={data.length}>
+            <div class="pagination-container">
+                <lightning-button 
+                    label="Previous" 
+                    onclick={handlePrev} 
+                    disabled={isPrevDisabled}>
+                </lightning-button>
+                <lightning-button 
+                    label="Next" 
+                    onclick={handleNext} 
+                    disabled={isNextDisabled}>
+                </lightning-button>
+                <span class="page-info">
+                    Page {pageNumber} of {totalPages} — Total Records: {totalRecords}
+                </span>
+            </div>
+        </template>
+    </lightning-card>
+
+    <!-- Card 2: Approved Appointments -->
+    <lightning-card title="Approved Appointments">
+
+        <!-- Search bar for Approved Appointments -->
+        <lightning-input
+            type="search"
+            placeholder="Enter patient name..."
+            onchange={handleRecentSearch}>
+        </lightning-input>
+
+        <!-- Date Filter Section -->
+        <div class="filter-container">
+            <div class="slds-grid slds-wrap slds-gutters">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                    <lightning-input 
+                        type="date" 
+                        name="start" 
+                        label="From Date" 
+                        value={startDate}
+                        onchange={handleDateChange}>
+                    </lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                    <lightning-input 
+                        type="date" 
+                        name="end" 
+                        label="To Date" 
+                        value={endDate}
+                        onchange={handleDateChange}>
+                    </lightning-input>
+                </div>
+            </div>
+        </div>
+
+        <!-- Table / Empty state -->
+        <div class="slds-p-horizontal_medium">
+            <template if:true={filteredRecentData.length}>
+                <lightning-datatable
+                    key-field="flowsheetId"
+                    data={filteredRecentData}
+                    columns={recentColumns}
+                    hide-checkbox-column>
+                </lightning-datatable>
+            </template>
+            <template if:false={filteredRecentData.length}>
+                <div class="empty-state">
+                    <lightning-icon icon-name="custom:custom5" size="large" alternative-text="No Records"></lightning-icon>
+                    <p>No approved appointments found for the selected dates.</p>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

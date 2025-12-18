@@ -1,0 +1,46 @@
+<template>
+    <div class="slds-p-around_medium slds-align_absolute-center">
+        <div class="slds-box slds-theme_default slds-p-around_medium slds-text-align_center slds-var-m-around_medium custom-shadow custom-rounded">
+            
+            <!-- Heading -->
+            <h2 class="slds-text-heading_small slds-text-color_default slds-var-m-bottom_small">
+                Upload Signature File
+            </h2>
+            
+            <!-- Subtext -->
+        <p class="slds-text-body_small slds-text-color_weak slds-var-m-bottom_medium">
+    This action will remove any existing files linked to the NPP record. 
+    Please ensure you are using a test record before proceeding. 
+    A new <strong>Member Authorization Form</strong> will be automatically generated once the process is complete.
+    As a follow up step, please manually upload file to Account record and CC.
+</p>
+
+            <!-- Upload Button -->
+            <lightning-button 
+                label="Upload Signature"
+                variant="brand"
+                class="upload-button"
+                onclick={handleClick}
+                disabled={isDisabled}
+                icon-name="utility:upload"
+                icon-position="left">
+            </lightning-button>
+
+            <!-- Upload Area -->
+            <template if:true={showUploader}>
+                <div class="slds-var-m-top_medium">
+                    <lightning-card title="Select File to Upload" icon-name="doctype:image">
+                        <div class="slds-p-around_medium">
+                            <lightning-file-upload
+                                record-id={recordId}
+                                onuploadfinished={handleUploadFinished}
+                                accept={acceptedFormats}
+                                multiple={isMultiple}>
+                            </lightning-file-upload>
+                        </div>
+                    </lightning-card>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment__c</fullName>
+    <label>Payment</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Cash Rates/High Deductible</fullName>
+                <default>false</default>
+                <label>Cash Rates/High Deductible</label>
+            </value>
+            <value>
+                <fullName>Cash Rates/In Network Only/Tiered</fullName>
+                <default>false</default>
+                <label>Cash Rates/In Network Only/Tiered</label>
+            </value>
+            <value>
+                <fullName>Cash Rates/Medicaid</fullName>
+                <default>false</default>
+                <label>Cash Rates/Medicaid</label>
+            </value>
+            <value>
+                <fullName>Cash Rates/No Insurance</fullName>
+                <default>false</default>
+                <label>Cash Rates/No Insurance</label>
+            </value>
+            <value>
+                <fullName>Co-pay</fullName>
+                <default>false</default>
+                <label>Co-pay</label>
+            </value>
+            <value>
+                <fullName>Medicare</fullName>
+                <default>false</default>
+                <label>Medicare</label>
+            </value>
+            <value>
+                <fullName>PIP/WC Case</fullName>
+                <default>false</default>
+                <label>PIP/WC Case</label>
+            </value>
+            <value>
+                <fullName>Cash Rates</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Cash Rates</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

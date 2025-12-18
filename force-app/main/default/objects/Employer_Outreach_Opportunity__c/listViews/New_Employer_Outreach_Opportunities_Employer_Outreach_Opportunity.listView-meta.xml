@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Employer_Outreach_Opportunities_Employer_Outreach_Opportunity</fullName>
+    <columns>NAME</columns>
+    <columns>Fee_Schedule__c</columns>
+    <columns>Out_of_Network_Deductible__c</columns>
+    <filterScope>Queue</filterScope>
+    <label>New Employer Outreach Opportunities</label>
+    <queue>New_Employer_Outreach_Opportunities</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,137 @@
+<apex:page showHeader="false" sidebar="false" applyBodyTag="false" controller="MedicareVerifyFormController" renderAs="pdf" >
+      <head>
+        <style>
+            body {
+               
+                 font-size: 10pt;
+                font-family: Arial Unicode MS ;
+            }
+            
+          
+        </style>
+    </head>
+    
+    <body>
+        
+        <apex:form >
+            <div>
+                 <div style=" font-size: large;text-align: center; font-family: SansSerif !important;">
+            MEDICARE VERIFICATION FORM
+                </div><br/><br/><br/><br/>
+                <div id="patientDetails">
+                    <table width="100%">
+                        <tr>
+                            <td style="width:60%; font-size: 11pt;">
+                                <c:DynamicFormMember type="textWithUnderline" label="PATIENT NAME:" width="65%" value="{!insurancePlanRecord.Patient_Name__c}"/>
+                            </td>
+                            <td style="width:30% ; font-size: 11pt;">
+                                <c:DynamicFormMember type="textWithUnderline" label="DOB:" width="80%" value="{!patientDOB}"/>
+                            </td>
+                          
+                        </tr>
+                    </table><br/>
+                    <table width="100%"> 
+                        <tr>
+                            <td style="width:60% ; font-size: 11pt;">
+                                    <c:DynamicFormMember type="textWithUnderline" label="MEDICARE ID:" width="67%" value="{!insurancePlanRecord.Medicare_Member_Id__c}"/> 
+                                </td>
+                            <td style="width:30% ; font-size: 11pt;">
+                                <c:DynamicFormMember type="textWithUnderline" label="DATE:" width="75%" value="{!todayDate}"/>
+                            </td>
+                        </tr>
+                    </table><br/>
+                    <table width="100%">
+                        <tr>
+                             <td style="width:45%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Secondary Insurance:" width="50%" value="{!caseRecord.Secondary_Insurance__c}"/>
+                            </td>
+                            <td style="width:45%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Insurane Claims Address:" width="50%" value="{!insurancePlanRecord.Claims_Address__c}"/>
+                            </td>
+                          
+                        </tr>
+                    </table><br/><br/><br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:10%"></td>
+                         <td style="width:35%">
+                             <c:DynamicFormMember type="textWithUnderline" label="Ded/Applied" width="50%" value="{!insurancePlanRecord.Medicare_Annual_Deductible__c} / {!insurancePlanRecord.Medicare_Deductible_Met__c}"/> 
+                         </td>
+                         <td style="width:30%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Effective Date:" width="50%" value="{!effectiveDate}"/>
+                         </td>
+                         <td style="width:35%">
+                                <c:DynamicFormMember type="checkbox" label="Primary?"  value="{!isCheckType}"/>
+                          </td>
+                           
+                        </tr>
+                        
+                    </table><br/><br/>
+                    <table width="100%">
+                        <tr>
+                             <td style="width:20%">
+                                    <c:DynamicFormMember type="textWithUnderline" label="PT USED?" width="40%" value="{!insurancePlanRecord.Medicare_PT_Benefits_Used_To_Date__c }"/>
+                                </td>
+                                
+                                <td style="width:20%">
+                                    <c:DynamicFormMember type="textWithUnderline" label="OT USED?" width="40%" value="{!insurancePlanRecord.Medicare_OT_Benefits_Used_To_Date__c}"/>
+                                </td>
+                                 <td style="width:30%">
+                                    <c:DynamicFormMember type="textWithUnderline" label="Replacement Plan" width="40%" value="{!insurancePlanRecord.Medicare_Replacement_Plan_Carrier__c }"/>
+                                </td>
+                                <td style="width:30%">
+                                    <c:DynamicFormMember type="checkbox" label="Rep Plan Follows Cap?" value=""/>
+                                </td>
+                        </tr>
+                        
+                    </table><br/><br/>
+                     <table width="100%">
+                        <tr>
+                             <td style="width:22%">
+                                    <c:DynamicFormMember type="checkbox" label="True Secondary:" value=""/>
+                                </td>
+                                <td style="width:20%">
+                                    <c:DynamicFormMember type="checkbox" label="Supplemental:" value="{!insurancePlanRecord.Supplemental_Policy_On_File_NEW__c }"/>
+                                </td>
+                                <td style="width:25%">
+                                    <c:DynamicFormMember type="textWithUnderline" label="Plan Type:" value="{!insurancePlanRecord.Supplemental_Plan_Type__c}"/>
+                                </td>
+                                <td style="width:40%">
+                                    <c:DynamicFormMember type="checkbox" label="Follows Medicare Guidelines:" value="{!insurancePlanRecord.Supplemental_Follows_Medicare_Guidelines__c }" />
+                                </td>
+                         </tr>
+                    </table><br/><br/><br/><br/>
+                    <table width="100%">
+                        <tr> 
+                              <td style="width:50%;font-size: 11pt;">
+                                 <c:DynamicFormMember type="textWithUnderline" label="Rep Name:" width="75%" value="{!insurancePlanRecord.Insurance_Company_Representative__c}"/>
+                            </td>
+                            <td style="width:25%;font-size: 11pt;">
+                                <c:DynamicFormMember type="textWithUnderline" label="Ref#:" value="{!insurancePlanRecord.Call_Reference_Number__c}"/>
+                            </td>
+                            <td style="width:25% ;font-size: 11pt;">
+                                <c:DynamicFormMember type="textWithUnderline" label="Call Time:" value="{!insurancePlanRecord.Call_Length__c}"/>
+                            </td>
+                        </tr>
+                    </table><br/>
+                    <table width="100%">
+                        <tr>
+                           <td style="width:70%;font-size: 11pt;" >
+                                <c:DynamicFormMember type="textWithUnderline" label="Verified By:" width="55%" value="{!$User.FirstName}"/>
+                          </td>
+                        </tr>
+                        
+                    </table><br/>
+                     <table width="100%">
+                        <tr>
+                            <td style="width:90%; word-wrap: break-word;font-size: 11pt;">
+                                <c:DynamicFormMember type="textWithUnderline" label="Notes:" width="90%" value="{!insurancePlanRecord.Medicare_Notes__c}"/>
+                            </td>
+                             </tr>
+                    </table>
+                 
+                </div>
+            </div>
+        </apex:form>
+    </body>
+</apex:page>

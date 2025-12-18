@@ -1,0 +1,95 @@
+<apex:component controller="DynamicFormMemberHelper">
+    <apex:attribute name="label" type="String" description="label" required="true"/>
+    <apex:attribute name="value" type="String" description="value" assignTo="{!rawValue}"/>
+    <apex:attribute name="value2" type="String" description="value"/>
+    <apex:attribute name="yesOption" type="String" description="value" assignTo="{!rawYesOption}"/>
+    <apex:attribute name="yesOption2" type="String" description="value"/>
+    <apex:attribute name="noOption" type="String" description="value"/>
+    <apex:attribute name="unCheckOption" type="String" description="value"/>
+    <apex:attribute name="type" type="String" description="type" required="true"/>
+    <apex:attribute name="width" type="String" description="type" default=""/>
+    <apex:attribute name="display" type="String" description="type" default="inline-block"/>
+    <apex:attribute name="options" type="String" description="for custom checkbox" assignTo="{!rOptions}" />
+    <apex:attribute name="category" type="String" description="dynamic filter" default="N/A"/>
+
+    <!-- standard checkbox -->
+    <span style="{!IF(type == 'checkbox', '', 'display:none')}">
+        <span style="{!IF(value == 'Yes', '', 'display:none')}">
+            <span>{!label}</span>
+            <img style="width:12px" src="/img/checkbox_checked.gif"/>Y
+            <img style="width:12px" src="/img/checkbox_unchecked.gif"/>N
+        </span>
+        <span style="{!IF(value == 'No', 'display:block;', 'display:none')}">
+            <span>{!label}</span>
+            <img style="width:12px" src="/img/checkbox_unchecked.gif"/>Y
+            <img style="width:12px" src="/img/checkbox_checked.gif"/>N
+        </span>
+        <span style="{!IF(value == '', 'display:block;', 'display:none')}">
+            <span>{!label}</span>
+            <img style="width:12px" src="/img/checkbox_unchecked.gif"/>Y
+            <img style="width:12px" src="/img/checkbox_unchecked.gif"/>N
+        </span>
+    </span>
+    
+    <!-- text with underline -->
+    <span style="{!IF(type == 'textWithUnderline', 'display:block;word-wrap: break-word;white-space: normal;', 'display:none')}">
+		<span>{!label}</span>
+        <span style="{!IF(width == '', 'display: '+display+';border-bottom: 0.5px solid black; min-width: 100px;text-align: center;', 'display: '+display+';border-bottom: 0.5px solid black;text-align: center; min-width: ' + width )}"> {!value}</span>
+        <span style="padding-right: 3px"></span>
+    </span>
+    
+     <!-- text with underline And Slash -->
+    <span style="{!IF(type == 'textWithUnderlineAndSlash', 'display:block;', 'display:none')}">
+		<span>{!label}</span>
+        <span style="{!IF(width == '', 'display: inline-block;border-bottom: 0.5px solid black; min-width: 100px;', 'display: inline-block;border-bottom: 0.5px solid black; min-width: ' + width )}"> {!value}</span>
+        <span>/</span>
+        <span style="{!IF(width == '', 'display: inline-block;border-bottom: 0.5px solid black; min-width: 100px;', 'display: inline-block;border-bottom: 0.5px solid black; min-width: ' + width )}"> {!value2}</span>
+        <span style="padding-right: 3px"></span>
+    </span>
+    
+    <!-- custom checkbox -->
+    <span style="{!IF(type == 'customCheckbox', '', 'display:none')}">
+        <span>{!label}</span>
+        <apex:repeat value="{!splittedOptions}" var="option">
+            <span style="{!IF((category == 'N/A' && value == option) || (value == option && category != 'N/A' && category == value2), 'display:flex;', 'display:none')}">
+                <img style="width:12px" src="/img/checkbox_checked.gif"/> {!option}
+        	</span>
+            <span style="{!IF((category == 'N/A' && value != option)  || (value != option && category == value2 && category != 'N/A') || (value == option && category != value2 && value2 != null) || (value != option && category != value2), 'display:flex;', 'display:none')}">
+                <img style="width:12px" src="/img/checkbox_unchecked.gif"/> {!option}
+        	</span>
+        </apex:repeat>
+    </span>
+    
+    <!-- custom checkbox value 2 -->
+    <span style="{!IF(type == 'checkbox2', '', 'display:none')}">
+        <span style="{!IF((value2  == yesOption || value2 == yesOption2) && value2 != '' , '', 'display:none')}">
+            <span>{!label}</span>
+            <img style="width:12px" src="/img/checkbox_checked.gif"/>Y
+            <img style="width:12px" src="/img/checkbox_unchecked.gif"/>N
+        </span>
+        <span style="{!IF(value2 != '' && (value2 != yesOption && value2 != yesOption2) && (noOption != null && value2 != unCheckOption), 'display:block;', 'display:none')}">
+            <span>{!label}</span>
+            <img style="width:12px" src="/img/checkbox_unchecked.gif"/>Y
+            <img style="width:12px" src="/img/checkbox_checked.gif"/>N
+        </span>
+        <span style="{!IF(value2 == '' || value2 == unCheckOption, 'display:block;', 'display:none')}">
+            <span>{!label}</span>
+            <img style="width:12px" src="/img/checkbox_unchecked.gif"/>Y
+            <img style="width:12px" src="/img/checkbox_unchecked.gif"/>N
+        </span>
+    </span>
+    
+    <!-- custom checkbox -->
+    <span style="{!IF(type == 'customCheckbox2', '', 'display:none')}">
+        <span>{!label}</span>
+        <apex:repeat value="{!splittedOptions}" var="option">
+			<span style="{!IF(morphedValue == option, 'display:flex;', 'display:none')}">
+                <img style="width:12px" src="/img/checkbox_checked.gif"/> {!option}
+        	</span>
+            <span style="{!IF(morphedValue != option, 'display:flex;', 'display:none')}">
+                <img style="width:12px" src="/img/checkbox_unchecked.gif"/> {!option}
+        	</span>
+        </apex:repeat>
+    </span>
+
+</apex:component>

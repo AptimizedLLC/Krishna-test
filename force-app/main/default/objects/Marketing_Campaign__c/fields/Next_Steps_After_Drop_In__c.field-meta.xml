@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Next_Steps_After_Drop_In__c</fullName>
+    <inlineHelpText>Check all that apply</inlineHelpText>
+    <label>Next Steps After Drop-In</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Sent follow up email</fullName>
+                <default>false</default>
+                <label>Sent follow up email</label>
+            </value>
+            <value>
+                <fullName>Follow Up text</fullName>
+                <default>false</default>
+                <label>Follow Up text</label>
+            </value>
+            <value>
+                <fullName>Schedule follow up call</fullName>
+                <default>false</default>
+                <label>Schedule follow up call</label>
+            </value>
+            <value>
+                <fullName>Connect on social media</fullName>
+                <default>false</default>
+                <label>Connect on social media</label>
+            </value>
+            <value>
+                <fullName>Already connected on social media</fullName>
+                <default>false</default>
+                <label>Already connected on social media</label>
+            </value>
+            <value>
+                <fullName>Follow up drop in (two weeks)</fullName>
+                <default>false</default>
+                <label>Follow up drop in (two weeks)</label>
+            </value>
+            <value>
+                <fullName>Follow up drop in (four weeks)</fullName>
+                <default>false</default>
+                <label>Follow up drop in (four weeks)</label>
+            </value>
+            <value>
+                <fullName>Transition to constant contact only</fullName>
+                <default>false</default>
+                <label>Transition to constant contact only</label>
+            </value>
+            <value>
+                <fullName>Other:</fullName>
+                <default>false</default>
+                <label>Other:</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

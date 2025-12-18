@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>Decides if the Deductable is Greater than 1500 by Subtracting the Out Of Network Deductable from the Appointment Object (Out_of_Network_Individual_Deductible__c)  from the Out of Network Deductable Met (Out_of_Network_Deductible_Met__c) from the Coverage Object.</description>
+        <name>Is_the_Deductable_Greater_than_1500</name>
+        <label>Is the Deductable Greater than 1500?</label>
+        <locationX>182</locationX>
+        <locationY>539</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Greater_than_1500</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>for_DeductableRemaining</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>1500.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Appointment</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Appointment</targetReference>
+            </connector>
+            <label>Greater than 1500</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <description>This calculates the Deductible Remaining</description>
+        <name>for_DeductableRemaining</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.Out_of_Network_Individual_Deductible__c} - {!Get_Coverage.Out_of_Network_Deductible_Met__c}</expression>
+        <scale>0</scale>
+    </formulas>
+    <interviewLabel>Insurance Plan: Update Appointment with Intake Confirmation Call {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Insurance Plan: Update Appointment with Intake Confirmation Call</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Appointment</name>
+        <label>Get Appointment</label>
+        <locationX>182</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_the_Deductable_Greater_than_1500</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Patient__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.VOB_Case__r.AccountId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Days_Until_Appointment__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Pending</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>New_Patient_Confirmation_Call__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Appointment__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the Coverage Record that is associated with the Insurance Plan</description>
+        <name>Get_Coverage</name>
+        <label>Get Coverage</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Appointment</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Insurance_Plan__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Coverage__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Appointment</name>
+        <label>Update Appointment</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Appointment.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>New_Patient_Confirmation_Call__c</field>
+            <value>
+                <stringValue>Need to Call</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Out_of_Network_Deductible_Remiaining__c</field>
+            <value>
+                <elementReference>for_DeductableRemaining</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Appointment__c</object>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Coverage</targetReference>
+        </connector>
+        <object>Insurance_Plan__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

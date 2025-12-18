@@ -1,0 +1,64 @@
+<template>
+    <lightning-card>
+        <div class="slds-p-around_medium">
+
+            <!-- ==================== PRIORITY STATUS (UNCHANGED) ==================== -->
+            <h2 class="slds-text-heading_small slds-m-bottom_small">
+                <b>AR Dashboard -Priority Status</b>
+            </h2>
+            <div class="slds-scrollable_x">
+               <table class="slds-table slds-table_cell-buffer slds-table_bordered priority-table">
+                    <thead>
+                        <tr>
+                            <th>Owner</th>
+                            <template for:each={priorityColumns} for:item="col">
+                                <th key={col}>{col}</th>
+                            </template>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={priorityData} for:item="row">
+                            <tr key={row.owner}>
+                                <td>{row.owner}</td>
+                                <template for:each={row.values} for:item="val">
+                                    <td key={val.key}>{val.count}</td>
+                                </template>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ==================== INJECTION STATUS ==================== -->
+            <!-- INJECTION STATUS -->
+<h2 class="slds-text-heading_small slds-m-top_large slds-m-bottom_small">
+    <b>AR Dashboard -Injection Status</b>
+</h2>
+
+<!-- FULL-WIDTH SCROLL CONTAINER -->
+<div class="injection-full-scroll">
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered injection-table">
+        <thead>
+            <tr>
+                <th class="owner-header">Owner</th>
+                <template for:each={injectionColumns} for:item="col">
+                    <th key={col}>{col}</th>
+                </template>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={injectionData} for:item="row">
+                <tr key={row.owner}>
+                    <td class="owner-cell">{row.owner}</td>
+                    <template for:each={row.fullValues} for:item="val">
+                        <td key={val.key}>{val.count}</td>
+                    </template>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+</div>
+            
+        </div>
+    </lightning-card>
+</template>

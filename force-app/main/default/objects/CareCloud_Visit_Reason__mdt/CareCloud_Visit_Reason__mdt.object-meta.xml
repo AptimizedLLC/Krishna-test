@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Visit reasons from CareCloud to be used in formula fields on Appointments table.</description>
+    <label>CareCloud Visit Reason</label>
+    <pluralLabel>CareCloud Visit Reasons</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

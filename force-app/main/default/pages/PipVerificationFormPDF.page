@@ -1,0 +1,268 @@
+<apex:page showHeader="false" sidebar="false" applyBodyTag="false" controller="PipVerificationFormController" renderAs="pdf">
+     <head>
+        <style>
+            body {
+                font-size: small;
+                font-weight: bold;
+                font-family: SansSerif !important;
+            }
+            
+            
+            
+        </style>
+    </head>
+    
+    <body>
+        
+       <div style="font-weight: bold; font-size: x-large;text-align: center; font-family: SansSerif !important;">
+                <u>PIP Verification Form</u>
+       </div>
+        
+       <apex:form >
+            <div> 
+               
+              <!--  <div id="patientDetails"> -->
+                    <table width="100%">
+                        <tr>
+                            <td style="width:33%">
+                                <c:DynamicFormMember type="textWithUnderline" label="PIP Primary? YES / NO" width="30%" value="{!caseRecord.PIP_Primary_Text__c}"/>
+                            </td>
+                            <td style="width:34%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Accident State:" width="50%" value="{!caseRecord.PIP_Accident_State__c}"/>
+                            </td>
+                           
+                            <td style="width:33%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Policy State:" value="{!caseRecord.PIP_Policy_State__c}" width="53%"/>
+                            </td>
+                        </tr>
+                    </table>
+                     <br/>
+                     <table width="100%">
+                        <tr>
+                            <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Patient’s Name:" width="82%" value="{!caseRecord.PIP_Patient_Name__c}"/>
+                            </td>
+                           
+                        </tr>
+                    </table>
+                     <br/>
+                     <table width="100%">
+                        <tr>
+            
+                            <td style="width:60%">
+                                <c:DynamicFormMember type="textWithUnderline" label="DOB:" width="60%" value="{!patientDOB}"/>
+                            </td>
+                           
+                            <td style="width:40%">
+                                <c:DynamicFormMember type="textWithUnderline" label="DOL:" value="{!dateOfloss}" width="80%"/>
+                            </td>
+                        </tr>
+                    </table>
+                     <br/>
+                     <table width="100%">
+                        <tr>
+                            <td style="width:60%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Insurance Co:" width="45%" value="{!IF(caseRecord.PIP_WC_or_School_Insurance__c == 'Other', caseRecord.Other_PIP_Insurance_Detail__c , caseRecord.PIP_WC_or_School_Insurance__c)}"/>
+                            </td>
+                            <td style="width:40%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Phone #:" width="70%" value="{!caseRecord.PIP_Insurance_Phone__c}"/>
+                            </td>
+                           
+                        </tr>
+                    </table>
+                     <br/>
+                     <table width="100%">
+                        <tr>
+                            <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Insurance Address:" width="78%" value="{!caseRecord.PIP_Insurance_Street_Address__c}"/>
+                            </td>
+                                                       
+                        </tr>
+                    </table>
+                     <br/>
+                     <table width="100%">
+                        <tr>
+                            <td style="width:55%">
+                               <!-- <c:DynamicFormMember type="textWithUnderline" label="Policy #:" width="60%" value=""/>-->
+                            </td>
+                            <td style="width:45%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Claim#:" width="75%" value="{!caseRecord.PIP_Claim_Number__c}"/>
+                            </td>                          
+                        </tr>
+                    </table>
+                    
+                    <table width="100%">
+                        <tr>
+                            <td style="width:55%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Adjuster:" width="60%" value="{!caseRecord.PIP_Adjuster__c}"/>
+                            </td>
+                            <td style="width:45%">
+                               <!--  <c:DynamicFormMember type="textWithUnderline" label="Email:" width="75%" value=""/>-->
+                            </td>                          
+                        </tr>
+                    </table>
+                     <br/>
+                     <table width="100%">
+                        <tr>
+                            <td style="width:55%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Adjuster Phone#:" width="55%" value="{!caseRecord.PIP_Adjuster_Phone__c}"/>
+                            </td>
+                            <td style="width:45%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Adjuster Fax#:" width="60%" value="{!caseRecord.PIP_Adjuster_Fax__c}"/>
+                            </td>                          
+                        </tr>
+                    </table>
+                     <br/>
+                     <table width="100%">
+                        <tr>
+                           <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Pre-Cert Company & Address:" width="68%" value="{!caseRecord.PIP_Pre_Cert_Company_Name__c},{!caseRecord.PIP_Pre_Cert_Street_Address__c}"/>
+                            </td>                          
+                        </tr>
+                    </table>
+                     <br/>
+                     <table width="100%">
+                        <tr>
+                            <td style="width:55%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Pre-Cert Phone#:" width="55%" value="{!caseRecord.PIP_Pre_Cert_Phone__c}"/>
+                            </td>
+                            <td style="width:45%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Pre-Cert Fax#:" width="60%" value="{!caseRecord.PIP_Pre_Cert_Fax__c}"/>
+                            </td>                          
+                        </tr>
+                    </table>
+                    <br/>
+                     <table width="100%">
+                        <tr>
+                           <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Does Pre-Op Testing Require Authorization?:" width="55%" value="{!caseRecord.PIP_Pre_Op_Testing_Req_Auth_NEW__c}"/>
+                            </td>                          
+                        </tr>
+                    </table>
+                   <br/>
+                     <table width="100%">
+                        <tr>
+                           <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Do Office Visits Require Precert?:" width="65%" value="{!caseRecord.PIP_Office_Visits_Require_Precert__c}"/>
+                            </td>                          
+                        </tr>
+                    </table>
+                  
+                     <br/>
+                     <table width="100%">
+                        <tr>
+                           <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Cut Off Specialty Notes:" width="77%" value="{!caseRecord.Cut_Off_Specialty_Notes__c}"/>
+                            </td>                          
+                        </tr>
+                    </table>
+                     <br/>
+                     <table width="100%">
+                        <tr>
+                           <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Pending IMEs:" width="75%" value="{!caseRecord.PIP_Pending_IMEs__c}"/>
+                            </td>                          
+                        </tr>
+                    </table>
+                    <br/>
+                     <table width="100%">
+                        <tr>
+                           <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Does the policy belong to the patient?" width="63%" value="{!caseRecord.PIP_Policy_Belong_to_Patient_NEW__c}"/>
+                            </td>                          
+                        </tr>
+                    </table>
+                     <br/>
+                     <table width="100%">
+                        <tr>
+                           <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Who Does the policy belong to?" width="63%" value="{!caseRecord.PIP_Who_Does_Policy_Belong_To__c}"/>
+                            </td>                          
+                        </tr>
+                    </table>
+                     <br/>
+                     <table width="100%">
+                        <tr>
+                           <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Notes:" width="90%" value="{!caseRecord.PIP_Notes__c}"/>
+                            </td>                          
+                        </tr>
+                    </table>
+                     <br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:55%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Funds Available? : Y / N" width="55%" value="{!caseRecord.PIP_Funds_Available_NEW__c}"/>
+                            </td>
+                            <td style="width:45%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Open & Active?: Y/ N" width="50%" value="{!caseRecord.PIP_Is_The_Policy_Open_and_Active__c}"/>
+                            </td>                          
+                        </tr>
+                    </table>
+                     <br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:55%">
+                                <c:DynamicFormMember type="textWithUnderline" label="21 Day Letter Fax:" width="55%" value="{!caseRecord.PIP_Fax_Number_21_Day_Letter__c}"/>
+                            </td>
+                            <td style="width:45%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Send Release to Fax:" width="50%" value="{!caseRecord.PIP_Fax_Number_Send_Release__c}"/>
+                            </td>                          
+                        </tr>
+                    </table>
+                     <br/>
+                    <table width="100%">
+                        <tr>
+                           <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Policy Max Amount:" width="80%" value="{!caseRecord.PIP_Policy_Max_Amount__c}"/>
+                            </td>                          
+                        </tr>
+                    </table>
+                     <br/>
+                    <table width="100%">
+                        <tr>
+                           <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Attorney Info:" width="85%" value="{!caseRecord.Personal_Injury_Attorney__r.Name}  {!caseRecord.New_Personal_Injury_Attorney__c} {!caseRecord.PIP_Attorney_Phone__c}"/>
+                            </td>                          
+                        </tr>
+                    </table>
+                     <br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="LOP ON FILE? Y/N" width="5%" value="{!caseRecord.PIP_LOP_on_File_NEW__c}"/>
+                            </td>
+                            <td style="width:40%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Dec page received? Y/N/Requested " width="5%" value="{!caseRecord.Declaration_Page_Received__c}"/>
+                            </td>
+                           
+                            <td style="width:40%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Police Report received? Y/N/Requested" width="5%" value="{!caseRecord.Police_Report_Received__c}" />
+                            </td>
+                        </tr>
+                    </table> 
+                    <br/>
+                    <table width="100%">
+                        <tr>
+                           <td style="width:100%;text-align: center;">
+                                <c:DynamicFormMember type="textWithUnderline" label="If accident over one month: Most Up To Date PIP Ledger? Y/N/Requested" width="20%" value="{!caseRecord.PIP_Most_Up_To_Date_PIP_Ledger__c}"/>
+                            </td>                          
+                        </tr>
+                    </table>
+               
+                     <br/>
+                     <table width="100%">
+                        <tr>
+                            <td style="width:60%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Verified By:" width="60%" value="{!caseRecord.Owner.Name}"/>
+                            </td>
+                            <td style="width:40%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Date:" width="80%" value="{!closedate}"/>
+                            </td>                          
+                        </tr>
+                    </table>
+               <!--  </div> -->
+             </div>
+         </apex:form>
+    </body>
+</apex:page>

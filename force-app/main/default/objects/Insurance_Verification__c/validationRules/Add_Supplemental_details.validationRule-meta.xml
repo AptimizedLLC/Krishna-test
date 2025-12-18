@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Add_Supplemental_details</fullName>
+    <active>false</active>
+    <description>if supplemental = yes, require user to fill out detail field</description>
+    <errorConditionFormula>ISPICKVAL ( Supplemental__c , &quot;Yes&quot;) &amp;&amp; ISBLANK( If_Yes_supplemental__c )</errorConditionFormula>
+    <errorMessage>Please enter Supplemental Details</errorMessage>
+</ValidationRule>

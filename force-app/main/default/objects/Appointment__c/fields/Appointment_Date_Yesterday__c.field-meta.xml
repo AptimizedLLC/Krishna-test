@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Appointment_Date_Yesterday__c</fullName>
+    <description>Ths is used to determine whether the date part of the Appointment_Date_Time__c field is equal to yesterday&apos;s date. Here&apos;s a breakdown of the formula:
+
+DateValue(Appointment_Date_Time__c): This part of the formula extracts the date component from the Appointment_Date_Time__c field, which seems to be a DateTime field. DateValue is used to ignore the time part and only focus on the date.
+
+TODAY() - (1): This calculates the date for yesterday. TODAY() returns today&apos;s date, and subtracting 1 from it gives you the date for one day before, i.e., yesterday.
+
+If(DateValue(Appointment_Date_Time__c) = TODAY() - (1), TRUE, FALSE): This If statement checks if the date component of Appointment_Date_Time__c is equal to yesterday&apos;s date. If it is, the formula returns TRUE; otherwise, it returns FALSE.
+
+In essence, this formula is used to flag records where the Appointment_Date_Time__c field&apos;s date is equal to yesterday&apos;s date.</description>
+    <formula>If(
+     DateValue( Appointment_Date_Time__c ) = TODAY() - (1) , TRUE, FALSE
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Appointment Date - Yesterday</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

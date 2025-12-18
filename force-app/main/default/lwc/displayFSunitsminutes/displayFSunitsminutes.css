@@ -1,0 +1,110 @@
+/* === Global Card Styling === */
+lightning-card {
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+/* === Card Header === */
+lightning-card h2,
+lightning-card .slds-card__header-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #032d60;
+}
+
+/* === Search Bar === */
+.search-input {
+    max-width: 320px;
+    margin: auto;
+    display: block;
+}
+
+/* === Pagination === */
+.pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-top: 1px solid #e5e5e5;
+    background: #fafafa;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+.pagination-container lightning-button {
+    --slds-c-button-neutral-radius-border: 0.5rem;
+    --slds-c-button-neutral-color-border: #d8dde6;
+    --slds-c-button-neutral-color-background: #ffffff;
+    --slds-c-button-neutral-color-border-hover: #0176d3;
+    --slds-c-button-neutral-color-text-hover: #0176d3;
+}
+
+.page-info {
+    font-weight: 500;
+}
+
+.filter-container {
+    padding: 1rem;
+    background: #fdfdfd;
+    border-bottom: 1px solid #f0f0f0;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.filter-container lightning-input {
+    width: 100%;
+}
+
+/* Responsive: stack filters on small screens */
+@media (max-width: 768px) {
+    .filter-container .slds-col {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+/* === Table === */
+lightning-datatable {
+    padding: 0.5rem 0;
+}
+
+lightning-datatable tbody tr:hover {
+    background-color: #f4f6f9;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    .pagination-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .search-input {
+        max-width: 100%;
+    }
+}
+/* === Empty State === */
+.empty-state {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: #636363;
+    font-size: 1rem;
+    background: #fafafa;
+    border-radius: 0.5rem;
+    border: 1px dashed #d8dde6;
+    margin: 1rem 0;
+}
+
+.empty-state lightning-icon {
+    margin-bottom: 0.75rem;
+    fill: #0176d3;
+}
+
+.empty-state p {
+    font-weight: 500;
+    color: #444;
+}

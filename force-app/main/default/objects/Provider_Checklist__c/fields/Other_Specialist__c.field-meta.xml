@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Other_Specialist__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Other Specialist</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>CareCloud_Information__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Provider</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>CareCloud_Information__c</referenceTo>
+    <relationshipLabel>Provider Checklists Where Referred</relationshipLabel>
+    <relationshipName>Provider_Checklists1</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

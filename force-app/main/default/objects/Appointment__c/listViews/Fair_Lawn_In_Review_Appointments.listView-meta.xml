@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fair_Lawn_In_Review_Appointments</fullName>
+    <booleanFilter>(1 OR 3) AND 2</booleanFilter>
+    <columns>NAME</columns>
+    <columns>Patient_s_Currently_Assigned_Staff__c</columns>
+    <columns>Provider_Name__c</columns>
+    <columns>Enter_FlowSheet_Link__c</columns>
+    <columns>Appointment_Date_Time__c</columns>
+    <columns>Location__c</columns>
+    <columns>Flowsheet__c</columns>
+    <columns>Review_Required__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Review_Required__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Location_Id__c</field>
+        <operation>equals</operation>
+        <value>38637</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Approved – Pending Billing</value>
+    </filters>
+    <label>Fair Lawn In Review Appointments</label>
+</ListView>

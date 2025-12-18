@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Multiple_Patient_Records_Found__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checkbox used in the cleanup of the transition from NJS to AMG.  There are duplicate account records in SF, and this checkbox indicates the Care Cloud Patient Id found on the appointment record matches to more than one patient.</description>
+    <label>Multiple Patient Records Found</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

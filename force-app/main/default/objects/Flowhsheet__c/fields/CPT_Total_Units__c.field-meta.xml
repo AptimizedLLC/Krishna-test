@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CPT_Total_Units__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+  AND(Total_Units__c &gt;= 8, Total_Units__c &lt;= 22), 1,
+  IF(
+    AND(Total_Units__c &gt;= 23, Total_Units__c &lt;= 37), 2,
+    IF(
+      AND(Total_Units__c &gt;= 38, Total_Units__c &lt;= 52), 3,
+      IF(
+        AND(Total_Units__c &gt;= 53, Total_Units__c &lt;= 67), 4,
+        IF(
+          AND(Total_Units__c &gt;= 68, Total_Units__c &lt;= 82), 5,
+          IF(
+            AND(Total_Units__c &gt;= 83, Total_Units__c &lt;= 97), 6,
+            IF(
+              AND(Total_Units__c &gt;= 98, Total_Units__c &lt;= 112), 7,
+              IF(
+                Total_Units__c &gt;= 113, 8,
+                0
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>CPT-Total Units</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

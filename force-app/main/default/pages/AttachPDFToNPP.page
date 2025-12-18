@@ -1,0 +1,14 @@
+<apex:page action="{!attachPDF}" extensions="AttachPDFToNPP" standardController="NPP__c">
+
+<script type="text/javascript">
+    
+
+  
+window.onload = function() {        
+        alert("Patient Document has been generated and attached to Files.");
+        
+    };
+</script>
+    
+<apex:pageMessages ></apex:pageMessages><!-- included for display of errors should they occur -->
+</apex:page>

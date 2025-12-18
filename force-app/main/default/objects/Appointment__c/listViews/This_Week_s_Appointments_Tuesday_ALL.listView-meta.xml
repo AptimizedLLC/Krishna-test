@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>This_Week_s_Appointments_Tuesday_ALL</fullName>
+    <columns>NAME</columns>
+    <columns>Patient_s_Currently_Assigned_Staff__c</columns>
+    <columns>Provider_Name__c</columns>
+    <columns>Enter_FlowSheet_Link__c</columns>
+    <columns>Visits_Per_Week__c</columns>
+    <columns>Appointment_Date_Time__c</columns>
+    <columns>Status__c</columns>
+    <columns>Location_Name__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Appointment_Date_Time__c</field>
+        <operation>equals</operation>
+        <value>THIS_WEEK</value>
+    </filters>
+    <filters>
+        <field>Appointment_Day__c</field>
+        <operation>equals</operation>
+        <value>Tuesday</value>
+    </filters>
+    <filters>
+        <field>Location_Name__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Pending,Checked-In,Checked-Out,Cancelled,Billed,Manually Billed,Requested,In-Progress In-Room,In-Progress Out-Room</value>
+    </filters>
+    <filters>
+        <field>Visit_Reason__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>Provider_Name__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>This Week&apos;s Appointments - Tuesday - ALL</label>
+    <sharedTo>
+        <role>Intake</role>
+    </sharedTo>
+</ListView>

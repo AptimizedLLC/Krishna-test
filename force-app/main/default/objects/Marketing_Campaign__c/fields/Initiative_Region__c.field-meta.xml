@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Initiative_Region__c</fullName>
+    <label>Initiative Region</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Old Bridge</fullName>
+                <default>false</default>
+                <label>Old Bridge</label>
+            </value>
+            <value>
+                <fullName>Middletown</fullName>
+                <default>false</default>
+                <label>Middletown</label>
+            </value>
+            <value>
+                <fullName>Freehold</fullName>
+                <default>false</default>
+                <label>Freehold</label>
+            </value>
+            <value>
+                <fullName>East Brunswick</fullName>
+                <default>false</default>
+                <label>East Brunswick</label>
+            </value>
+            <value>
+                <fullName>Union</fullName>
+                <default>false</default>
+                <label>Union</label>
+            </value>
+            <value>
+                <fullName>Fairlawn</fullName>
+                <default>false</default>
+                <label>Fairlawn</label>
+            </value>
+            <value>
+                <fullName>Bloomfield</fullName>
+                <default>false</default>
+                <label>Bloomfield</label>
+            </value>
+            <value>
+                <fullName>Randolph</fullName>
+                <default>false</default>
+                <label>Randolph</label>
+            </value>
+            <value>
+                <fullName>Company Wide</fullName>
+                <default>false</default>
+                <label>Company Wide</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

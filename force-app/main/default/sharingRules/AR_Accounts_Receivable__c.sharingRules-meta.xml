@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>AR_Injection_Manager_access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>AR Injection Manager access</label>
+        <sharedTo>
+            <group>AR_Injection_Manager</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>AR_Injection_Users</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>AR_Surgical_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>AR Surgical Rule</label>
+        <sharedTo>
+            <group>AR_Injection_Manager</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>AR_Surgical_User</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

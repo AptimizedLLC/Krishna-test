@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Today_s_Appointments_with_PPT_Due</fullName>
+    <columns>NAME</columns>
+    <columns>Patient_s_Currently_Assigned_Staff__c</columns>
+    <columns>Provider_Name__c</columns>
+    <columns>Enter_FlowSheet_Link__c</columns>
+    <columns>Visits_Per_Week__c</columns>
+    <columns>Appointment_Date_Time__c</columns>
+    <columns>Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Appointment_Date_Time__c</field>
+        <operation>equals</operation>
+        <value>TODAY</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Pending,Checked-In,Checked-Out,Cancelled,Billed,Manually Billed,Requested,In-Progress In-Room,In-Progress Out-Room</value>
+    </filters>
+    <filters>
+        <field>PPT_Due__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>PPT_Completed__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Visit_Reason__c</field>
+        <operation>notContain</operation>
+        <value>RE-EVAL</value>
+    </filters>
+    <filters>
+        <field>Visit_Reason__c</field>
+        <operation>notContain</operation>
+        <value>PRECERT</value>
+    </filters>
+    <label>Today&apos;s Appointments with PPT Due</label>
+</ListView>

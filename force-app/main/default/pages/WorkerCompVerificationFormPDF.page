@@ -1,0 +1,247 @@
+<apex:page showHeader="false" sidebar="false" applyBodyTag="false" controller="WorkerCompVerificationFormController" renderAs="pdf" >
+     <head>
+            <style>
+                body {
+                    font-size: small;
+                    font-weight: bold;
+                    font-family: SansSerif !important;
+                }
+                
+                
+                
+            </style>
+     </head>
+      <body>
+        
+       <div style="font-weight: bold; font-size: x-large;text-align: center; font-family: SansSerif !important;">
+                <u>Worker’s Comp Verification Form</u>
+       </div>
+        <br/>
+       <apex:form >
+            <div> 
+               
+              <!--  <div id="patientDetails"> -->
+                    <table width="100%">
+                        <tr>
+                            <td style="width:65%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Patient’s Name:" width="70%" value="{!insurancePlanRecord.Patient_Name__c}"/>
+                            </td>
+                            <td style="width:35%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Policy State:" width="60%" value="{!insurancePlanRecord.WC_Injury_State__c}"/>
+                            </td>
+                           
+                        </tr>
+                    </table>
+                     <br/>
+                     <table width="100%">
+                        <tr>
+                            <td style="width:55%;text-align: center;">
+                                <c:DynamicFormMember type="textWithUnderline" label="DOB:" width="50%" value="{!patientDOB}"/>
+                            </td>
+                            <td style="width:45%">
+                                <c:DynamicFormMember type="textWithUnderline" label="DOL:" width="60%" value="{!dateOfAccident}"/>
+                            </td>
+                           
+                        </tr>
+                    </table>
+                    <br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:60%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Insurance Co:" width="70%" value="{!insurancePlanRecord.WC_Insurance_Company__c}"/>
+                            </td>
+                            <td style="width:40%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Phone #:" width="72%" value="{!insurancePlanRecord.WC_Insurance_Company_Phone__c}"/>
+                            </td>
+                           
+                        </tr>
+                    </table>
+                    <br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Insurance Address:" width="80%" value="{!insurancePlanRecord.WC_Insurance_Company_Street__c}"/>
+                            </td>
+                          
+                        </tr>
+                    </table>
+                    <br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:50%">
+                                <c:DynamicFormMember type="textWithUnderline" label="WCB Case #:" width="65%" value="{!insurancePlanRecord.WCB_Case_Number__c}"/>
+                            </td>
+                            <td style="width:50%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Claim #:" width="79%" value="{!insurancePlanRecord.Claim_Number__c}"/>
+                            </td>
+                           
+                        </tr>
+                    </table>
+                    <br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Adjuster:" width="89%" value="{!insurancePlanRecord.WC_Adjuster__c}"/>
+                            </td>
+                          
+                        </tr>
+                    </table>
+                    <br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:50%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Adjuster Phone#:" width="60%" value="{!insurancePlanRecord.WC_Adjuster_Phone__c}"/>
+                            </td>
+                            <td style="width:50%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Adjuster Fax#:" width="67%" value="{!insurancePlanRecord.WC_Adjuster_Fax__c}"/>
+                            </td>
+                           
+                        </tr>
+                    </table>
+                    <br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="MG2/C4 Form (NY)" width="81%" value="{!insurancePlanRecord.Where_To_Submit_MG2_C4_Form__c}"/>
+                            </td>
+                          
+                        </tr>
+                    </table>
+                    <br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:50%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Pre-Cert Phone#:" width="60%" value="{!insurancePlanRecord.WC_Authorization_Phone__c}"/>
+                            </td>
+                            <td style="width:50%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Pre-Cert Fax #" width="68%" value="{!insurancePlanRecord.WC_Authorization_Fax__c}"/>
+                            </td>
+                           
+                        </tr>
+                    </table>
+                    <br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Is Auth required for MD Office Visits?" width="65%" value="{!insurancePlanRecord.WC_Authorization_Required_for_Visits_NEW__c}"/>
+                            </td>
+                          
+                        </tr>
+                    </table>
+                    <br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Approved Body Region(s) Listed on Claim:" width="100%" value="{!insurancePlanRecord.WC_Approved_Body_Region__c}"/>
+                            </td>
+                          
+                        </tr>
+                    </table>
+               <!--  <br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="" width="60%" value=""/>
+                            </td>
+                          
+                        </tr>
+                    </table>-->
+                    <br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:65%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Employer:" width="59%" value="{!insurancePlanRecord.Employer__c}"/>
+                            </td>
+                          
+                        </tr>
+                    </table>
+                    <br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Is PT a Covered?" width="83%" value="{!insurancePlanRecord.WC_PT_Covered_NEW__c}"/>
+                            </td>
+                          
+                        </tr>
+                    </table>
+                    <br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Chiro Covered?" width="85%" value="{!insurancePlanRecord.Chiropractor_Covered_by_WC_NEW__c}"/>
+                            </td>
+                          
+                        </tr>
+                    </table>
+                    <br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Acupuncture Covered?" width="78%" value="{!insurancePlanRecord.Acupuncture_Covered_by_WC_NEW__c}"/>
+                            </td>
+                          
+                        </tr>
+                    </table>
+                    <br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Can PT/CHIRO/ACU treat on the same day?" width="60%" value="{!insurancePlanRecord.WC_Conservative_Care_on_Same_Day__c}"/>
+                            </td>
+                          
+                        </tr>
+                    </table>
+                 <br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Are we listed as an In-Network or Out Of Network Provider?" width="45%" value="{!insurancePlanRecord.Are_We_In_Network_Out_Network_Provider__c}"/>
+                            </td>
+                          
+                        </tr>
+                    </table>
+                    <br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Can a Patient treat with an Out Of Network Provider ?" width="50%" value="{!insurancePlanRecord.Can_Out_Of_Network_Provider_Treat_Here__c}"/>
+                            </td>
+                          
+                        </tr>
+                    </table>
+                    <br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="IF NY Claim, Is the patient's address listed in NY" width="55%" value="{!insurancePlanRecord.If_NY_Is_Patient_Address_Listed_In_NY__c}"/>
+                            </td>
+                          
+                        </tr>
+                    </table>
+                    <br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:100%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Attorney Info:" width="85%" value="{!insurancePlanRecord.Workers_Comp_Attorney__c} {!insurancePlanRecord.Workers_Comp_Attorney_Phone__c} {!insurancePlanRecord.Workers_Comp_Attorney_Fax__c}" />
+            
+                            </td>
+                          
+                        </tr>
+                    </table>
+                  <br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:50%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Verified By:" width="60%" value="{!caseRecord.Owner.Name}"/>
+                            </td>
+                            <td style="width:50%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Date:" width="60%" value="{!closedate}"/>
+                            </td>
+                           
+                        </tr>
+                    </table>
+               <!--  </div> -->
+             </div>
+         </apex:form>
+    </body>
+</apex:page>

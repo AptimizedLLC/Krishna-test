@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Care Cloud</label>
+    <protected>false</protected>
+    <values>
+        <field>Access_Token__c</field>
+        <value xsi:type="xsd:string">Lhqtnkmj34mXSpL_zdtf-vIeOvacGnIF</value>
+    </values>
+    <values>
+        <field>Breeze_ID__c</field>
+        <value xsi:type="xsd:string">5128</value>
+    </values>
+    <values>
+        <field>Consumer_Key__c</field>
+        <value xsi:type="xsd:string">5714XIY_hRWTMF9dCHj0JnZFXGc-nDNp</value>
+    </values>
+    <values>
+        <field>Consumer_Secret__c</field>
+        <value xsi:type="xsd:string">fdMF7up9RrRk1nU5</value>
+    </values>
+    <values>
+        <field>Create_Patient__c</field>
+        <value xsi:type="xsd:string">/patients</value>
+    </values>
+    <values>
+        <field>End_Point__c</field>
+        <value xsi:type="xsd:string">https://api.carecloud.com/v2</value>
+    </values>
+    <values>
+        <field>FMS_and_PPT_Folder_Id__c</field>
+        <value xsi:type="xsd:string">21502</value>
+    </values>
+    <values>
+        <field>Insurance_Folder_ID__c</field>
+        <value xsi:type="xsd:string">21476</value>
+    </values>
+    <values>
+        <field>Intake_Folder_ID__c</field>
+        <value xsi:type="xsd:string">21508</value>
+    </values>
+    <values>
+        <field>Refresh_Token__c</field>
+        <value xsi:type="xsd:string">Q1kt4rnnBNoue8NHlfpfhq2ORnyA2_BR</value>
+    </values>
+    <values>
+        <field>Token_Endpoint__c</field>
+        <value xsi:type="xsd:string">https://api.carecloud.com/oauth2/access_token</value>
+    </values>
+</CustomMetadata>

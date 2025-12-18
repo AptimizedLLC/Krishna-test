@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>What_materials_did_you_bring_with_you__c</fullName>
+    <inlineHelpText>Check all that apply</inlineHelpText>
+    <label>What materials did you bring with you?</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Brochures</fullName>
+                <default>false</default>
+                <label>Brochures</label>
+            </value>
+            <value>
+                <fullName>Business Cards</fullName>
+                <default>false</default>
+                <label>Business Cards</label>
+            </value>
+            <value>
+                <fullName>Flyers</fullName>
+                <default>false</default>
+                <label>Flyers</label>
+            </value>
+            <value>
+                <fullName>Trifolds</fullName>
+                <default>false</default>
+                <label>Trifolds</label>
+            </value>
+            <value>
+                <fullName>Catered breakfast</fullName>
+                <default>false</default>
+                <label>Catered breakfast</label>
+            </value>
+            <value>
+                <fullName>Catered lunch</fullName>
+                <default>false</default>
+                <label>Catered lunch</label>
+            </value>
+            <value>
+                <fullName>Coffee</fullName>
+                <default>false</default>
+                <label>Coffee</label>
+            </value>
+            <value>
+                <fullName>Ipad/Laptop with Videos</fullName>
+                <default>false</default>
+                <label>Ipad/Laptop with Videos</label>
+            </value>
+            <value>
+                <fullName>TV with video loop</fullName>
+                <default>false</default>
+                <label>TV with video loop</label>
+            </value>
+            <value>
+                <fullName>Giveaways</fullName>
+                <default>false</default>
+                <label>Giveaways</label>
+            </value>
+            <value>
+                <fullName>Massage table/chair</fullName>
+                <default>false</default>
+                <label>Massage table/chair</label>
+            </value>
+            <value>
+                <fullName>Other:</fullName>
+                <default>false</default>
+                <label>Other:</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

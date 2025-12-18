@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Priority_Validation_Rule</fullName>
+    <active>true</active>
+    <description>If Priority 1,3, or 4 is filled out you must complete the provider, initial visit date and office to save.</description>
+    <errorConditionFormula>AND(DATEVALUE(CreatedDate) &gt; DATE(2021, 02, 05),
+ISPICKVAL(Provider__c , &apos;&apos;),
+ISBLANK(Appointment_Date__c),
+ISPICKVAL( Office__c , &apos;&apos;),
+ISBLANK(Appointment_Time__c),
+ISPICKVAL(Submitted_By__c,&apos;&apos;),       
+OR (
+ISPICKVAL(High_Priority__c, &apos;1 - Urgent/Same Day&apos;) ||
+ISPICKVAL(High_Priority__c, &apos;3 - Urgent/Next Day&apos;) ||
+ISPICKVAL(High_Priority__c, &apos;4 - Regular Queue&apos;)
+))</errorConditionFormula>
+    <errorMessage>Fill in appointment details, submitted by and priority before save</errorMessage>
+</ValidationRule>

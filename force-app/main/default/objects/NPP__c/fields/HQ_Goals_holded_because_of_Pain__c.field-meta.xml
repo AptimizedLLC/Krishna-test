@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HQ_Goals_holded_because_of_Pain__c</fullName>
+    <complianceGroup>HIPAA</complianceGroup>
+    <label>Goals holded because of Pain</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Return to recreational activities</fullName>
+                <default>false</default>
+                <label>Return to recreational activities</label>
+            </value>
+            <value>
+                <fullName>Giving 100% with my family-at work or at the gym</fullName>
+                <default>false</default>
+                <label>Giving 100% with my family-at work or at the gym</label>
+            </value>
+            <value>
+                <fullName>Having a pain free life &amp; free to take on new experiences.</fullName>
+                <default>false</default>
+                <label>Having a pain free life &amp; free to take on new experiences.</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

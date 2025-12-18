@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Brooke_In_Process_Authorizations</fullName>
+    <columns>NAME</columns>
+    <columns>Patient__c</columns>
+    <columns>Provider__c</columns>
+    <columns>DME__c</columns>
+    <columns>PIP_or_W_C_Request__c</columns>
+    <columns>Procedure__c</columns>
+    <columns>Imaging__c</columns>
+    <columns>Status__c</columns>
+    <columns>Authorization_Notes__c</columns>
+    <columns>OWNER.FIRST_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>New,Pending,Peer To Peer,Pending Appeal,Appealed</value>
+    </filters>
+    <filters>
+        <field>Type__c</field>
+        <operation>notEqual</operation>
+        <value>PT Precertification,OT Precertification,Chiro Precertification</value>
+    </filters>
+    <filters>
+        <field>PIP_or_W_C_Request__c</field>
+        <operation>notContain</operation>
+        <value>21 Day Notice</value>
+    </filters>
+    <filters>
+        <field>OWNER.FIRST_NAME</field>
+        <operation>contains</operation>
+        <value>Brooke</value>
+    </filters>
+    <label>Brooke&apos;s Process Authorizations</label>
+</ListView>

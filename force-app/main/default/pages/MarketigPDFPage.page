@@ -1,0 +1,152 @@
+<apex:page standardController="Marketing_Campaign__c" renderAs="advanced_pdf">
+  <head>
+   
+  </head>
+
+  <body>
+    
+<div style="display: table; width: 100%;">
+  <!-- Image cell -->
+  <div style="display: table-cell; width: 220px; vertical-align: top;padding-top: 15px;">
+    <img src="https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003pCyH&oid=00Df2000001HEGJ&lastMod=1715318986000" style="width: 300px;" />
+  </div>
+
+  <!-- Text content to the right -->
+  <div style="display: table-cell; vertical-align: top; padding-left: 20px;">
+      <h1 style="margin-bottom: 5px;">Marketing Event Recap </h1>
+       <p style="margin-top: 0;"><strong>Submitted on  </strong> <apex:outputText value="{0,date,dd/MM/yy HH:mm:ss}">
+        <apex:param value="{!Marketing_Campaign__c.CreatedDate}" />
+    </apex:outputText></p>                
+  </div>
+</div>
+
+
+    <!--
+   
+      <p><strong>Team_Member__c:</strong> {!Marketing_Campaign__c.Team_Member__c}</p>
+    <p><strong>Date_of_Initiative__c:</strong> {!Marketing_Campaign__c.Date_of_Initiative__c}</p>
+    <p><strong>Synopsis_of_Initiative__c:</strong> {!Marketing_Campaign__c.Synopsis_of_Initiative__c}</p>
+         <p><strong>Initiative_Region__c:</strong> {!Marketing_Campaign__c.Initiative_Region__c}</p>
+    <p><strong>Initiative_location_name__c:</strong> {!Marketing_Campaign__c.Initiative_location_name__c}</p>
+    <p><strong>Initiative_Category__c:</strong> {!Marketing_Campaign__c.Initiative_Category__c}</p>
+    <p><strong>Name_of_Point_Person_from_Initiative__c:</strong> {!Marketing_Campaign__c.Name_of_Point_Person_from_Initiative__c}</p>
+          <p><strong>What_materials_did_you_bring_with_you__c	:</strong> {!Marketing_Campaign__c.What_materials_did_you_bring_with_you__c	}</p>
+    <p><strong>If you brought a catered lunch or breakfast, where did you order food from:</strong> no field</p>
+    <p><strong>If you brought a catered lunch or breakfast,how much did you spend?:</strong> {!Marketing_Campaign__c.Catered_Breakfast_Lunch_Cost__c}</p>
+    <p><strong>If you brought a catered lunch or breakfast, how many people did you feed? :</strong> No filed</p>
+    
+      <p><strong>Link to receipt :</strong> No filed</p>
+    <p><strong>How long were you there (approximate minutes):</strong> {!Marketing_Campaign__c.How_long_were_you_there__c}</p>
+    <p><strong>Who went with you?:</strong> {!Marketing_Campaign__c.Who_went_with_you__c}</p>
+    <p><strong>How many potential patients had hands-on contact with a provider?:</strong> {!Marketing_Campaign__c.Potential_Patients_with_HandsOn_Provider__c	}</p>
+    <p><strong>What are the next steps after this drop in? Check all that apply:</strong> {!Marketing_Campaign__c.Next_Steps_After_Drop_In__c}</p>
+	    <p><strong>Did you book any patients for appointments? (HOT LEADS):</strong> No field</p>
+    <p><strong>No_of_HOT_Leads__c	:</strong> {!Marketing_Campaign__c.No_of_HOT_Leads__c	}</p>
+    <p><strong>What about this initiative did not lead to any bookings (HOT LEADS)? Be specific and detailed:</strong> {!Marketing_Campaign__c.Reason_No_Hot_Leads_Were_Scheduled__c	}</p>
+    <p><strong>Did you capture any prospective patients' contact information? (COOL LEADS):</strong> No field</p>
+    <p><strong>No_of_COOL_Leads__c:</strong> {!Marketing_Campaign__c.No_of_COOL_Leads__c}</p>
+      	    <p><strong>What about this initiative did not lead to any prospective patients contact capture (COOL LEADS)? Be specific and detailed:</strong> {!Marketing_Campaign__c.Reason_No_Cool_Leads_Were_Scheduled__c}</p>
+    <p><strong>How many total potential patients were interacted with? :</strong> {!Marketing_Campaign__c.Total_Potential_Patient_Interactions__c	}</p>
+
+-->
+      <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+  <tr>
+    <td style="background-color:#D3D3D3"><strong>Team Member:</strong></td>
+    <td style="background-color:#D3D3D3">{!Marketing_Campaign__c.Team_Member__c}</td>
+  </tr>
+  <tr>
+    <td><strong>Date of Initiative:</strong></td>
+    <td><apex:outputText value="{0,date,MM/dd/yy}">
+        <apex:param value="{!Marketing_Campaign__c.Date_of_Initiative__c}" />
+    </apex:outputText></td>
+  </tr>
+  <tr>
+    <td style="background-color:#ADD8E6"><strong>Synopsis of Initiative:</strong></td>
+    <td style="background-color:#ADD8E6">{!Marketing_Campaign__c.Synopsis_of_Initiative__c}</td>
+  </tr>
+  <tr>
+    <td><strong>Initiative Region:</strong></td>
+    <td>{!Marketing_Campaign__c.Initiative_Region__c}</td>
+  </tr>
+  <tr>
+    <td style="background-color:#ADD8E6"><strong>Initiative location name:</strong></td>
+    <td style="background-color:#ADD8E6">{!Marketing_Campaign__c.Initiative_location_name__c}</td>
+  </tr>
+  <tr>
+    <td><strong>Initiative Category:</strong></td>
+    <td>{!Marketing_Campaign__c.Initiative_Category__c}</td>
+  </tr>
+  <tr>
+    <td style="background-color:#ADD8E6"><strong>Name of Point Person from Initiative:</strong></td>
+    <td style="background-color:#ADD8E6">{!Marketing_Campaign__c.Name_of_Point_Person_from_Initiative__r.name}</td>
+  </tr>
+  <tr>
+    <td><strong>What materials did you bring with you? Check all that Apply:</strong></td>
+    <td>{!Marketing_Campaign__c.What_materials_did_you_bring_with_you__c}</td>
+  </tr>
+  <tr>
+    <td style="background-color:#ADD8E6"><strong>If you brought a catered lunch or breakfast, where did you order food from:</strong></td>
+    <td style="background-color:#ADD8E6">{!Marketing_Campaign__c.Catered_Breakfast_Lunch_Provider__c}</td>
+  </tr>
+  <tr>
+    <td><strong>If you brought a catered lunch or breakfast,how much did you spend?:</strong></td>
+    <td><apex:outputText rendered="{!NOT(ISBLANK(Marketing_Campaign__c.Catered_Breakfast_Lunch_Cost__c))}" 
+                         value="${!Marketing_Campaign__c.Catered_Breakfast_Lunch_Cost__c}" /></td>
+  </tr>
+  <tr>
+    <td style="background-color:#ADD8E6"><strong>If you brought a catered lunch or breakfast, how many people did you feed?:</strong></td>
+    <td style="background-color:#ADD8E6">{!Marketing_Campaign__c.Total_People_Fed_from_Catered_Meal__c}</td>
+  </tr>
+  <tr>
+    <td><strong>Link to receipt:</strong></td>
+    <td>No field needed </td>
+  </tr>
+  <tr>
+    <td style="background-color:#ADD8E6"><strong>How long were you there (approximate minutes):</strong></td>
+    <td style="background-color:#ADD8E6">{!Marketing_Campaign__c.How_long_were_you_there__c}</td>
+  </tr>
+  <tr>
+    <td><strong>Who went with you?:</strong></td>
+    <td>{!Marketing_Campaign__c.Who_went_with_you__c}</td>
+  </tr>
+  <tr>
+    <td style="background-color:#ADD8E6"><strong>How many potential patients had hands-on contact with a provider?:</strong></td>
+    <td style="background-color:#ADD8E6">{!Marketing_Campaign__c.Potential_Patients_with_HandsOn_Provider__c}</td>
+  </tr>
+  <tr>
+    <td><strong>What are the next steps after this drop in? Check all that apply:</strong></td>
+    <td>{!Marketing_Campaign__c.Next_Steps_After_Drop_In__c}</td>
+  </tr>
+  <tr>
+    <td style="background-color:#ADD8E6"><strong>Did you book any patients for appointments? (HOT LEADS):</strong></td>
+    <td style="background-color:#ADD8E6">{!Marketing_Campaign__c.Did_You_Book_Any_Patient_Appointments__c}</td>
+  </tr>
+  <tr>
+      <td><strong>No of HOT Leads:</strong></td>
+    <td>{!Marketing_Campaign__c.No_of_HOT_Leads__c}</td>
+  </tr>
+  <tr>
+    <td style="background-color:#ADD8E6"><strong>What about this initiative did not lead to any bookings (HOT LEADS)? Be specific and detailed:</strong></td>
+    <td style="background-color:#ADD8E6">{!Marketing_Campaign__c.Reason_No_Hot_Leads_Were_Scheduled__c}</td>
+  </tr>
+  <tr>
+    <td><strong>Did you capture any prospective patients' contact information? (COOL LEADS):</strong></td>
+    <td>{!Marketing_Campaign__c.Captured_Prospective_Patient_Contacts__c}</td>
+  </tr>
+  <tr>
+    <td style="background-color:#ADD8E6"><strong>No of COOL Leads:</strong></td>
+    <td style="background-color:#ADD8E6">{!Marketing_Campaign__c.No_of_COOL_Leads__c}</td>
+  </tr>
+  <tr>
+    <td><strong>What about this initiative did not lead to any prospective patients contact capture (COOL LEADS)? Be specific and detailed:</strong></td>
+    <td>{!Marketing_Campaign__c.Reason_No_Cool_Leads_Were_Scheduled__c}</td>
+  </tr>
+  <tr>
+    <td style="background-color:#ADD8E6"><strong>How many total potential patients were interacted with?:</strong></td>
+    <td style="background-color:#ADD8E6">{!Marketing_Campaign__c.Total_Potential_Patient_Interactions__c}</td>
+  </tr>
+</table>
+
+    <!-- Add other fields as needed -->
+  </body>
+</apex:page>

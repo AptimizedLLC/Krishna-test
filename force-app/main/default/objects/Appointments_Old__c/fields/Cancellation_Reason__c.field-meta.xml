@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cancellation_Reason__c</fullName>
+    <label>Cancellation Reason</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Patient Rescheduled</fullName>
+                <default>false</default>
+                <label>Patient Rescheduled</label>
+            </value>
+            <value>
+                <fullName>Office Rescheduled</fullName>
+                <default>false</default>
+                <label>Office Rescheduled</label>
+            </value>
+            <value>
+                <fullName>No Show</fullName>
+                <default>false</default>
+                <label>No Show</label>
+            </value>
+            <value>
+                <fullName>No Authorization</fullName>
+                <default>false</default>
+                <label>No Authorization</label>
+            </value>
+            <value>
+                <fullName>Tardiness</fullName>
+                <default>false</default>
+                <label>Tardiness</label>
+            </value>
+            <value>
+                <fullName>Patient Left</fullName>
+                <default>false</default>
+                <label>Patient Left</label>
+            </value>
+            <value>
+                <fullName>Not Needed</fullName>
+                <default>false</default>
+                <label>Not Needed</label>
+            </value>
+            <value>
+                <fullName>No Reason Given</fullName>
+                <default>false</default>
+                <label>No Reason Given</label>
+            </value>
+            <value>
+                <fullName>Called to Cancel</fullName>
+                <default>false</default>
+                <label>Called to Cancel</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Provider_Last_Name</name>
+        <label>Assign Provider Last Name</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <assignmentItems>
+            <assignToReference>varProviderLastName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Owner:User.LastName</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Has_the_Provider_Already_Been_Seen</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Has_the_Provider_Already_Been_Seen</name>
+        <label>Has the Provider Already Been Seen?</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <defaultConnector>
+            <targetReference>Update_provider_screen</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_The_Provider_Has_Already_Been_Seen</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Patient__r.MD_Providers_Seen__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <elementReference>varProviderLastName</elementReference>
+                </rightValue>
+            </conditions>
+            <label>Yes - The Provider Has Already Been Seen</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Was_Prior_Status_Pending</name>
+        <label>Was Prior Status Pending?</label>
+        <locationX>226</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Prior_Status_Was_Pending</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pending</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Provider_Last_Name</targetReference>
+            </connector>
+            <label>Yes - Prior Status Was Pending</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>MDProviderSeen</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!$Record.Patient__r.MD_Providers_Seen__c}), 
+{!$Record.Owner:User.LastName}, 
+{!$Record.Patient__r.MD_Providers_Seen__c} + &quot;, &quot; + {!$Record.Owner:User.LastName} )</expression>
+    </formulas>
+    <interviewLabel>PIP Appointment Account Automation {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>PIP Appointment Account Automation</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_provider_screen</name>
+        <label>Update provider screen</label>
+        <locationX>138</locationX>
+        <locationY>647</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Patient__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>MD_Providers_Seen__c</field>
+            <value>
+                <elementReference>MDProviderSeen</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <start>
+        <locationX>100</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Was_Prior_Status_Pending</targetReference>
+        </connector>
+        <filterLogic>1 AND 2 AND (3 OR 4 OR 5 OR 6)</filterLogic>
+        <filters>
+            <field>Visit_Reason_Id__c</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>MD</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Visit_Reason__c</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>PIP</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Checked-In</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Checked-Out</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Billed</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Manually Billed</stringValue>
+            </value>
+        </filters>
+        <object>Appointment__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>varProviderLastName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

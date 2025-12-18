@@ -1,0 +1,1401 @@
+<apex:page showHeader="false" sidebar="false" applyBodyTag="false" controller="InsurancePlanPDFController" renderAs="pdf">
+    
+    <head>
+        <style>
+            body {
+                font-size: xx-small;
+            }
+            
+            .borderedTable  {
+                border: 0.6px solid black;
+                border-collapse: collapse !important;
+                border-spacing: 0px;
+                vertical-align:top;
+            }
+            
+            .borderedTableSingle  {
+                border: 0.6px solid black;
+                margin-top: -1px;
+            }
+            
+            .borderedRight  {
+                border-right: 0.6px solid black;
+            }
+            
+            .borderTop  {
+                border-top: 0.6px solid black;
+            }
+            
+            .borderBottom  {
+                border-bottom: 0.6px solid black;
+            }
+            
+        </style>
+    </head>
+    
+    <body>
+        
+        <apex:form >
+            <div>
+                <div id="patientDetails">
+                    <table width="100%">
+                        <tr>
+                            <td style="width:30%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Patient's Name:" width="80px" value="{!patientName}"/>
+                            </td>
+                            <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="DOB:" width="30px" value="{!patientDOB}"/>
+                            </td>
+                            <td style="width:20%">
+                                <c:DynamicFormMember type="checkbox" label="ERISA:" value="{!insurancePlanRecord.Plan_Follows_Erisa_Guidelines_NEW__c}"/>
+                            </td>
+                            <td style="width:40%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Employer Name:" value="{!insurancePlanRecord.Employer__c}" width="80px"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="100%"> 
+                        <tr>
+                            <td style="width:30%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Subscriber Name:" width="60px" value="{!caseRecord.Primary_Subscriber_Name__c}"/>
+                            </td>
+                            <td style="width:20%">
+                                <c:DynamicFormMember type="textWithUnderline" label="DOB:" width="20%" value="{!primarydob}"/>
+                            </td>
+                            <td style="width:40%">
+                                <c:DynamicFormMember type="customCheckbox" label="Relationship:" value="{!caseRecord.Primary_Subscriber_Relationship__c}" options="Self, Spouse, Parent, Other"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:25%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Plan Type:" width="40px" value="{!insurancePlanRecord.Plan_Type__c}"/>
+                            </td>
+                            <td style="width:25%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Insurane Claim Address:" width="40px" value="{!insurancePlanRecord.Claims_Address__c}"/>
+                            </td>
+                            <td style="width:25%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Insurance Phone:" width="50px" value="{!insurancePlanRecord.Insurance_Phone__c}"/>
+                            </td>
+                            <td style="width:25%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Eff Date:" value="{!effectiveDate}" width="80px"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:25%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Primary Insurance:" width="40px" value="{!caseRecord.Primary_Insurance__c}"/> 
+                            </td>
+                            <td style="width:25%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Id#:" width="80px" value="{!insurancePlanRecord.Insurance_ID_Number__c}"/>
+                            </td>
+                            <td style="width:25%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Grp#:" width="50px" value="{!insurancePlanRecord.Group_Number__c}"/>
+                            </td>
+                            <td style="width:25%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Term Date:" value="" width="80px"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:25%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Secondary Insurance:" width="40px" value="{!caseRecord.Secondary_Insurance__c}"/>
+                            </td>
+                            <td style="width:25%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Id#:" width="80px" value=""/>
+                            </td>
+                            <td style="width:25%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Grp#:" width="50px" value=""/>
+                            </td>
+                            <td style="width:25%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Eff Date:" value="" width="80px"/>
+                            </td>
+                        </tr>
+                    </table>
+                     <table width="100%" >
+                        <tr>
+                             <td style="width:25%">
+                                 <c:DynamicFormMember type="textWithUnderline" label="Timely Filing: O/N" value="{!insurancePlanRecord.Timely_Filing_Requirement_Original_Claim__c }"/>
+                            </td>
+                            <td style="width:25%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Timely Filing Reprocessing:" width="50px" value="{!insurancePlanRecord.Timely_Filing_Requirement_Reprocessing__c }"/>
+                            </td>
+                            <td  style="width:25%">
+                                
+                            </td>
+                            <td  style="width: 25%">
+                               <c:DynamicFormMember type="textWithUnderline" label="Coverage Year:" width="50px" value="{!insurancePlanRecord.Coverage_Year__c}"/> 
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:25%">
+                                <c:DynamicFormMember type="customCheckbox" label="Funding:" value="{!insurancePlanRecord.How_Is_Policy_Funded__c}" options="Self, Fully"/>
+                            </td>
+                            <td style="width:25%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Fee Schedule:" value="{!insurancePlanRecord.Fee_Schedule__c}"/>
+                            </td> 
+                            <td style="width:25%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Aggregate Allowance:" width="50px" value="{!insurancePlanRecord.Aggregate_Allowance__c }"/>
+                            </td>
+                            <td style="width: 25%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Start of Plan Year:" width="50px" value="{!primarytermDate}"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:75%" colspan="3">
+                            </td>
+                            <td style="width: 25%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Allowance Percentage:" width="50px" value="{!insurancePlanRecord.Allowance_Percentage__c }"/>
+                            </td>
+                        </tr>
+                    </table>
+                   
+                    <table width="100%">
+                        <tr>
+                            <td style="width:20%">
+                                <c:DynamicFormMember type="checkbox" label="CAL YEAR:" value="{!insurancePlanRecord.Coverage_Year__c }"/>
+                                <c:DynamicFormMember type="customCheckbox2" label="SHBP:" value="{!insurancePlanRecord.SHBP__c}" options="Y, N" yesOption="true" noOption="false"/>
+                            </td>
+                            <td style="width:25%">
+                                <c:DynamicFormMember type="customCheckbox" label="" value="{!insurancePlanRecord.Is_this_plan_Embedded_or_Aggregate__c}" options="Embedded, Aggregate"/>
+                            </td>
+                            <td style="width:35%">
+                                <c:DynamicFormMember type="checkbox" label="HSA/FSA/Flex Card/HRA:" value="{!insurancePlanRecord.HSA_FSA_Flex_Card_HRA__c}"/>
+                            </td>
+                            <td style="width: 25%">
+                                 <c:DynamicFormMember type="checkbox" label="Cross Accum:" value="{!insurancePlanRecord.Deductible_Cross_Applies_NEW__c }"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="100%">
+                        <tr>
+                            <td style="width:40%">
+                                <c:DynamicFormMember type="textWithUnderline" label="METHOD OF PAYMENT FOR HSA/HRA/FSA:" value="{!insurancePlanRecord.Method_of_Payment__c }"/>
+                            </td>
+                            <td style="width:25%">
+                                <c:DynamicFormMember type="textWithUnderline" label="AMNT REMAIN:" value="{!insurancePlanRecord.Amount_Remaining__c }"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+              
+                <div id="submedicareTable" style="padding-top: 10px;">
+                    <table class="borderedTableSingle" width="100%">
+                        <tbody class="borderedTableSingle">
+                            <tr>
+                                <td>
+                                    <c:DynamicFormMember type="textWithUnderline" label="MEDICARE ID:" value="{!insurancePlanRecord.Medicare_Member_Id__c}"/> 
+                                </td>
+                                <td>
+                                    <c:DynamicFormMember type="textWithUnderlineAndSlash" label="DED/APPLIED" width="30px" value="{!insurancePlanRecord.Medicare_Annual_Deductible__c}" value2="{!insurancePlanRecord.Medicare_Deductible_Met__c}"/> 
+                                </td>
+                                <td>
+                                    <c:DynamicFormMember type="textWithUnderline" label="EFFECTIVE DATE:" width="40px" value="{!effectiveDate}"/>
+                                </td>
+                                <td>
+                                    <c:DynamicFormMember type="checkbox" label="PRIMARY:" value="{!isMedicareRecordType}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <c:DynamicFormMember type="textWithUnderline" label="PT USED? $" value="{!insurancePlanRecord.Medicare_PT_Benefits_Used_To_Date__c }"/>
+                                </td>
+                                <td>
+                                    <c:DynamicFormMember type="textWithUnderline" label="REPLACEMENT PLAN" value="{!insurancePlanRecord.Medicare_Replacement_Plan_Carrier__c }"/>
+                                </td>
+                                <td>
+                                    <c:DynamicFormMember type="textWithUnderline" label="OT USED? $" value="{!insurancePlanRecord.Medicare_OT_Benefits_Used_To_Date__c}"/>
+                                </td>
+                                <td>
+                                    <c:DynamicFormMember type="checkbox" label="REP PLAN FOLLOWS CAP?" value=""/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <c:DynamicFormMember type="checkbox" label="TRUE SECONDARY:" value=""/>
+                                </td>
+                                <td>
+                                    <c:DynamicFormMember type="checkbox" label="SUPPLEMENTAL:" value="{!insurancePlanRecord.Supplemental_Policy_On_File_NEW__c }"/>
+                                </td>
+                                <td>
+                                    <c:DynamicFormMember type="textWithUnderline" label="Plan Type:" value="{!insurancePlanRecord.Supplemental_Plan_Type__c}"/>
+                                </td>
+                                <td>
+                                    <c:DynamicFormMember type="checkbox" label="FOLLOWS MEDICARE GUIDELINES:" value="{!insurancePlanRecord.Supplemental_Follows_Medicare_Guidelines__c }"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="networkTable" style="padding-top: 10px;">
+                    <table cellspacing="0" class="borderedTableSingle" width="100%">
+                        <tbody class="borderedTableSingle">
+                            <tr>
+                               <td class="borderedRight" style="width:25%">
+                                   <span><u><b>In Network:</b></u></span>
+                                </td>
+                                <td class="borderedRight">
+                                    <span><u><b>Out of Network:</b></u></span>
+                                </td>
+                                <td style="width:25%">
+                                    <span><b>Pharmacy Benefits:</b></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                   <c:DynamicFormMember type="textWithUnderline" label="Coinsurance" width="30px" value="{!insurancePlanRecord.In_Network_Co_Insurance__c }" value2=""/>
+                                    <span>%</span>
+                                </td>
+                                <td class="borderedRight">
+                                    <c:DynamicFormMember type="textWithUnderline" label="Coinsurance" width="30px" value="{!insurancePlanRecord.Out_of_Network_Co_Insurance__c }" value2=""/>
+                                    <span>%</span>
+                                </td>
+                                <td style="width:25%">
+                                    <c:DynamicFormMember type="textWithUnderline" label="Handled By:" value="{!insurancePlanRecord.Pharmacy_Benefits__c}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                    <table>
+                                        <tr>
+                                            <td style="min-width: 100px">
+                                                <c:DynamicFormMember type="textWithUnderline" label="Ind Ded:" width="50px" value="{!insurancePlanRecord.In_Network_Individual_Deductible__c }"/>
+                                            </td>
+                                            <td style="min-width: 100px">
+                                                <c:DynamicFormMember type="textWithUnderline" label="Met:" width="50px" value="{!coverage.In_Network_Deductible_Met__c}"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="borderedRight" style="width:25%">
+                                    <table>
+                                        <tr>
+                                            <td style="min-width: 100px">
+                                                <c:DynamicFormMember type="textWithUnderline" label="Ind Ded:" width="50px" value="{!insurancePlanRecord.Out_of_Network_Individual_Deductible__c }"/>
+                                            </td>
+                                            <td style="min-width: 100px">
+                                                <c:DynamicFormMember type="textWithUnderline" label="Met:" width="50px" value="{!coverage.Out_of_Network_Deductible_Met__c }"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td style="width:25%">
+                                    <c:DynamicFormMember type="textWithUnderline" label="P#:" value="{!insurancePlanRecord.Pharmacy_Benefits_Phone__c }"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                    <table>
+                                        <tr>
+                                            <td style="min-width: 100px">
+                                                <c:DynamicFormMember type="textWithUnderline" label="Fam Ded:"  width="50px" value="{!insurancePlanRecord.In_Network_Family_Deductible__c }"/>
+                                            </td>
+                                            <td style="min-width: 100px">
+                                                <c:DynamicFormMember type="textWithUnderline" label="Met:" width="50px" value="{!coverage.In_Network_Family_Deductible_Met__c }"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="borderedRight" style="width:25%">
+                                    <table>
+                                        <tr>
+                                            <td style="min-width: 100px">
+                                                <c:DynamicFormMember type="textWithUnderline" label="Fam Ded:" width="50px" value="{!insurancePlanRecord.Out_of_Network_Family_Deductible__c }"/>
+                                            </td>
+                                            <td style="min-width: 100px">
+                                                <c:DynamicFormMember type="textWithUnderline" label="Met:" width="50px" value="{!coverage.Out_of_Network_Family_Deductible_Met__c }"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td style="width:25%">
+                                    <!--<c:DynamicFormMember type="textWithUnderline" label="PCN#:" value=""/> {!ic.Pharmacy_Benefits_PCN__c}-->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                    <table>
+                                        <tr>
+                                            <td style="min-width: 100px">
+                                                <c:DynamicFormMember type="textWithUnderline" label="Ind OOP:" width="50px" value="{!insurancePlanRecord.In_Network_Out_of_Pocket_Max__c }"/>
+                                            </td>
+                                            <td style="min-width: 100px">
+                                                <c:DynamicFormMember type="textWithUnderline" label="Met:" width="50px" value="{!coverage.In_Network_Out_of_Pocket_Max_Met__c }"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="borderedRight" style="width:25%">
+                                    <table>
+                                        <tr>
+                                            <td style="min-width: 100px">
+                                                <c:DynamicFormMember type="textWithUnderline" label="Ind OOP:" width="50px" value="{!insurancePlanRecord.Out_of_Network_Out_of_Pocket_Max__c }"/>
+                                            </td>
+                                            <td style="min-width: 100px">
+                                                <c:DynamicFormMember type="textWithUnderline" label="Met:" width="50px" value="{!coverage.Out_of_Network_Out_of_Pocket_Max_Met__c }"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <!-- <c:DynamicFormMember type="textWithUnderline" label="RX GRP#:" value=""/> {!ic.Rx_Group__c} -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                    <table>
+                                        <tr>
+                                            <td style="min-width: 100px">
+                                                <c:DynamicFormMember type="textWithUnderline" label="Fam OOP:" width="50x" value="{!coverage.In_Network_Family_Out_of_Pocket__c }"/>
+                                            </td>
+                                            <td style="min-width: 100px">
+                                                <c:DynamicFormMember type="textWithUnderline" label="Met:" width="50px" value="{!coverage.In_Network_Family_Out_of_Pocket_Met__c }"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="borderedRight">
+                                    <table>
+                                        <tr>
+                                            <td style="min-width: 100px">
+                                                <c:DynamicFormMember type="textWithUnderline" label="Fam OOP:" width="50px" value="{!coverage.Out_of_Network_Family_Out_of_Pocket__c }"/>
+                                            </td>
+                                            <td style="min-width: 100px">
+                                                <c:DynamicFormMember type="textWithUnderline" label="Met:" width="50px" value="{!coverage.Out_of_Network_Family_Out_of_Pocket_Met__c  }"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <!--<c:DynamicFormMember type="textWithUnderline" label="RX BIN#:" value=""/> {!ic.Rx_BIN__c}-->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                    <c:DynamicFormMember type="textWithUnderline" label="Specialist Copay:" value="{!insurancePlanRecord.In_Network_Specialty_Co_Pay__c}"/>
+                                </td>
+                                <td class="borderedRight">
+                                    <c:DynamicFormMember type="textWithUnderline" label="Specialist Copay:" value="{!insurancePlanRecord.Out_of_Network_Speciality_Co_Pay__c}"/>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="therapyTable" style="padding-top: 10px;">
+                    <table cellspacing="0" class="borderedTableSingle" width="100%">
+                        <tbody class="borderedTableSingle">
+                            <tr>
+                               <td class="borderedRight" style="width:25%">
+                                   <span><u><b>Chiro (98940-41)</b></u></span>
+                                </td>
+                                <td class="borderedRight">
+                                    <span><u><b>Physical Therapy (97161)</b></u></span>
+                                </td>
+                                <td style="width:25%">
+                                    <span><u><b>Occupational Therapy (97165)</b></u></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                     <table>
+                                        <tr>
+                                            <td style="width: 100%">
+                                                <c:DynamicFormMember type="customCheckbox2" label="Chiro Based On Medical Necessity:" value="{!insurancePlanRecord.Medical_Necessity_Exemption_for_Chiro__c}" options="Y, N" yesOption="true" noOption="false" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="borderedRight">
+                                     <table>
+                                        <tr>
+                                            <td style="width: 100%">
+                                                <c:DynamicFormMember type="customCheckbox2" label="PT Based On Medical Necessity:" value="{!insurancePlanRecord.Medical_Necessity_Exemption_for_PT__c}" options="Y, N" yesOption="true" noOption="false" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td style="width:25%">
+                                     <table>
+                                        <tr>
+                                            <td style="width: 100%">
+                                                <c:DynamicFormMember type="customCheckbox2" label="OT Based On Medical Necessity:" value="{!insurancePlanRecord.Medical_Necessity_Exemption_for_OT__c}" options="Y, N" yesOption="true" noOption="false" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                     <table>
+                                        <tr>
+                                            <td style="width: 100%">
+                                                <c:DynamicFormMember type="textWithUnderline" display="inline" width="20px" label="Unit Limit Per Visit:" value="{!insurancePlanRecord.Unit_Limit_Per_Visit_Chiro__c}"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="borderedRight">
+                                     <table>
+                                        <tr>
+                                            <td style="width: 100%">
+                                                <c:DynamicFormMember type="textWithUnderline" display="inline" width="20px" label="Unit Limit Per Visit:" value="{!insurancePlanRecord.Unit_Limit_Per_Visit_PT__c}"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td style="width:25%">
+                                     <table>
+                                        <tr>
+                                            <td style="width: 100%">
+                                                <c:DynamicFormMember type="textWithUnderline" display="inline" width="20px" label="Unit Limit Per Visit:" value="{!insurancePlanRecord.Unit_Limit_Per_Visit_OT__c}"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="borderedRight">
+                                     <table>
+                                        <tr>
+                                            <td style="width: 30%">
+                                                <c:DynamicFormMember type="textWithUnderline" label="# Visits:" value="{!insurancePlanRecord.Chiro_Visits_Allowed__c }"/>
+                                            </td>
+                                            <td style="width: 70%">
+                                                <c:DynamicFormMember type="customCheckbox2" label="In/Out:" value="{!insurancePlanRecord.In_Out_of_Network_Chiro_Visits_Combined__c}" options="Y, N" yesOption="true" noOption="false"/> 
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="borderedRight">
+                                     <table>
+                                        <tr>
+                                            <td style="width: 30%">
+                                                <c:DynamicFormMember type="textWithUnderline" label="# Visits:" value="{!insurancePlanRecord.Physical_Therapy_Visits_Allowed__c  }"/>
+                                            </td>
+                                            <td style="width: 70%">
+                                                <c:DynamicFormMember type="customCheckbox2" label="In/Out:" value="{!insurancePlanRecord.In_Out_of_Network_PT_Visits_Combined__c}" options="Y, N" yesOption="true" noOption="false"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td style="width:25%">
+                                     <table>
+                                        <tr>
+                                            <td style="width: 30%">
+                                                <c:DynamicFormMember type="textWithUnderline" label="# Visits:" value="{!insurancePlanRecord.Occupation_Therapy_Visits_Allowed__c }"/>
+                                            </td>
+                                            <td style="width: 70%">
+                                                <c:DynamicFormMember type="customCheckbox2" label="In/Out:" value="{!insurancePlanRecord.In_Out_of_Network_OT_Visits_Combined__c}" options="Y, N" yesOption="true" noOption="false"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                    <table>
+                                        <tr>
+                                            <td style="width: 30%">
+                                                <c:DynamicFormMember type="textWithUnderline" label="Used:" width="60px" value="{!insurancePlanRecord.Chiro_Visits_To_Date__c}"/>
+                                            </td>
+                                            <td style="width: 70%">
+                                                <c:DynamicFormMember type="customCheckbox" label="Visits Comb’d?" width="80px"  value="{!insurancePlanRecord.Chiro_Visits_Combined__c}" options="Yes,No,N/A" yesOption="Yes" noOption="No" unCheckOption="N/A"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="borderedRight" style="width:25%">
+                                    <table>
+                                        <tr>
+                                            <td style="width: 30%">
+                                                <c:DynamicFormMember type="textWithUnderline" label="Used:" width="60px" value="{!insurancePlanRecord.Physical_Therapy_Visits_To_Date__c }"/>
+                                            </td>
+                                            <td style="width: 70%">
+                                                <c:DynamicFormMember type="customCheckbox" label="Visits Comb’d?" width="80px" value="{!insurancePlanRecord.PT_Visits_Combined__c}" options="Yes,No,N/A" yesOption="Yes" noOption="No" unCheckOption="N/A" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td style="width:25%">
+                                    <table>
+                                        <tr>
+                                            <td style="width: 30%">
+                                                <c:DynamicFormMember type="textWithUnderline" label="Used:" width="60px" value="{!insurancePlanRecord.Occupational_Therapy_Visits_To_Date__c }"/>
+                                            </td>
+                                            <td style="width: 70%">
+                                                <c:DynamicFormMember type="customCheckbox" label="Visits Comb’d?" width="80px" value="{!insurancePlanRecord.OT_Visits_Combined__c}" options="Yes,No,N/A" yesOption="Yes" noOption="No" unCheckOption="N/A"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                    <table>
+                                        <tr>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="textWithUnderline" label="Mod Limit:" value="{!insurancePlanRecord.Chiro_Modality_Limit_Per_Date_of_Service__c }"/>
+                                            </td>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="customCheckbox2" label="Hard Max?:" value="{!insurancePlanRecord.Chiro_Hard_Max__c}" options="Y, N" yesOption="true" noOption="false" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="borderedRight" style="width:25%">
+                                    <table>
+                                        <tr>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="textWithUnderline" label="Mod Limit:" value="{!insurancePlanRecord.PT_Modality_Limit_Per_Date_of_Service__c }"/>
+                                            </td>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="customCheckbox2" label="Hard Max?:" value="{!insurancePlanRecord.PT_Hard_Max__c}" options="Y, N" yesOption="true" noOption="false" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td style="width:25%">
+                                   <table>
+                                        <tr>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="textWithUnderline" width="30px" label="Mod Limit:" value="{!insurancePlanRecord.OT_Modality_Limit_Per_Date_of_Service__c }"/>
+                                            </td>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="customCheckbox2" label="Hard Max?:" value="{!insurancePlanRecord.OT_Hard_Max__c}" options="Y, N" yesOption="true" noOption="false" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <!--tr>
+                                <td class="borderedRight">
+                                    <c:DynamicFormMember type="customCheckbox" label="per:" value="{!insurancePlanRecord.Chiro_Modality_Limit_Per_Date_of_Service__c}" options="Day, Visit, Provider"/> 
+                                </td>
+                                <td class="borderedRight" style="width:25%">
+                                    <c:DynamicFormMember type="customCheckbox" label="per:" value="{!insurancePlanRecord.PT_Modality_Limit_Per_Date_of_Service__c}" options="Day, Visit, Provider"/> 
+                                </td>
+                                <td style="width:25%">
+                                   <c:DynamicFormMember type="customCheckbox" label="per:" value="{!insurancePlanRecord.OT_Modality_Limit_Per_Date_of_Service__c}" options="Day, Visit, Provider"/> 
+                                </td>
+                            </tr-->
+                            <tr>
+                                <td class="borderedRight">
+                                    <table>
+                                        <tr>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="checkbox" label="Cigna ASHN?:" value="{!insurancePlanRecord.Chiropractic_Benefits_Cigna_ASHN__c }"/>
+                                            </td>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="customCheckbox2" label="Auth Req?:" value="{!insurancePlanRecord.Authorization_Required_for_Chiro__c }" options="Y, N" yesOption="true" noOption="false"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="borderedRight" style="width:25%">
+                                    <table>
+                                        <tr>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="checkbox" label="Cigna ASHN?:" value="{!insurancePlanRecord.Physical_Therapy_Benefits_Cigna_ASHN__c }"/>
+                                            </td>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="customCheckbox2" label="Auth Req?:" value="{!insurancePlanRecord.Authorization_Required_for_PT__c }" options="Y, N" yesOption="true" noOption="false"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td style="width:25%">
+                                   <table>
+                                        <tr>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="checkbox" label="Cigna ASHN?:" value="{!insurancePlanRecord.Occupational_Therapy_Benefits_Cigna_ASHN__c }"/>
+                                            </td>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="customCheckbox2" label="Auth Req?:" value="{!insurancePlanRecord.Authorization_Required_for_OT__c }" options="Y, N" yesOption="true" noOption="false"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                    <c:DynamicFormMember type="checkbox" label="Referral?:" value="{!insurancePlanRecord.Chiropractic_Referral_Required__c }"/>
+                                </td>
+                                <td class="borderedRight" style="width:25%">
+                                    <c:DynamicFormMember type="checkbox" label="Referral?:" value="{!insurancePlanRecord.Physical_Therapy_Referral_Required__c }"/>
+                                </td>
+                                <td style="width:25%">
+                                   <c:DynamicFormMember type="checkbox" label="Referral?:" value="{!insurancePlanRecord.Occupational_Therapy_Referral_Required__c }"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                    <c:DynamicFormMember type="textWithUnderline" label="Auth Phone#:" value="{!insurancePlanRecord.How_to_Obtain_Chiro_Authorization__c}"/>
+                                </td>
+                                <td class="borderedRight" style="width:25%">
+                                    <c:DynamicFormMember type="textWithUnderline" label="Auth Phone#:" value="{!insurancePlanRecord.How_to_Obtain_PT_Authorization__c}"/> 
+                                </td>
+                                <td style="width:25%">
+                                    <c:DynamicFormMember type="textWithUnderline" label="Auth Phone#:" value="{!insurancePlanRecord.How_to_Obtain_OT_Authorization__c}"/> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                     <c:DynamicFormMember type="textWithUnderline" label="Dollar Limit =" value="{!insurancePlanRecord.Daily_Chiro_Capitated_Fee__c}"/>
+                                </td>
+                                <td class="borderedRight" style="width:25%">
+                                    <c:DynamicFormMember type="textWithUnderline" label="Dollar Limit =" value="{!insurancePlanRecord.Daily_PT_Capitated_Fee__c}"/>
+                                </td>
+                                <td style="width:25%">
+                                   <c:DynamicFormMember type="textWithUnderline" label="Dollar Limit =" value="{!insurancePlanRecord.Daily_OT_Capitated_Fee__c}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight borderBottom">
+                                    <!-- <c:DynamicFormMember type="textWithUnderline" width="30px" label="*if visits comb’d would it count as 1 or 2 visits to do both in one day?" value="{!insurancePlanRecord.Count_As_1_Or_2_Visits__c}"/>-->
+                                    <div style="padding-bottom: 35px;"></div>
+                                </td>
+                                <td class="borderedRight borderBottom" style="width:25%">
+                                   <!-- <c:DynamicFormMember type="textWithUnderline" width="30px" label="*if visits comb’d would it count as 1 or 2 visits to do both in one day?" value="{!insurancePlanRecord.Count_As_1_Or_2_Visits__c }"/>-->
+                                    <div style="padding-bottom: 35px;"></div>
+                                </td>
+                                <td style="width:25%" class="borderBottom">
+                                   <!--<c:DynamicFormMember type="textWithUnderline" width="30px" label="*if visits comb’d would it count as 1 or 2 visits to do both in one day?" value="{!insurancePlanRecord.Count_As_1_Or_2_Visits__c }"/>-->
+                                   <div style="padding-bottom: 35px;"></div>
+                                </td>
+                            </tr>
+                       </tbody>
+                    <!--</table>
+                 </div>
+                <div id="therapyTable2">
+                    <table cellspacing="0" class="borderedTableSingle" width="100%">-->
+                        <tbody class="borderedTableSingle borderTop" style="padding-top: 5px;">
+                            <tr>
+                               <td style="padding-top: 10px;" class="borderTop borderedRight">
+                                   <span><u><b>Acupuncture (97810-11)</b></u></span>
+                                </td>
+                                <td style="padding-top: 10px;" class="borderTop borderedRight">
+                                    <span><u><b>DME (Cost Over $500)</b></u></span>
+                                </td>
+                                <td style="padding-top: 10px;" class="borderTop">
+                                    <span><u><b>Orthotics (L3000)</b></u></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                     <table>
+                                        <tr>
+                                            <td style="width: 100%">
+                                                <c:DynamicFormMember type="customCheckbox2" label="ACU Based On Medical Necessity:" value="{!insurancePlanRecord.Medical_Necessity_Exemption_for_ACU__c}" options="Y, N" yesOption="true" noOption="false" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="borderedRight">
+                                     <table>
+                                        <tr>
+                                            <td style="width: 30%">
+                                                <c:DynamicFormMember type="textWithUnderline" label="# Visits:" value="{!insurancePlanRecord.Acupuncture_Visits_Allowed__c }"/>
+                                            </td>
+                                            <td style="width: 70%">
+                                                <c:DynamicFormMember type="customCheckbox2" label="In/Out:" value="{!insurancePlanRecord.In_Out_of_Network_ACU_Visits_Combined__c}" options="Y, N" yesOption="true" noOption="false"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="borderedRight">
+                                     <table>
+                                        <tr>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="customCheckbox2" label="Auth Req?:" value="{!insurancePlanRecord.Authorization_Required_for_DME__c }" options="Y, N" yesOption="true" noOption="false"/>
+                                            </td>
+                                            <td style="width: 70%">
+                                                <c:DynamicFormMember type="textWithUnderline" label="Phone#:" value="{!insurancePlanRecord.How_To_Obtain_DME_Authorization__c }"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td style="width:25%">
+                                     <table>
+                                        <tr>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="checkbox2" label="Covered:" value2="{!insurancePlanRecord.L3000__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                                            </td>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="customCheckbox2" label="Dx Driven?" value="{!insurancePlanRecord.DME_Diagnosis_Dependent__c}" options="Y, N" yesOption="true" noOption="false"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                    <table>
+                                        <tr>
+                                            <td style="width: 20%">
+                                                <c:DynamicFormMember type="textWithUnderline" label="Used:" width="60px" value="{!insurancePlanRecord.Acupuncture_Visits_To_Date__c}"/>
+                                            </td>
+                                            <td style="width: 80%">
+                                                <c:DynamicFormMember type="customCheckbox" label="Visits Comb’d?" width="80px" value="{!insurancePlanRecord.Acupuncture_Visits_Combined__c}" options="Yes,No,N/A"  yesOption="Yes" noOption="No" unCheckOption="N/A"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="borderedRight">
+                                    <table>
+                                        <tr>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="checkbox2" label="L1833" value2="{!insurancePlanRecord.L1833__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                                            </td>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="checkbox2" label="L0631" value2="{!insurancePlanRecord.L0631__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                                            </td>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="checkbox2" label="L0650" value2="{!insurancePlanRecord.L0650__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                                            </td>                                            
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td style="width:25%">
+                                    <table>
+                                        <tr>
+                                            <td style="width: 20%">
+                                                <c:DynamicFormMember type="checkbox2" label="Auth Req’d?" value2="{!insurancePlanRecord.L3000__c}"  yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                    <table>
+                                        <tr>
+                                            <td style="width: 20%">
+                                                <c:DynamicFormMember type="textWithUnderline" label="Mod Limit:" value="{!insurancePlanRecord.ACU_Modality_Limit_Per_Date_of_Service__c}"/>
+                                            </td>
+                                            <td style="width: 80%">
+                                                <c:DynamicFormMember type="customCheckbox2" label="Hard Max?:" value="{!insurancePlanRecord.Acupuncture_Hard_Max__c}" options="Y, N" yesOption="true" noOption="false" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="borderedRight">
+                                    <table>
+                                        <tr>
+                                           <td style="width: 50%">
+                                               <c:DynamicFormMember type="checkbox2" label="L0180" value2="{!insurancePlanRecord.L0180__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                                            </td>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="checkbox2" label="L0637" value2="{!insurancePlanRecord.L0637__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                
+                              
+                                <td class="borderedRight">
+                                   <table>
+                                        <tr>
+                                            <td style="width: 50%">
+                                             
+                                                <c:DynamicFormMember type="textWithUnderline" label="How many pairs per year?" value="{!insurancePlanRecord.How_many_pairs_of_orthotics_per_year__c}"/>
+                                            </td>
+                                             <td style="width: 50%">
+                                            <c:DynamicFormMember type="customCheckbox2" label="Plan Follows NJ Orthotic Mandate?:" value="{!insurancePlanRecord.Policy_Follow_the_Orthotics_Mandate__c}" options="Y, N" yesOption="true" noOption="false" />
+                                            </td>    
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                 
+                                    <!--c:DynamicFormMember type="customCheckbox" label="per:" value="" options="Day, Visit, Provider"/--> 
+                                </td>
+                                <td class="borderedRight">
+                                    <table>
+                                        <tr>
+                                           <td style="width: 50%">
+                                               <c:DynamicFormMember type="checkbox2" label="TENS: E0730" value2="{!insurancePlanRecord.E0730__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                                            </td>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="checkbox2" label="Knee Brace: L1843-L1846" value2="{!insurancePlanRecord.L1843__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td style="width:25%">
+                                   <c:DynamicFormMember type="textWithUnderline" label="Is the patient eligible ?" value="{!insurancePlanRecord.Patient_Eligible_For_Orhtotics__c }"/>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="borderedRight">
+                                    <table>
+                                        <tr>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="checkbox" label="Cigna ASHN?:" value="{!insurancePlanRecord.Acupuncture_Benefits_Cigna_ASHN__c }"/>
+                                            </td>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="checkbox" label="Auth Req?:" value="{!insurancePlanRecord.Authorization_Required_for_Acupuncture__c }"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="borderedRight">
+                                    <c:DynamicFormMember type="customCheckbox" label="" value="{!RentalRequired}" options="Rental, Purchased" yesOption="Rental" noOption="Purchased"/>
+                                </td>
+                                <td style="width:25%">
+                                    
+                                 
+                                <c:DynamicFormMember type="textWithUnderline" width="30px" label="Follow a Diabetic Mandate:" value="{!insurancePlanRecord.Policy_Follow_a_Diabetic_Mandate__c }"/>
+                                   <c:DynamicFormMember type="textWithUnderline" width="30px" label="MRI (72141):" value="{!insurancePlanRecord.X72141__c }"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                    <c:DynamicFormMember type="checkbox" label="Referral?:" value="{!insurancePlanRecord.Acupuncture_Referral_Required__c }"/>
+                                </td>
+                                <td class="borderedRight">
+                                </td>
+                                <td style="width:25%">
+                                   <!--<c:DynamicFormMember type="checkbox" label="Is there a separate DME ded for Orthotics?" value=""/> <!--{!ic.Seperate_DME_ded_for_Orthotics__c}-->
+                                    <table>
+                                        <tr>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="checkbox" label="In Net Auth?" value="{!insurancePlanRecord.X72141_In_Net_Auth__c}"/>
+                                            </td>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="textWithUnderline" label="#" value="{!insurancePlanRecord.X72141_In_Net_Auth_Phone__c}"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                    <c:DynamicFormMember type="textWithUnderline" label="Auth Phone#:" value="{!insurancePlanRecord.How_to_Obtain_Acupuncture_Authorization__c }"/>
+                                </td>
+                                <td class="borderedRight">
+                                </td>
+                                <td style="width:25%">
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                    <c:DynamicFormMember type="textWithUnderline" label="DX Limitations:" value=""/> <!--{!ic.DX_Limitations__c}-->
+                                </td>
+                                <td class="borderedRight">
+                                    <!--<c:DynamicFormMember type="textWithUnderline" label="Is this policy part of the State Health Benefit Plan?" value=""/>-->
+                                </td>
+                                <td style="width:25%">
+                                    <table>
+                                        <tr>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="checkbox" label="OON Auth?" value="{!insurancePlanRecord.X72141_OON_Auth__c}"/>
+                                            </td>
+                                            <td style="width: 50%">
+                                                <c:DynamicFormMember type="textWithUnderline" label="#" value="{!insurancePlanRecord.X72141_OON_Auth_Phone__c}"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                     <c:DynamicFormMember type="textWithUnderline" label="Dollar Limit =" value="{!insurancePlanRecord.Daily_Acupuncture_Capitated_Fee__c}"/>
+                                </td>
+                                <td class="borderedRight">
+                                </td>
+                                <td style="width:25%">
+                                   
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                     <!--<c:DynamicFormMember type="textWithUnderline" width="30px" label="*if visits comb’d would it count as 1 or 2 visits to do both in one day?" value="{!insurancePlanRecord.Acupuncture_Visits_Combined__c }"/>-->
+                                </td>
+                                <td class="borderedRight">
+                                    
+                                </td>
+                                <td style="width:25%">
+                                   
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <br/>
+                 <table width="100%"> 
+                        <tr>
+                            <td style="width:50%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Does plan allow co-treatment?"  value="{!insurancePlanRecord.Does_plan_allow_co_treatment__c}"/>
+                            </td>
+                     <!--  </tr>
+                    <tr>
+                           <td style="width:30%; word-wrap: break-word;">
+                            <c:DynamicFormMember type="textWithUnderline" label="Co-treatment Notes:" width="100%" value="{!insurancePlanRecord.Co_treatment_Notes__c}"/>
+                        </td>-->
+                            <td style="width:50%">
+                                <c:DynamicFormMember type="textWithUnderline" label="Co-treatment Notes:"  value="{!insurancePlanRecord.Co_treatment_Notes__c}"/>
+                            </td>
+                            
+                        </tr>
+                    </table>
+                <br/>
+                <div id="chiroSingle" style="padding-top: 10px;">
+                    <table class="borderedTableSingle" width="100%">
+                        <tbody class="borderedTableSingle">
+                            <tr>
+                                <td>
+                                    <c:DynamicFormMember type="textWithUnderline" label="Can chiro bill? 97124: Massage" value="{!insurancePlanRecord.X97124__c}"/>
+                                </td>
+                                <td>
+                                    <c:DynamicFormMember type="textWithUnderline" label="29799: Strapping of L/S" value="{!insurancePlanRecord.X29799__c}"/>
+                                </td>
+                                <td>
+                                    <c:DynamicFormMember type="textWithUnderline" label="72110: XRAY" value="{!insurancePlanRecord.X72110__c}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <c:DynamicFormMember type="textWithUnderline" label="Can ACU bill 97140: Manual Therapy (PT Mod)" value="{!insurancePlanRecord.X97140__c}"/>
+                                </td>
+                                <td>
+                                    <c:DynamicFormMember type="textWithUnderline" label="78265: Heidelberg Test:" value="{!insurancePlanRecord.X78265__c}"/>
+                                </td>
+                                <td>
+                                    <c:DynamicFormMember type="textWithUnderline" label="DX Driven?" value=""/> <!--{!ic.Are_these_codes_DX_driven__c}-->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <c:DynamicFormMember type="textWithUnderline" label="Auth Req’d?" value=""/> <!--{!ic.Auth_Req_d_for_MD_Office_Visit__c}-->
+                                </td>
+                                <td>
+                                    <c:DynamicFormMember type="textWithUnderline" label="Can OT Bill L3764: Splinting of El" width="20px" value="{!insurancePlanRecord.L3764__c}"/>
+                                </td>
+                                <td>
+                                    <c:DynamicFormMember type="textWithUnderline" label="L3919: Splinting of W/H/F" value="{!insurancePlanRecord.L3919__c}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <c:DynamicFormMember type="textWithUnderline" label="Can Acu bill? 97139: Cupping (Manual Therapy)" value="{!insurancePlanRecord.X97139__c}"/>
+                                </td>
+                                <td>
+                                    <c:DynamicFormMember type="textWithUnderline" label="L3906: Splinting of W/H/F" value="{!insurancePlanRecord.L3906__c}"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="DiagnosisDependent" style="padding-top: 10px;">
+                    <table class="borderedTableSingle" width="100%">
+                        <tbody class="borderedTableSingle">
+                            <tr>
+                                <td>
+                                    <c:DynamicFormMember type="customCheckbox2" label="Acupuncture Service Diagnosis Dependent?:" value="{!insurancePlanRecord.Acupuncture_Service_Diagnosis_Dependent__c}" options="Y, N" yesOption="true" noOption="false" />
+                                </td> 
+                                <td>
+                                    <c:DynamicFormMember type="customCheckbox2" label="DME Diagnosis Dependent?:" value="{!insurancePlanRecord.DME_Diagnosis_Dependent__c}" options="Y, N" yesOption="true" noOption="false" />
+                                </td>
+                                <td>
+                                    <c:DynamicFormMember type="customCheckbox2" label="Procedures Diagnosis Dependent?:" value="{!insurancePlanRecord.Procedures_Diagnosis_Dependent__c}" options="Y, N" yesOption="true" noOption="false" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <c:DynamicFormMember type="textWithUnderline" label="Exclusions in Covering Acupuncture" value="{!insurancePlanRecord.Exclusions_in_Covering_Acupuncture__c}"/>
+                                </td>
+                                <td>
+                                    <c:DynamicFormMember type="textWithUnderline" label="DME Diagnosis Codes:" value="{!insurancePlanRecord.DME_Diagnosis_Codes__c}"/>
+                                </td>
+                                <td>
+                                    <c:DynamicFormMember type="textWithUnderline" label="Procedure Diagnosis Codes:" value="{!insurancePlanRecord.Procedure_Diagnosis_Codes__c}"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="injection" style="padding-top: 10px;">
+                    <table cellspacing="0" class="borderedTableSingle" width="100%">
+                        <tbody class="borderedTableSingle">
+                            <tr>
+                               <td class="borderedRight" style="width:25%; padding-bottom: 5px;">
+                                   <span><b>20610 – Major Joint Injection</b></span>
+                                </td>
+                                <td class="borderedRight" style="width:25%; padding-bottom: 5px;">
+                                    <span><b>62290 – Lumbar Discogram</b></span>
+                                </td>
+                                <td class="borderedRight" style="width:25%; padding-bottom: 5px;">
+                                    <span><b>95886 - EMG</b></span>
+                                </td>
+                                <td style="width:25%; padding-bottom: 5px;">
+                                    <span><b>20552-20553 – Trigger Point Injection</b></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                   <c:DynamicFormMember type="checkbox2" label="Covered & Bilalble?" value2="{!insurancePlanRecord.X20610__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                                </td>
+                                <td class="borderedRight">
+                                   <c:DynamicFormMember type="checkbox2" label="Covered & Bilalble?" value2="{!insurancePlanRecord.X62290__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                                </td>
+                                <td class="borderedRight">
+                                   <c:DynamicFormMember type="checkbox2" label="Covered & Bilalble?" value2="{!insurancePlanRecord.X95886__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                                </td>
+                                <td>
+                                   <c:DynamicFormMember type="checkbox2" label="Covered & Bilalble?" value2="{!insurancePlanRecord.X20552__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                   <c:DynamicFormMember type="checkbox2" label="Auth req'd?" value2="{!insurancePlanRecord.X20610__c}" yesOption="Yes covered, AUTH REQ" noOption="Yes covered, NO AUTH REQ" unCheckOption="No, Not covered"/>
+                                </td>
+                                <td class="borderedRight">
+                                   <c:DynamicFormMember type="checkbox2" label="Auth req'd?" value2="{!insurancePlanRecord.X62290__c}" yesOption="Yes covered, AUTH REQ" noOption="Yes covered, NO AUTH REQ" unCheckOption="No, Not covered"/>
+                                </td>
+                                <td class="borderedRight">
+                                   <c:DynamicFormMember type="checkbox2" label="Auth req'd?" value2="{!insurancePlanRecord.X95886__c}" yesOption="Yes covered, AUTH REQ" noOption="Yes covered, NO AUTH REQ" unCheckOption="No, Not covered"/>
+                                </td>
+                                <td>
+                                   <c:DynamicFormMember type="checkbox2" label="Auth req'd?" value2="{!insurancePlanRecord.X20552__c}" yesOption="Yes covered, AUTH REQ" noOption="Yes covered, NO AUTH REQ" unCheckOption="No, Not covered"/>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td class="borderedRight">
+                                   <!-- <c:DynamicFormMember type="customCheckbox2" label="Dx Driven?" value="" options="Y, N, MN" yesOption="No, Not covered" noOption="Yes covered, NO AUTH REQ" /> -->
+                                </td>
+                                <td class="borderedRight">
+                                   <!-- <c:DynamicFormMember type="customCheckbox2" label="Dx Driven?" value="" options="Y, N, MN" yesOption="No, Not covered" noOption="Yes covered, NO AUTH REQ" /> -->
+                                </td>
+                                <td class="borderedRight">
+                                   <!-- <c:DynamicFormMember type="customCheckbox2" label="Dx Driven?" value="" options="Y, N, MN" yesOption="No, Not covered" noOption="Yes covered, NO AUTH REQ" /> -->
+                                </td>
+                                <td>
+                                   <!-- <c:DynamicFormMember type="customCheckbox2" label="Dx Driven?" value="" options="Y, N, MN" yesOption="No, Not covered" noOption="Yes covered, NO AUTH REQ" /> -->
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody class="borderedTableSingle">
+                            <tr>
+                               <td class="borderedRight borderTop" style="width:25%; padding-bottom: 5px;">
+                                   <span><b>62321 –Cervical/Thoracic Epidural Steroid Injection</b></span>
+                                </td>
+                                <td class="borderedRight borderTop" style="width:25%; padding-bottom: 5px;">
+                                    <span><b>62323 – Lumbar Epidural Steroid Injection</b></span>
+                                </td>
+                                <td class="borderedRight borderTop" style="width:25%; padding-bottom: 5px;">
+                                    <span><b>64483 – Transforaminal Epidural</b></span>
+                                </td>
+                                <td class="borderTop" style="width:25%; padding-bottom: 5px;">
+                                    <span><b>95907-95913 - NCV</b></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                   <c:DynamicFormMember type="checkbox2" label="Covered & Bilalble?" value2="{!insurancePlanRecord.X62321__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                                </td>
+                                <td class="borderedRight">
+                                   <c:DynamicFormMember type="checkbox2" label="Covered & Bilalble?" value2="{!insurancePlanRecord.X62323__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                                </td>
+                                <td class="borderedRight">
+                                   <c:DynamicFormMember type="checkbox2" label="Covered & Bilalble?" value2="{!insurancePlanRecord.X64483__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                                </td>
+                                <td>
+                                   <c:DynamicFormMember type="checkbox2" label="Covered & Bilalble?" value2="{!insurancePlanRecord.X95907_95913__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                   <c:DynamicFormMember type="checkbox2" label="Auth req'd?" value2="{!insurancePlanRecord.X62321__c}" yesOption="Yes covered, AUTH REQ" noOption="Yes covered, NO AUTH REQ" unCheckOption="No, Not covered"/>
+                                </td>
+                                <td class="borderedRight">
+                                   <c:DynamicFormMember type="checkbox2" label="Auth req'd?" value2="{!insurancePlanRecord.X62323__c}" yesOption="Yes covered, AUTH REQ" noOption="Yes covered, NO AUTH REQ" unCheckOption="No, Not covered"/>
+                                </td>
+                                <td class="borderedRight">
+                                   <c:DynamicFormMember type="checkbox2" label="Auth req'd?" value2="{!insurancePlanRecord.X64483__c}" yesOption="Yes covered, AUTH REQ" noOption="Yes covered, NO AUTH REQ" unCheckOption="No, Not covered"/>
+                                </td>
+                                <td>
+                                   <c:DynamicFormMember type="checkbox2" label="Auth req'd?" value2="{!insurancePlanRecord.X95907_95913__c}" yesOption="Yes covered, AUTH REQ" noOption="Yes covered, NO AUTH REQ" unCheckOption="No, Not covered"/>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td class="borderedRight">
+                                   <!-- <c:DynamicFormMember type="customCheckbox2" label="Dx Driven?" value="" options="Y, N, MN" yesOption="No, Not covered" noOption="Yes covered, NO AUTH REQ" /> -->
+                                </td>
+                                <td class="borderedRight">
+                                   <!-- <c:DynamicFormMember type="customCheckbox2" label="Dx Driven?" value="" options="Y, N, MN" yesOption="No, Not covered" noOption="Yes covered, NO AUTH REQ" /> -->
+                                </td>
+                                <td class="borderedRight">
+                                   <!-- <c:DynamicFormMember type="customCheckbox2" label="Dx Driven?" value="" options="Y, N, MN" yesOption="No, Not covered" noOption="Yes covered, NO AUTH REQ" /> -->
+                                </td>
+                                <td>
+                                   <!-- <c:DynamicFormMember type="customCheckbox2" label="Dx Driven?" value="" options="Y, N, MN" yesOption="No, Not covered" noOption="Yes covered, NO AUTH REQ" /> -->
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody class="borderedTableSingle">
+                            <tr>
+                               <td class="borderedRight borderTop" style="width:25%; padding-bottom: 5px;">
+                                   <span><b>64490 – Cervical Facet Block</b></span>
+                                </td>
+                                <td class="borderedRight borderTop" style="width:25%; padding-bottom: 5px;">
+                                    <span><b>J7320 – Genvisc</b></span>
+                                </td>
+                                <td class="borderedRight borderTop" style="width:25%; padding-bottom: 5px;">
+                                    <span><b>J7324 – Orthovisc</b></span>
+                                </td>
+                                <td class="borderTop" style="width:25%; padding-bottom: 5px;">
+                                    <span><b>J7327 – Monovisc</b></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                   <c:DynamicFormMember type="checkbox2" label="Covered & Bilalble?" value2="{!insurancePlanRecord.X64490__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                                </td>
+                                <td class="borderedRight">
+                                   <c:DynamicFormMember type="checkbox2" label="Covered & Bilalble?" value2="{!insurancePlanRecord.J7320__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                                </td>
+                                <td class="borderedRight">
+                                   <c:DynamicFormMember type="checkbox2" label="Covered & Bilalble?" value2="{!insurancePlanRecord.J7324__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                                </td>
+                                <td>
+                                   <c:DynamicFormMember type="checkbox2" label="Covered & Bilalble?" value2="{!insurancePlanRecord.J7327__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                   <c:DynamicFormMember type="checkbox2" label="Auth req'd?" value2="{!insurancePlanRecord.X64490__c}" yesOption="Yes covered, AUTH REQ" noOption="Yes covered, NO AUTH REQ" unCheckOption="No, Not covered"/>
+                                </td>
+                                <td class="borderedRight">
+                                   <c:DynamicFormMember type="checkbox2" label="Auth req'd?" value2="{!insurancePlanRecord.J7320__c}" yesOption="Yes covered, AUTH REQ" noOption="Yes covered, NO AUTH REQ" unCheckOption="No, Not covered"/>
+                                </td>
+                                <td class="borderedRight">
+                                   <c:DynamicFormMember type="checkbox2" label="Auth req'd?" value2="{!insurancePlanRecord.J7324__c}" yesOption="Yes covered, AUTH REQ" noOption="Yes covered, NO AUTH REQ" unCheckOption="No, Not covered"/>
+                                </td>
+                                <td>
+                                   <c:DynamicFormMember type="checkbox2" label="Auth req'd?" value2="{!insurancePlanRecord.J7327__c}" yesOption="Yes covered, AUTH REQ" noOption="Yes covered, NO AUTH REQ" unCheckOption="No, Not covered"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                   <!-- <c:DynamicFormMember type="customCheckbox2" label="Dx Driven?" value="" options="Y, N, MN" yesOption="No, Not covered" noOption="Yes covered, NO AUTH REQ" /> -->
+                                </td>
+                                <td class="borderedRight">
+                                   <!-- <c:DynamicFormMember type="customCheckbox2" label="Dx Driven?" value="" options="Y, N, MN" yesOption="No, Not covered" noOption="Yes covered, NO AUTH REQ" /> -->
+                                </td>
+                                <td class="borderedRight">
+                                   <!-- <c:DynamicFormMember type="customCheckbox2" label="Dx Driven?" value="" options="Y, N, MN" yesOption="No, Not covered" noOption="Yes covered, NO AUTH REQ" /> -->
+                                </td>
+                                <td>
+                                   <!-- <c:DynamicFormMember type="customCheckbox2" label="Dx Driven?" value="" options="Y, N, MN" yesOption="No, Not covered" noOption="Yes covered, NO AUTH REQ" /> -->
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody class="borderedTableSingle">
+                            <tr>
+                              <td class="borderedRight borderTop" style="width:25%; padding-bottom: 5px;">
+                                  <span><b>J7325 – Synvisc</b></span>
+                                </td>
+                                <td class="borderedRight borderTop" style="width:25%; padding-bottom: 5px;">
+                                    <span><b>J7322 - Hymovis</b></span>
+                                </td>
+                                <td class="borderTop" style="width:25%; padding-bottom: 5px;">
+                                    <span><b>Can patient treat @ ASC?</b></span>
+                                </td>
+                                <td class="borderedRight borderTop" style="width:25%; padding-bottom: 5px;">
+                                    <!--<span><b>J0585 - Botox Inj</b></span>-->
+                                    <span><b>36475 - Vein Ablation</b></span>
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                   <c:DynamicFormMember type="checkbox2" label="Covered & Bilalble?" value2="{!insurancePlanRecord.J7325__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                                </td>
+                                <td class="borderedRight">
+                                   <c:DynamicFormMember type="checkbox2" label="Covered & Bilalble?" value2="{!insurancePlanRecord.J7322__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                                </td>
+                                <td class="borderedRight">
+                                </td>
+                                <td class="borderedRight">
+                                   <!--<c:DynamicFormMember type="checkbox2" label="Covered & Bilalble?" value2="" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ"/>-->
+                                    <c:DynamicFormMember type="checkbox2" label="Covered & Bilalble?" value2="{!insurancePlanRecord.X36475__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                   <c:DynamicFormMember type="checkbox2" label="Auth req'd?" value2="{!insurancePlanRecord.J7325__c}" yesOption="Yes covered, AUTH REQ" noOption="Yes covered, NO AUTH REQ" unCheckOption="No, Not covered"/>
+                                </td>
+                                <td class="borderedRight">
+                                   <c:DynamicFormMember type="checkbox2" label="Auth req'd?" value2="{!insurancePlanRecord.J7322__c}" yesOption="Yes covered, AUTH REQ" noOption="Yes covered, NO AUTH REQ" unCheckOption="No, Not covered"/>
+                                </td>
+                                <td>
+                                   <c:DynamicFormMember type="checkbox" label="" value="{!insurancePlanRecord.Can_patient_treat_at_ASC__c}"/>
+                                </td>
+                                <!--
+                                <td class="borderedRight">
+                                   <c:DynamicFormMember type="checkbox2" label="Auth req'd?" value2="" yesOption="Yes covered, AUTH REQ" noOption="Yes covered, NO AUTH REQ"/>
+                                </td>-->
+                                <td class="borderedRight">
+                                    <c:DynamicFormMember type="checkbox2" label="Auth req'd?" value2="{!insurancePlanRecord.X36475__c}" yesOption="Yes covered, AUTH REQ" noOption="Yes covered, NO AUTH REQ" unCheckOption="No, Not covered"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="borderedRight">
+                                   <!-- <c:DynamicFormMember type="customCheckbox2" label="Dx Driven?" value="" options="Y, N, MN" yesOption="No, Not covered" noOption="Yes covered, NO AUTH REQ" /> -->
+                                </td>
+                                <td class="borderedRight">
+                                  <!-- <c:DynamicFormMember type="customCheckbox2" label="Dx Driven?" value="" options="Y, N, MN" yesOption="No, Not covered" noOption="Yes covered, NO AUTH REQ" /> -->
+                                </td>
+                                <td class="borderedRight">
+                                  <!-- <c:DynamicFormMember type="customCheckbox2" label="Dx Driven?" value="" options="Y, N, MN" yesOption="No, Not covered" noOption="Yes covered, NO AUTH REQ" /> -->
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+               <table style="padding-top: 20px;" width="100%">
+                    <tr>
+                        <td style="width:30%; word-wrap: break-word;">
+                            <span>Notes &amp; Auth #</span>
+                            <span style="display: inline-block;border-bottom: 0.5px solid black; min-width: 100px;text-align: center;">
+                                <apex:outputPanel rendered="{!NOT(ISNULL(insurancePlanRecord.Chiropractic_Benefits_Notes__c))}">
+                                    <b>Chiro Notes:</b> {!insurancePlanRecord.Chiropractic_Benefits_Notes__c}
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!insurancePlanRecord.Medicare_Notes__c != ''}">
+                                    <b>Medicare Notes:</b> {!insurancePlanRecord.Medicare_Notes__c}
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!insurancePlanRecord.Occupational_Therapy_Benefits_Notes__c != ''}">
+                                    <b>OT Notes:</b> {!insurancePlanRecord.Occupational_Therapy_Benefits_Notes__c}
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!insurancePlanRecord.Physical_Therapy_Benefits_Notes__c != ''}">
+                                    <b>PT Notes:</b> {!insurancePlanRecord.Physical_Therapy_Benefits_Notes__c}
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!insurancePlanRecord.Acupuncture_Therapy_Benefits_Notes__c != ''}">
+                                    <b>ACU Notes:</b> {!insurancePlanRecord.Acupuncture_Therapy_Benefits_Notes__c}
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!insurancePlanRecord.DME_Benefits_Notes__c != ''}">
+                                    <b>DME Notes:</b> {!insurancePlanRecord.DME_Benefits_Notes__c}
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!insurancePlanRecord.Procedure_Benefits_Notes__c != ''}">
+                                    <b>Procedure Notes:</b> {!insurancePlanRecord.Procedure_Benefits_Notes__c}
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!insurancePlanRecord.Deductible_Co_Insurance_Notes__c != ''}">
+                                    <b>Decutible Co Insurance Notes:</b> {!insurancePlanRecord.Deductible_Co_Insurance_Notes__c}
+                                </apex:outputPanel>
+                            </span>
+                            <span style="padding-right: 3px"></span>
+                        </td>
+                    </tr>
+                </table>
+                <!-- <table style="padding-top: 20px;" width="100%">
+                    <tr>
+                        <td style="width:30%; word-wrap: break-word;">
+                            <span>Notes &amp; Auth #</span>
+                            <span style="display: inline-block;border-bottom: 0.5px solid black; min-width: 100px;text-align: center;">
+                                <apex:outputPanel rendered="{!insurancePlanRecord.Procedure_Benefits_Notes__c != ''}">
+                                    {!insurancePlanRecord.Procedure_Benefits_Notes__c}
+                                </apex:outputPanel>
+                                 </span>
+                            <span style="padding-right: 3px"></span>
+                        </td>
+                    </tr>
+                </table>-->
+                <table width="100%">
+                    <tr>
+                        <td style="word-wrap: break-word;">
+                            <c:DynamicFormMember type="checkbox2" label="Is Viscosupplementation covered?" value2="{!insurancePlanRecord.Viscosupplementation_Covered__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="word-wrap: break-word;">
+                            <c:DynamicFormMember type="customCheckbox" label="If so, what is this plan's preferred drug? (pick one):" value="{!insurancePlanRecord.Viscosupplementation_Preferred_Drug__c}" options="Orthovisc, Euflexxa, Synvisc, Hymovis" />
+                        </td>
+                    </tr>
+                </table>
+                <table width="100%">
+                    <tr>
+                        <td style="width:30%; word-wrap: break-word;">
+                            <c:DynamicFormMember type="checkbox2" label="J7324" value2="{!insurancePlanRecord.J7324__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                        </td>
+                    </tr>
+                </table>
+                <table width="100%">
+                    <tr>
+                        <td style="width:30%; word-wrap: break-word;">
+                            <c:DynamicFormMember type="checkbox2" label="J7320" value2="{!insurancePlanRecord.J7320__c}" yesOption="Yes covered, NO AUTH REQ" yesOption2="Yes covered, AUTH REQ" noOption="No, Not covered"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:30%; word-wrap: break-word;">                                                                   
+                            <c:DynamicFormMember type="checkbox2" label="Can we buy and bill these codes?" value2="{!insurancePlanRecord.Buy_and_Bill_Injection_Codes__c }" yesOption="Yes" noOption="No"/>
+                            <!--<c:DynamicFormMember type="customCheckbox2" label="Can we buy and bill these codes?" value="{!insurancePlanRecord.Can_we_buy_and_bill_injection_codes__c}" options="Yes covered AUTH REQ, Yes covered NO AUTH REQ, No Not covered" yesOption="Yes covered, AUTH REQ" yesOption2="Yes covered, NO AUTH REQ" noOption="No, Not covered" />-->
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td style="width:30%; word-wrap: break-word;">
+                            <c:DynamicFormMember type="textWithUnderline" label="What is the authorization process for this drug?" width="100%" value="{!insurancePlanRecord.Injection_Authorization_Process__c}"/>
+                        </td>
+                    </tr>
+                </table>
+                <div id="misc" style="padding-top:15px;">
+                    <table width="100%">
+                        <tr>
+                            <td>
+                                <c:DynamicFormMember type="textWithUnderline" label="FH / 144 / OB / EB / MD:" value=""/>
+                            </td>
+                            <td>
+                                <c:DynamicFormMember type="textWithUnderline" label="Verified By:" value="{!$User.FirstName}"/>
+                            </td>
+                            <td>
+                                <c:DynamicFormMember type="textWithUnderline" label="Date:" value="{!todayDate}"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="100%">
+                        <tr>
+                            <td>
+                                 <c:DynamicFormMember type="textWithUnderline" label="Name:" value="{!insurancePlanRecord.Insurance_Company_Representative__c}"/>
+                            </td>
+                            <td>
+                                <c:DynamicFormMember type="textWithUnderline" label="Ref#:" value="{!insurancePlanRecord.Call_Reference_Number__c}"/>
+                            </td>
+                            <td>
+                                <c:DynamicFormMember type="textWithUnderline" label="Time On Call:" value="{!insurancePlanRecord.Call_Length__c}"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="margin-top:15px;">
+                    <table width="100%">
+                        <tr> 
+                            <td style="width:30%; word-wrap: break-word;">
+                                <c:DynamicFormMember type="textWithUnderline" label="Where can we send SITUS to?" width="100%" value="{!insurancePlanRecord.Where_can_we_send_SITUS_to__c}"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+       </apex:form>
+    </body>    
+</apex:page>

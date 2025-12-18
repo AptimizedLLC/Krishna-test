@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Old_Bridge_IV_Complete_Create_PA</fullName>
+    <columns>Appointment_Date__c</columns>
+    <columns>Potential_Patient__c</columns>
+    <columns>Patient__c</columns>
+    <columns>NAME</columns>
+    <columns>High_Priority__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Office__c</field>
+        <operation>contains</operation>
+        <value>ACU PERRINE,OLD BRIDGE OFFICE</value>
+    </filters>
+    <filters>
+        <field>Insurance_Reimbursement_Type__c</field>
+        <operation>notEqual</operation>
+        <value>Specialist Fee,Medicare,Cash Rates/Has OON-High Ded,Cash Rates/In Network Only/Tiered Plan,Cash Rates/Medicaid,Cash Rates/No Insurance,PIP/MVA,WC</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Verification Complete</value>
+    </filters>
+    <label>Old Bridge - IV Complete - Create PA</label>
+</ListView>

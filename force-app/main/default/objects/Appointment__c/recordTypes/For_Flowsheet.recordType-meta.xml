@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>For_Flowsheet</fullName>
+    <active>true</active>
+    <label>For Flowsheet</label>
+    <picklistValues>
+        <picklist>Appointment_Approval__c</picklist>
+        <values>
+            <fullName>Approve Appointment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending My Approval</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sent Back To Provider</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sent for Approval</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Appointment_Status__c</picklist>
+        <values>
+            <fullName>Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Billed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Compliance Review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending Flowsheet Entry</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Provider Review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sent Back To Floor staff</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Cancel_Follow_Up_Status__c</picklist>
+        <values>
+            <fullName>In Process</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Left Voicemail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Need to Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Interested</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referred Out</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rescheduled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unable To Contact</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Fee_Schedule__c</picklist>
+        <values>
+            <fullName>1199 Fee Schedule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>70 MRC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>80 MRC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>90 MRC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aetna Allowable Rate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Anthem Allowed Amount</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CMS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cigna MRC 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cigna MRC 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contracted Provider Rates</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Custom Fee Schedule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customary Rates%2C GEHA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DataIsight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GHI Fee Schedule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Network PPO Rate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Local</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MCR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MNRP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MTA Fee Schedule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Magnacare Allowable Rate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Max Allowed Amount</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medicaid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medicare Allowed Amount</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Negotiated Rates</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No OON</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OON Commercial Rates</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pay as Billed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Process Claims First</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>R%26C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Self Pay</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Third Party</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tricare Maximum Allowable Charge</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>U%26C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UCR</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Imaging_Not_Reviewed_Reason__c</picklist>
+        <values>
+            <fullName>Imaging Available But No Report</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Patient Did Not Bring Imaging</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Imaging_Reviewed__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Intake_Type__c</picklist>
+        <values>
+            <fullName>Cash Pay</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Major Med</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medicare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PIP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WC</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MD_Follow_Up_Reason__c</picklist>
+        <values>
+            <fullName>During Active Conservative Care</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PRN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Post Imaging</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Post Procedure</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MD_Follow_Up__c</picklist>
+        <values>
+            <fullName>1 Week</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2 Weeks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3 Weeks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4 Weeks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PRN</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MD_Next_Step__c</picklist>
+        <values>
+            <fullName>Active Conservative Care</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Imaging</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PRN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Procedure and%2For Surgery</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>New_Patient_Confirmation_Call__c</picklist>
+        <values>
+            <fullName>Confirmed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Confirmed w%2F Payment Arrangement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Left Voicemail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Need to Call</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Patient_Type__c</picklist>
+        <values>
+            <fullName>Net New</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Returning New</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Policy_Type__c</picklist>
+        <values>
+            <fullName>Auto Insurance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blue Cross Blue Shield</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Capitation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Choice EPO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Choice Plus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commercial Insurance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Exclusive Provider Organization %28EPO%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Federal Employees Program</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HMO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indemnity Insurance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medicaid HMO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medicare A</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medicare B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medicare HMO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medicare POS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medicare PPO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medicare Supplement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Open Access</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other Federal Program</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other Non-Federal Programs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Out of State</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>POS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PPO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Self Pay</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Workers Compensation</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Precert_Appointment__c</picklist>
+        <values>
+            <fullName>Precert Appointment Not Required Yet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Precert Appointment Required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Precert Appointment Set</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Provider_Specialty__c</picklist>
+        <values>
+            <fullName>Acupuncturist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chiropractor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Foot %26 Ankle Surgery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Multi-Specialty</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Neurology</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Occupational Therapist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Occupational Therapy Assistant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Orthopaedic Surgery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Orthopaedic Surgeryofthe Spine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pain Medicine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Physical Therapist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Physical Therapy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Physical Therapy Assistant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Physician Assistant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sports Medicine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Surgery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Surgical</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reimbursement_Type__c</picklist>
+        <values>
+            <fullName>HMO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MCR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PPO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Self Pay</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Upper CMS</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Approved %E2%80%93 Pending Billing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Billed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Checked-In</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Checked-Out</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Compliance Review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In-Progress In-Room</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In-Progress Out-Room</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manually Billed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Requested</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Submitted-InReview</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Visits_Per_Week__c</picklist>
+        <values>
+            <fullName>1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Discharged</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

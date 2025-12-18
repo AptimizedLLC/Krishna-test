@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>flowsheet_updated</name>
+        <label>flowsheet updated</label>
+        <locationX>182</locationX>
+        <locationY>539</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>true</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Flowsheet_Updated__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Created_Flowsheet_History</targetReference>
+            </connector>
+            <label>true</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>true_or_false</name>
+        <label>true or false</label>
+        <locationX>380</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Copy_1_of_Update_minutes</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Outcome_1_of_true_or_false</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.FlowSheet_Generated__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_minutes</targetReference>
+            </connector>
+            <label>Outcome 1 of true or false</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>Summary1</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND({!$Record.Flowsheet__r.Code_1__c}, NOT(ISBLANK({!$Record.Flowsheet__r.OtherExercises1__c}))),
+    &apos;97110: &apos; &amp; {!$Record.Flowsheet__r.OtherExercises1__c} &amp; &apos; || &apos;,
+    &apos;&apos;
+) &amp;
+
+IF(
+    AND({!$Record.Flowsheet__r.Code_2__c}, NOT(ISBLANK({!$Record.Flowsheet__r.OtherExercises2__c}))),
+    &apos;97530: &apos; &amp; {!$Record.Flowsheet__r.OtherExercises2__c} &amp; &apos; || &apos;,
+    &apos;&apos;
+) &amp;
+
+IF(
+    AND({!$Record.Flowsheet__r.Code_3__c}, NOT(ISBLANK({!$Record.Flowsheet__r.OtherExercises3__c}))),
+    &apos;97112: &apos; &amp; {!$Record.Flowsheet__r.OtherExercises3__c} &amp; &apos; || &apos;,
+    &apos;&apos;
+) &amp;
+
+IF(
+    AND({!$Record.Flowsheet__r.Code_4__c}, NOT(ISBLANK({!$Record.Flowsheet__r.OtherExercises4__c}))),
+    &apos;97140: &apos; &amp; {!$Record.Flowsheet__r.OtherExercises4__c} &amp; &apos; || &apos;,
+    &apos;&apos;
+) &amp;
+
+IF(
+    AND({!$Record.Flowsheet__r.Code_5__c}, NOT(ISBLANK({!$Record.Flowsheet__r.OtherExercises5__c}))),
+    &apos;97750: &apos; &amp; {!$Record.Flowsheet__r.OtherExercises5__c} &amp; &apos; || &apos;,
+    &apos;&apos;
+) &amp;
+
+IF(
+    AND({!$Record.Flowsheet__r.Code_6__c}, NOT(ISBLANK({!$Record.Flowsheet__r.OtherExercises6__c}))),
+    &apos;97012: &apos; &amp; {!$Record.Flowsheet__r.OtherExercises6__c} &amp; &apos; || &apos;,
+    &apos;&apos;
+) &amp;
+
+IF(
+    AND({!$Record.Flowsheet__r.Code_7__c}, NOT(ISBLANK({!$Record.Flowsheet__r.OtherExercises7__c}))),
+    &apos;95851: &apos; &amp; {!$Record.Flowsheet__r.OtherExercises7__c} &amp; &apos; || &apos;,
+    &apos;&apos;
+) &amp;
+
+IF(
+    AND({!$Record.Flowsheet__r.Code_8__c}, NOT(ISBLANK({!$Record.Flowsheet__r.OtherExercises8__c}))),
+    &apos;97016: &apos; &amp; {!$Record.Flowsheet__r.OtherExercises8__c} &amp; &apos; || &apos;,
+    &apos;&apos;
+) &amp;
+
+IF(
+    AND({!$Record.Flowsheet__r.Code_9__c}, NOT(ISBLANK({!$Record.Flowsheet__r.OtherExercises9__c}))),
+    &apos;97014/G0283: &apos; &amp; {!$Record.Flowsheet__r.OtherExercises9__c} &amp; &apos; || &apos;,
+    &apos;&apos;
+) &amp;
+
+IF(
+    AND({!$Record.Flowsheet__r.Code_10__c}, NOT(ISBLANK({!$Record.Flowsheet__r.OtherExercises10__c}))),
+    &apos;9039/S8948: &apos; &amp; {!$Record.Flowsheet__r.OtherExercises10__c} &amp; &apos; || &apos;,
+    &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Units</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    AND({!$Record.Flowsheet__r.Code_1__c}, NOT(ISBLANK({!$Record.Flowsheet__r.OtherExercisesUnits1__c}))),
+    &apos;97110: &apos; &amp; {!$Record.Flowsheet__r.OtherExercisesUnits1__c} &amp; &apos; || &apos;,
+    &apos;&apos;
+) &amp;
+
+IF(
+    AND({!$Record.Flowsheet__r.Code_2__c}, NOT(ISBLANK({!$Record.Flowsheet__r.OtherExercisesUnits2__c}))),
+    &apos;97530: &apos; &amp; {!$Record.Flowsheet__r.OtherExercisesUnits2__c} &amp; &apos; || &apos;,
+    &apos;&apos;
+) &amp;
+
+IF(
+    AND({!$Record.Flowsheet__r.Code_3__c}, NOT(ISBLANK({!$Record.Flowsheet__r.OtherExercisesUnits3__c}))),
+    &apos;97112: &apos; &amp; {!$Record.Flowsheet__r.OtherExercisesUnits3__c} &amp; &apos; || &apos;,
+    &apos;&apos;
+) &amp;
+
+IF(
+    AND({!$Record.Flowsheet__r.Code_4__c}, NOT(ISBLANK({!$Record.Flowsheet__r.OtherExercisesUnits4__c}))),
+    &apos;97140: &apos; &amp; {!$Record.Flowsheet__r.OtherExercisesUnits4__c} &amp; &apos; || &apos;,
+    &apos;&apos;
+) &amp;
+
+IF(
+    AND({!$Record.Flowsheet__r.Code_5__c}, NOT(ISBLANK({!$Record.Flowsheet__r.OtherExercisesUnits5__c}))),
+    &apos;97750: &apos; &amp; {!$Record.Flowsheet__r.OtherExercisesUnits5__c} &amp; &apos; || &apos;,
+    &apos;&apos;
+) &amp;
+
+IF(
+    AND({!$Record.Flowsheet__r.Code_6__c}, NOT(ISBLANK({!$Record.Flowsheet__r.OtherExercisesUnits6__c}))),
+    &apos;97012: &apos; &amp; {!$Record.Flowsheet__r.OtherExercisesUnits6__c} &amp; &apos; || &apos;,
+    &apos;&apos;
+) &amp;
+
+IF(
+    AND({!$Record.Flowsheet__r.Code_7__c}, NOT(ISBLANK({!$Record.Flowsheet__r.OtherExercisesUnits7__c}))),
+    &apos;95851: &apos; &amp; {!$Record.Flowsheet__r.OtherExercisesUnits7__c} &amp; &apos; || &apos;,
+    &apos;&apos;
+) &amp;
+
+IF(
+    AND({!$Record.Flowsheet__r.Code_8__c}, NOT(ISBLANK({!$Record.Flowsheet__r.OtherExercisesUnits8__c}))),
+    &apos;97016: &apos; &amp; {!$Record.Flowsheet__r.OtherExercisesUnits8__c} &amp; &apos; || &apos;,
+    &apos;&apos;
+) &amp;
+
+IF(
+    AND({!$Record.Flowsheet__r.Code_9__c}, NOT(ISBLANK({!$Record.Flowsheet__r.OtherExercisesUnits9__c}))),
+    &apos;97014/G0283: &apos; &amp; {!$Record.Flowsheet__r.OtherExercisesUnits9__c} &amp; &apos; || &apos;,
+    &apos;&apos;
+) &amp;
+
+IF(
+    AND({!$Record.Flowsheet__r.Code_10__c}, NOT(ISBLANK({!$Record.Flowsheet__r.OtherExercisesUnits10__c}))),
+    &apos;9039/S8948: &apos; &amp; {!$Record.Flowsheet__r.OtherExercisesUnits10__c} &amp; &apos; || &apos;,
+    &apos;&apos;
+)</expression>
+    </formulas>
+    <interviewLabel>Updating Exercise minutes and units {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Updating Exercise minutes and units</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Created_Flowsheet_History</name>
+        <label>Created Flowsheet History</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <connector>
+            <targetReference>Copy_2_of_Update_minutes</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Appointment__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Assigned_Staff__c</field>
+            <value>
+                <elementReference>$Record.FSPatients_Currently_Assigned_Staff_Name__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CPT_Code_Units__c</field>
+            <value>
+                <elementReference>$Record.CPT_Code_Units__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CPT_code_Minutes__c</field>
+            <value>
+                <elementReference>$Record.CPT_code_Minutes__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Flowsheet_Approved__c</field>
+            <value>
+                <elementReference>$Record.Flowsheet_Approved__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Flowsheet_Status__c</field>
+            <value>
+                <elementReference>$Record.Appointment_Status__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Flowsheet_Total_Units__c</field>
+            <value>
+                <elementReference>$Record.CPT_Code_Units__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Note__c</field>
+            <value>
+                <elementReference>$Record.Note__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Provider_Name__c</field>
+            <value>
+                <elementReference>$Record.Provider_Last_Name__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Summary_Information_Units__c</field>
+            <value>
+                <elementReference>Units</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Updated_By__c</field>
+            <value>
+                <elementReference>$Record.LastModifiedBy.LastName</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Flowsheet_History__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordUpdates>
+        <name>Copy_1_of_Update_minutes</name>
+        <label>Copy 1 of Update minutes</label>
+        <locationX>578</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Summary_Information_Minutes__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Summary_Information_Units__c</field>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Copy_2_of_Update_minutes</name>
+        <label>Copy 2 of Update minutes</label>
+        <locationX>50</locationX>
+        <locationY>755</locationY>
+        <inputAssignments>
+            <field>Flowsheet_Updated__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Summary_Information_Minutes__c</field>
+            <value>
+                <elementReference>Summary1</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Summary_Information_Units__c</field>
+            <value>
+                <elementReference>Units</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_minutes</name>
+        <label>Update minutes</label>
+        <locationX>182</locationX>
+        <locationY>431</locationY>
+        <connector>
+            <targetReference>flowsheet_updated</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Summary_Information_Minutes__c</field>
+            <value>
+                <elementReference>Summary1</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Summary_Information_Units__c</field>
+            <value>
+                <elementReference>Units</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>254</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>true_or_false</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Flowsheet__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Appointment__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>Minutessummary</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;IF(&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;{!$Record.Flowsheet__r.Code_1__c},&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&apos;97110: &apos; &amp;amp;{!$Record.Flowsheet__r.Units_1__c}&amp;amp; &lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px; background-color: rgb(255, 255, 255);&quot;&gt;{{!$Record.Flowsheet__r.OtherExercisesUnits1__c}&amp;amp; &lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&apos; || &apos;,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;) &amp;amp;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;IF(&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px; background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Flowsheet__r.Code_2__c}&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&apos;97530: &apos; &amp;amp; &lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px; background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Flowsheet__r.Units_2__c}&amp;amp; {{!$Record.Flowsheet__r.OtherExercisesUnits2__c}&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&amp;amp; &apos; || &apos;,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;) &amp;amp;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;IF(&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px; background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Flowsheet__r.Code_3__c}&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&apos;97112: &apos; &amp;amp;&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px; background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Flowsheet__r.Units_3__c}&amp;amp; {{!$Record.Flowsheet__r.OtherExercisesUnits3__c}&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&amp;amp; &apos; || &apos;,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;) &amp;amp;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;IF(&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px; background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Flowsheet__r.Code_4__c}&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&apos;97140: &apos; &amp;amp; &lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px; background-color: rgb(255, 255, 255);&quot;&gt; {!$Record.Flowsheet__r.Units_4__c}&amp;amp; {{!$Record.Flowsheet__r.OtherExercisesUnits4__c}&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&amp;amp; &apos; || &apos;,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;) &amp;amp;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;IF(&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px; background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Flowsheet__r.Code_5__c}&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&apos;99750: &apos; &amp;amp; &lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px; background-color: rgb(255, 255, 255);&quot;&gt; {!$Record.Flowsheet__r.Units_5__c}&amp;amp; {{!$Record.Flowsheet__r.OtherExercisesUnits5__c}&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&amp;amp; &apos; || &apos;,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;) &amp;amp;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;IF(&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px; background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Flowsheet__r.Code_6__c}&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&apos;97012: &apos; &amp;amp; &lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px; background-color: rgb(255, 255, 255);&quot;&gt; {!$Record.Flowsheet__r.Units_6__c}&amp;amp; {{!$Record.Flowsheet__r.OtherExercisesUnits6__c}&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&amp;amp; &apos; || &apos;,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;) &amp;amp;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;IF(&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px; background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Flowsheet__r.Code_7__c}&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&apos;90901: &apos; &amp;amp; &lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px; background-color: rgb(255, 255, 255);&quot;&gt; {!$Record.Flowsheet__r.Units_7__c}&amp;amp; {{!$Record.Flowsheet__r.OtherExercisesUnits7__c}&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&amp;amp; &apos; || &apos;,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;) &amp;amp;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;IF(&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px; background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Flowsheet__r.Code_8__c}&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&apos;97016: &apos; &amp;amp; &lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px; background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Flowsheet__r.Units_8__c}&amp;amp; {{!$Record.Flowsheet__r.OtherExercisesUnits8__c}&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&amp;amp; &apos; || &apos;,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;) &amp;amp;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;IF(&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px; background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Flowsheet__r.Code_9__c}&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&apos;97014/G0283: &apos; &amp;amp; &lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px; background-color: rgb(255, 255, 255);&quot;&gt; {!$Record.Flowsheet__r.Units_9__c}&amp;amp; {{!$Record.Flowsheet__r.OtherExercisesUnits9__c}&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&amp;amp; &apos; || &apos;,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;) &amp;amp;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;IF(&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px; background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Flowsheet__r.Code_10__c}&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&apos;9039/S8948: &apos; &amp;amp; &lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px; background-color: rgb(255, 255, 255);&quot;&gt; {!$Record.Flowsheet__r.Units_10__c}&amp;amp; {{!$Record.Flowsheet__r.OtherExercisesUnits10__c}&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&amp;amp; &apos; || &apos;,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 11.36px;&quot;&gt;)&lt;/span&gt;&lt;/p&gt;</text>
+    </textTemplates>
+</Flow>

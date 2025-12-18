@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>This app consists of the schedule table whose value will be sync from snowflake. It is used in the automation for Horizon Charge</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>Schedule Table</label>
+    <navType>Standard</navType>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>LOP</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>LOP__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>LOP</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>LOP__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <tabs>Hz_FairHealth_074_Schedule__c</tabs>
+    <tabs>Hz_FairHealth_070_Schedule__c</tabs>
+    <tabs>Hz_FairHealth_National_Schedule__c</tabs>
+    <tabs>LOP__c</tabs>
+    <tabs>Medication__c</tabs>
+    <tabs>Provider_Medication__c</tabs>
+    <tabs>Provider_Procedure__c</tabs>
+    <tabs>Test__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Schedule_Table_UtilityBar</utilityBar>
+</CustomApplication>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Intake_Needs_Improvement__c</fullName>
+    <label>DNU-12/2020-Intake Needs Improvement</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Monotone</fullName>
+                <default>false</default>
+                <label>Monotone</label>
+            </value>
+            <value>
+                <fullName>Formal Intake</fullName>
+                <default>false</default>
+                <label>Formal Intake</label>
+            </value>
+            <value>
+                <fullName>Lacks Empathy</fullName>
+                <default>false</default>
+                <label>Lacks Empathy</label>
+            </value>
+            <value>
+                <fullName>Lacks Offering Solutions</fullName>
+                <default>false</default>
+                <label>Lacks Offering Solutions</label>
+            </value>
+            <value>
+                <fullName>Lacks Upsell</fullName>
+                <default>false</default>
+                <label>Lacks Upsell</label>
+            </value>
+            <value>
+                <fullName>Scheduled Incorrectly</fullName>
+                <default>false</default>
+                <label>Scheduled Incorrectly</label>
+            </value>
+            <value>
+                <fullName>Missed Questions</fullName>
+                <default>false</default>
+                <label>Missed Questions</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>7</visibleLines>
+</CustomField>

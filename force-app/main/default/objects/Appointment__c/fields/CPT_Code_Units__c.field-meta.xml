@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CPT_Code_Units__c</fullName>
+    <description>Only CPT Code and Units</description>
+    <externalId>false</externalId>
+    <formula>IF(
+    AND(Flowsheet__r.Code_1__c, Flowsheet__r.CPT_Units_Total_1__c &gt; 0),
+    &apos;97110: &apos; &amp; TEXT(Flowsheet__r.CPT_Units_Total_1__c) &amp; &apos; || &apos;,
+    &apos;&apos;
+) &amp;
+IF(
+    AND(Flowsheet__r.Code_2__c, Flowsheet__r.CPT_Units_Total_2__c &gt; 0),
+    &apos;97530: &apos; &amp; TEXT(Flowsheet__r.CPT_Units_Total_2__c) &amp; &apos; || &apos;,
+    &apos;&apos;
+) &amp;
+IF(
+    AND(Flowsheet__r.Code_3__c, Flowsheet__r.CPT_Units_Total_3__c &gt; 0),
+    &apos;97112: &apos; &amp; TEXT(Flowsheet__r.CPT_Units_Total_3__c) &amp; &apos; || &apos;,
+    &apos;&apos;
+) &amp;
+IF(
+    AND(Flowsheet__r.Code_4__c, Flowsheet__r.CPT_Units_Total_4__c &gt; 0),
+    &apos;97140: &apos; &amp; TEXT(Flowsheet__r.CPT_Units_Total_4__c) &amp; &apos; || &apos;,
+    &apos;&apos;
+) &amp;
+IF(
+    AND(Flowsheet__r.Code_5__c, Flowsheet__r.CPT_Units_Total_5__c &gt; 0),
+    &apos;97750: &apos; &amp; TEXT(Flowsheet__r.CPT_Units_Total_5__c) &amp; &apos; || &apos;,
+    &apos;&apos;
+) &amp;
+IF(
+    AND(Flowsheet__r.Code_6__c, Flowsheet__r.CPT_Units_Total_6__c &gt; 0),
+    &apos;97012: &apos; &amp; TEXT(Flowsheet__r.CPT_Units_Total_6__c) &amp; &apos; || &apos;,
+    &apos;&apos;
+) &amp;
+IF(
+    AND(Flowsheet__r.Code_7__c, Flowsheet__r.CPT_Units_Total_7__c &gt; 0),
+    &apos;95851: &apos; &amp; TEXT(Flowsheet__r.CPT_Units_Total_7__c) &amp; &apos; || &apos;,
+    &apos;&apos;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Only CPT Code and Units</inlineHelpText>
+    <label>CPT Code Units</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MD_Next_Step__c</fullName>
+    <label>Next Step</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Imaging</fullName>
+                <default>false</default>
+                <label>Imaging</label>
+            </value>
+            <value>
+                <fullName>Procedure and/or Surgery</fullName>
+                <default>false</default>
+                <label>Procedure and/or Surgery</label>
+            </value>
+            <value>
+                <fullName>Active Conservative Care</fullName>
+                <default>false</default>
+                <label>Active Conservative Care</label>
+            </value>
+            <value>
+                <fullName>PRN</fullName>
+                <default>false</default>
+                <label>PRN</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,196 @@
+<apex:page standardController="NPP__c" extensions="GenerateNPPIntakePDFDocumentController" renderAs="pdf" applyBodyTag="false">
+
+    
+<head>
+    <style>
+      .contentWrap h3 {
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: #f00;
+}
+.contentWrap {
+    margin: 10px 30px;
+}
+span.bStrong {
+    font-weight: 600;
+    padding-right: 5px;
+}
+p {
+    line-height: 22px;
+}
+img {
+    border: 1px solid #000;
+    margin-top: 10px;
+}
+    </style>
+  </head>
+
+    <head>
+        <title></title>
+        <style>
+        .question {
+            font-weight: bold;
+        }
+        .question2 {
+    font-weight: bold;
+    text-align: center;
+    color: red;
+}
+
+        table,
+            th,
+            td {
+            font-family: helvetica !important;
+            font-size: 11pt !important;
+            border: 0.6px solid black;
+            border-collapse: collapse !important;
+            border-spacing: 0px;
+            vertical-align:top;
+            
+            }
+            
+            /* Solid border */
+            hr.solid {
+            border-top: 3px solid #bbb;
+            }
+            
+            .subtitle {
+            text-align: center;
+            font-style: italic;
+            font-weight: bold;
+            }
+            
+            body {
+            font-family: helvetica;
+            }
+            
+            body td {
+            font-family: helvetica;
+            }
+    </style>
+    </head>
+	
+    <body> 
+        
+          <div>
+            <p><img src="https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003pCyH&oid=00Df2000001HEGJ&lastMod=1715318986000"  style="width: 700px;"/></p>
+    	  </div>
+
+      <div class="contentWrap">
+            <h3>
+              Telephone Consumer Protection Act Prior Express Written Consent form
+            </h3>
+            <div class="form-container">
+              <form>
+                <div class="pdf-content consent-content1">
+                  <div class="form-element">
+                    <div>
+                      <p>
+                        All Be Healthy LLC dba&nbsp; Alliance Orthopedics
+                        ("Company" or "Us") seeks your consent to contact you
+                        (either directly, through service providers, and/or
+                        affiliates) with certain non-emergency, automated,
+                        autodialed, prerecorded, or other telemarketing phone
+                        calls and or text messages (SMS and MMS) under the
+                        Telephone Consumer Protection Act (TCPA). By signing
+                        this form, you authorize Us, our service providers, and
+                        our affiliates to contact you using:
+                      </p>
+                      <ul>
+                        <li>The phone and/or mobile number(s) listed below.</li>
+                        <li>
+                          An automatic telephone dialing system (ATDS) or
+                          artificial pre-recorded voice.
+                        </li>
+                      </ul>
+                      <p>
+                        PLEASE NOTE WE WILL NOT SELL YOUR CONTACT INFORMATION
+                        AND THIS CONSENT DOES NOT ALLOW THIRD-PARTIES TO CONTACT
+                        YOU ABOUT THEIR PRODUCTS OR SERVICES. ADDITIONALLY,
+                        PLEASE NOTE THAT THIS CONSENT ALLOWS US TO CONTACT YOU
+                        EVEN IF YOUR PHONE NUMBER IS CURRENTLY REGISTERED, OR IF
+                        IT IS LATER REGISTERED, ON ANY STATE AND/OR NATIONAL DO
+                        NOT CALL LIST.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div class="conditionParent">
+                      <div>
+                        <label class="question">Consent For Mails</label>
+                      </div>
+                        <div>
+                            <apex:outputField value="{!NPP__c.HQ_Consent_for_Marketing_Mails__c}"/>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div>
+                      <p>I understand that:</p>
+                      <ul>
+                        <li>
+                          I am not required to grant consent as a condition of
+                          buying or obtaining any property, goods, or services.
+                        </li>
+                        <li>
+                          I may revoke my consent at any time by emailing
+                          tcpa@allianceortho.com.
+                        </li>
+                        <li>Message and data rates may apply.</li>
+                        <li>
+                          If my contact information changes, I should inform the
+                          Company by emailing tcpa@allianceortho.com.
+                        </li>
+                      </ul>
+                    </div>
+                  </div><br/><br/><br/>
+                  <div class="form-element">
+                    <div class="question">Cell Phone Number</div>
+                    <div><apex:outputField value="{!NPP__c.Account__r.Phone}"/></div>
+                  </div>
+                  <div class="form-element fiftyByFifty">
+                      <div>
+                      <div>
+                        <label class="question">Home Phone Number</label>
+                      </div>
+                        <div><apex:outputField value="{!NPP__c.HQ_Home_Phone_Number__c}"/></div>
+                    </div>
+                  </div>
+                  
+                  <div class="patientNameDate">
+<div><label>Patient Name</label></div>
+                      <div class="floatLeft"><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></div>
+<div><label>Date</label></div>
+                      <div class="floatRight"><apex:outputText value="{0,date,MM/dd/yyyy}"><apex:param value="{!NPP__c.CreatedDate}" /></apex:outputText></div>
+                    </div>
+                 
+                  <div class="form-element">
+                    <div><p>Patient Signature</p></div>
+
+                      <div>
+                          <apex:outputText value="{!oppt.HQ_Signature__c}" escape="false" />
+                          
+                      </div>
+                  </div>
+              
+       </div>
+        
+        
+          <div class="formCheck">
+            <div>
+              <img src='https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003gvo9&oid=00Df2000001HEGJ&lastMod=1714988677000' style="width: 15px; Height:15px"/>
+                <label>By checking the box I acknowledge and agree to conduct business
+                electronically, that I have read the terms of the above section,
+                and that I agree to insert my electronic signature as set forth
+                below indicating my consent to terms set forth on this page.
+              </label>
+            </div>
+          </div>
+
+                </form>
+          </div>
+        </div>
+  </body>
+
+</apex:page>

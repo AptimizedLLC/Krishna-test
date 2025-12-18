@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cleared_For_Surgery</fullName>
+    <columns>NAME</columns>
+    <columns>Patient__c</columns>
+    <columns>Surgical_Indication__c</columns>
+    <columns>Provider_Old__c</columns>
+    <columns>Authorization_Sta__c</columns>
+    <columns>Medical_Clearance_Status__c</columns>
+    <columns>Procedure_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Cleared</value>
+    </filters>
+    <label>Cleared For Surgery</label>
+</ListView>

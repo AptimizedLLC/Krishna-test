@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cancellation_Follow_Ups</fullName>
+    <columns>NAME</columns>
+    <columns>Patient_s_Currently_Assigned_Staff__c</columns>
+    <columns>Provider_Name__c</columns>
+    <columns>Enter_FlowSheet_Link__c</columns>
+    <columns>Location_Name__c</columns>
+    <columns>Cancel_Follow_Up_Status__c</columns>
+    <columns>Appointment_Date_Time__c</columns>
+    <columns>Cancel_Follow_Up_Notes__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Cancel_Follow_Up_Status__c</field>
+        <operation>equals</operation>
+        <value>Need to Call,Left Voicemail,In Process</value>
+    </filters>
+    <filters>
+        <field>Visit_Reason__c</field>
+        <operation>contains</operation>
+        <value>NEW</value>
+    </filters>
+    <filters>
+        <field>Visit_Reason__c</field>
+        <operation>notContain</operation>
+        <value>YEAR,ESTABLISHED</value>
+    </filters>
+    <label>Cancellation Follow Ups</label>
+    <sharedTo>
+        <role>Intake</role>
+    </sharedTo>
+</ListView>

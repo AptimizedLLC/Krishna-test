@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Test_EOO</fullName>
+    <columns>NAME</columns>
+    <columns>Appointment_Date_Time__c</columns>
+    <columns>Employer_Outreach_Opportunity__c</columns>
+    <columns>Provider_Name__c</columns>
+    <columns>Location_Name__c</columns>
+    <columns>Patient_Phone__c</columns>
+    <columns>EOO_Notes__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Employer_Outreach_Opportunity__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Cancelled</value>
+    </filters>
+    <filters>
+        <field>NAME</field>
+        <operation>equals</operation>
+        <value>Brandon Bart - MD - SELF PAY</value>
+    </filters>
+    <label>Test EOO</label>
+</ListView>

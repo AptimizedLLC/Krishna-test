@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Transaction_Type__c</fullName>
+    <label>Transaction Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>simple charge reversal</fullName>
+                <default>false</default>
+                <label>simple charge reversal</label>
+            </value>
+            <value>
+                <fullName>charge reversal</fullName>
+                <default>false</default>
+                <label>charge reversal</label>
+            </value>
+            <value>
+                <fullName>returned insurance check reversal</fullName>
+                <default>false</default>
+                <label>returned insurance check reversal</label>
+            </value>
+            <value>
+                <fullName>returned patient check reversal</fullName>
+                <default>false</default>
+                <label>returned patient check reversal</label>
+            </value>
+            <value>
+                <fullName>simple charge</fullName>
+                <default>false</default>
+                <label>simple charge</label>
+            </value>
+            <value>
+                <fullName>charge</fullName>
+                <default>false</default>
+                <label>charge</label>
+            </value>
+            <value>
+                <fullName>returned insurance check</fullName>
+                <default>false</default>
+                <label>returned insurance check</label>
+            </value>
+            <value>
+                <fullName>returned patient check</fullName>
+                <default>false</default>
+                <label>returned patient check</label>
+            </value>
+            <value>
+                <fullName>insurance adjustment</fullName>
+                <default>false</default>
+                <label>insurance adjustment</label>
+            </value>
+            <value>
+                <fullName>insurance adjustment refund</fullName>
+                <default>false</default>
+                <label>insurance adjustment refund</label>
+            </value>
+            <value>
+                <fullName>insurance adjustment refund reversal</fullName>
+                <default>false</default>
+                <label>insurance adjustment refund reversal</label>
+            </value>
+            <value>
+                <fullName>insurance adjustment reversal</fullName>
+                <default>false</default>
+                <label>insurance adjustment reversal</label>
+            </value>
+            <value>
+                <fullName>insurance payment</fullName>
+                <default>false</default>
+                <label>insurance payment</label>
+            </value>
+            <value>
+                <fullName>insurance payment refund</fullName>
+                <default>false</default>
+                <label>insurance payment refund</label>
+            </value>
+            <value>
+                <fullName>insurance payment refund reversal</fullName>
+                <default>false</default>
+                <label>insurance payment refund reversal</label>
+            </value>
+            <value>
+                <fullName>insurance payment reversal</fullName>
+                <default>false</default>
+                <label>insurance payment reversal</label>
+            </value>
+            <value>
+                <fullName>patient adjustment</fullName>
+                <default>false</default>
+                <label>patient adjustment</label>
+            </value>
+            <value>
+                <fullName>patient adjustment reversal</fullName>
+                <default>false</default>
+                <label>patient adjustment reversal</label>
+            </value>
+            <value>
+                <fullName>patient payment</fullName>
+                <default>false</default>
+                <label>patient payment</label>
+            </value>
+            <value>
+                <fullName>patient payment refund</fullName>
+                <default>false</default>
+                <label>patient payment refund</label>
+            </value>
+            <value>
+                <fullName>patient payment refund reversal</fullName>
+                <default>false</default>
+                <label>patient payment refund reversal</label>
+            </value>
+            <value>
+                <fullName>patient payment reversal</fullName>
+                <default>false</default>
+                <label>patient payment reversal</label>
+            </value>
+            <value>
+                <fullName>withhold</fullName>
+                <default>false</default>
+                <label>withhold</label>
+            </value>
+            <value>
+                <fullName>withhold refund</fullName>
+                <default>false</default>
+                <label>withhold refund</label>
+            </value>
+            <value>
+                <fullName>withhold refund reversal</fullName>
+                <default>false</default>
+                <label>withhold refund reversal</label>
+            </value>
+            <value>
+                <fullName>withhold reversal</fullName>
+                <default>false</default>
+                <label>withhold reversal</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

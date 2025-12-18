@@ -1,0 +1,27 @@
+<apex:page controller="AppointmentClass" tabStyle="Account">
+    <apex:form >
+        <apex:pageBlock title="Appointment Filter">
+            <apex:pageBlockSection columns="2">
+                <apex:inputText value="{!startDate}" label="Start Date (YYYY-MM-DD)"/>
+                <apex:inputText value="{!endDate}" label="End Date (YYYY-MM-DD)"/>
+                <apex:inputText value="{!pageNo}" label="Page Number"/>
+                <apex:inputText value="{!StringccId}" label="appointment carecloud id"/>
+                <apex:commandButton action="{!fetchAppointments}" value="Fetch Appointments" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+         <apex:pageBlock title="Appointment Results" rendered="{!NOT(ISNULL(responseList))}">
+        <apex:pageBlockTable value="{!appointments}" var="appt">
+                <apex:column value="{!appt}" headerValue="Appointment ID"/>
+                
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+   
+        <apex:pageBlock title="Appointment Results" rendered="{!NOT(ISNULL(responseList))}">
+            <apex:pageBlockTable value="{!responseList}" var="appt">
+                <apex:column value="{!appt}" headerValue="Appointment ID"/>
+                
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

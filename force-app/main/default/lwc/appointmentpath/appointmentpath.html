@@ -1,0 +1,42 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 04-25-2025
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    
+        <div class="slds-path">
+            <div class="slds-grid slds-path__scroller-container">
+                <div class="slds-path__scroller">
+                    <div class="slds-path__track">
+                        <ul class="slds-path__nav" role="listbox" aria-orientation="horizontal">
+                            <template for:each={picklistValues} for:item="item">
+                                <li key={item.pItem.value}
+                                    class={item.classList}
+                                    data-id={item.pItem.value}
+                                    data-value={item.pItem.value}
+                                    onclick={handleSelect}
+                                    role="presentation">
+                                    <a class="slds-path__link" role="option">
+                                        <span class="slds-path__stage">
+                                            <template if:true={item.isComplete}>
+                                                <lightning-icon icon-name="utility:check" size="xx-small"></lightning-icon>
+                                            </template>
+                                        </span>
+                                        <span class="slds-path__title">{item.pItem.label}</span>
+                                    </a>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <template if:true={showSpinner}>
+            <lightning-spinner size="small" alternative-text="Updating..."></lightning-spinner>
+        </template>
+</template>

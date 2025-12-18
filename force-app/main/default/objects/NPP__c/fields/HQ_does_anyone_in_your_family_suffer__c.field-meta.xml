@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HQ_does_anyone_in_your_family_suffer__c</fullName>
+    <complianceGroup>HIPAA</complianceGroup>
+    <label>Does anyone in your family suffer?</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>High Blood Pressure</fullName>
+                <default>false</default>
+                <label>High Blood Pressure</label>
+            </value>
+            <value>
+                <fullName>Diabetes</fullName>
+                <default>false</default>
+                <label>Diabetes</label>
+            </value>
+            <value>
+                <fullName>Cancer</fullName>
+                <default>false</default>
+                <label>Cancer</label>
+            </value>
+            <value>
+                <fullName>Rheumatoid Arthritis</fullName>
+                <default>false</default>
+                <label>Rheumatoid arthritis</label>
+            </value>
+            <value>
+                <fullName>Stroke</fullName>
+                <default>false</default>
+                <label>Stroke</label>
+            </value>
+            <value>
+                <fullName>N/A</fullName>
+                <default>false</default>
+                <label>N/A</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

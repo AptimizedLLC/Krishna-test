@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Appointment_Change_Reason__c</fullName>
+    <label>Appointment Change Reason</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Can No Longer Afford</fullName>
+                <default>false</default>
+                <label>Can No Longer Afford</label>
+            </value>
+            <value>
+                <fullName>Change in Schedule/Agenda/Work</fullName>
+                <default>false</default>
+                <label>Change in Schedule/Agenda/Work</label>
+            </value>
+            <value>
+                <fullName>COVID/Sick/Exposure to Illness</fullName>
+                <default>false</default>
+                <label>COVID/Sick/Exposure to Illness</label>
+            </value>
+            <value>
+                <fullName>Reschedule Missed Appointment</fullName>
+                <default>false</default>
+                <label>Reschedule Missed Appointment</label>
+            </value>
+            <value>
+                <fullName>Running Late</fullName>
+                <default>false</default>
+                <label>Running Late</label>
+            </value>
+            <value>
+                <fullName>Too Much Pain</fullName>
+                <default>false</default>
+                <label>Too Much Pain</label>
+            </value>
+            <value>
+                <fullName>Changes to Clinician Schedule</fullName>
+                <default>false</default>
+                <label>Changes to Clinician Schedule</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

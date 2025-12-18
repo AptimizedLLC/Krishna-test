@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Secondary_health_subscriber_validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    DATEVALUE(CreatedDate) &gt; DATE(2020, 08, 16),
+    ISBLANK( Secondary_Subscriber_DOB__c ),
+    ISBLANK( Secondary_Subscriber_Name__c ),
+    OR (
+       ISPICKVAL( Secondary_Subscriber_Relationship__c, &apos;Spouse&apos;),
+       ISPICKVAL( Secondary_Subscriber_Relationship__c, &apos;Child&apos;),
+       ISPICKVAL( Secondary_Subscriber_Relationship__c, &apos;Other&apos;)
+))</errorConditionFormula>
+    <errorMessage>STOP! You have selected a value for Secondary Subscriber Relationship that is not Self, please fill out the Subscriber DOB and Subscriber Name field. If you have any questions, contact the Salesforce Administrator: rene.rosales@alliancehealthsystem.com</errorMessage>
+</ValidationRule>

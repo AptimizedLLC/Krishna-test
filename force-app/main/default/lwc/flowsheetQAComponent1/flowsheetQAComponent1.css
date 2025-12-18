@@ -1,0 +1,17 @@
+:host {
+    width: 100%;
+    height: auto;
+}
+
+lightning-quick-action-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+lightning-quick-action-panel::part(header) {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: white; /* Ensure it stays visible above other elements */
+}

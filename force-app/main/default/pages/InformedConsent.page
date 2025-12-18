@@ -1,0 +1,151 @@
+<apex:page standardController="NPP__c" extensions="GenerateNPPIntakePDFDocumentController" renderAs="pdf" applyBodyTag="false">
+    
+<head>
+    <style>
+      .contentWrap h3 {
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: #f00;
+}
+.contentWrap {
+    margin: 10px 30px;
+}
+span.bStrong {
+    font-weight: 600;
+    padding-right: 5px;
+}
+p {
+    line-height: 22px;
+}
+img {
+    border: 1px solid #000;
+    margin-top: 10px;
+}
+    </style>
+  </head>
+<body>
+    <div>
+            <p><img src="https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003pCyH&oid=00Df2000001HEGJ&lastMod=1715318986000"  style="width: 725px;"/></p>
+    </div>
+    
+<div>
+        <div class="userFormWrap">
+          <div class="contentWrap">
+            <h3>Informed Consent</h3>
+            <div class="form-container">
+              <form>
+                <div class="pdf-content consent-content0">
+                  <div class="form-element">
+                    <div>
+                      <p>
+                        Please discuss any questions or concerns with the
+                        Chiropractor, Physical Therapist, Occupational
+                        Therapist, Acupuncturist, Medical Doctor, Surgeon,
+                        Nutritionist or Massage Therapist
+                        <i>before&nbsp;</i>signing this consent.
+                      </p>
+                      <p>
+                        I hereby give my consent to All Be Healthy LLC dba
+                        Alliance Orthopedics for the provision of medical care
+                        to me or the patient named below, which is deemed by the
+                        appropriate personnel to be necessary and suitable in
+                        the diagnosis or treatment of my or the patient’s
+                        physical condition. I consent to the performance of
+                        chiropractic adjustments/procedures, physical therapy,
+                        occupational therapy, acupuncture, nutrition
+                        recommendation and massage therapy as needed. I have had
+                        the opportunity to discuss with the doctor and/or other
+                        clinical personnel the benefits of the procedures and
+                        other treatments outlined below. Alternatives to
+                        treatment have been reviewed. Chiropractic Care: Though
+                        chiropractic adjustments and treatments are usually
+                        beneficial and seldom cause any problems, I understand
+                        and am fully aware that there are some risks to
+                        treatment. Risks include, but are not limited to,
+                        fractures, disk injuries, strokes, dislocations, and
+                        sprains. I understand that chiropractic/physical
+                        therapy/occupational therapy/acupuncture/medical
+                        care/massage therapy is not an exact science and
+                        therefore, medical practitioners cannot fully guarantee
+                        results. I acknowledge that no guarantee or assurance
+                        has been made by anyone regarding the
+                        chiropractic/physical therapy/occupational
+                        therapy/acupuncture/medical care/massage therapy
+                        treatment that I have requested and authorized. I have
+                        had the opportunity to read this form and ask questions.
+                        My questions have been answered to my satisfaction. I
+                        irrevocably consent to the proposed treatment.
+                      </p>
+                      <p>
+                        <i> <strong>OFFICE POLICY</strong></i>
+                      </p>
+                      <p>
+                        You, the patient, are financially responsible for any
+                        procedures, treatments, supplies and or office visits
+                        provided on our behalf in regards to your care. We will
+                        bill your insurance company on a 30-day cycle as long as
+                        you are receiving chiropractic, physical therapy,
+                        occupational therapy, acupuncture or medical treatment
+                        in this office. You are required to sign an “Assignment
+                        of Benefits” form and any other assigned documents
+                        required by your insurance company on your first visit.
+                        Our office does NOT guarantee that your insurance
+                        company will pay. We will make every attempt at the
+                        beginning of your healthcare to receive verification of
+                        your policy and what it covers. However, if for some
+                        reason your insurance claims are denied, you are
+                        responsible for the full amount of the bill. Your
+                        insurance should pay within 30 days. If your insurance
+                        has not paid within 60 days, you must pay the balance
+                        due and be reimbursed by your insurance company. It must
+                        be fully understood that the payment contract is between
+                        YOU and YOUR insurance company and YOU are responsible
+                        for any amount not paid by your insurance company.
+                        Should your insurance company request written reports
+                        regarding your condition, progress, or other similar
+                        information, there will be an additional fee. All Be
+                        Healthy LLC dba&nbsp; Alliance Orthopedics, reserves the
+                        right to pursue any delinquent claims in any mannerism
+                        deemed necessary. Accuracy of documentation is of the
+                        highest importance, therefore office notes will be
+                        available for request 30 days after visit due to
+                        internal auditing. If you are unable to keep your
+                        appointment, 24-hour advance notice must be given or
+                        normal charge will prevail.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div class="patientNameDate">
+                      <div class="floatLeft"><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></div>
+                      <div class="floatRight"><apex:outputText value="{0,date,MM/dd/yyyy}"><apex:param value="{!NPP__c.CreatedDate}" /></apex:outputText></div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div><p>Patient Signature</p></div>
+
+                      <div>
+                          <apex:outputText value="{!oppt.HQ_Signature__c}" escape="false" />
+                          
+                      </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="formCheck">
+            <div>
+              <img src='https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003gvo9&oid=00Df2000001HEGJ&lastMod=1714988677000' style="width: 15px; Height:15px"/><label
+                >By checking the box I acknowledge and agree to conduct business
+                electronically, that I have read the terms of the above section,
+                and that I agree to insert my electronic signature as set forth
+                below indicating my consent to terms set forth on this page.
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+</body>
+</apex:page>

@@ -1,0 +1,13 @@
+<apex:page applyBodyTag="false">
+    <h1 style="font-size:30px; text-align:center; margin-top:40px;">
+        PDF Test Page
+    </h1>
+
+    <p style="font-size:18px; margin-top:20px;">
+        If you can see this text, the PDF generation works correctly.
+    </p>
+
+    <p style="font-size:14px; margin-top:20px;">
+        Current Date/Time: {!NOW()}
+    </p>
+</apex:page>

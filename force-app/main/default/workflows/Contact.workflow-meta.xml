@@ -1,0 +1,1122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Auto_E_mail_to_Verifications_when_Insurance_MVA_WC_Info_is_Added</fullName>
+        <description>Auto E-mail to Verifications</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Erica_Testing_Role</recipient>
+            <type>role</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/INTERNAL_Insurance_Verification_Request</template>
+    </alerts>
+    <alerts>
+        <fullName>Auto_Email_Insurance_Verification_Request_with_Priority_Based_Upon_Appointment_D</fullName>
+        <ccEmails>erica.freudenberg@spineandwellness.com</ccEmails>
+        <description>Auto Email: Insurance Verification Request with Priority Based Upon Appointment Date</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <recipients>
+            <recipient>insuranceverifications@spineandwellness.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Insurance_Verification_Request_to_Verifications_Rep</template>
+    </alerts>
+    <alerts>
+        <fullName>NNP_From_Contact</fullName>
+        <description>NNP From Contact</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>patientregistration@allianceortho.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>NPP/For_Filling_NPP</template>
+    </alerts>
+    <alerts>
+        <fullName>NNP_From_Contact_For_New_Year_Evaluation</fullName>
+        <description>NNP From Contact-For New Year Evaluation</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>patientregistration@allianceortho.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>NPP/NEW_YEAR_EVALUATION</template>
+    </alerts>
+    <alerts>
+        <fullName>PATIENT_EMAIL_Email_sent_to_patient_with_New_Patient_Paperwork</fullName>
+        <description>PATIENT EMAIL: Email sent to patient with New Patient Paperwork</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/New_Patient_with_Appt</template>
+    </alerts>
+    <alerts>
+        <fullName>Reminder_NNP_From_Contact</fullName>
+        <description>Reminder NNP From Contact</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>patientregistration@allianceortho.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>NPP/Reminder_For_Filling_NPP</template>
+    </alerts>
+    <alerts>
+        <fullName>Standard_Priority_Insurance_Verification_Request</fullName>
+        <description>Standard Priority Insurance Verification Request</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>nicholas.russo@alliancehealthsystem.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Insurance_Verification_Request_to_Verifications_Rep</template>
+    </alerts>
+    <alerts>
+        <fullName>URGENT_SAME_DAY_APPOINTMENT_EMAIL</fullName>
+        <description>URGENT: SAME DAY APPOINTMENT EMAIL</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>nicholas.russo@alliancehealthsystem.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/INTERNAL_Insurance_Verification_Request_SAME_DAY_APPOINTMENT</template>
+    </alerts>
+    <alerts>
+        <fullName>URGENT_VERIFY_FIRST_EMAIL</fullName>
+        <ccEmails>erica.freudenberg@spineandwellness.com</ccEmails>
+        <description>URGENT: VERIFY FIRST EMAIL</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>nicholas.russo@alliancehealthsystem.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/INTERNAL_Insurance_Verification_Request</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Assign_to_FD_Freehold</fullName>
+        <field>OwnerId</field>
+        <lookupValue>john.baker@alliancehealthsystem.com</lookupValue>
+        <lookupValueType>User</lookupValueType>
+        <name>Assign to FD. Freehold</name>
+        <notifyAssignee>true</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Assign_to_FD_Perrine</fullName>
+        <field>OwnerId</field>
+        <lookupValue>john.baker@alliancehealthsystem.com</lookupValue>
+        <lookupValueType>User</lookupValueType>
+        <name>Assign to FD. Perrine</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>PA_Received</fullName>
+        <field>PA_Complete__c</field>
+        <literalValue>Yes</literalValue>
+        <name>PA Received</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Appt%2E FU for David</fullName>
+        <actions>
+            <name>Follow_up_on_Appointment</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contact.Scheduler__c</field>
+            <operation>equals</operation>
+            <value>David Stodolak</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Appointment_Date_1__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>Appt. FU for David</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Appt%2E FU for Front Desk - Freehold</fullName>
+        <actions>
+            <name>Follow_up_on_Appointment3</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contact.Email_Location__c</field>
+            <operation>equals</operation>
+            <value>Freehold</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Appointment_Date_1__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Scheduler__c</field>
+            <operation>notEqual</operation>
+            <value>David Stodolak,Michael Andonian</value>
+        </criteriaItems>
+        <description>Appt. FU for Front Desk - Freehold</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Appt%2E FU for Front Desk - Matawan</fullName>
+        <actions>
+            <name>Follow_up_on_Appointment9</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contact.Email_Location__c</field>
+            <operation>equals</operation>
+            <value>Matawan</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Appointment_Date_1__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Scheduler__c</field>
+            <operation>notEqual</operation>
+            <value>David Stodolak,Michael Andonian</value>
+        </criteriaItems>
+        <description>Appt. FU for Front Desk - Matawan</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Appt%2E FU for Front Desk - Perrine</fullName>
+        <actions>
+            <name>Follow_up_on_Appointment6</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contact.Email_Location__c</field>
+            <operation>equals</operation>
+            <value>Perrine</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Appointment_Date_1__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Scheduler__c</field>
+            <operation>notEqual</operation>
+            <value>David Stodolak,Michael Andonian</value>
+        </criteriaItems>
+        <description>Appt. FU for Front Desk - Perrine</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Appt%2E FU for Michael</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contact.Scheduler__c</field>
+            <operation>equals</operation>
+            <value>Michael Andonian</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Appointment_Date_1__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>Appt. FU for Michael</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Assign to David</fullName>
+        <actions>
+            <name>A_New_Contact_Has_Been_Assigned_To_You2</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contact.Scheduler__c</field>
+            <operation>equals</operation>
+            <value>David Stodolak</value>
+        </criteriaItems>
+        <description>Rule to assign Jotform contacts to David S.</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Assign to Front Desk - Freehold</fullName>
+        <actions>
+            <name>A_New_Contact_Has_Been_Assigned_To_You5</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contact.Scheduler__c</field>
+            <operation>notEqual</operation>
+            <value>David Stodolak,Michael Andonian</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Email_Location__c</field>
+            <operation>equals</operation>
+            <value>Freehold</value>
+        </criteriaItems>
+        <description>Rule to assign Jotform contacts to Front Desk - Freehold</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Assign to Front Desk - Matawan</fullName>
+        <actions>
+            <name>A_New_Contact_Has_Been_Assigned_To_You8</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contact.Scheduler__c</field>
+            <operation>notEqual</operation>
+            <value>David Stodolak,Michael Andonian</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Email_Location__c</field>
+            <operation>equals</operation>
+            <value>Matawan</value>
+        </criteriaItems>
+        <description>Rule to assign Jotform contacts to Front Desk - Matawan</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Assign to Front Desk - Perrine</fullName>
+        <actions>
+            <name>Assign_to_FD_Perrine</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contact.Scheduler__c</field>
+            <operation>notEqual</operation>
+            <value>David Stodolak,Michael Andonian</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Email_Location__c</field>
+            <operation>equals</operation>
+            <value>Perrine</value>
+        </criteriaItems>
+        <description>Rule to assign Jotform contacts to Front Desk - Perrine</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Create First Accident Record</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contact.Contact_Related_to_Accident_Type__c</field>
+            <operation>equals</operation>
+            <value>Motor Vehicle Accident (MVA),Personal Injury (PI) - Involve in Lawsuit,Slip &amp; Fall (S&amp;F),Workers&apos; Compensation (WC)</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>IV - Task for Input PA for case</fullName>
+        <actions>
+            <name>Input_PA_for_case</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contact.Payment_Arrangement_Patient_Agreed_to__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Insurance Verification Request</fullName>
+        <actions>
+            <name>Insurance_Verification_Request</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contact.Contact_Primary_Health_Insurance_Company__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Primary_Health_Insurance_Member_ID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>Patient has been created in Salesforce &amp; auto task was been assigned to Verifications.</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>PA Complete - Call To Go Over - David</fullName>
+        <actions>
+            <name>PA_Received</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Call_Patient_to_go_over_PA</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contact.Payment_Arrangement_Initial__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.OwnerId</field>
+            <operation>contains</operation>
+            <value>David</value>
+        </criteriaItems>
+        <description>Task for David to Review PA</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>PA Complete - Call To Go Over -Freehold</fullName>
+        <actions>
+            <name>PA_Received</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Call_Patient_to_go_over_PA3</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contact.Payment_Arrangement_Initial__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.OwnerId</field>
+            <operation>notContain</operation>
+            <value>Michael,David</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Email_Location__c</field>
+            <operation>contains</operation>
+            <value>Freehold</value>
+        </criteriaItems>
+        <description>Task for Freehold to Review PA</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>PA Complete - Call To Go Over -Matawan</fullName>
+        <actions>
+            <name>PA_Received</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Call_Patient_to_go_over_PA4</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contact.Payment_Arrangement_Initial__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.OwnerId</field>
+            <operation>notContain</operation>
+            <value>Michael,David</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Email_Location__c</field>
+            <operation>contains</operation>
+            <value>Matawan</value>
+        </criteriaItems>
+        <description>Task for Matawan to Review PA</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>PA Complete - Call To Go Over -Michael</fullName>
+        <actions>
+            <name>PA_Received</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contact.Payment_Arrangement_Initial__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.OwnerId</field>
+            <operation>contains</operation>
+            <value>Michael</value>
+        </criteriaItems>
+        <description>Task for Michael to Review PA</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>PA Complete - Call To Go Over -Perrine</fullName>
+        <actions>
+            <name>PA_Received</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Call_Patient_to_go_over_PA5</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contact.Payment_Arrangement_Initial__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.OwnerId</field>
+            <operation>notContain</operation>
+            <value>Michael,David</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Email_Location__c</field>
+            <operation>contains</operation>
+            <value>Perrine</value>
+        </criteriaItems>
+        <description>Task for Perrine to Review PA</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>PA Freehold</fullName>
+        <actions>
+            <name>Please_Establish_PA_Freehold</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
+        <criteriaItems>
+            <field>Contact.Insurance_Verification_Status__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Email_Location__c</field>
+            <operation>equals</operation>
+            <value>Freehold</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.URGENT_Same_Day__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.URGENT_Very_First__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <description>Task to Review Payment Arrangement  -  Non Urgent</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>PA Matawan</fullName>
+        <actions>
+            <name>URGENT_Please_Establish_PA_Matawan</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
+        <criteriaItems>
+            <field>Contact.Insurance_Verification_Status__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Email_Location__c</field>
+            <operation>equals</operation>
+            <value>Matawan</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.URGENT_Same_Day__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.URGENT_Very_First__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <description>Task to Review Payment Arrangement  -  Non Urgent</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>PA Old Bridge</fullName>
+        <actions>
+            <name>Please_Establish_PA_Old_Bridge</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
+        <criteriaItems>
+            <field>Contact.Insurance_Verification_Status__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Email_Location__c</field>
+            <operation>equals</operation>
+            <value>Perrine</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.URGENT_Same_Day__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.URGENT_Very_First__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <description>Task to Review Payment Arrangement  -  Non Urgent</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>PA Received%3F - David</fullName>
+        <actions>
+            <name>PA_Received</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Contact.URGENT_Same_Day__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.URGENT_Very_First__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.OwnerId</field>
+            <operation>equals</operation>
+            <value>David Stodolak</value>
+        </criteriaItems>
+        <description>Task to Update David to Check Payment Arrangements non-Urgent</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>PA Received%3F - Freehold</fullName>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Contact.URGENT_Same_Day__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.URGENT_Very_First__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.OwnerId</field>
+            <operation>equals</operation>
+            <value>David Stodolak</value>
+        </criteriaItems>
+        <description>Task to Update Freehold to Check Payment Arrangements non-Urgent</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>PA Received%3F - Matawan</fullName>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Contact.URGENT_Same_Day__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.URGENT_Very_First__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.OwnerId</field>
+            <operation>equals</operation>
+            <value>Front Desk Matawan</value>
+        </criteriaItems>
+        <description>Task to Update Matawan to Check Payment Arrangements non-Urgent</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>PA Received%3F - Mike</fullName>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Contact.URGENT_Same_Day__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.URGENT_Very_First__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.OwnerId</field>
+            <operation>equals</operation>
+            <value>Michael Andonian</value>
+        </criteriaItems>
+        <description>Task to Update Mike to Check Payment Arrangements non-Urgent</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Send New Appointment Email</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contact.Appointment_Date_1__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.CreatedDate</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <description>New Patient Paperwork Email</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>URGENT PA Freehold</fullName>
+        <actions>
+            <name>Urgent_Please_Establish_PA</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+        <criteriaItems>
+            <field>Contact.Insurance_Verification_Status__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Email_Location__c</field>
+            <operation>equals</operation>
+            <value>Freehold</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.URGENT_Same_Day__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.URGENT_Very_First__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>URGENT Task to Review Payment Arrangement</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>URGENT PA Matawan</fullName>
+        <actions>
+            <name>URGENT_Please_Establish_PA_Ma</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+        <criteriaItems>
+            <field>Contact.Insurance_Verification_Status__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Email_Location__c</field>
+            <operation>equals</operation>
+            <value>Matawan</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.URGENT_Same_Day__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.URGENT_Very_First__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>URGENT Task to Review Payment Arrangement</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>URGENT PA Old Bridge</fullName>
+        <actions>
+            <name>URGENT_Please_Establish_PA_Old_Bridge</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+        <criteriaItems>
+            <field>Contact.Insurance_Verification_Status__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Email_Location__c</field>
+            <operation>equals</operation>
+            <value>Perrine</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.URGENT_Same_Day__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.URGENT_Very_First__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>URGENT Task to Review Payment Arrangement</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>URGENT- PA Received%3F - David</fullName>
+        <actions>
+            <name>URGENT_PA_Received</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Contact.URGENT_Same_Day__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.URGENT_Very_First__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.OwnerId</field>
+            <operation>equals</operation>
+            <value>David Stodolak</value>
+        </criteriaItems>
+        <description>URGENT Task to Update David to Check Payment Arrangements</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>URGENT- PA Received%3F - Michael</fullName>
+        <active>false</active>
+        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Contact.URGENT_Same_Day__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.URGENT_Very_First__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.OwnerId</field>
+            <operation>equals</operation>
+            <value>Michael Andonian</value>
+        </criteriaItems>
+        <description>URGENT Task to Update Michael to Check Payment Arrangements</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <tasks>
+        <fullName>A_New_Contact_Has_Been_Assigned_To_You2</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>A New Contact Has Been Assigned To You</subject>
+    </tasks>
+    <tasks>
+        <fullName>A_New_Contact_Has_Been_Assigned_To_You5</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>A New Contact Has Been Assigned To You</subject>
+    </tasks>
+    <tasks>
+        <fullName>A_New_Contact_Has_Been_Assigned_To_You8</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>A New Contact Has Been Assigned To You</subject>
+    </tasks>
+    <tasks>
+        <fullName>Call_Patient_to_go_over_PA</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>Call Patient to go over PA</subject>
+    </tasks>
+    <tasks>
+        <fullName>Call_Patient_to_go_over_PA3</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>Call Patient to go over PA</subject>
+    </tasks>
+    <tasks>
+        <fullName>Call_Patient_to_go_over_PA4</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>Call Patient to go over PA</subject>
+    </tasks>
+    <tasks>
+        <fullName>Call_Patient_to_go_over_PA5</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>Call Patient to go over PA</subject>
+    </tasks>
+    <tasks>
+        <fullName>Follow_up_on_Appointment</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>1</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <offsetFromField>Contact.Appointment_Date_1__c</offsetFromField>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>Follow up on Appointment</subject>
+    </tasks>
+    <tasks>
+        <fullName>Follow_up_on_Appointment3</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>1</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <offsetFromField>Contact.Appointment_Date_1__c</offsetFromField>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>Follow up on Appointment</subject>
+    </tasks>
+    <tasks>
+        <fullName>Follow_up_on_Appointment6</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>1</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <offsetFromField>Contact.Appointment_Date_1__c</offsetFromField>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>Follow up on Appointment</subject>
+    </tasks>
+    <tasks>
+        <fullName>Follow_up_on_Appointment9</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>1</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <offsetFromField>Contact.Appointment_Date_1__c</offsetFromField>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>Follow up on Appointment</subject>
+    </tasks>
+    <tasks>
+        <fullName>Input_PA_for_case</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Task for IV when PA is agreed to.</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>Input PA for case</subject>
+    </tasks>
+    <tasks>
+        <fullName>Insurance_Verification_Request</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Please complete insurance verification and enter details into the insurance section of Salesforce.  Once complete, please mark this task as completed &amp; indicate as complete in the insurance section as well.</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <offsetFromField>Contact.Appointment_Date_and_Time__c</offsetFromField>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>Insurance Verification Request Task</subject>
+    </tasks>
+    <tasks>
+        <fullName>PA_Received</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>1</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>PA Received?</subject>
+    </tasks>
+    <tasks>
+        <fullName>PA_Received2</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>1</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>PA Received?</subject>
+    </tasks>
+    <tasks>
+        <fullName>PA_Received3</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>1</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>PA Received?</subject>
+    </tasks>
+    <tasks>
+        <fullName>PA_Received4</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>1</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>PA Received?</subject>
+    </tasks>
+    <tasks>
+        <fullName>Please_Establish_PA_Freehold</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>Please Establish PA - Freehold</subject>
+    </tasks>
+    <tasks>
+        <fullName>Please_Establish_PA_Matawan</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>Please Establish PA - Matawan</subject>
+    </tasks>
+    <tasks>
+        <fullName>Please_Establish_PA_Old_Bridge</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>Please Establish PA - Old Bridge</subject>
+    </tasks>
+    <tasks>
+        <fullName>URGENT_PA_Received</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>URGENT - PA Received?</subject>
+    </tasks>
+    <tasks>
+        <fullName>URGENT_PA_Received2</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>URGENT - PA Received?</subject>
+    </tasks>
+    <tasks>
+        <fullName>URGENT_PA_Received3</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>URGENT - PA Received?</subject>
+    </tasks>
+    <tasks>
+        <fullName>URGENT_PA_Received4</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>URGENT - PA Received?</subject>
+    </tasks>
+    <tasks>
+        <fullName>URGENT_Please_Establish_PA_Ma</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>URGENT- Please Establish PA - Matawan</subject>
+    </tasks>
+    <tasks>
+        <fullName>URGENT_Please_Establish_PA_Matawan</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>URGENT - Please Establish PA - Matawan</subject>
+    </tasks>
+    <tasks>
+        <fullName>URGENT_Please_Establish_PA_Old_Bridge</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>URGENT- Please Establish PA - Old Bridge</subject>
+    </tasks>
+    <tasks>
+        <fullName>Urgent_Please_Establish_PA</fullName>
+        <assignedTo>nicholas.russo@alliancehealthsystem.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>URGENT - Please Establish PA - Freehold</subject>
+    </tasks>
+</Workflow>

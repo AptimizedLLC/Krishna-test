@@ -1,0 +1,3589 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Major_Med</fullName>
+    <active>true</active>
+    <label>Major Med</label>
+    <picklistValues>
+        <picklist>A4556__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>A4557__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Acupuncture_Benefits_Cigna_ASHN__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Acupuncture_Covered_by_WC_OLD__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Acupuncture_Covered_by_WC__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Acupuncture_Referral_Required__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Acupuncture_Visits_Combined__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Aggregate_Allowance__c</picklist>
+        <values>
+            <fullName>Local</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Ambulatory_Surgery_Center_Covered__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Buy_and_Bill_Injection_Codes__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Can_patient_treat_at_ASC__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Can_we_buy_and_bill_injection_codes__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Chiro_Visits_Combined__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Chiropractic_Benefits_Cigna_ASHN__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Chiropractic_Referral_Required__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Chiropractor_Covered_by_WC_OLD__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Chiropractor_Covered_by_WC__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Count_As_1_Or_2_Visits__c</picklist>
+        <values>
+            <fullName>1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Coverage_Year__c</picklist>
+        <values>
+            <fullName>Calendar Year</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Plan Year</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DME_Benefits_Cigna_ASHN__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DME_Referral_Required__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Deductible_Cross_Applies_NEW__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Deductible_Cross_Applies_OLD__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Deductible_Cross_Applies__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Does_This_Plan_Have_Multiplan_Benefit__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Does_plan_allow_co_treatment__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>E0218__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>E0221__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>E0730_Been_Prescribed_in_Last_3_Years__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>E0730__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>E0748__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Fee_Schedule__c</picklist>
+        <values>
+            <fullName>1199 Fee Schedule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>70 MRC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>80 MRC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>90 MRC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aetna Allowable Rate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Anthem Allowed Amount</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CMS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cigna MRC 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cigna MRC 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contracted Provider Rates</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Custom Fee Schedule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customary Rates%2C GEHA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DataIsight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GHI Fee Schedule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Network PPO Rate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Local</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MCR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MNRP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MTA Fee Schedule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Magnacare Allowable Rate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Max Allowed Amount</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medicaid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medicare Allowed Amount</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Negotiated Rates</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No OON</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OON Commercial Rates</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pay as Billed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Process Claims First</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>R%26C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Self Pay</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Third Party</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tricare Maximum Allowable Charge</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>U%26C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UCR</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>How_Is_Policy_Funded__c</picklist>
+        <values>
+            <fullName>Fully</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Self</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Insurance_Company__c</picklist>
+        <values>
+            <fullName>1199</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AARP Healthcare Options</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Accountable Health Care Ipa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aetna</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>All Savers Plans</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Allied Benefit Systems Inc</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Allied Healthcare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Allstate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Altrua Healthshare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>American Benefit Corp</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>American Continental Insurance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>American European</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>American Family Insurance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amerigroup</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amerihealth</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amtrust</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Anthem BCBS Of Ohio</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Anthem Blue Cross Of California</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BMI Benefits</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bankers Life</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bollinger Specialty Group</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Braven Health</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bristol West</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Carelink Claims</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Champ VA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chubb Group Insurance Company</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cigna</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>City Of New York Health Benefits Pr</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Clover</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Colonial Penn Life</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Constitution State Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consumer Health Network</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Crum %26 Forster</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Division 1181 ATU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Division Of Federal Employees Comp</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Emblem Health</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Emblemhealth For Ghi Legacy Claims</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Empire Plan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Farmers Insurance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Florida Blue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Foreign Service Benefit Plan %2F Mutu</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Freedom Life Via US Health Group</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GEHA-ASA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Geico</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Genworth Life %26 Annuity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gerber Life Insurance Co</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Globe Life Insurance Company Of NY</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Group %26 Pension Administrators</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Health First Health Plans</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Highmark Bcbs Of Pennsylvania</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Horizon Bcbs Of New Jersey</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Horizon Bcbs Of New Jersey Bluecard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Horizon Bcbs Of New Jersey FEP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Horizon Casualty Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Humana Behavioral Health</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>I%2EE%2E Shaffer And Company</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IUOE Local 25 Medical Plan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indecs Corporation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inservco Insurance Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insurance Administrators Of America</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kaiser Permanente</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Liberty Healthshare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Liberty Mutual</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Local 1964 ILA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Magnacare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manhattan Life Insurance Company</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medicare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meritain Health</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Monumental Life Insurance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mutual Of Omaha EAP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NEIHBP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NJM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NYC Transit Authority</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nahga Claim Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nalc%2FCigna</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National Guardian Life Insurance Co</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nationwide</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Neighborhood Health Partnership</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nippon Life Benefits</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omaha National Group</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Optum Health</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Philadelphia American Life</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Plymouth Rock</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Premera Blue Cross - Wa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Progressive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RailRoad Medicare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Standard Life Insurance Co</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>State Farm</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Strategic Resource Company</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>The Risk Management Planning Group</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thrivent Financial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Traditional Medicare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Travelers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tricare For Life</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trustmark Health Benefits</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tufts Health Plan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UHC Kiosk Silver Plan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UMR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UPMC Health Plan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>USAA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>United Harvard Pilgrim</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>United Health Care %28UHC%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>United Healthcare Medicare Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>United Healthcare Student Resources</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>United Of Omaha Life Insurance Co</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web TPA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wellcare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wellnet</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Is_There_a_Medicare_Replacement_Plan_NEW__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Is_There_a_Medicare_Replacement_Plan_OLD__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Is_There_a_Medicare_Replacement_Plan__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Is_this_plan_Embedded_or_Aggregate__c</picklist>
+        <values>
+            <fullName>Aggregate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Embedded</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>J7320__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>J7322_Diagnosis_Driven__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>J7322_Diagnosis_Driven_old__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>J7322__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>J7324__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>J7325__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>J7327__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>L0180__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>L0631__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>L0637__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>L0648__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>L0650__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>L1833__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>L1843__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>L1845__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>L1846__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>L1902__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>L1940__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>L3000__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>L3030__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>L3764__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>L3807__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>L3906__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>L3919__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>L3935__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>L4350__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>L4361__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>L4397__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Medicare_Replacement_Plan_Type__c</picklist>
+        <values>
+            <fullName>HMO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PPO</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NJ_Spine_Listed_as_In_Network_NEW__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NJ_Spine_Listed_as_In_Network_OLD__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NJ_Spine_Listed_as_In_Network__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>OT_Visits_Combined__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Occupational_Therapy_Benefits_Cigna_ASHN__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Occupational_Therapy_Referral_Required__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PT_OT_Combined_In_Same_Day__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PT_Visits_Combined__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Patient_Eligible_For_Orhtotics__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Patient_Have_Out_of_Network_Benefits__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Physical_Therapy_Benefits_Cigna_ASHN__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Physical_Therapy_Referral_Required__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Plan_Follows_Erisa_Guidelines_NEW__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Plan_Follows_Erisa_Guidelines_OLD__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Plan_Follows_Erisa_Guidelines__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Plan_Type__c</picklist>
+        <values>
+            <fullName>EPO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HMO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OMNIA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>POS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PPO</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Policy_Follow_a_Diabetic_Mandate_OLD__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Policy_Follow_a_Diabetic_Mandate__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Procedure_Benefits_Cigna_ASHN__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Procedure_Referral_Required__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reimbursement_Type__c</picklist>
+        <values>
+            <fullName>HMO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MCR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PPO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Self Pay</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Upper CMS</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Rental_Required_For_Purchase_E0218__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Rental_Required_For_Purchase_E0221__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Rental_Required_For_Purchase_E0730__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Rental_Required_For_Purchase_E0748__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>School_Insurance_Active_and_Open__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Supplemental_Follows_Medicare_Guidelines__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Supplemental_Policy_On_File_NEW__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Supplemental_Policy_On_File_OLD__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Supplemental_Policy_On_File__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Viscosupplementation_Covered__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Viscosupplementation_Preferred_Drug__c</picklist>
+        <values>
+            <fullName>Euflexxa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hymovis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Orthovisc</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Synvisc</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>WC_Authorization_Policy_old__c</picklist>
+        <values>
+            <fullName>C4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MG2</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>WC_Authorization_Required_for_Visits__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>WC_Conservative_Care_on_Same_Day__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>WC_Injury_State__c</picklist>
+        <values>
+            <fullName>AK</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AZ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ID</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KY</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ME</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ND</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NJ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NV</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NY</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OK</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WV</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WY</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>WC_OT_Covered_OLD__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>WC_OT_Covered__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>WC_PT_Covered_OLD__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>WC_PT_Covered__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Workers_Comp_Policy_State__c</picklist>
+        <values>
+            <fullName>AK</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AZ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ID</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KY</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ME</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ND</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NJ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NV</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NY</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OK</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WV</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WY</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X20550__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X20552__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X20553__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X20610__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X20931__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X23405__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X29530__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X29799__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X29805__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X36465__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X36466__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X36475__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X38220__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X62290__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X62321__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X62323__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X63650__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X644590__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X64483__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X64490__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X64624__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X64633__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X64640_NEW__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X64640__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X64772__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X72110__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X72131__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X72141_In_Net_Auth__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X72141_OON_Auth__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X72141__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X78265__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X93970__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X93998__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X95700__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X95716__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X95719__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X95720__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X95886__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X95907_95913__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X97124__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X97139__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X97140__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X97535__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X97750__c</picklist>
+        <values>
+            <fullName>No%2C Not covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes covered%2C NO AUTH REQ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Yes_No__c</picklist>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

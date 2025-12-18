@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Viscosupplementation_Preferred_Drug__c</fullName>
+    <label>Viscosupplementation Preferred Drug</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Orthovisc</fullName>
+                <default>false</default>
+                <label>Orthovisc</label>
+            </value>
+            <value>
+                <fullName>Euflexxa</fullName>
+                <default>false</default>
+                <label>Euflexxa</label>
+            </value>
+            <value>
+                <fullName>Synvisc</fullName>
+                <default>false</default>
+                <label>Synvisc</label>
+            </value>
+            <value>
+                <fullName>Hymovis</fullName>
+                <default>false</default>
+                <label>Hymovis</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

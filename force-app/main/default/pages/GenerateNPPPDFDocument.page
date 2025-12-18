@@ -1,0 +1,326 @@
+<apex:page standardController="NPP__c" extensions="GenerateNPPIntakePDFDocumentController" renderAs="pdf" applyBodyTag="false">
+    <head>
+        <title></title>
+        <style>
+            @page {
+                size: A4 portrait;
+                border: 2px solid black;
+            }
+            table,
+            th,
+            td {
+                font-family: helvetica !important;
+                font-size: 11pt !important;
+                border: 0.6px solid black;
+                border-collapse: collapse !important;
+                border-spacing: 0px;
+                vertical-align: top;
+                padding: 5px;
+            }
+            .question {
+                font-weight: bold;
+                background-color: #f4f4f4;
+                width: 35%;
+            }
+            .section-title {
+                text-align: center;
+                font-weight: bold;
+                color: red;
+                font-size: 28px;
+                margin-top: 30px;
+                margin-bottom: 10px;
+            }
+            .subtitle {
+                text-align: center;
+                font-style: italic;
+                font-weight: bold;
+            }
+            .new-page {
+                page-break-before: always;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <p><img src="https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003pCyH&oid=00Df2000001HEGJ&lastMod=1715318986000" style="width: 725px;"/></p>
+        </div>
+
+        <!-- Section Header -->
+        <div class="section-title">Patient Information</div>
+        <p class="subtitle">Please answer the following questions as this information will be reviewed by your medical provider(s).</p>
+
+        <table width="100%">
+            <tr><td class="question">Patient Name</td><td><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></td></tr>
+            <tr><td class="question">Height (Feet)</td><td><apex:outputField value="{!NPP__c.HQ_Feet__c}"/> Inches <apex:outputField value="{!NPP__c.HQ_Inches__c}"/> in</td></tr>
+            <tr><td class="question">Weight</td><td><apex:outputField value="{!NPP__c.HQ_Weight__c}"/></td></tr>
+            <tr><td class="question">Employer</td><td><apex:outputField value="{!NPP__c.HQ_Employer__c}"/></td></tr>
+            <tr><td class="question">Job Title</td><td><apex:outputField value="{!NPP__c.HQ_Job_Title__c}"/></td></tr>
+            <tr><td class="question">Occupational Physical Demands</td><td><apex:outputField value="{!NPP__c.HQ_Occupational_Physical_Demands__c}"/></td></tr>
+            <tr><td class="question">COVID-19 Vaccinated?</td><td><apex:outputField value="{!NPP__c.HQ_COVID_19_Vaccination_Status__c}"/></td></tr>
+        </table>
+        <apex:outputPanel rendered="{!NPP__c.HQ_COVID_19_Vaccination_Status__c='Yes'}">
+            <table width="100%">
+                <tr><td class="question">Dose 1</td><td><apex:outputField value="{!NPP__c.HQ_Dose_1__c}"/></td></tr>
+                <tr><td class="question">Dose 2</td><td><apex:outputField value="{!NPP__c.HQ_Dose_2__c}"/></td></tr>
+                <tr><td class="question">Dose 3</td><td><apex:outputField value="{!NPP__c.HQ_Dose_3__c}"/></td></tr>
+            </table>
+        </apex:outputPanel>
+
+        <table width="100%">
+            <tr><td class="question">Current Medications</td><td><apex:outputField value="{!NPP__c.HQ_Current_Medications__c}"/></td></tr>
+        </table>
+        <apex:outputPanel rendered="{!NPP__c.HQ_Current_Medications__c='Yes'}">
+            <table width="100%">
+                <tr><td class="question">Medication List</td><td><apex:outputField value="{!NPP__c.HQ_Current_Medications_If_YES__c}"/></td></tr>
+            </table>
+        </apex:outputPanel>
+
+        <table width="100%">
+            <tr><td class="question">Allergies</td><td><apex:outputField value="{!NPP__c.HQ_Allergies__c}"/></td></tr>
+        </table>
+        <apex:outputPanel rendered="{!NPP__c.HQ_Allergies__c='Yes'}">
+            <table width="100%">
+                <tr><td class="question">Allergy List</td><td><apex:outputField value="{!NPP__c.HQ_Other_Allergies__c}"/></td></tr>
+            </table>
+        </apex:outputPanel>
+
+        <table width="100%">
+            <tr><td class="question">Chief Complaint</td><td><apex:outputField value="{!NPP__c.HQ_Chief_Complaint__c}"/></td></tr>
+        </table>
+
+        
+<div class="section-title new-page">Pain Questionnaire</div>
+<table class="question-table">
+    <tr>
+        <td class="question">At worst, what is your highest pain level? Rate 1-10, with 10 being the most severe</td>
+        <td><apex:outputField value="{!NPP__c.HQ_Pain_Level_Numeric_Rating_Scale__c}"/></td>
+    </tr>
+    <tr>
+        <td class="question">Do you have any additional complaints of pain? (Type N/A if not applicable)</td>
+        <td><apex:outputField value="{!NPP__c.HQ_Additional_Pain_Complaints__c}"/></td>
+    </tr>
+    <tr>
+        <td class="question">When did the pain start?</td>
+        <td><apex:outputField value="{!NPP__c.HQ_Onset_of_Pain__c}"/></td>
+    </tr>
+    <tr>
+        <td class="question">Is this related to a motor vehicle accident or worker’s compensation claim?</td>
+        <td><apex:outputField value="{!NPP__c.HQ_Motor_Vehiclle_Accident_Relevance__c}"/></td>
+    </tr>
+    <tr>
+        <td class="question">Have you seen a medical doctor regarding your pain?</td>
+        <td><apex:outputField value="{!NPP__c.HQ_Medical_Doctor_Consultation__c}"/></td>
+    </tr>
+    <tr>
+        <td class="question">Have you had any of the following performed?</td>
+        <td><apex:outputField value="{!NPP__c.HQ_had_any_of_the_following_performed__c}"/></td>
+    </tr>
+    <tr>
+        <td class="question">Tell us about the quality of your pain (check all that apply)</td>
+        <td><apex:outputField value="{!NPP__c.HQ_Quality_of_the_pain__c}"/></td>
+    </tr>
+    <tr>
+        <td class="question">What makes it worse?</td>
+        <td><apex:outputField value="{!NPP__c.HQ_What_makes_it_worse__c}"/></td>
+    </tr>
+    <tr>
+        <td class="question">What makes it better?</td>
+        <td><apex:outputField value="{!NPP__c.HQ_What_makes_it_better__c}"/></td>
+    </tr>
+    <tr>
+        <td class="question">Do you have a bunion?</td>
+        <td><apex:outputField value="{!NPP__c.HQ_Do_you_have_a_bunion__c}"/></td>
+    </tr>
+    <tr>
+        <td class="question">Bunion Causing Pain/Discomfort?</td>
+        <td><apex:outputField value="{!NPP__c.HQ_Bunion_Causing_Pain_Discomfort__c}"/></td>
+    </tr>
+    <tr>
+        <td class="question">Evaluated for Bunion Before?</td>
+       	<td><apex:outputField value="{!NPP__c.HQ_Evaluated_for_Bunion_Before__c}"/></td>
+    </tr>
+
+    <tr>
+        <td class="question">Preferred Pharmacy Name</td>
+        <td><apex:outputField value="{!NPP__c.HQ_Preferred_Pharmacy_Name__c}"/></td>
+    </tr>
+    <tr>
+        <td class="question">Preferred Pharmacy Address</td>
+        <td><apex:outputField value="{!NPP__c.HQ_Prefered_Pharmacy_Address__c}"/></td>
+    </tr>
+    <tr>
+        <td class="question">Preferred Pharmacy Phone Number</td>
+        <td><apex:outputField value="{!NPP__c.HQ_Pharmacy_Phone_Number__c}"/></td>
+    </tr>
+</table>
+
+
+         <!-- Medical History Section -->
+     <!-- Medical History Section -->
+<div class="section-title new-page">Medical History</div>
+<table width="100%">
+    <tr><td class="question">Medical History</td><td><apex:outputField value="{!NPP__c.HQ_Do_you_have_history_of_following__c}"/></td></tr>
+    <tr><td class="question">Surgical History</td><td><apex:outputField value="{!NPP__c.HQ_past_surgical_history_or_any_other__c}"/></td></tr>
+    <tr><td class="question">New Surgeries Since Last Visit?</td><td><apex:outputField value="{!NPP__c.HQ_Any_new_surgeries_or_procedures_since__c}"/></td></tr>
+    <apex:outputPanel rendered="{!NPP__c.HQ_Any_new_surgeries_or_procedures_since__c='Yes'}">
+        <tr><td class="question">Surgeries List</td><td><apex:outputField value="{!NPP__c.HQ_new_surgeries_procedure_If_yes__c}"/></td></tr>
+    </apex:outputPanel>
+    <tr><td class="question">Family Medical Conditions</td><td><apex:outputField value="{!NPP__c.HQ_does_anyone_in_your_family_suffer__c}"/></td></tr>
+    <tr><td class="question">Smoking Habit</td><td><apex:outputField value="{!NPP__c.HQ_Smoking_Status__c}"/></td></tr>
+    <tr><td class="question">Alcohol Use</td><td><apex:outputField value="{!NPP__c.HQ_Alcohol_Consumption__c}"/></td></tr>
+    <tr><td class="question">Drug Use History</td><td><apex:outputField value="{!NPP__c.HQ_Drug_Use_History__c}"/></td></tr>
+    <tr><td class="question">Goals holded because of Pain</td><td><apex:outputField value="{!NPP__c.HQ_Goals_holded_because_of_Pain__c}"/></td></tr>
+    <apex:outputPanel rendered="{!NPP__c.HQ_Pain_Related_Goals__c='Other'}">
+        <tr><td class="question">Other Goals</td><td><apex:outputField value="{!NPP__c.HQ_goals_would_like_to_accomplish_Other__c}"/></td></tr>
+    </apex:outputPanel>
+    <tr><td class="question">Blood Thinners</td><td><apex:outputField value="{!NPP__c.HQ_Are_you_taking_blood_thinners__c}"/></td></tr>
+    <tr><td class="question">Pregnancy Status</td><td><apex:outputField value="{!NPP__c.HQ_Are_you_or_could_you_be_pregnant__c}"/></td></tr>
+    <tr><td class="question">Immune System Concerns</td><td><apex:outputField value="{!NPP__c.HQ_Any_issues_or_concerns_with_immune__c}"/></td></tr>
+    <tr><td class="question">Transmissible Diseases</td><td><apex:outputField value="{!NPP__c.HQ_Diseases_or_infections_bodily_fluids__c}"/></td></tr>
+    <tr><td class="question">Relationship to Patient</td><td><apex:outputField value="{!NPP__c.HQ_Relationship_to_Patient__c}"/></td></tr>
+<tr>
+    <td colspan="3" style="height: 20px; border: none;">&nbsp;</td>
+</tr>
+<!-- Start of Disease History Table -->
+<table width="100%">
+    <tr>
+        <th class="question">Disease</th>
+        <th class="question">Yes/No</th>
+        <th class="question">Date Diagnosed</th>
+    </tr>
+ <tr>
+        <td>DVT History</td>
+        <td><apex:outputField value="{!NPP__c.HQ_Ever_Had_Deep_Vein_Thrombosis__c}"/></td>
+        <td><apex:outputPanel rendered="{!NPP__c.HQ_Ever_Had_Deep_Vein_Thrombosis__c == 'Yes'}">
+                <apex:outputField value="{!NPP__c.HQ_Date_Diagnosed_Deep_Vein_Thrombosis__c}"/>
+            </apex:outputPanel>
+        </td>
+    </tr>
+    <tr>
+        <td>Pulmonary Embolism</td>
+        <td><apex:outputField value="{!NPP__c.HQ_Ever_Had_Pulmonary_Embolism__c}"/></td>
+        <td><apex:outputPanel rendered="{!NPP__c.HQ_Ever_Had_Pulmonary_Embolism__c == 'Yes'}">
+                <apex:outputField value="{!NPP__c.HQ_Date_Diagnosed_Pulmonary_Embolism__c}"/>
+            </apex:outputPanel>
+        </td>
+    </tr>
+    <tr>
+        <td>Congestive Heart Failure (CHF)</td>
+        <td><apex:outputField value="{!NPP__c.HQ_Ever_Had_Congestive_Heart_Failure__c}"/></td>
+        <td><apex:outputPanel rendered="{!NPP__c.HQ_Ever_Had_Congestive_Heart_Failure__c == 'Yes'}">
+                <apex:outputField value="{!NPP__c.HQ_Date_Diagnosed_Congestive_Heart_Failu__c}"/>
+            </apex:outputPanel>
+        </td>
+    </tr>
+    <tr>
+        <td>Myocarditis</td>
+        <td><apex:outputField value="{!NPP__c.HQ_Do_you_have_a_history_of_myocarditis__c}"/></td>
+        <td><apex:outputPanel rendered="{!NPP__c.HQ_Do_you_have_a_history_of_myocarditis__c == 'Yes'}">
+                <apex:outputField value="{!NPP__c.HQ_Date_Diagnosed_Myocarditis__c}"/>
+            </apex:outputPanel>
+        </td>
+    </tr>
+    <tr>
+        <td>Heart Attack</td>
+        <td><apex:outputField value="{!NPP__c.HQ_Ever_had_Heart_Attacks__c}"/></td>
+        <td><apex:outputPanel rendered="{!NPP__c.HQ_Ever_had_Heart_Attacks__c == 'Yes'}">
+                <apex:outputField value="{!NPP__c.HQ_Date_Diagnosed_Heart_Attacks__c}"/>
+            </apex:outputPanel>
+        </td>
+    </tr>
+    <tr>
+        <td>Kawasaki Disease</td>
+        <td><apex:outputField value="{!NPP__c.HQ_Ever_Had_Kawasaki_Disease__c}"/></td>
+        <td><apex:outputPanel rendered="{!NPP__c.HQ_Ever_Had_Kawasaki_Disease__c == 'Yes'}">
+                <apex:outputField value="{!NPP__c.HQ_Date_Diagnosed_Kawasaki_Disease__c}"/>
+            </apex:outputPanel>
+        </td>
+    </tr>
+    <tr>
+        <td>Heart Murmur/Arrhythmia</td>
+        <td><apex:outputField value="{!NPP__c.HQ_Heart_Arrhythmia_Murmur__c}"/></td>
+        <td><apex:outputPanel rendered="{!NPP__c.HQ_Heart_Arrhythmia_Murmur__c == 'Yes'}">
+                <apex:outputField value="{!NPP__c.HQ_Date_Diagnosed_Heart_Arrhythmia__c}"/>
+            </apex:outputPanel>
+        </td>
+    </tr>
+    <tr>
+        <td>Active Cancer</td>
+        <td><apex:outputField value="{!NPP__c.HQ_Active_Cancer_Diagnosis__c}"/></td>
+        <td><apex:outputPanel rendered="{!NPP__c.HQ_Active_Cancer_Diagnosis__c == 'Yes'}">
+                <apex:outputField value="{!NPP__c.HQ_Date_Diagnosed_Active_Cancer_Diagnosi__c}"/>
+            </apex:outputPanel>
+        </td>
+    </tr>
+    <tr>
+        <td>Pacemaker</td>
+        <td><apex:outputField value="{!NPP__c.HQ_Do_you_have_a_pacemaker__c}"/></td>
+        <td><apex:outputPanel rendered="{!NPP__c.HQ_Do_you_have_a_pacemaker__c == 'Yes'}">
+                <apex:outputField value="{!NPP__c.HQ_Date_Diagnosed_Pacemaker__c}"/>
+            </apex:outputPanel>
+        </td>
+    </tr>
+    <tr>
+        <td>Stroke</td>
+        <td><apex:outputField value="{!NPP__c.HQ_Do_you_have_a_history_of_strokes__c}"/></td>
+        <td><apex:outputPanel rendered="{!NPP__c.HQ_Do_you_have_a_history_of_strokes__c == 'Yes'}">
+                <apex:outputField value="{!NPP__c.HQ_Date_Diagnosed_strokes__c}"/>
+            </apex:outputPanel>
+        </td>
+    </tr>
+</table>
+
+    <tr><td class="question">Relationship to Patient</td><td><apex:outputField value="{!NPP__c.HQ_Relationship_to_Patient__c}"/></td></tr>
+</table>
+
+       
+
+        <!-- Blood Flow & Circulation Section -->
+        <div class="section-title new-page">Blood Flow and Circulation Assessment</div>
+        <table width="100%">
+            <tr><td class="question">Varicose Veins</td><td><apex:outputField value="{!NPP__c.HQ_Vein_Conditions__c}"/></td></tr>
+            <tr><td class="question">Leg Swelling/Fatigue</td><td><apex:outputField value="{!NPP__c.HQ_legs_feel_heavy_tired_achy_or__c}"/></td></tr>
+            <tr><td class="question">Legs feel better with rest</td><td><apex:outputField value="{!NPP__c.HQ_legs_feel_better_with_rest__c}"/></td></tr>
+            <tr><td class="question">End of Day legs Swelling</td><td><apex:outputField value="{!NPP__c.HQ_legs_swell_at_the_end_of_the_day__c}"/></td></tr>
+            <tr><td class="question">Morning vs Evening Leg Comfort</td><td><apex:outputField value="{!NPP__c.HQ_Morning_vs_Evening_Leg_Comfort__c}"/></td></tr>
+            <tr><td class="question">Cramps or Restless Legs</td><td><apex:outputField value="{!NPP__c.HQ_Cramps_or_Restless_Legs__c}"/></td></tr>
+            <tr><td class="question">Skin Darkening Below Knees</td><td><apex:outputField value="{!NPP__c.HQ_Skin_Condition_Below_Knees__c}"/></td></tr>
+            <tr><td class="question">Lower Leg Ulcers or Sores</td><td><apex:outputField value="{!NPP__c.HQ_History_of_Lower_Leg_Ulcers_or_Sores__c}"/></td></tr>
+            <tr><td class="question">Cardiologist Presence</td><td><apex:outputField value="{!NPP__c.HQ_Cardiologist_Presence__c}"/></td></tr>
+            <tr><td class="question">Lower Leg Hair Loss</td><td><apex:outputField value="{!NPP__c.HQ_Lower_Leg_Hair_Loss__c}"/></td></tr>
+            <tr><td class="question">Lower Leg Numbness</td><td><apex:outputField value="{!NPP__c.HQ_Lower_Leg_Numbness_Tingling__c}"/></td></tr>
+            <tr><td class="question">Diabetes/Neuropathy</td><td><apex:outputField value="{!NPP__c.HQ_Diabetes_and_Neuropathy_Diagnosis__c}"/></td></tr>
+            <tr><td class="question">Foot Tightness with Socks</td><td><apex:outputField value="{!NPP__c.HQ_Foot_Tightness_with_Socks_Shoes__c}"/></td></tr>
+            <tr><td class="question">Lymphedema</td><td><apex:outputField value="{!NPP__c.HQ_Diagnosed_with_Lymphedema__c}"/></td></tr>
+        </table>
+        <apex:outputPanel rendered="{!NPP__c.HQ_Diagnosed_with_Lymphedema__c == 'Yes'}">
+            <table width="100%">
+                <tr><td class="question">Date Diagnosed (Lymphedema)</td><td><apex:outputField value="{!NPP__c.HQ_Date_Diagnosed_Lymphedema__c}"/></td></tr>
+            </table>
+            <tr>
+    <td colspan="3" style="height: 20px; border: none;">&nbsp;</td>
+</tr>
+        </apex:outputPanel>
+<div>
+    
+       
+        <!-- Signature and Acknowledgement -->
+        <table width="100%">
+            <tr>
+    <td colspan="3" style="height: 20px; border: none;">&nbsp;</td>
+</tr>
+            <tr><td class="question">Patient Name</td><td><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></td></tr>
+            <tr><td class="question">Date</td><td><apex:outputText value="{0,date,MM/dd/yyyy}"><apex:param value="{!NPP__c.CreatedDate}" /></apex:outputText></td></tr>
+            <tr><td class="question">Patient Signature</td><td><apex:outputText value="{!oppt.HQ_Signature__c}" escape="false" /></td></tr>
+        </table>
+ </div>
+        <table width="100%">
+            <tr>
+                <td style="border: none;">
+                    <img src="https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003gvo9&oid=00Df2000001HEGJ&lastMod=1714988677000" style="width: 15px; height:15px;"/>
+                    <label>By checking the box I acknowledge and agree to conduct business electronically, that I have read the terms above, and that I agree to insert my electronic signature indicating my consent.</label>
+                </td>
+            </tr>
+        </table>
+    </body>
+</apex:page>

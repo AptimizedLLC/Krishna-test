@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>SPD Creation Exceptions</label>
+    <protected>false</protected>
+    <values>
+        <field>Excluded_GPNs_Values__c</field>
+        <value xsi:type="xsd:string">2345,22333666123,22333666123e,21331,12345k44,52-802G5,123check12,100HC-0024</value>
+    </values>
+    <values>
+        <field>Excluded_GPNs__c</field>
+        <value xsi:type="xsd:string">23456,78910,9246100,87000,21331,257822,257822,1212121,455465654,160924,1234567,1233453,22333666,a19U8000000qYglIAE,695988454658</value>
+    </values>
+    <values>
+        <field>Excluded_VOB_Types__c</field>
+        <value xsi:type="xsd:string">Medicare, WC, PIP, Deductible Accumulation, Reverification, Surgical</value>
+    </values>
+</CustomMetadata>

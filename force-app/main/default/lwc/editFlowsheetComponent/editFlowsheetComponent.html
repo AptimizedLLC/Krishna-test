@@ -1,0 +1,767 @@
+<template>
+    <lightning-card >
+        
+        <B>Hi ALL</B>
+        
+        <div class="slds-m-around_medium slds-text-align_center">
+            <div class="slds-button-group" role="group">
+                <button class={CptClass} name="Cpt" onclick={buttonHandler}>Select CPT Codes</button>
+                <button class={ExcerciseClass} name="Excercise" onclick={buttonHandler}>Enter Excercise</button>
+                <button class={SubmitClass} name="Submit" onclick={buttonHandler} disabled={disableButton}>Submit for Approval</button>
+                </div>
+              <hr/>
+              <P>Instructional language will go here and will be configurable via custom label-<b>Flowsheet modal EnterCPT codes instr</b></P>  
+              
+                <template if:true={cptFlag}>
+                <div class="c-container">
+                    <lightning-layout horizontal-align="space">
+                        
+                        <lightning-layout-item padding="around-small" style="width:50%" >
+
+                            <div class="label-checkbox-container">
+                                <label>CPT CODE-1</label>
+                                <input
+                                    type="checkbox"
+                                    value={formfield.checkbox1}
+                                    checked={formfield.checkbox1}
+                                    onchange={handleCheckboxChange}
+                                    class="medium-checkbox"
+                                />
+                            </div>
+                            <br/>
+                            <div class="label-checkbox-container">
+                                <label>CPT CODE-2</label>
+                                <input
+                                    type="checkbox"
+                                    value="checkbox2"
+                                    checked={formfield.checkbox2}
+                                    onchange={handleCheckboxChange}
+                                    class="medium-checkbox"
+                                />
+                            </div>
+                            <br/>
+                            
+                            <div class="label-checkbox-container">
+                                <label>CPT CODE-3</label>
+                                <input
+                                    type="checkbox"
+                                    value="checkbox3"
+                                    checked={formfield.checkbox3}
+                                    onchange={handleCheckboxChange}
+                                    class="medium-checkbox"
+                                />
+                            </div>
+                            <br/>
+                            <div class="label-checkbox-container">
+                                <label>CPT CODE-4</label>
+                                <input
+                                    type="checkbox"
+                                    value="checkbox4"
+                                    checked={formfield.checkbox4}
+                                    onchange={handleCheckboxChange}
+                                    class="medium-checkbox"
+                                />
+                            </div>
+                            <br/>
+
+                            <div class="label-checkbox-container">
+                                <label>CPT CODE-5</label>
+                                <input
+                                    type="checkbox"
+                                    value="checkbox5"
+                                    checked={formfield.checkbox5}
+                                    onchange={handleCheckboxChange}
+                                    class="medium-checkbox"
+                                />
+                            </div>
+                            <br/>
+
+                                
+                        </lightning-layout-item>
+            
+                   <lightning-layout-item padding="around-small" style="width:50%" >
+
+                    <div class="label-checkbox-container">
+                        <label>CPT CODE-6</label>
+                        <input
+                            type="checkbox"
+                            value="checkbox6"
+                            checked={formfield.checkbox6}
+                            onchange={handleCheckboxChange}
+                            class="medium-checkbox"
+                        />
+                    </div>
+                    <br/>
+                    <div class="label-checkbox-container">
+                        <label>CPT CODE-7</label>
+                        <input
+                            type="checkbox"
+                            value="checkbox7"
+                            checked={formfield.checkbox7}
+                            onchange={handleCheckboxChange}
+                            class="medium-checkbox"
+                        />
+                    </div>
+                    <br/>
+                            
+                    <div class="label-checkbox-container">
+                        <label>CPT CODE-8</label>
+                        <input
+                            type="checkbox"
+                            value="checkbox8"
+                            checked={formfield.checkbox8}
+                            onchange={handleCheckboxChange}
+                            class="medium-checkbox"
+                        />
+                    </div>
+                    <br/>
+                    <div class="label-checkbox-container">
+                        <label>CPT CODE-9</label>
+                        <input
+                            type="checkbox"
+                            value="checkbox9"
+                            checked={formfield.checkbox9}
+                            onchange={handleCheckboxChange}
+                            class="medium-checkbox"
+                        />
+                    </div>
+                    <br/>
+                            
+                    <div class="label-checkbox-container">
+                        <label>CPT CODE-10</label>
+                        <input
+                            type="checkbox"
+                            value="checkbox10"
+                            checked={formfield.checkbox10}
+                            onchange={handleCheckboxChange}
+                            class="medium-checkbox"
+                        />
+                    </div>
+                    <br/>    
+                    
+                    <div class="slds-m-around_medium  slds-text-align_right">
+                        <div class="slds-button-group">
+                            <button class="slds-button slds-button_neutral" name="Cancel" onclick={buttonHandler}>Cancel</button>
+                            <button class="slds-button slds-button_neutral" name="Next" onclick={buttonHandler}>Next</button>
+                        </div>
+                    </div>
+                                    
+                        </lightning-layout-item>
+            
+                        
+                       
+                    </lightning-layout>
+                    <br/>
+
+                </div>
+                 </template>
+
+                 <template if:true={ExcerciseFlag}>
+                    <div class="c-container" >
+                        <lightning-layout >
+                            
+                            <lightning-layout-item padding="around-small" style="width:100%" >
+                                <template if:true={formfield.checkbox1}>
+                                     
+                                                <div style="border: 1px solid LightGray;" >
+                                                    <label style="font-size: 20px">97110(Therapeutic exercises)</label>
+                                                    <template for:each={comboboxData1} for:item="item" for:index="index">
+                                                    <div key={item.id} class="slds-m-bottom_small">
+                                                        <div class="c-container">
+                                                            <lightning-layout horizontal-align="space">
+                                                                
+                                                                <lightning-layout-item padding="around-small" style="width:50%;padding-top: 15px;" >
+                                                                        <lightning-combobox
+                                                                        name={item.label}
+                                                                        label="Exercise" 
+                                                                        value={item.value}
+                                                                        placeholder="Select Exercise"
+                                                                        options={picklistOptions}
+                                                                        onchange={handleComboboxChange}
+                                                                        required
+                                                                        data-id={item.id}>
+                                                                        </lightning-combobox>
+                                                                </lightning-layout-item>
+                                                                <lightning-layout-item padding="around-small" style="width:30%" >
+                                                                    <div class="slds-grid slds-align_absolute-center" >
+                                                                        <lightning-input type="number" 
+                                                                        name={item.id} 
+                                                                        label="Minutes spent"  
+                                                                        value={item.Min}
+                                                                        style="padding-top: 4px;"
+                                                                        required
+                                                                        onchange={handleChange}>
+                                                                        </lightning-input>
+                                                                        <div style="padding-top: 24px;">
+                                                                            <template if:true={item.showDelete}>
+                                                                                <lightning-button-icon icon-name="utility:delete"   name={item.id} alternative-text="Delete"   class="slds-m-left_xx-small"  title="Delete" onclick={deleteHandler}></lightning-button-icon>
+                                                                            </template>
+                                                                        </div>
+                                                                    </div>
+                                                                </lightning-layout-item>
+                                                            
+                                                            
+                                                            </lightning-layout></div>
+                                                        
+                                                    </div>
+                                                </template>
+                                                <!-- Button to add a new combobox -->
+                                                 <div class="slds-text-align_left">
+                                                <lightning-button-icon
+                                                    icon-name="utility:add" 
+                                                    alternative-text="Add Combobox"
+                                                    title="Add Combobox"
+                                                    onclick={handleAddCombobox}
+                                                    disabled={hideButtonProperty}
+                                                    variant="brand"
+                                                    size="medium">
+                                                </lightning-button-icon><label><b>  Add Exercise</b></label></div>
+                                            </div>
+                    
+                                </template>
+                                
+                                <template if:true={formfield.checkbox2}>
+                                    
+                                     
+                                        <div style="border: 1px solid LightGray;">
+                                            <label style="font-size: 20px">97530(Therapeutic activities)</label>
+                                            <template for:each={comboboxData2} for:item="item" for:index="index">
+                                            <div key={item.id} class="slds-m-bottom_small">
+                                                <div class="c-container">
+                                                    <lightning-layout horizontal-align="space">
+                                                        
+                                                        <lightning-layout-item padding="around-small" style="width:50%;padding-top: 15px;" >
+                                                                <lightning-combobox
+                                                                name={item.label}
+                                                                label="Exercise" 
+                                                                value={item.value}
+                                                                placeholder="Select Exercise"
+                                                                options={picklistOptions}
+                                                                onchange={handleComboboxChange2}
+                                                                required=true
+                                                                data-id={item.id}>
+                                                                </lightning-combobox>
+                                                        </lightning-layout-item>
+                                                        <lightning-layout-item padding="around-small" style="width:30%" >
+                                                            <div class="slds-grid slds-align_absolute-center" >
+                                                                <lightning-input type="number" 
+                                                                name={item.id} 
+                                                                label="Minutes spent"  
+                                                                value={item.Min}
+                                                                style="padding-top: 4px;"
+                                                                required=true
+                                                                onchange={handleChange2}>
+                                                                </lightning-input>
+                                                                <div style="padding-top: 24px;">
+                                                                <template if:true={item.showDelete}>
+                                                                    <lightning-button-icon icon-name="utility:delete"  name={item.id}  alternative-text="Delete"   class="slds-m-left_xx-small"  title="Delete" onclick={deleteHandler2}></lightning-button-icon>
+                                                                </template>
+                                                                </div>
+                                                            </div>
+                                
+                                                        </lightning-layout-item>
+                                                    
+                                                    
+                                                    </lightning-layout></div>
+                                                
+                                            </div>
+                                        </template>
+                                        <!-- Button to add a new combobox -->
+                                        <div class="slds-text-align_left">
+                                        <lightning-button-icon
+                                            icon-name="utility:add"
+                                            alternative-text="Add Combobox"
+                                            title="Add Combobox"
+                                            onclick={handleAddCombobox2}
+                                            variant="brand"
+                                            disabled={hideButtonProperty2}
+                                            size="medium">
+                                        </lightning-button-icon><label><b>  Add Exercise</b></label></div>
+                                        </div>
+            
+                                    
+                                </template>
+    
+                                    
+                                        <template if:true={formfield.checkbox3}>
+                                     
+                                            <div style="border: 1px solid LightGray;">
+                                                <label style="font-size: 20px">97112(Neuromuscular re-education)</label>
+                                                <template for:each={comboboxData3} for:item="item" for:index="index">
+                                                <div key={item.id} class="slds-m-bottom_small">
+                                                    <div class="c-container">
+                                                        <lightning-layout horizontal-align="space">
+                                                            
+                                                            <lightning-layout-item padding="around-small" style="width:50%;padding-top: 15px;" >
+                                                                    <lightning-combobox
+                                                                    name={item.label}
+                                                                    label="Exercise" 
+                                                                    value={item.value}
+                                                                    placeholder="Select Exercise"
+                                                                    options={picklistOptions}
+                                                                    onchange={handleComboboxChange3}
+                                                                    required=true
+                                                                    data-id={item.id}>
+                                                                    </lightning-combobox>
+                                                            </lightning-layout-item>
+                                                            <lightning-layout-item padding="around-small" style="width:30%" >
+                                                                <div class="slds-grid slds-align_absolute-center" >
+                                                                    <lightning-input type="number" 
+                                                                    name={item.id} 
+                                                                    label="Minutes spent"  
+                                                                    value={item.Min}
+                                                                    style="padding-top: 4px;"
+                                                                    required=true
+                                                                    onchange={handleChange3}>
+                                                                    </lightning-input>
+                                                                    <div style="padding-top: 24px;">
+                                                                        <template if:true={item.showDelete}>
+                                                                            <lightning-button-icon icon-name="utility:delete"  name={item.id}  alternative-text="Delete"   class="slds-m-left_xx-small"  title="Delete" onclick={deleteHandler3}></lightning-button-icon>
+                                                                        </template>
+                                                                    </div>
+                                                                </div>
+                                    
+                                                            </lightning-layout-item>
+                                                        
+                                                        
+                                                        </lightning-layout></div>
+                                                    
+                                                </div>
+                                            </template>
+                                            <!-- Button to add a new combobox -->
+                                            <div class="slds-text-align_left">
+                                            <lightning-button-icon
+                                                icon-name="utility:add"
+                                                alternative-text="Add Combobox"
+                                                title="Add Combobox"
+                                                onclick={handleAddCombobox3}
+                                                disabled={hideButtonProperty3}
+                                                variant="brand"
+                                                size="medium">
+                                            </lightning-button-icon><label><b>  Add Exercise</b></label></div>
+                                            </div>
+                
+                                        </template>
+                                
+    
+                                <template if:true={formfield.checkbox4}>
+                                    <div style="border: 1px solid LightGray;">
+                                        <label style="font-size: 20px">97140(Manual therapy techniques)</label>
+                                        <template for:each={comboboxData4} for:item="item" for:index="index">
+                                        <div key={item.id} class="slds-m-bottom_small">
+                                            <div class="c-container">
+                                                <lightning-layout horizontal-align="space">
+                                                    
+                                                    <lightning-layout-item padding="around-small" style="width:50%;padding-top: 15px;" >
+                                                            <lightning-combobox
+                                                            name={item.label}
+                                                            label="Exercise" 
+                                                            value={item.value}
+                                                            placeholder="Select Exercise"
+                                                            options={picklistOptions}
+                                                            onchange={handleComboboxChange4}
+                                                            required=true
+                                                            data-id={item.id}>
+                                                            </lightning-combobox>
+                                                    </lightning-layout-item>
+                                                    <lightning-layout-item padding="around-small" style="width:30%" >
+                                                        <div class="slds-grid slds-align_absolute-center" >
+                                                            <lightning-input type="number" 
+                                                            name={item.id} 
+                                                            label="Minutes spent"  
+                                                            value={item.Min}
+                                                            style="padding-top: 4px;"
+                                                            required=true
+                                                            onchange={handleChange4}>
+                                                            </lightning-input>
+                                                            <div style="padding-top: 24px;">
+                                                                <template if:true={item.showDelete}>
+                                                                    <lightning-button-icon icon-name="utility:delete"   name={item.id} alternative-text="Delete"   class="slds-m-left_xx-small"  title="Delete" onclick={deleteHandler4}></lightning-button-icon>
+                                                                </template>
+                                                            </div>
+                                                        </div>
+                            
+                                                    </lightning-layout-item>
+                                                
+                                                
+                                                </lightning-layout></div>
+                                            
+                                        </div>
+                                    </template>
+                                    <!-- Button to add a new combobox -->
+                                    <div class="slds-text-align_left">
+                                    <lightning-button-icon
+                                        icon-name="utility:add"
+                                        alternative-text="Add Combobox"
+                                        title="Add Combobox"
+                                        onclick={handleAddCombobox4}
+                                        disabled={hideButtonProperty4}
+                                        variant="brand"
+                                        size="medium">
+                                    </lightning-button-icon><label><b>  Add Exercise</b></label></div>
+                                    </div>
+                                </template>
+    
+                                <template if:true={formfield.checkbox5}>
+                                    <div style="border: 1px solid LightGray;">
+                                        <label style="font-size: 20px">CPT Code5</label>
+                                        <template for:each={comboboxData5} for:item="item" for:index="index">
+                                        <div key={item.id} class="slds-m-bottom_small">
+                                            <div class="c-container">
+                                                <lightning-layout horizontal-align="space">
+                                                    
+                                                    <lightning-layout-item padding="around-small" style="width:50%;padding-top: 15px;" >
+                                                            <lightning-combobox
+                                                            name={item.label}
+                                                            label="" 
+                                                            value={item.value}
+                                                            placeholder="Select Exercise"
+                                                            options={picklistOptions}
+                                                            onchange={handleComboboxChange5}
+                                                            data-id={item.id}>
+                                                            </lightning-combobox>
+                                                    </lightning-layout-item>
+                                                    <lightning-layout-item padding="around-small" style="width:30%" >
+                                                        <div class="slds-grid slds-align_absolute-center" >
+                                                            <lightning-input type="number" 
+                                                            name={item.id} 
+                                                            label="Minutes spent"  
+                                                            value={item.Min}
+                                                            style="padding-top: 4px;"
+                                                            onchange={handleChange5}>
+                                                            </lightning-input>
+                                                            <div style="padding-top: 24px;">
+                                                                <template if:true={item.showDelete}>
+                                                                    <lightning-button-icon icon-name="utility:delete"   name={item.id} alternative-text="Delete"   class="slds-m-left_xx-small"  title="Delete" onclick={deleteHandler5}></lightning-button-icon>
+                                                                </template>
+                                                            </div>
+                                                        </div>
+                            
+                                                    </lightning-layout-item>
+                                                
+                                                
+                                                </lightning-layout></div>
+                                            
+                                        </div>
+                                    </template>
+                                    <!-- Button to add a new combobox -->
+                                    <div class="slds-text-align_left">
+                                    <lightning-button-icon
+                                        icon-name="utility:add"
+                                        alternative-text="Add Combobox"
+                                        title="Add Combobox"
+                                        onclick={handleAddCombobox5}
+                                        variant="brand"
+                                        size="medium">
+                                    </lightning-button-icon><label><b>  Add Exercise</b></label></div>
+                                    </div>
+                                </template>
+    
+                                <template if:true={formfield.checkbox6}>
+                                    <div style="border: 1px solid LightGray;">
+                                        <label style="font-size: 20px">CPT Code7</label>
+                                        <template for:each={comboboxData6} for:item="item" for:index="index">
+                                        <div key={item.id} class="slds-m-bottom_small">
+                                            <div class="c-container">
+                                                <lightning-layout horizontal-align="space">
+                                                    
+                                                    <lightning-layout-item padding="around-small" style="width:50%;padding-top: 15px;" >
+                                                            <lightning-combobox
+                                                            name={item.label}
+                                                            label="Exercise" 
+                                                            value={item.value}
+                                                            placeholder="Select Exercise"
+                                                            options={picklistOptions}
+                                                            onchange={handleComboboxChange6}
+                                                            data-id={item.id}>
+                                                            </lightning-combobox>
+                                                    </lightning-layout-item>
+                                                    <lightning-layout-item padding="around-small" style="width:30%" >
+                                                        <div class="slds-grid slds-align_absolute-center" >
+                                                            <lightning-input type="number" 
+                                                            name={item.id} 
+                                                            label="Minutes spent"  
+                                                            value={item.Min}
+                                                            style="padding-top: 4px;"
+                                                            onchange={handleChange6}>
+                                                            </lightning-input>
+                                                            <div style="padding-top: 24px;">
+                                                                <template if:true={item.showDelete}>
+                                                                    <lightning-button-icon icon-name="utility:delete"  name={item.id}  alternative-text="Delete"   class="slds-m-left_xx-small"  title="Delete" onclick={deleteHandler6}></lightning-button-icon>
+                                                                </template>
+                                                            </div>
+                                                        </div>
+                            
+                                                    </lightning-layout-item>
+                                                
+                                                
+                                                </lightning-layout></div>
+                                            
+                                        </div>
+                                    </template>
+                                    <!-- Button to add a new combobox -->
+                                    <div class="slds-text-align_left">
+                                    <lightning-button-icon
+                                        icon-name="utility:add"
+                                        alternative-text="Add Combobox"
+                                        title="Add Combobox"
+                                        onclick={handleAddCombobox6}
+                                        variant="brand"
+                                        size="medium">
+                                    </lightning-button-icon><label><b>  Add Exercise</b></label></div>
+                                    </div>
+                                </template>
+    
+                                    <template if:true={formfield.checkbox7}>
+                                        <div style="border: 1px solid LightGray;">
+                                            <label style="font-size: 20px">CPT Code7</label>
+                                            <template for:each={comboboxData7} for:item="item" for:index="index">
+                                            <div key={item.id} class="slds-m-bottom_small">
+                                                <div class="c-container">
+                                                    <lightning-layout horizontal-align="space">
+                                                        
+                                                        <lightning-layout-item padding="around-small" style="width:50%;padding-top: 15px;" >
+                                                                <lightning-combobox
+                                                                name={item.label}
+                                                                label="Exercise" 
+                                                                value={item.value}
+                                                                placeholder="Select Exercise"
+                                                                options={picklistOptions}
+                                                                onchange={handleComboboxChange7}
+                                                                data-id={item.id}>
+                                                                </lightning-combobox>
+                                                        </lightning-layout-item>
+                                                        <lightning-layout-item padding="around-small" style="width:30%" >
+                                                            <div class="slds-grid slds-align_absolute-center" >
+                                                                <lightning-input type="number" 
+                                                                name={item.id} 
+                                                                label="Minutes spent"  
+                                                                value={item.Min}
+                                                                style="padding-top: 4px;"
+                                                                onchange={handleChange7}>
+                                                                </lightning-input>
+                                                                <div style="padding-top: 24px;">
+                                                                    <template if:true={item.showDelete}>
+                                                                        <lightning-button-icon icon-name="utility:delete"  name={item.id}  alternative-text="Delete"   class="slds-m-left_xx-small"  title="Delete" onclick={deleteHandler7}></lightning-button-icon>
+                                                                    </template>
+                                                                </div>
+                                                            </div>
+                                
+                                                        </lightning-layout-item>
+                                                    
+                                                    
+                                                    </lightning-layout></div>
+                                                
+                                            </div>
+                                        </template>
+                                        <!-- Button to add a new combobox -->
+                                        <div class="slds-text-align_left">
+                                        <lightning-button-icon
+                                            icon-name="utility:add"
+                                            alternative-text="Add Combobox"
+                                            title="Add Combobox"
+                                            onclick={handleAddCombobox7}
+                                            variant="brand"
+                                            size="medium">
+                                        </lightning-button-icon><label><b>  Add Exercise</b></label></div>
+                                        </div>
+                                    </template>
+    
+                                    <template if:true={formfield.checkbox8}>
+                                        <div style="border: 1px solid LightGray;">
+                                            <label style="font-size: 20px">CPT Code8</label>
+                                            <template for:each={comboboxData8} for:item="item" for:index="index">
+                                            <div key={item.id} class="slds-m-bottom_small">
+                                                <div class="c-container">
+                                                    <lightning-layout horizontal-align="space">
+                                                        
+                                                        <lightning-layout-item padding="around-small" style="width:50%;padding-top: 15px;" >
+                                                                <lightning-combobox
+                                                                name={item.label}
+                                                                label="Exercise" 
+                                                                value={item.value}
+                                                                placeholder="Select Exercise"
+                                                                options={picklistOptions}
+                                                                onchange={handleComboboxChange8}
+                                                                data-id={item.id}>
+                                                                </lightning-combobox>
+                                                        </lightning-layout-item>
+                                                        <lightning-layout-item padding="around-small" style="width:30%" >
+                                                            <div class="slds-grid slds-align_absolute-center" >
+                                                                <lightning-input type="number" 
+                                                                name={item.id} 
+                                                                label="Minutes spent"  
+                                                                value={item.Min}
+                                                                style="padding-top: 4px;"
+                                                                onchange={handleChange8}>
+                                                                </lightning-input>
+                                                                <div style="padding-top: 24px;">
+                                                                    <template if:true={item.showDelete}>
+                                                                        <lightning-button-icon icon-name="utility:delete"  name={item.id}  alternative-text="Delete"   class="slds-m-left_xx-small"  title="Delete" onclick={deleteHandler8}></lightning-button-icon>
+                                                                    </template>
+                                                                </div>
+                                                            </div>
+                                
+                                                        </lightning-layout-item>
+                                                    
+                                                    
+                                                    </lightning-layout></div>
+                                                
+                                            </div>
+                                        </template>
+                                        <!-- Button to add a new combobox -->
+                                        <div class="slds-text-align_left">
+                                        <lightning-button-icon
+                                            icon-name="utility:add"
+                                            alternative-text="Add Combobox"
+                                            title="Add Combobox"
+                                            onclick={handleAddCombobox8}
+                                            variant="brand"
+                                            size="medium">
+                                        </lightning-button-icon><label><b>  Add Exercise</b></label></div>
+                                        </div>
+                                    </template>
+    
+                                    <template if:true={formfield.checkbox9}>
+                                        <div style="border: 1px solid LightGray;">
+                                            <label style="font-size: 20px">CPT Code9</label>
+                                            <template for:each={comboboxData9} for:item="item" for:index="index">
+                                            <div key={item.id} class="slds-m-bottom_small">
+                                                <div class="c-container">
+                                                    <lightning-layout horizontal-align="space">
+                                                        
+                                                        <lightning-layout-item padding="around-small" style="width:50%;padding-top: 15px;" >
+                                                                <lightning-combobox
+                                                                name={item.label}
+                                                                label="Exercise" 
+                                                                value={item.value}
+                                                                placeholder="Select Exercise"
+                                                                options={picklistOptions}
+                                                                onchange={handleComboboxChange9}
+                                                                data-id={item.id}>
+                                                                </lightning-combobox>
+                                                        </lightning-layout-item>
+                                                        <lightning-layout-item padding="around-small" style="width:30%" >
+                                                            <div class="slds-grid slds-align_absolute-center" >
+                                                                <lightning-input type="number" 
+                                                                name={item.id} 
+                                                                label="Minutes spent"  
+                                                                value={item.Min}
+                                                                style="padding-top: 4px;"
+                                                                onchange={handleChange9}>
+                                                                </lightning-input>
+                                                                <div style="padding-top: 24px;">
+                                                                    <template if:true={item.showDelete}>
+                                                                        <lightning-button-icon icon-name="utility:delete" name={item.id}   alternative-text="Delete"   class="slds-m-left_xx-small"  title="Delete" onclick={deleteHandler9}></lightning-button-icon>
+                                                                    </template>
+                                                                </div>
+                                                            </div>
+                                
+                                                        </lightning-layout-item>
+                                                    
+                                                    
+                                                    </lightning-layout></div>
+                                                
+                                            </div>
+                                        </template>
+                                        <!-- Button to add a new combobox -->
+                                        <div class="slds-text-align_left">
+                                        <lightning-button-icon
+                                            icon-name="utility:add"
+                                            alternative-text="Add Combobox"
+                                            title="Add Combobox"
+                                            onclick={handleAddCombobox9}
+                                            variant="brand"
+                                            size="medium">
+                                        </lightning-button-icon><label><b>  Add Exercise</b></label></div>
+                                        </div>
+                                    </template>
+    
+                                    <template if:true={formfield.checkbox10}>
+                                        <div style="border: 1px solid LightGray;">
+                                            <label style="font-size: 20px">CPT Code10</label>
+                                            <template for:each={comboboxData10} for:item="item" for:index="index">
+                                            <div key={item.id} class="slds-m-bottom_small">
+                                                <div class="c-container">
+                                                    <lightning-layout horizontal-align="space">
+                                                        
+                                                        <lightning-layout-item padding="around-small" style="width:50%;padding-top: 15px;" >
+                                                                <lightning-combobox
+                                                                name={item.label}
+                                                                label="Exercise" 
+                                                                value={item.value}
+                                                                placeholder="Select Exercise"
+                                                                options={picklistOptions}
+                                                                onchange={handleComboboxChange10}
+                                                                data-id={item.id}>
+                                                                </lightning-combobox>
+                                                        </lightning-layout-item>
+                                                        <lightning-layout-item padding="around-small" style="width:30%" >
+                                                            <div class="slds-grid slds-align_absolute-center" >
+                                                                <lightning-input type="number" 
+                                                                name={item.id} 
+                                                                label="Minutes spent"  
+                                                                value={item.Min}
+                                                                style="padding-top: 4px;"
+                                                                onchange={handleChange10}>
+                                                                </lightning-input>
+                                                                <div style="padding-top: 24px;">
+                                                                    <template if:true={item.showDelete}>
+                                                                        <lightning-button-icon icon-name="utility:delete"  name={item.id}  alternative-text="Delete"   class="slds-m-left_xx-small"  title="Delete" onclick={deleteHandler10}></lightning-button-icon>
+                                                                    </template>
+                                                                </div>
+                                                            </div>
+                                
+                                                        </lightning-layout-item>
+                                                    
+                                                    
+                                                    </lightning-layout></div>
+                                                
+                                            </div>
+                                        </template>
+                                        <!-- Button to add a new combobox -->
+                                        <div class="slds-text-align_left">
+                                        <lightning-button-icon
+                                            icon-name="utility:add"
+                                            alternative-text="Add Combobox"
+                                            title="Add Combobox"
+                                            onclick={handleAddCombobox10}
+                                            variant="brand"
+                                            size="medium">
+                                        </lightning-button-icon><label><b>  Add Exercise</b></label></div>
+                                        </div>
+                                    </template>                        
+    
+                            </lightning-layout-item>                       
+                           
+                            
+                            </lightning-layout>
+                    </div>
+                   
+                    <div class="slds-m-around_medium  slds-text-align_right">
+                        <div class="slds-button-group">
+                            <button class="slds-button slds-button_neutral" name="Back" onclick={buttonHandler}>Back</button>
+                            <button class="slds-button slds-button_neutral" name="Next1" disabled={disableButton} onclick={buttonHandler}>Next</button>
+                        </div>
+                    </div>
+                    </template>
+                
+                        
+                
+                        <hr/>
+        </div>
+        <template if:true={error}>
+            <p>Error retrieving picklist values: {error.message}</p>
+        </template>
+
+        <template if:true={ApprovalFlag}>
+        <Br/>
+        <div class="slds-m-around_medium  slds-text-align_right">
+            <div class="slds-button-group">
+                <button class="slds-button slds-button_neutral" name="Back" onclick={buttonHandler}>Back</button>
+                <button class="slds-button slds-button_neutral" name="Submit" disabled={DisableSubmitHandler1} onclick={SubmitHandler}>Submit For Approval</button>
+            </div>
+        </div>
+        </template>
+    </lightning-card>
+</template>

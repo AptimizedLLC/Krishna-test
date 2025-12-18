@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>dn_Status_ValidationRule</fullName>
+    <active>false</active>
+    <description>The Status field on the record should only be editable by the record owner. Other users should not be allowed to modify it.</description>
+    <errorConditionFormula>AND(
+    ISCHANGED(dn_Status__c),
+    OwnerId &lt;&gt; $User.Id,
+    $Profile.Name &lt;&gt; &quot;System Administrator&quot;
+)</errorConditionFormula>
+    <errorMessage>Only the record owner is allowed to modify the Status.</errorMessage>
+</ValidationRule>

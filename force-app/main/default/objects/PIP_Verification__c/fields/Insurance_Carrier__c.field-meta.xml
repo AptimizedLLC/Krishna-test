@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Insurance_Carrier__c</fullName>
+    <label>Insurance Carrier</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>21st Century</fullName>
+                <default>false</default>
+                <label>21st Century</label>
+            </value>
+            <value>
+                <fullName>AAA</fullName>
+                <default>false</default>
+                <label>AAA</label>
+            </value>
+            <value>
+                <fullName>Allstate</fullName>
+                <default>false</default>
+                <label>Allstate</label>
+            </value>
+            <value>
+                <fullName>Ameriprise</fullName>
+                <default>false</default>
+                <label>Ameriprise</label>
+            </value>
+            <value>
+                <fullName>Esurance</fullName>
+                <default>false</default>
+                <label>Esurance</label>
+            </value>
+            <value>
+                <fullName>Farmers</fullName>
+                <default>false</default>
+                <label>Farmers</label>
+            </value>
+            <value>
+                <fullName>Geico</fullName>
+                <default>false</default>
+                <label>Geico</label>
+            </value>
+            <value>
+                <fullName>Liberty Mutual</fullName>
+                <default>false</default>
+                <label>Liberty Mutual</label>
+            </value>
+            <value>
+                <fullName>MetLife</fullName>
+                <default>false</default>
+                <label>MetLife</label>
+            </value>
+            <value>
+                <fullName>NJM</fullName>
+                <default>false</default>
+                <label>NJM</label>
+            </value>
+            <value>
+                <fullName>Plymouth Rock</fullName>
+                <default>false</default>
+                <label>Plymouth Rock</label>
+            </value>
+            <value>
+                <fullName>Progressive</fullName>
+                <default>false</default>
+                <label>Progressive</label>
+            </value>
+            <value>
+                <fullName>State Farm</fullName>
+                <default>false</default>
+                <label>State Farm</label>
+            </value>
+            <value>
+                <fullName>The Heartford</fullName>
+                <default>false</default>
+                <label>The Heartford</label>
+            </value>
+            <value>
+                <fullName>USAA</fullName>
+                <default>false</default>
+                <label>USAA</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

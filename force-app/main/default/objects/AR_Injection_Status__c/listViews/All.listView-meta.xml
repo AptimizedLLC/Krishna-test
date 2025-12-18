@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>AR_STATUS_CODES__c</columns>
+    <columns>AR_FOLLOW_UP_DATE_TRIGGERS__c</columns>
+    <columns>AR_SHORT_DESCRIPTION__c</columns>
+    <columns>AR_INSTRUCTIONS__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

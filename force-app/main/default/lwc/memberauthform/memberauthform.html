@@ -1,0 +1,57 @@
+<template>
+    <lightning-card title="Member Authorization PDF Generator">
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Processing..." size="large"></lightning-spinner>
+        </template>
+
+        <!-- Step 1: Upload -->
+        <template if:true={isStep1}>
+            <div class="slds-p-around_medium">
+                <lightning-input 
+                    label="Account Id" 
+                    value={accountId} 
+                    onchange={handleAccountChange}>
+                </lightning-input>
+
+                <div class="slds-m-top_medium">
+                    <input type="file" accept="image/png, image/jpeg" onchange={handleFileChange} />
+                </div>
+
+                <lightning-button 
+                    label="Upload Signature" 
+                    variant="brand" 
+                    class="slds-m-top_medium" 
+                    onclick={handleUpload}>
+                </lightning-button>
+            </div>
+        </template>
+
+        <!-- Step 2: Waiting / Preview -->
+        <template if:true={isStep2}>
+            <div class="slds-p-around_medium slds-text-align_center">
+                <h3>Processing signature... please wait {timer} seconds</h3>
+                <template if:true={signatureUrl}>
+                    <img src={signatureUrl} alt="Signature Preview" class="preview-img slds-m-top_medium" />
+                    <lightning-button 
+                        label="Generate PDF" 
+                        variant="brand" 
+                        class="slds-m-top_medium" 
+                        onclick={handleGenerate}>
+                    </lightning-button>
+                </template>
+            </div>
+        </template>
+
+        <!-- Step 3: PDF Download -->
+        <template if:true={isStep3}>
+            <div class="slds-p-around_medium slds-text-align_center">
+                <h3>PDF Generated Successfully!</h3>
+                <a href={pdfUrl} 
+                   target="_blank" 
+                   class="slds-button slds-button_brand slds-m-top_medium">
+                   Download PDF
+                </a>
+            </div>
+        </template>
+    </lightning-card>
+</template>

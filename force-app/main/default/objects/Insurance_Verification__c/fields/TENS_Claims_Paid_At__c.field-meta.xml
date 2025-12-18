@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TENS_Claims_Paid_At__c</fullName>
+    <label>TENS Claims Paid At</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>70% of fair health fee</fullName>
+                <default>false</default>
+                <label>70% of fair health fee</label>
+            </value>
+            <value>
+                <fullName>80% of fair health fee</fullName>
+                <default>false</default>
+                <label>80% of fair health fee</label>
+            </value>
+            <value>
+                <fullName>90% of fair health fee</fullName>
+                <default>false</default>
+                <label>90% of fair health fee</label>
+            </value>
+            <value>
+                <fullName>150% of Medicare fee schedule</fullName>
+                <default>false</default>
+                <label>150% of Medicare fee schedule</label>
+            </value>
+            <value>
+                <fullName>% of Medicare</fullName>
+                <default>false</default>
+                <label>% of Medicare</label>
+            </value>
+            <value>
+                <fullName>UCR</fullName>
+                <default>false</default>
+                <label>UCR</label>
+            </value>
+            <value>
+                <fullName>R&amp;C</fullName>
+                <default>false</default>
+                <label>R&amp;C</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

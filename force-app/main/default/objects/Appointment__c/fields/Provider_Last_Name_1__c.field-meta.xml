@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Provider_Last_Name_1__c</fullName>
+    <externalId>false</externalId>
+    <formula>RIGHT(SUBSTITUTE(Provider_Last_Name__c	,&quot; &amp; &quot;,&quot;_&amp;_&quot;), LEN(SUBSTITUTE(Provider_Last_Name__c	,&quot; &amp; &quot;,&quot;_&amp;_&quot;)) - FIND(&quot; &quot;, SUBSTITUTE(Provider_Last_Name__c,&quot; &amp; &quot;,&quot;_&amp;_&quot;)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Provider Last Name 1</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

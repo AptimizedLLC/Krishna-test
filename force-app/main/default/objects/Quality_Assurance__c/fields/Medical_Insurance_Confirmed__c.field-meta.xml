@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Medical_Insurance_Confirmed__c</fullName>
+    <description>Confirmed insurance information is correct (ID#, Group#, Phone #, subscriber)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Confirmed insurance information is correct (ID#, Group#, Phone #, subscriber)</inlineHelpText>
+    <label>Medical Insurance Confirmed</label>
+    <precision>2</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

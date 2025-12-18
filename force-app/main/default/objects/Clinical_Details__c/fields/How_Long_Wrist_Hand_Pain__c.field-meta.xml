@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>How_Long_Wrist_Hand_Pain__c</fullName>
+    <label>How Long Wrist/Hand Pain</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>How_long_have_you_had_symptoms</valueSetName>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MD_Update_PA_s</fullName>
+    <columns>Potential_Patient__c</columns>
+    <columns>Patient__c</columns>
+    <columns>NAME</columns>
+    <columns>High_Priority__c</columns>
+    <columns>Appointment_Date__c</columns>
+    <columns>DNU_Office__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>DNU_Office__c</field>
+        <operation>equals</operation>
+        <value>EAST BRUNSWICK MD,FREEHOLD OFFICE MD,MATAWAN OFFICE MD,OLD BRIDGE MD</value>
+    </filters>
+    <filters>
+        <field>Insurance_Reimbursement_Type__c</field>
+        <operation>notEqual</operation>
+        <value>Co-Pay,Medicare,Cash Rates/Has OON-High Ded,Cash Rates/In Network Only/Tiered Plan,Cash Rates/Medicaid,Cash Rates/No Insurance,PIP/MVA,WC</value>
+    </filters>
+    <filters>
+        <field>CREATED_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>1/1/2021 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>New,Submitted,In_Progress,Rejected</value>
+    </filters>
+    <label>MD - Update PA&apos;s</label>
+</ListView>

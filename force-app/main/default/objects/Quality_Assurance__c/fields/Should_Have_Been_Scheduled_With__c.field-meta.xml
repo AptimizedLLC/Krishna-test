@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Should_Have_Been_Scheduled_With__c</fullName>
+    <label>Should Have Been Scheduled With?</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Scheduled Correctly</fullName>
+                <default>false</default>
+                <label>Scheduled Correctly</label>
+            </value>
+            <value>
+                <fullName>Orthopedic Spine/Pain Management</fullName>
+                <default>false</default>
+                <label>Orthopedic Spine/Pain Management</label>
+            </value>
+            <value>
+                <fullName>Orthopedic Joint &amp; Extremity/Pain Management</fullName>
+                <default>false</default>
+                <label>Orthopedic Joint &amp; Extremity/Pain Management</label>
+            </value>
+            <value>
+                <fullName>Foot &amp; Ankle Specialist</fullName>
+                <default>false</default>
+                <label>Foot &amp; Ankle Specialist</label>
+            </value>
+            <value>
+                <fullName>Chiropractor</fullName>
+                <default>false</default>
+                <label>Chiropractor</label>
+            </value>
+            <value>
+                <fullName>Physical Therapy/ Occupational Therapy</fullName>
+                <default>false</default>
+                <label>Physical Therapy/ Occupational Therapy</label>
+            </value>
+            <value>
+                <fullName>Acupuncture</fullName>
+                <default>false</default>
+                <label>Acupuncture</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

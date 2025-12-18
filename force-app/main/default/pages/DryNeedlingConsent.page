@@ -1,0 +1,190 @@
+<apex:page standardController="NPP__c" extensions="GenerateNPPIntakePDFDocumentController" renderAs="pdf" applyBodyTag="false">
+    
+<head>
+    <style>
+      .contentWrap h3 {
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: #f00;
+}
+.contentWrap {
+    margin: 10px 30px;
+}
+span.bStrong {
+    font-weight: 600;
+    padding-right: 5px;
+}
+p {
+    line-height: 22px;
+}
+img {
+    border: 1px solid #000;
+    margin-top: 10px;
+}
+    </style>
+  </head>
+<body>
+    <div>
+            <p><img src="https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003pCyH&oid=00Df2000001HEGJ&lastMod=1715318986000"  style="width: 700px;"/></p>
+	</div>
+     <div>
+        <div class="userFormWrap">
+          <div class="contentWrap">
+            <h3>Dry Needling Consent To Treat Form</h3>
+            <div class="form-container">
+              <form>
+                <div class="pdf-content consent-content16">
+                  <div class="form-element">
+                    <div>
+                      <p>
+                        Dry Needling (DN) involves inserting a tiny monofilament
+                        needle into symptomatic tissue with the intent to reduce
+                        pain, increase circulation and improve function of the
+                        neuromusculoskeletal system. DN is not traditional
+                        Chinese Acupuncture but instead is based on neurology,
+                        physiology, and western medical principles. DN is a
+                        valuable treatment for musculoskeletal pain; however,
+                        like any treatment, there are possible complications.
+                        While these complications are rare in occurrence, they
+                        are real and must be considered prior to giving your
+                        consent for dry needling treatment.&nbsp;
+                      </p>
+                      <p>
+                        Risks of the procedure: The most serious risk associated
+                        with DN is accidental puncture of a lung (pneumothorax).
+                        If this were to occur, it may likely only require a
+                        chest x-ray and no further treatment. The symptoms of
+                        shortness of breath may last for several days to weeks.
+                        A more severe lung puncture can require hospitalization.
+                        This is a rare complication, and in skilled hands should
+                        not be a concern.&nbsp;
+                      </p>
+                      <p>
+                        Other risks may include bruising, infection, and/or
+                        nerve injury. It should be noted that bruising is a
+                        common occurrence and should not be a concern. The
+                        monofilament needles are very small and do not have a
+                        cutting edge; the likelihood of any significant tissue
+                        trauma from DN is unlikely. There are other conditions
+                        that require consideration, so please answer the
+                        following questions:
+                      </p>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div class="conditionParent">
+                      <div>
+                        <label class="question">
+                          Are you taking blood thinners?</label
+                        >
+                      </div>
+                        <div>
+                            <apex:outputField value="{!NPP__c.HQ_Are_you_taking_blood_thinners__c}"/>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div class="conditionParent">
+                      <div>
+                        <label class="question">
+                          Are you, or is there a chance you could be
+                          pregnant?</label
+                        >
+                      </div>
+                        <div>
+                           <apex:outputField value="{!NPP__c.HQ_Are_you_or_could_you_be_pregnant__c}"/> 
+                        </div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div class="conditionParent">
+                      <div>
+                        <label class="question"
+                          >Are you aware of any problems or have any concerns
+                          with your immune system?
+                        </label>
+                      </div>
+                        <div>
+                           <apex:outputField value="{!NPP__c.HQ_Any_issues_or_concerns_with_immune__c}"/> 
+                        </div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div class="conditionParent">
+                      <div>
+                        <label class="question">
+                          Do you have any known disease or infection that can be
+                          transmitted through bodily fluids?
+                        </label>
+                      </div>
+                        <div>
+                           <apex:outputField value="{!NPP__c.HQ_Diseases_or_infections_bodily_fluids__c}"/> 
+                        </div>
+                    </div>
+                  </div>
+                  <div class="form-element">
+                    <div>
+                      <p>
+                        Patient's Consent: I have read and fully understand this
+                        consent form and attest that no guarantees have been
+                        made on the success of this procedure related to my
+                        condition. I am aware that multiple treatment sessions
+                        may be required, thus this consent will cover this
+                        treatment as well as subsequent treatments by this
+                        facility.&nbsp;
+                      </p>
+                      <p>
+                        I understand that my physical therapist has completed 80
+                        hours of training, including at least 40 hours of
+                        academic and 40 hours of practical hands-on instruction,
+                        under the direct supervision of a licensed physical
+                        therapist or physician, in the application and technique
+                        of dry needling. If a physician referred me to physical
+                        therapy, they have been contacted and are aggregable to
+                        DN treatment. I am aware that there are treatment
+                        alternatives to DN. All of my questions related to the
+                        procedure and possible risks were answered to my
+                        satisfaction.&nbsp;
+                      </p>
+                      <p>
+                        My signature below represents my consent to the
+                        performance of dry needling and my consent to any
+                        measures necessary to correct complications which may
+                        result. I am aware I can withdraw my consent at any
+                        time.&nbsp;
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="formCheck">
+              <div class="patientNameDate">
+<div><label>Patient Name</label></div>
+                      <div class="floatLeft"><apex:outputField value="{!NPP__c.HQ_Patient_Name__c}"/></div>
+<div><label>Date</label></div>
+                      <div class="floatRight"><apex:outputText value="{0,date,MM/dd/yyyy}"><apex:param value="{!NPP__c.CreatedDate}" /></apex:outputText></div>
+                    </div>
+              <div class="form-element">
+                    <div><p>Patient Signature</p></div>
+
+                      <div>
+                          <apex:outputText value="{!oppt.HQ_Signature__c}" escape="false" />
+                          
+                      </div>
+                  </div>
+            <div>
+              <img src='https://allianceortho.file.force.com/servlet/servlet.ImageServer?id=015UP000003gvo9&oid=00Df2000001HEGJ&lastMod=1714988677000' style="width: 15px; Height:15px"/><label
+                >By checking the box I acknowledge and agree to conduct business
+                electronically, that I have read the terms of the above section,
+                and that I agree to insert my electronic signature as set forth
+                below indicating my consent to terms set forth on this page.
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+</apex:page>
