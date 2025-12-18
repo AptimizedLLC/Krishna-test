@@ -1,4 +1,4 @@
-name: Salesforce CI (Hardis)
+name: Salesforce CI
 
 on:
   push:
@@ -12,7 +12,7 @@ jobs:
 
     steps:
       # ----------------------------
-      # Checkout source code
+      # Checkout source
       # ----------------------------
       - name: Checkout source
         uses: actions/checkout@v4
@@ -26,15 +26,7 @@ jobs:
           sf --version
 
       # ----------------------------
-      # Install sfdx-hardis (non-interactive)
-      # ----------------------------
-      - name: Install sfdx-hardis
-        run: |
-          echo "y" | sf plugins install sfdx-hardis
-          sf hardis --help
-
-      # ----------------------------
-      # Authenticate to Salesforce using Auth URL
+      # Authenticate to Salesforce
       # ----------------------------
       - name: Authenticate to Salesforce
         run: |
@@ -45,8 +37,10 @@ jobs:
             --set-default
 
       # ----------------------------
-      # Deploy metadata using Hardis
+      # Deploy metadata (NEW, CORRECT WAY)
       # ----------------------------
       - name: Deploy metadata
         run: |
-          sf hardis source deploy
+          sf project deploy start \
+            --source-dir force-app \
+            --test-level RunLocalTests
