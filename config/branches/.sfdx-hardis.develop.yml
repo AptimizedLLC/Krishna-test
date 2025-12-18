@@ -1,4 +1,5 @@
 mergeTargets:
   - develop
-targetUsername: kkumar@aptimized.com.prod.automation
-instanceUrl: https://allianceortho--automation.sandbox.my.salesforce.com
+
+# Target org is resolved by CI authentication (GitHub Actions)
+# Do NOT hardcode usernames or instance URLs
