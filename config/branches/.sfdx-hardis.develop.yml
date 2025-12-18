@@ -1,5 +1,5 @@
 mergeTargets:
-  - develop
+  - qa
 
 # Target org is resolved by CI authentication (GitHub Actions)
 # Do NOT hardcode usernames or instance URLs
